@@ -49,27 +49,9 @@
    - Create a hotfix branch from master to fix critical issues.
    - Merge the hotfix into both master and development.
 
-   
+
 
 ## Visual Explanation:
 
+![Branching Diagram](Branching.png)
 
-Master ──────────────────────────────────────────────────────┐
-  ↑                                                           │
-  └───────────────────────────────────────────────────────────┘
-                     ↓
-Development ───────────────────────────────────────┐
-  ↑                                               │
-  └───────────────────────────────────────────────┘
-                       ↓
-Feature ────────────────┐ ┌───────────────────────┐
-  ↑                    │ │                       │
-  └────────────────────┘ └───────────────────────┘
-                       ↓
-Release (Optional) ────────┐
-  ↑                       │
-  └───────────────────────┘
-                       ↓
-Hotfix (Optional) ─────────┐
-  ↑                       │
-  └───────────────────────┘
