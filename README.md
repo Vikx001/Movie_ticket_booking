@@ -1,4 +1,4 @@
-# Movie_ticket_booking
+# Studio-Ghibli
 
 # problem we are solving is as follows 
 
