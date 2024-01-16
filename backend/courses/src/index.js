@@ -2,14 +2,14 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { error } = require("winston");
-const userRoutes = require("./api/routes/userRoutes");
+const courseRoutes = require("./api/routes/courseRoutes");
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(userRoutes);
+app.use(courseRoutes);
 
 // Error handling for unsupported routes
 app.use((req, res, next) => {
