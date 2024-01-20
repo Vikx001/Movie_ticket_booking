@@ -1,9 +1,9 @@
 const Sequelize = require("sequelize");
 const dB = require("../config/database");
 
-const User = dB.define("User", {
+const User = dB.define("users", {
   //Define attributes
-  userid :{
+    id :{
     type: Sequelize.INTEGER,
     autoIncrement: true,
     primaryKey: true,
@@ -19,22 +19,14 @@ const User = dB.define("User", {
             len: [3, 50]
         }
     },
-    /*phoneno:{
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate:{
-            notEmpty: true,
-            len: [9, 20]
-        }
-    },
-    emailid:{
+    email_id:{
         type: Sequelize.STRING,
         allowNull: false,
         validate:{
             notEmpty: true,
             isEmail: true
         }
-    },*/
+    },
     password:{
         type: Sequelize.STRING,
         allowNull: false,
@@ -58,21 +50,11 @@ const User = dB.define("User", {
             notEmpty: true
         }
     },
-    createdAt:{
-        type: Sequelize.DATE,
-        allowNull: false,
-        validate:{
-            notEmpty: true
-        }
-    },
-    updatedAt:{
-        type: Sequelize.DATE,
-        allowNull: false,
-        validate:{
-            notEmpty: true
-        }
-    }},{
-    freezeTableName: true
+},{
+    freezeTableName: true,
+    timestamps: true,
+    createdAt: "created_at",
+    updatedAt: "updated_at"
 });
 
 module.exports = User;

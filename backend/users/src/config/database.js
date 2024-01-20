@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-const dB = new Sequelize('studio_ghibli', 'root', 'rootadmin', {
+const dB = new Sequelize('studioghibli', 'root', 'rootadmin', {
   host: "localhost",
   dialect: "mysql",
 });

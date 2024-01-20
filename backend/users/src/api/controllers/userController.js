@@ -3,6 +3,7 @@ const UserController = {
   async createUser(req, res) {
     try {
       const user = await userService.createUser(req.body);
+      console.log(user);
       res
         .status(201)
         .send({ message: "User created Successfully", user: req.body });
@@ -45,7 +46,7 @@ const UserController = {
     const userId = req.params.id;
     try 
     {
-    const user = await userService.updateUser(userId);
+    const user = await userService.updateUser(userId,req);
     res
       .status(200)
       .send({ message: `User ${userId} updated successfully`, user: req.body });
