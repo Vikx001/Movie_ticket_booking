@@ -56,6 +56,24 @@ class CourseService {
       await Chapter.bulkCreate(chapter_data_with_course);
     }
   }
+
+  //Get indiviadual course details
+  async getCourseDetails(courseId) {
+    try {
+      let courseInfo = await Course.findByPk(courseId);
+      const chapters = await Chapter.findAll({
+        where: {
+          course_id: courseId,
+        },
+      });
+      courseInfo = courseInfo.get({ plain: true });
+
+      courseInfo.chapters = chapters;
+      return courseInfo;
+    } catch (error) {
+      throw new Error("Course not found");
+    }
+  }
 }
 
 module.exports = CourseService;
