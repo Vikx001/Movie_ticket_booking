@@ -1,6 +1,7 @@
+const CourseService = require("../services/courseService");
 const courseService = require("../services/courseService");
+const courseValidationSchema = require("../validations/courseSchema");
 const service = new courseService();
-const Joi = require("joi");
 
 const CourseController = {
   /**
@@ -10,20 +11,7 @@ const CourseController = {
    * @returns JsonResponse
    */
   async createCourse(req, res) {
-    const validationSchema = Joi.object({
-      title: Joi.string().required(),
-      description: Joi.string().required(),
-      learning_outcomes: Joi.any(),
-      course_inclusions: Joi.any(),
-      is_certified: Joi.number().max(1).required(),
-      author: Joi.string().required(),
-      status: Joi.number().max(1).required(),
-      rating: Joi.number().min(0).required(),
-      total_enrollments: Joi.number().min(0).required(),
-      chapters: Joi.any(),
-    });
-
-    const { error } = validationSchema.validate(req.body);
+    const { error } = courseValidationSchema.validate(req.body);
 
     if (error) {
       return res.status(400).json({ message: error.details[0].message });
@@ -38,6 +26,24 @@ const CourseController = {
         res
           .status(500)
           .send({ message: "Error creating Course", error: error.message });
+      }
+    }
+  },
+  async editCourse(req, res) {
+    const { error } = courseValidationSchema.validate(req.body);
+
+    if (error) {
+      return res.status(400).json({ message: error.details[0].message });
+    } else {
+      try {
+        const courseId = req.params.id;
+        const updateCourse = service.editCourse(courseId, req.body);
+        res.status(201).send({
+          message: "Course has been updated successfully",
+          data: updateCourse,
+        });
+      } catch (error) {
+        res.status(500).json({ message: error.message });
       }
     }
   },

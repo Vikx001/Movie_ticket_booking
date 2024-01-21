@@ -1,47 +1,61 @@
 const Course = require("../../models/courseModel");
 const Chapter = require("../../models/courseChapterModel");
-const Joi = require("joi");
 
 class CourseService {
   async createCourse(data) {
-    const {
-      title,
-      description,
-      learning_outcomes,
-      course_inclusions,
-      is_certified,
-      author,
-      rating,
-      total_enrollments,
-      status,
-      chapters,
-    } = data;
     try {
-      const course = await Course.create({
-        title,
-        description,
-        learning_outcomes,
-        course_inclusions,
-        is_certified,
-        author,
-        rating,
-        total_enrollments,
-        status,
-      });
-      if (course && "" !== chapters) {
-        const chapter_data = JSON.parse(chapters);
-        const chapter_data_with_course = chapter_data.map((chapter) => ({
-          ...chapter,
-          course_id: course.id,
-        }));
-        //console.log(chapter_data_with_course);
-        Chapter.bulkCreate(chapter_data_with_course);
-      }
-      course.chapters = chapters;
+      const course = await Course.create(this.extractCourseFields(data));
+      await this.handleChapters(course.id, data.chapters);
       return course;
     } catch (error) {
-      return error.message;
+      throw new Error(error.message);
+    }
+  }
+
+  async editCourse(courseId, data) {
+    try {
+      const course = await Course.findByPk(courseId);
+      if (!course) {
+        throw new Error("Course not found!");
+      }
+
+      await course.update(this.extractCourseFields(data));
+      await this.handleChapters(courseId, data.chapters);
+      return course;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  // Extracts course fields from data
+  extractCourseFields(data) {
+    return {
+      title: data.title,
+      description: data.description,
+      learning_outcomes: data.learning_outcomes,
+      course_inclusions: data.course_inclusions,
+      is_certified: data.is_certified,
+      author: data.author,
+      rating: data.rating,
+      total_enrollments: data.total_enrollments,
+      status: data.status,
+      chapters: data.chapters,
+    };
+  }
+
+  // Handle creation and updating of chapters
+  async handleChapters(courseId, chapters) {
+    if (chapters && chapters.trim() !== "") {
+      const chapter_data = JSON.parse(chapters);
+      const chapter_data_with_course = chapter_data.map((chapter) => ({
+        ...chapter,
+        course_id: courseId,
+      }));
+
+      await Chapter.destroy({ where: { course_id: courseId } });
+      await Chapter.bulkCreate(chapter_data_with_course);
     }
   }
 }
+
 module.exports = CourseService;
