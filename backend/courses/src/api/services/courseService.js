@@ -56,6 +56,23 @@ class CourseService {
       await Chapter.bulkCreate(chapter_data_with_course);
     }
   }
+
+  //Delete a course from the database
+  async deleteCourse(courseId) {
+    const course = await Course.findByPk(courseId);
+
+    if (!course) {
+      throw new Error("Course not found");
+    } else {
+      try {
+        course.status = "-1";
+        const deleteCourse = await course.save();
+        return deleteCourse;
+      } catch (error) {
+        throw new Error(error.message);
+      }
+    }
+  }
 }
 
 module.exports = CourseService;

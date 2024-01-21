@@ -4,5 +4,6 @@ const courseController = require("../controllers/courseController");
 
 router.post("/create", courseController.createCourse);
 router.put("/:id", courseController.editCourse);
+router.delete("/:id", courseController.deleteCourse);
 
 module.exports = router;

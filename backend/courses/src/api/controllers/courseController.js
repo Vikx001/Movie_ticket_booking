@@ -37,7 +37,7 @@ const CourseController = {
     } else {
       try {
         const courseId = req.params.id;
-        const updateCourse = service.editCourse(courseId, req.body);
+        const updateCourse = await service.editCourse(courseId, req.body);
         res.status(201).send({
           message: "Course has been updated successfully",
           data: updateCourse,
@@ -45,6 +45,26 @@ const CourseController = {
       } catch (error) {
         res.status(500).json({ message: error.message });
       }
+    }
+  },
+
+  async deleteCourse(req, res) {
+    try {
+      const courseId = req.params.id;
+      const updateCourse = await service.deleteCourse(courseId);
+      if (updateCourse) {
+        res.status(201).send({
+          message: "Course has been trashed successfully",
+          data: updateCourse,
+        });
+      } else {
+        res.status(500).send({
+          message: "Unable to delete the Course",
+          data: updateCourse,
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
     }
   },
 };
