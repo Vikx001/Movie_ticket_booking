@@ -15,11 +15,11 @@ const Course = dB.define(
       allowNull: false,
     },
     learning_outcomes: {
-      type: Sequelize.STRING,
+      type: Sequelize.JSON,
       allowNull: true,
     },
     course_inclusions: {
-      type: Sequelize.STRING,
+      type: Sequelize.JSON,
       allowNull: true,
     },
     is_certified: {
