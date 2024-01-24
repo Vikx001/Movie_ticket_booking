@@ -40,7 +40,7 @@ const EnrollmentController = {
   },
   async viewEnrolledUser(req, res) {
       try {
-        const enroll = await service.viewEnrolledUser(req.body);
+        const enroll = await service.viewEnrolledUser(req.headers,req.body);
         return res.json(enroll);
         
       } catch (error) {
@@ -48,8 +48,45 @@ const EnrollmentController = {
           .status(500)
           .send({ message: "Error in enrollment", error: error.message });
       }
+  },
+  async viewEnrolledUserByCustId(req, res) {
+    try {
+      const customerId = req.params.id;
+      const enroll = await service.viewEnrolledUserByCustId(req.headers,customerId);
+      return res.json(enroll);
+      
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Error in enrollment", error: error.message });
     }
-  
+  },
+  async viewEnrolledUserByCourseId(req, res) {
+    try {
+      const courseId = req.params.id;
+      const enroll = await service.viewEnrolledUserByCourseId(req.headers,courseId);
+      return res.json(enroll);
+      
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Error in enrollment", error: error.message });
+    }
+  },
+  async deleteEnrollment(req, res) {
+    try {
+      const enrollID = req.params.id;
+      const enroll = await service.deleteEnrollment(req.headers,enrollID);
+      res
+      .status(200)
+      .status(200).send({ message: `Enrollment ${enrollID} deleted successfully` });
+      
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Error in enrollment", error: error.message });
+    }
+  }
 };
 
 module.exports = EnrollmentController;

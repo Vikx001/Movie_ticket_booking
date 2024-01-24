@@ -1,9 +1,10 @@
 const User = require("../../models/userModel");
 const bcrypt =require("bcrypt");
-const axios = require('axios')
+const axios = require('axios');
+const { error } = require("../validations/userSchema");
 class UserService {
 async createUser(userData) {
-  const { username, password,full_name,email_id,phone_no,area_Of_interest,role,status} = userData;
+  const { username, password,full_name,email_id,phone_no,area_of_interests,role,status} = userData;
   /*try {*/
   const userexist =  await User.findOne({
       where: {
@@ -12,7 +13,7 @@ async createUser(userData) {
         status : 1
     }
   });
- 
+
   if(!userexist){
     const hashpassword= await bcrypt.hash(password,10);
     const UserDetail=await User.create({
@@ -22,19 +23,16 @@ async createUser(userData) {
         role:role,
         status:status
     });
-    const user_id=userData.user_id;
+    const user_id=UserDetail.id;
+   
     //call customer service
-    const res = await axios.post('http://localhost:8881/',
+    const res = await axios.post('http://localhost:8882/',
     {
       user_id,
       full_name,
       phone_no,
-      area_Of_interest,
+      area_of_interests,
       status
-    }).then(function (response) {
-      return userData;
-    }).catch(function (error) {
-      console.log(error);
     });
   }
   else
@@ -49,36 +47,87 @@ async createUser(userData) {
   }
 
 async getAllUsers() {
-  const response = await User.findAll({
-      attributes:['id','username','email_id','password','role',"status",'created_at','updated_at']
+  const user = await User.findAll({
+      attributes:['id','username','email_id','password','role']
   });
-  return response;
+
+  const customer = await axios(
+    {
+      method:'get',
+      url:"http://localhost:8882/"
+    });
+ 
+    const users = JSON.parse(JSON.stringify(user));
+    const customers = JSON.parse(JSON.stringify(customer.data.data));
+    const userDetail = users.map((users) => {
+    const customerDetail = customers.find((c) => c.user_id === users.id);
+      return {
+        ...users,
+        ...customerDetail
+      };
+    });
+  return userDetail;
   }
 
 async getUserById(id) {
-    console.log(id)
-    const user = await User.findOne({
-      attributes:['id','username','email_id','password','role',"status",'created_at','updated_at'],
-      where: {
-        id : id
+  try {
+  const user = await User.findAll({
+    attributes:['id','username','email_id','password','role'],
+    where : {
+      id:id
     }
+});
+
+if(user.length==0)
+{
+  return
+}
+const customer = await axios(
+  {
+    method:'get',
+    url:"http://localhost:8882/"
   });
-  return user;
+
+  const users = JSON.parse(JSON.stringify(user));
+  const customers = JSON.parse(JSON.stringify(customer.data.data));
+  const userDetail = users.map((users) => {
+  const customerDetail = customers.find((c) => c.user_id === users.id);
+    return {
+      ...users,
+      ...customerDetail
+    };
+  });
+  return userDetail;
+}catch{
+  throw new Error(error.message);
+}
   }
 
 async updateUser(id,newdata) {
+  const { full_name,email_id,phone_no,area_of_interests} = newdata;
+  try{
     const userupdate=await User.update({
-      email_id:newdata.emailid
-  },{
+      email_id:email_id
+    },{
       where:{
           id: id
       }
+    });
+
+  const res = await axios.put('http://localhost:8882/'+id,
+  {
+    full_name,
+    phone_no,
+    area_of_interests,
   });
   return userupdate;
+}catch{
+    throw new Error(error.message);
+  }
   }
 
 async deleteUser(id) {
-
+  try {
   const userdelete=await User.update({
     status:0
   },{
@@ -86,8 +135,14 @@ async deleteUser(id) {
           id: id
       }
   });
+  const res = await axios.delete('http://localhost:8882/'+id);
+  console.log("customer==>"+res)
   return userdelete;
-    }
+}catch{
+  throw new Error(error.message);
+}
+
+}
 
 async logoutUser(id) {
     req.session.destroy((err)=>{
