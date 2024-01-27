@@ -3,30 +3,55 @@ const User = require("../../models/userModel");
 const { use } = require("../routes/userRoutes");
 const bcrypt= require("bcrypt");
 const secretKey = "1234567890";
+const Op = require("sequelize")
 
 const authService = {
-  async authenticateUser(username, password) {
-    const user = await User.findOne({
+  async authenticateUser(username,email_id, password) {
+  const user = await User.findOne({
       where: {
-      Username: username,
-      status:1
-            }
+          username: username,
+          status:1
+        }
     });
-    if (user)
+    
+  const users = await User.findOne({
+      where: {
+          email_id: email_id,
+          status:1
+        }
+    });
+    
+   
+    if (user || users)
     {
-     match = await bcrypt.compare(password, user.password);
+     if(user) {
+      match = await bcrypt.compare(password, user.password);
+    }
+     else if(users) {
+      match = await bcrypt.compare(password, users.password);
+    }
      if (!match) {
       throw new Error("Invalid credentials"); }
+      else if(user){
+        const token = jwt.sign({ userId: user.UserID}, secretKey, {
+          expiresIn: "1h",
+        });
+        return token;
+     
+      }
+      else if(users)
+      {
+        const token = jwt.sign({ userId: users.UserID }, secretKey, {
+          expiresIn: "1h",
+        });
+        return token;
+     
+      }
     }
-    if (!user)
+    if (!user && !users)
     {
       throw new Error("User not found");
     }
-
-    const token = jwt.sign({ userId: user.UserID }, secretKey, {
-      expiresIn: "1h",
-    });
-    return token;
   },
 };
 
