@@ -15,7 +15,7 @@ async createUser(userData) {
   });
 
   if(!userexist){
-    const hashpassword= await bcrypt.hash(password,10);
+    const hashpassword= await bcrypt.hash(password,process.env.HASH_VALUE);
     const UserDetail=await User.create({
         username:username,
         email_id :email_id,
@@ -23,10 +23,10 @@ async createUser(userData) {
         role:role,
         status:status
     });
-    const user_id=UserDetail.id;
+    const user_id = UserDetail.id;
    
     //call customer service
-    const res = await axios.post('http://localhost:8882',
+    const res = await axios.post('http://localhost:8880/customers/',
     {
       user_id,
       full_name,
@@ -54,7 +54,7 @@ async getAllUsers() {
   const customer = await axios(
     {
       method:'get',
-      url:"http://localhost:8882/"
+      url:"http://localhost:8880/customers/"
     });
  
     const users = JSON.parse(JSON.stringify(user));
@@ -85,7 +85,7 @@ if(user.length==0)
 const customer = await axios(
   {
     method:'get',
-    url:"http://localhost:8882/"
+    url:"http://localhost:8880/customers/"
   });
 
   const users = JSON.parse(JSON.stringify(user));
@@ -114,7 +114,7 @@ async updateUser(id,newdata) {
       }
     });
 
-  const res = await axios.put('http://localhost:8882/'+id,
+  const res = await axios.put('http://localhost:8880/customers/'+id,
   {
     full_name,
     phone_no,
@@ -135,7 +135,7 @@ async deleteUser(id) {
           id: id
       }
   });
-  const res = await axios.delete('http://localhost:8882/'+id);
+  const res = await axios.delete('http://localhost:8880/customers/'+id);
   console.log("customer==>"+res)
   return userdelete;
 }catch{
