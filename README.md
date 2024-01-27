@@ -42,6 +42,8 @@ Our product will be delivered using an Agile methodology that embraces the DevOp
 # Scrum Master
 Week 1, Aneesh Ramakrishna Pillai
 
+Sprint 3, Binupa Chullickal Babu
+
 # Product Owner
 <<list week number, student name>>
 Rotating product owner so that everyone gets to experience the role once.
