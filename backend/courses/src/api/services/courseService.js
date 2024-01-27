@@ -5,6 +5,7 @@ const { Op } = require("sequelize");
 class CourseService {
   async createCourse(data) {
     try {
+      console.log(this.extractCourseFields(data));
       const course = await Course.create(this.extractCourseFields(data));
       await this.handleChapters(course.id, data.chapters);
       return course;
@@ -46,8 +47,8 @@ class CourseService {
 
   // Handle creation and updating of chapters
   async handleChapters(courseId, chapters) {
-    if (chapters && chapters.trim() !== "") {
-      const chapter_data = JSON.parse(chapters);
+    if (chapters && 0 < chapters.length) {
+      const chapter_data = chapters;
       const chapter_data_with_course = chapter_data.map((chapter) => ({
         ...chapter,
         course_id: courseId,
