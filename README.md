@@ -45,8 +45,7 @@ Week 1, Aneesh Ramakrishna Pillai
 Sprint 3, Binupa Chullickal Babu
 
 # Product Owner
-<<list week number, student name>>
-Rotating product owner so that everyone gets to experience the role once.
+Sprint 3, Sushmitha Holthal Manjunath
 
 # Team Members
 1. Binupa Chullickal Babu (L00179364)
