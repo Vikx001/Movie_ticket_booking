@@ -47,7 +47,7 @@ Sprint 3, Binupa Chullickal Babu
 # Product Owner
 Sprint 1, Neeharica Madanu
 Sprint 2, Shreya Raghuvanshi
-Sprint 3, Sushmitha Holthal Manjunath
+Sprint 3, sushmitha Holthal Manjunath
 
 # Team Members
 1. Binupa Chullickal Babu (L00179364)
