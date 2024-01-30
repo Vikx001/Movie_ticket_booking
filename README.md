@@ -40,7 +40,7 @@ for the course.
 Our product will be delivered using an Agile methodology that embraces the DevOps culture. Please note that our culture embraces change and these documents are treated as living, breathing artefacts that will be continuously updated.  The scrum master and product owner will be assigned in a rotation basis per each sprint.
 
 # Scrum Master
-Sprint 1, Aneesh Ramakrishna Pillai
+Sprint 1, Aneesh Ramakrishna Pillai 
 Sprint 2, Vikash Sharma
 Sprint 3, Binupa Chullickal Babu
 
