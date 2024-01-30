@@ -168,7 +168,7 @@ Update the below to add what the group is using <<>>
 # Estimating Story Points
 The teams team's velocity is calculated by Pocker game.1 is minimum point and 8 is maximum. Any points that go beyond 8 hours will be considered as Epic.
 
-The teams current story point velocity is "N/A". <<Update the velocity as the weeks progress>>
+The teams current story point velocity is 2hrs in Sprint 3. <<Update the velocity as the weeks progress>>
 
 # Definition of Ready/Done
 Will be mentioned in the accepted criteria of each task posted in Jira
