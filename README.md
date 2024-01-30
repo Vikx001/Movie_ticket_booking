@@ -55,7 +55,7 @@ Sprint 3, Sushmitha Holthal Manjunath
 3. Neeharica Madanu (L00179439)
 4. Sushmitha Holthal Manjunath (L00179330)
 5. Vikash sharma (L00179094)
-6. Aneesh Ramakrishna Pillai (L00179208)
+6. Aneesh Ramakrishna Pillai (L00179208) 
 
 
 # Project Deadline
