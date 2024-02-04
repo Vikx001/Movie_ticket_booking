@@ -1,98 +1,163 @@
 const User = require("../../models/userModel");
 const bcrypt =require("bcrypt");
-const axios = require('axios')
+const axios = require('axios');
+const { error } = require("../validations/userSchema");
 class UserService {
-  async createUser(userData) {
-    // Insert user creation logic here (e.g., save to the database)
-    // Return the created user data
-    const { username,phoneno,emailid, password,role,status} = userData;
-    const userexist =  await User.findOne({
-      attributes:['userid','username','role',"status"],
+async createUser(userData) {
+  const { username, password,full_name,email_id,phone_no,area_of_interests,role,status} = userData;
+  /*try {*/
+  const userexist =  await User.findOne({
       where: {
-        username : username
+        username : username,
+        email_id : email_id,
+        status : 1
     }
   });
+
   if(!userexist){
-    const hashpassword= await bcrypt.hash(password,10);
-    userData=await User.create({
-      username:username,
-      password:hashpassword,
-      role:role,
-      status:status
-  });
-}
-else
-{
-  throw new Error("User Exist");
-}
-  /*
-  try {
-    const res = await axios.post('https://reqres.in/api/users', 
+    const hashpassword= await bcrypt.hash(password,process.env.HASH_VALUE);
+    const UserDetail=await User.create({
+        username:username,
+        email_id :email_id,
+        password:hashpassword,
+        role:role,
+        status:status
+    });
+    const user_id = UserDetail.id;
+   
+    //call customer service
+    const res = await axios.post('http://localhost:8880/customers/',
     {
-      userID:userData.userID,
-      phoneNo:phoneno,
-      emailid:emailid,
-    })
-    console.log(res.data)
-  } 
-  catch (err) {
-    console.error(err)
+      user_id,
+      full_name,
+      phone_no,
+      area_of_interests,
+      status
+    });
+  }
+  else
+  {
+    throw new Error("User Exist");
+  }
+
+  /*}
+  catch (error) {
+    return error.message;
   }*/
-    return userData; // This should be the logical value
-  }
-  async getAllUsers() {
-  const response = await User.findAll({
-      attributes:['username','role',"Status"]
-  });
-  return response;
   }
 
-  async getUserById(id) {
-    console.log(id)
-    const user = await User.findOne({
-      attributes:['userid','username','role',"status"],
-      where: {
-        userid : id
+async getAllUsers() {
+  const user = await User.findAll({
+      attributes:['id','username','email_id','password','role']
+  });
+
+  const customer = await axios(
+    {
+      method:'get',
+      url:"http://localhost:8880/customers/"
+    });
+ 
+    const users = JSON.parse(JSON.stringify(user));
+    const customers = JSON.parse(JSON.stringify(customer.data.data));
+    const userDetail = users.map((users) => {
+    const customerDetail = customers.find((c) => c.user_id === users.id);
+      return {
+        ...users,
+        ...customerDetail
+      };
+    });
+  return userDetail;
+  }
+
+async getUserById(id) {
+  try {
+  const user = await User.findAll({
+    attributes:['id','username','email_id','password','role'],
+    where : {
+      id:id
     }
+});
+
+if(user.length==0)
+{
+  return
+}
+const customer = await axios(
+  {
+    method:'get',
+    url:"http://localhost:8880/customers/"
   });
-  return user;
+
+  const users = JSON.parse(JSON.stringify(user));
+  const customers = JSON.parse(JSON.stringify(customer.data.data));
+  const userDetail = users.map((users) => {
+  const customerDetail = customers.find((c) => c.user_id === users.id);
+    return {
+      ...users,
+      ...customerDetail
+    };
+  });
+  return userDetail;
+}catch{
+  throw new Error(error.message);
+}
   }
 
-  async updateUser(id) {
+async updateUser(id,newdata) {
+  const { full_name,email_id,phone_no,area_of_interests} = newdata;
+  try{
     const userupdate=await User.update({
-      phoneNo:phoneno,
-      emailid:emailid
-  },{
+      email_id:email_id
+    },{
       where:{
-          userid: id
+          id: id
       }
+    });
+
+  const res = await axios.put('http://localhost:8880/customers/'+id,
+  {
+    full_name,
+    phone_no,
+    area_of_interests,
   });
   return userupdate;
+}catch{
+    throw new Error(error.message);
   }
-  async deleteUser(id) {
+  }
 
+async deleteUser(id) {
+  try {
   const userdelete=await User.update({
     status:0
   },{
       where:{
-          userid: id
+          id: id
       }
   });
+  const res = await axios.delete('http://localhost:8880/customers/'+id);
+  console.log("customer==>"+res)
   return userdelete;
-    }
-  async logoutUser(id) {
+}catch{
+  throw new Error(error.message);
+}
+
+}
+
+async logoutUser(id) {
     req.session.destroy((err)=>{
       return res;
     });
   }
-  async updatePassword(id,user) {
+
+async updatePassword(id,user) {
     console.log(id,user)
     const hashpassword= await bcrypt.hash(user.password,10);
     const updatepwd=await User.update({
       password:hashpassword
   },{
       where:{
-          userid: id
+          id: id
       }
   });
 

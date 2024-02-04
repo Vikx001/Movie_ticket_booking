@@ -13,9 +13,9 @@ app.use(cors());
 app.use(express.json());
 
 console.log(COURSE_SERVICE);
-app.use("users", proxy(USER_SERVICE));
-app.use("customers", proxy(CUSTOMER_SERVICE));
-app.use("enrollment", proxy(ENROLLMENT_SERVICE));
+app.use("/users", proxy(USER_SERVICE));
+app.use("/customers", proxy(CUSTOMER_SERVICE));
+app.use("/enrollment", proxy(ENROLLMENT_SERVICE));
 app.use("/courses", proxy(COURSE_SERVICE));
 
 app.listen(8880, () => {
