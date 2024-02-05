@@ -1,6 +1,13 @@
 const userService = require("../services/userService");
+const userValidationSchema = require("../validations/userSchema");
+
 const UserController = {
   async createUser(req, res) {
+  const { error } = userValidationSchema.validate(req.body);
+  if (error) {
+    return res.status(400).json({ message: error.details[0].message });
+  }
+  else {
     try {
       const user = await userService.createUser(req.body);
       res
@@ -11,17 +18,22 @@ const UserController = {
         .status(500)
         .send({ message: "Error creating user", error: error.message });
     }
+  }
   },
 
   async getAllUsers(req, res) {
     try {
       const userList = await userService.getAllUsers();
-      return res.json(userList);
-    } 
+      return res
+      .send({
+        message: "User has been fetched successfully",
+        data: userList
+      })
+    }
     catch (error) {
       res
         .status(500)
-        .send({ message: "User is empty", user: req.body });
+        .send({ message: "User is empty"});
     }
   },
 
@@ -30,22 +42,33 @@ const UserController = {
       const userId = req.params.id;
       //Call Service Fuunction
       const user = await userService.getUserById(userId);
-      res
-        .status(201)
-        .json(user);
-    } 
+      if(!user)
+      {
+        res
+        .status(500)
+        .send({ message: "User is empty"});
+      }
+      else
+      { res
+        .send({
+          message: "User has been fetched successfully",
+          data: user
+        })
+      }
+    }
     catch (error) {
-      res.status(500).json({msg: error.message});
+      res
+        .status(500)
+        .send({ message: "User is empty"});
     }
   },
-
   async updateUser(req, res) {
     // Business logic for updating a user's details
     // Update user with the given ID in the database
     const userId = req.params.id;
-    try 
+    try
     {
-    const user = await userService.updateUser(userId);
+    const user = await userService.updateUser(userId,req.body);
     res
       .status(200)
       .send({ message: `User ${userId} updated successfully`, user: req.body });
@@ -61,11 +84,10 @@ const UserController = {
     // Business logic for deleting a user
     // Delete user with the given ID from the database
     const userId = req.params.id;
-    try 
+    try
     {
     const user = await userService.deleteUser(userId);
     res
-      .status(200)
       .status(200).send({ message: `User ${userId} deleted successfully` });
     }
     
@@ -110,10 +132,8 @@ const UserController = {
   async updatePassword(req, res) {
     // Business logic for updating a user's password
     // Update the password for the user with the given ID in the database
-    console.log("test1")
- const userId = req.params.id;
- console.log("test")
-    try
+  const userId = req.params.id;
+  try
     {
     const user = await userService.updatePassword(userId,req.body);
     res

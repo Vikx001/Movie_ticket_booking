@@ -1,3 +1,4 @@
+const { search } = require("../routes/courseRoutes");
 const CourseService = require("../services/courseService");
 const courseService = require("../services/courseService");
 const courseValidationSchema = require("../validations/courseSchema");
@@ -37,7 +38,7 @@ const CourseController = {
     } else {
       try {
         const courseId = req.params.id;
-        const updateCourse = service.editCourse(courseId, req.body);
+        const updateCourse = await service.editCourse(courseId, req.body);
         res.status(201).send({
           message: "Course has been updated successfully",
           data: updateCourse,
@@ -47,6 +48,7 @@ const CourseController = {
       }
     }
   },
+
   async getCourseDetails(req, res) {
     const courseId = req.params.id;
 
@@ -56,6 +58,49 @@ const CourseController = {
         message: "Course has been fetched successfully",
         data: courseInfo,
       });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
+  async deleteCourse(req, res) {
+    try {
+      const courseId = req.params.id;
+      const updateCourse = await service.deleteCourse(courseId);
+      if (updateCourse) {
+        res.status(201).send({
+          message: "Course has been trashed successfully",
+          data: updateCourse,
+        });
+      } else {
+        res.status(500).send({
+          message: "Unable to delete the Course",
+          data: updateCourse,
+        });
+      }
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
+  async getAllCourses(req, res) {
+    try {
+      const courses = await service.getAllCourses(
+        req.query.search,
+        req.query.order_by,
+        req.query.sort
+      );
+      if (courses) {
+        res.status(201).send({
+          message: "Course has been fetched successfully",
+          data: courses,
+        });
+      } else {
+        res.status(500).send({
+          message: "Unable to fetch the courses",
+          data: [],
+        });
+      }
     } catch (error) {
       res.status(500).json({ message: error.message });
     }
