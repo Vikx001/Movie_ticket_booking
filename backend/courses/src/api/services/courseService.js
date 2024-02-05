@@ -59,6 +59,23 @@ class CourseService {
     }
   }
 
+  //Get indiviadual course details
+  async getCourseDetails(courseId) {
+    try {
+      let courseInfo = await Course.findByPk(courseId);
+      const chapters = await Chapter.findAll({
+        where: {
+          course_id: courseId,
+        },
+      });
+      courseInfo = courseInfo.get({ plain: true });
+
+      courseInfo.chapters = chapters;
+      return courseInfo;
+    } catch (error) {
+      throw new Error("Course not found");
+    }
+  }
   //Delete a course from the database
   async deleteCourse(courseId) {
     const course = await Course.findByPk(courseId);

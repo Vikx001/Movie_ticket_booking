@@ -49,6 +49,20 @@ const CourseController = {
     }
   },
 
+  async getCourseDetails(req, res) {
+    const courseId = req.params.id;
+
+    try {
+      const courseInfo = await service.getCourseDetails(courseId);
+      res.status(201).send({
+        message: "Course has been fetched successfully",
+        data: courseInfo,
+      });
+    } catch (error) {
+      res.status(500).json({ message: error.message });
+    }
+  },
+
   async deleteCourse(req, res) {
     try {
       const courseId = req.params.id;
