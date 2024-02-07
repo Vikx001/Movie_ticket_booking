@@ -4,8 +4,10 @@
   "description": "This application will host the user endpopint  of the entire application microservices",
   "main": "index.js",
   "scripts": {
-    "start": "NODE_ENV=prod nodemon src/index.js",
-    "dev": "NODE_ENV=dev nodemon src/index.js",
+    "start": "SET NODE_ENV=prod&&nodemon src/index.js",
+    "dev": "SET NODE_ENV=dev&&nodemon src/index.js",
+    "start-mac": "NODE_ENV=prod nodemon src/index.js",
+    "dev-mac": "NODE_ENV=dev nodemon src/index.js",    
     "test": "jest --coverage",
     "sonar": "node_modules/sonar-scanner/bin/sonar-scanner"
   },

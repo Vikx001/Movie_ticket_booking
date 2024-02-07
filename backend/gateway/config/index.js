@@ -1,6 +1,7 @@
 const dotEnv = require("dotenv");
 
 if (process.env.NODE_ENV !== "prod") {
+  console.log(process.env.NODE_ENV);
   const configFile = `./.env.${process.env.NODE_ENV}`;
   dotEnv.config({ path: configFile });
 } else {
