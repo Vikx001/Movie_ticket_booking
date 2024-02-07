@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -5,34 +6,43 @@ import Toolbar from "@mui/material/Toolbar";
 import LanguageIcon from "@mui/icons-material/Language";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import LinkButton from "../../share/UIElements/LinkButton/LinkButton";
-import MenuButtom from "../../share/UIElements/MenuButton/MenuButtom";
+import Button from "@mui/material/Button"; // Adjusted for demonstration
+import LoginModal from "./LoginModal"; // Adjust the import path as needed
+import SignUpModal from "./SignupModal";
+
+// Custom components, assuming these paths are correct
+import MenuButton from "../../share/UIElements/MenuButton/MenuButtom"; // Ensure the component name and import path are correct
 import RightTooltip from "./RightTooltip/RightTooltip";
 import SearchBar from "./SearchBar/SearchBar";
 import CartTooltip from "./CartTooltip/CartTooltip";
 import Categories from "./Categories/Categories";
-const udemyBusinessMessage =
-  "Get your team access to over 6,000 top Studio-Ghibli courses, anytime, anywhere.";
-const techOnUdemy =
-  "Turn what you know into an opportunity and reach millions around the world.";
+
 const Navigation = () => {
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+  const [signUpModalOpen, setSignUpModalOpen] = useState(false); // New state for the Sign Up modal
+
+  const handleLoginClick = () => {
+    setLoginModalOpen(true);
+  };
+
+  const handleLoginModalClose = () => {
+    setLoginModalOpen(false);
+  };
+
+  const handleSignUpClick = () => {
+    setSignUpModalOpen(true); // Function to open the Sign Up modal
+  };
+
+  const handleSignUpModalClose = () => {
+    setSignUpModalOpen(false); // Function to close the Sign Up modal
+  };
+
+  // Styled tooltip wrappers
   const RightTooltipWithStyle = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(({ theme }) => ({
     [`& .${tooltipClasses.tooltip}`]: {
       backgroundColor: "transparent",
-      // minWidth: 250,
-      color: theme.palette.grey[900],
-      borderRadius: 0,
-      padding: 0,
-    },
-  }));
-  const LeftTooltipWithStyle = styled(({ className, ...props }) => (
-    <Tooltip {...props} classes={{ popper: className }} />
-  ))(({ theme }) => ({
-    [`& .${tooltipClasses.tooltip}`]: {
-      backgroundColor: "transparent",
-      minWidth: 830,
       color: theme.palette.grey[900],
       borderRadius: 0,
       padding: 0,
@@ -54,72 +64,61 @@ const Navigation = () => {
           <Box>
             <img
               src="/images/header/logo-udemy.svg"
-              alt="u"
+              alt="Udemy Logo"
               width="91"
               height="34"
             />
           </Box>
-          <MenuButtom>
-            <LeftTooltipWithStyle
+          <MenuButton>
+            <RightTooltipWithStyle
               title={<Categories />}
               placement="bottom-start"
             >
               <span>Categories</span>
-            </LeftTooltipWithStyle>
-          </MenuButtom>
+            </RightTooltipWithStyle>
+          </MenuButton>
           <Box sx={{ flexGrow: 1 }}>
             <SearchBar />
           </Box>
-
-          <MenuButtom>
-            <RightTooltipWithStyle
-              title={
-                <RightTooltip
-                  text={udemyBusinessMessage}
-                  buttonMessage="Try Studio-Ghibli Business"
-                />
-              }
-              placement="bottom-end"
-            >
-              <span>Studio-Ghibli Business</span>
-            </RightTooltipWithStyle>
-          </MenuButtom>
-
-          <MenuButtom>
-            <RightTooltipWithStyle
-              title={
-                <RightTooltip text={techOnUdemy} buttonMessage="Learn more" />
-              }
-              placement="bottom-end"
-            >
-              <span>Teach on Studio-Ghibli</span>
-            </RightTooltipWithStyle>
-          </MenuButtom>
-          <MenuButtom>
+          <MenuButton>
             <RightTooltipWithStyle
               title={<CartTooltip />}
               placement="bottom-end"
             >
               <ShoppingCartOutlinedIcon sx={{ fontSize: 24 }} />
             </RightTooltipWithStyle>
-          </MenuButtom>
-          <LinkButton
-            fontSize="1.4rem"
-            color="white"
-            height="4rem"
-            width="8rem"
+          </MenuButton>
+          <Button
+            onClick={handleLoginClick}
+            variant="text"
+            sx={{
+              color: "blue",
+              fontSize: "1.4rem",
+              height: "4rem",
+              minWidth: "8rem",
+            }}
           >
             Log in
-          </LinkButton>
-          <LinkButton fontSize="1.4rem" height="4rem" width="8rem">
+          </Button>
+          <Button
+            onClick={handleSignUpClick}
+            variant="text"
+            sx={{ fontSize: "1.4rem", height: "4rem", minWidth: "8rem" }}
+          >
             Sign up
-          </LinkButton>
-          <LinkButton color="white" height="4rem" width="4rem">
+          </Button>
+          <Button sx={{ color: "white", height: "4rem", width: "4rem" }}>
             <LanguageIcon sx={{ fontSize: "2rem" }} />
-          </LinkButton>
+          </Button>
         </Toolbar>
       </AppBar>
+      <LoginModal open={loginModalOpen} handleClose={handleLoginModalClose} />
+      <SignUpModal
+        open={signUpModalOpen}
+        handleClose={handleSignUpModalClose}
+      />
     </Box>
   );
 };
+
 export default Navigation;
