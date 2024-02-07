@@ -12,7 +12,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-console.log(COURSE_SERVICE);
 app.use("/users", proxy(USER_SERVICE));
 app.use("/customers", proxy(CUSTOMER_SERVICE));
 app.use("/enrollment", proxy(ENROLLMENT_SERVICE));
