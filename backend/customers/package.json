@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.js",
-    "start-mac": "nodemon src/index.js",
+    "start-mac": "NODE_ENV=dev nodemon src/index.js",
+    "start-mac-lc": "NODE_ENV=local nodemon src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [

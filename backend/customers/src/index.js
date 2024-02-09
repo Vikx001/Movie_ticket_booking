@@ -31,5 +31,5 @@ app.use((error, req, res, next) => {
 const PORT = process.env.PORT || 8882;
 
 app.listen(8882, () => {
-  console.log("User Service running on #8882");
+  console.log("Customer Service running on #8882");
 });
