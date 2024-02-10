@@ -9,6 +9,8 @@ import {
 } from "@/widgets/layout";
 import routes from "@/routes";
 import { useMaterialTailwindController, setOpenConfigurator } from "@/context";
+import AddCourse from "@/pages/dashboard/courses/add-course";
+import EditCourse from "@/pages/dashboard/courses/edit-course";
 
 export function Dashboard() {
   const [controller, dispatch] = useMaterialTailwindController();
@@ -25,15 +27,7 @@ export function Dashboard() {
       <div className="p-4 xl:ml-80">
         <DashboardNavbar />
         <Configurator />
-        <IconButton
-          size="lg"
-          color="white"
-          className="fixed bottom-8 right-8 z-40 rounded-full shadow-blue-gray-900/10"
-          ripple={false}
-          onClick={() => setOpenConfigurator(dispatch, true)}
-        >
-          <Cog6ToothIcon className="h-5 w-5" />
-        </IconButton>
+        
         <Routes>
           {routes.map(
             ({ layout, pages }) =>
@@ -42,6 +36,8 @@ export function Dashboard() {
                 <Route exact path={path} element={element} />
               ))
           )}
+          <Route exact path={"courses/add"} element={<AddCourse />} />
+          <Route exact path={"courses/edit/:id"} element={<EditCourse />} />
         </Routes>
         <div className="text-blue-gray-600">
           <Footer />
