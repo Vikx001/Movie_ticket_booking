@@ -107,23 +107,34 @@ const Navigation = () => {
             </RightTooltipWithStyle>
           </MenuButton>
           <Button
+            color="primary"
+            variant="outlined"
+            style={{ marginRight: "10px" }}
             onClick={handleLoginClick}
-            variant="text"
             sx={{
-              color: "blue",
+              border: "1px solid #000000",
+              color: "#000000",
               fontSize: "1.4rem",
-              height: "4rem",
-              minWidth: "8rem",
+              borderRadius: 0,
+              textTransform: "none",
             }}
           >
-            Log in
+            Login
           </Button>
           <Button
+            color="secondary"
+            variant="contained"
             onClick={handleSignUpClick}
-            variant="text"
-            sx={{ fontSize: "1.4rem", height: "4rem", minWidth: "8rem" }}
+            sx={{
+              border: "1px solid #000000",
+              color: "#ffffff",
+              fontSize: "1.4rem",
+              borderRadius: 0,
+              textTransform: "none",
+              bgcolor: "#000000",
+            }}
           >
-            Sign up
+            Sign Up
           </Button>
           <Button sx={{ color: "white", height: "4rem", width: "4rem" }}>
             <LanguageIcon sx={{ fontSize: "2rem" }} />
