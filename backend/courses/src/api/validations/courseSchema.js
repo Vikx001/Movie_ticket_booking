@@ -5,12 +5,12 @@ const courseValidationSchema = Joi.object({
   description: Joi.string().required(),
   learning_outcomes: Joi.any(),
   course_inclusions: Joi.any(),
-  is_certified: Joi.number().max(1).required(),
+  is_certified: Joi.any(),
   author: Joi.string().required(),
   status: Joi.number().max(1).required(),
   rating: Joi.number().min(0).required(),
   total_enrollments: Joi.number().min(0).required(),
-  chapters: Joi.any(),
+  course_content: Joi.string().required(),
 });
 
 module.exports = courseValidationSchema;

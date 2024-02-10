@@ -30,6 +30,10 @@ const Course = dB.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
+    course_content: {
+      type: Sequelize.STRING,
+      allowNull: false,
+    },
     rating: {
       type: Sequelize.TINYINT(2),
       allowNull: false,
