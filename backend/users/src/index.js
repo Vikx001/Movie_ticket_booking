@@ -30,6 +30,6 @@ app.use((error, req, res, next) => {
 
 const PORT = process.env.PORT || 8881;
 
-app.listen(8881, () => {
+app.listen(PORT, () => {
   console.log("User Service running on #8881");
 });
