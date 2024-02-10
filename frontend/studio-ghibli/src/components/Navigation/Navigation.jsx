@@ -61,14 +61,32 @@ const Navigation = () => {
         }}
       >
         <Toolbar disableGutters sx={{ my: "auto", gap: 1 }}>
-          <Box>
-            <img
-              src="/images/header/logo-udemy.svg"
-              alt="Udemy Logo"
-              width="91"
-              height="34"
-            />
+          <Box
+            sx={{
+              bgcolor: "#000000", // Use theme's primary color
+              color: "white", // Text color
+              fontWeight: "bold",
+              fontSize: "2rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "20px", // Rounded corners
+              width: "200px", // Fixed width
+              height: "100px", // Fixed height
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Subtle shadow for depth
+              "&:hover": {
+                // Hover effect
+                backgroundColor: "primary.dark", // Darken on hover
+                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)", // Larger shadow on hover
+              },
+              userSelect: "none", // Prevent text selection
+              transition: "all 0.3s ease-in-out", // Smooth transition for hover effects
+              cursor: "pointer", // Change cursor to indicate interactivity
+            }}
+          >
+            Studio Ghibli
           </Box>
+
           <MenuButton>
             <RightTooltipWithStyle
               title={<Categories />}
