@@ -5,9 +5,8 @@ const { Op } = require("sequelize");
 class CourseService {
   async createCourse(data) {
     try {
-      console.log(this.extractCourseFields(data));
       const course = await Course.create(this.extractCourseFields(data));
-      await this.handleChapters(course.id, data.chapters);
+      //await this.handleChapters(course.id, data.chapters);
       return course;
     } catch (error) {
       throw new Error(error.message);
@@ -41,7 +40,7 @@ class CourseService {
       rating: data.rating,
       total_enrollments: data.total_enrollments,
       status: data.status,
-      chapters: data.chapters,
+      course_content: data.course_content,
     };
   }
 
@@ -96,8 +95,7 @@ class CourseService {
   //Fetch all courses those are not deleted
 
   async getAllCourses(searchTerm, order, sort) {
-    console.log(order);
-    let searchField = {
+    let options = {
       where: {
         status: {
           [Op.ne]: "-1",
@@ -105,22 +103,21 @@ class CourseService {
       },
     };
 
-    let orderField;
-
-    if ("" != searchTerm) {
-      searchField.where.title = {
+    if (searchTerm) {
+      options.where.title = {
         [Op.like]: `%${searchTerm}%`,
       };
     }
 
-    if ("" != order) {
-      orderField = {
-        order: [[order, sort]],
-      };
+    if (order && sort) {
+      options.order = [[order, sort]];
     }
 
+    console.log(options); // This will show you the final query options
+
     try {
-      const courses = await Course.findAll(orderField);
+      const courses = await Course.findAll(options);
+      console.log(courses); // Assuming you want to log the fetched courses for debugging
       return courses;
     } catch (error) {
       throw new Error(error.message);

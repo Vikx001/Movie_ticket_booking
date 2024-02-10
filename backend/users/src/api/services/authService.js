@@ -9,7 +9,7 @@ const authService = {
   async authenticateUser(email, password) {
     const user = await User.findOne({
       where: {
-        email: email,
+        email_id: email,
         status: 1,
       },
     });
