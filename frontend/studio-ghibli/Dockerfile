@@ -1,14 +1,33 @@
-# Use the Nginx image from Docker Hub
+# Stage 1: Build the React app
+FROM node:14 AS build
+
+# Set the working directory
+WORKDIR /app
+
+# Copy package.json and package-lock.json to the working directory
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install
+
+# Copy the rest of the application code
+COPY . .
+
+# Build the React app
+RUN npm run build
+
+# Stage 2: Serve the React app using NGINX
 FROM nginx:alpine
 
-# Remove the default Nginx configuration file
-RUN rm /etc/nginx/conf.d/default.conf
+# Copy the built React app from the build stage to NGINX's HTML directory
+COPY --from=build /app/build /usr/share/nginx/html
 
-# Copy a custom configuration file from the current directory
-COPY deployment/nginx.conf /etc/nginx/conf.d/default.conf
+# Set the port to expose from the .env file
+ARG PORT
+ENV PORT=$FRONTEND_APPLICATION_PORT
 
-# Copy the build directory to Nginx serve directory
-COPY build/ /usr/share/nginx/html
+# Expose the port specified in the .env file
+EXPOSE $PORT
 
-# Expose port 9191 to the outside
-EXPOSE 9191
+# Command to start NGINX
+CMD ["nginx", "-g", "daemon off;"]
