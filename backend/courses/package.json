@@ -8,7 +8,7 @@
     "dev": "SET NODE_ENV=dev&&nodemon src/index.js",
     "start-mac": "NODE_ENV=prod nodemon src/index.js",
     "dev-mac": "NODE_ENV=dev nodemon src/index.js",    
-    "local-mac": "NODE_ENV=local nodemon src/index.js",
+    "start-mac-lc": "NODE_ENV=local nodemon src/index.js",
     "test": "jest --coverage",
     "sonar": "node_modules/sonar-scanner/bin/sonar-scanner"
   },
