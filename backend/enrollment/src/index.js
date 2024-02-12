@@ -10,7 +10,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use(userRoutes);
+app.use(enrollmentRoutes);
 
 // Error handling for unsupported routes
 app.use((req, res, next) => {
