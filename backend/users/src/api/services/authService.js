@@ -23,7 +23,8 @@ const authService = {
         const token = jwt.sign({ id: user.id }, secretKey, {
           expiresIn: "1h",
         });
-        return token;
+        const Role=user.role;
+        return {token,Role};
       }
     } else {
       throw new Error("User not found");
