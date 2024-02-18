@@ -1,0 +1,735 @@
+{
+	"id": "384f432a-748d-44da-84c9-c1c3c41a046e",
+	"name": "Docker Courses API",
+	"timestamp": "2024-02-18T15:09:32.907Z",
+	"collection_id": "32483643-92c220f0-cbae-4649-9edf-7609830749e2",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 77,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-02-18T15:09:32.009Z",
+	"totalFail": 9,
+	"results": [
+		{
+			"id": "9823a469-5306-41ce-8e6a-77a3862c5d39",
+			"name": "GetCourse",
+			"url": "http://localhost:8884/7",
+			"time": 19,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Validate Status code 201 Check": true,
+				"Validate Response Message indicates failure": false,
+				"Performance Test response time less than 300ms": true,
+				"Performance Test Throughput": true,
+				"Performance Test Error Rate": true,
+				"Performance Test Latency": true,
+				"Validate Response message 'Course has been fetched successfully'": true,
+				"Validate Data Object and not empty": true,
+				"Attributes and Values are Validated in Data Object": true,
+				"Response-Header Validation Content-Type header": true,
+				"Response-Header Validation Connection Value": true,
+				"Response-Header Validation Content-Type header has expected value": true,
+				"Validate data object contains required items": true
+			},
+			"testPassFailCounts": {
+				"Validate Status code 201 Check": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response Message indicates failure": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Performance Test response time less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Throughput": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Error Rate": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Latency": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response message 'Course has been fetched successfully'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Data Object and not empty": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Attributes and Values are Validated in Data Object": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Connection Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header has expected value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate data object contains required items": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				19
+			],
+			"allTests": [
+				{
+					"Validate Status code 201 Check": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": true,
+					"Performance Test Latency": true,
+					"Validate Response message 'Course has been fetched successfully'": true,
+					"Validate Data Object and not empty": true,
+					"Attributes and Values are Validated in Data Object": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate data object contains required items": true
+				}
+			]
+		},
+		{
+			"id": "ba0db832-25fb-4d71-b890-039d15fdbfad",
+			"name": "GetCourse RateLimit",
+			"url": "http://localhost:8884/7",
+			"time": 15,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Validate Rate Limit Threshold Check": true
+			},
+			"testPassFailCounts": {
+				"Validate Rate Limit Threshold Check": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				15
+			],
+			"allTests": [
+				{
+					"Validate Rate Limit Threshold Check": true
+				}
+			]
+		},
+		{
+			"id": "aca3e6f0-aba4-4329-aa3f-4cf142917d89",
+			"name": "AllCourses",
+			"url": "http://localhost:8884/?order_by=id&sort=DESC",
+			"time": 9,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {},
+			"testPassFailCounts": {},
+			"times": [
+				9
+			],
+			"allTests": [
+				{}
+			]
+		},
+		{
+			"id": "6d249bc5-ccfb-4cf5-973d-a633e719b290",
+			"name": "AllCourses No Search",
+			"url": "http://localhost:8884/?order_by=id&sort=DESC",
+			"time": 7,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Validating Response 201 OK": true,
+				"Validate Response Message indicates failure": false,
+				"Performance Test response time less than 300ms": true,
+				"Performance Test Throughput": true,
+				"Performance Test Error Rate": true,
+				"Performance Test Latency": true,
+				"Response-Header Validation Content-Type header": true,
+				"Response-Header Validation Connection Value": true,
+				"Response-Header Validation Content-Type header has expected value": true,
+				"Asserting number of course items": true,
+				"Validate Response successful message": true,
+				"Validate data entry is in Response": true,
+				"Validate the required properties in each course": true,
+				"Validate the format of learning_outcomes and course_inclusions": true,
+				"Validate the total enrollments to be a number": true,
+				"Validating the rating to be between 1 and 5": true,
+				"Validate created_at and updated_at have proper formatted dates": true,
+				"Validate Course Items sorted by id ASC": false,
+				"Validate Course Items sorted by id DESC": true
+			},
+			"testPassFailCounts": {
+				"Validating Response 201 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response Message indicates failure": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Performance Test response time less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Throughput": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Error Rate": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Latency": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Connection Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header has expected value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Asserting number of course items": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response successful message": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate data entry is in Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the required properties in each course": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the format of learning_outcomes and course_inclusions": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the total enrollments to be a number": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validating the rating to be between 1 and 5": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate created_at and updated_at have proper formatted dates": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Course Items sorted by id ASC": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Validate Course Items sorted by id DESC": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Validating Response 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": true,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Asserting number of course items": true,
+					"Validate Response successful message": true,
+					"Validate data entry is in Response": true,
+					"Validate the required properties in each course": true,
+					"Validate the format of learning_outcomes and course_inclusions": true,
+					"Validate the total enrollments to be a number": true,
+					"Validating the rating to be between 1 and 5": true,
+					"Validate created_at and updated_at have proper formatted dates": true,
+					"Validate Course Items sorted by id ASC": false,
+					"Validate Course Items sorted by id DESC": true
+				}
+			]
+		},
+		{
+			"id": "92537442-bec0-4cb3-bb0a-08580fbcc047",
+			"name": "AllCourses No Order Sort",
+			"url": "http://localhost:8884/?extended=true&details=all",
+			"time": 7,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Validating Response 201 OK": true,
+				"Validate Response Message indicates failure": false,
+				"Performance Test response time less than 300ms": true,
+				"Performance Test Throughput": true,
+				"Performance Test Error Rate": true,
+				"Performance Test Latency": true,
+				"Response-Header Validation Content-Type header": true,
+				"Response-Header Validation Connection Value": true,
+				"Response-Header Validation Content-Type header has expected value": true,
+				"Asserting number of course items": true,
+				"Validate Response successful message": true,
+				"Validate data entry is in Response": true,
+				"Validate the required properties in each course": true,
+				"Validate the format of learning_outcomes and course_inclusions": true,
+				"Validate the total enrollments to be a number": true,
+				"Validating the rating to be between 1 and 5": true,
+				"Validate created_at and updated_at have proper formatted dates": true,
+				"Validate Course Items sorted by id ASC": true,
+				"Validate Course Items sorted by id DESC": false
+			},
+			"testPassFailCounts": {
+				"Validating Response 201 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response Message indicates failure": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Performance Test response time less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Throughput": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Error Rate": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Latency": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Connection Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header has expected value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Asserting number of course items": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response successful message": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate data entry is in Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the required properties in each course": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the format of learning_outcomes and course_inclusions": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the total enrollments to be a number": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validating the rating to be between 1 and 5": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate created_at and updated_at have proper formatted dates": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Course Items sorted by id ASC": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Course Items sorted by id DESC": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Validating Response 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": true,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Asserting number of course items": true,
+					"Validate Response successful message": true,
+					"Validate data entry is in Response": true,
+					"Validate the required properties in each course": true,
+					"Validate the format of learning_outcomes and course_inclusions": true,
+					"Validate the total enrollments to be a number": true,
+					"Validating the rating to be between 1 and 5": true,
+					"Validate created_at and updated_at have proper formatted dates": true,
+					"Validate Course Items sorted by id ASC": true,
+					"Validate Course Items sorted by id DESC": false
+				}
+			]
+		},
+		{
+			"id": "c388cdf1-805d-48d9-a992-eddeea238981",
+			"name": "EditCourse",
+			"url": "http://localhost:8884/4",
+			"time": 11,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Validate Response Status 201 OK": true,
+				"Validate Response Message indicates failure": false,
+				"Performance Test response time less than 300ms": true,
+				"Performance Test Throughput": true,
+				"Performance Test Error Rate": true,
+				"Performance Test Latency": true,
+				"Response-Header Validation Content-Type header": true,
+				"Response-Header Validation Connection Value": true,
+				"Response-Header Validation Content-Type header has expected value": true,
+				"Validate the Updated Course Response": true,
+				"Validate the Count of number of items in the data Object": true
+			},
+			"testPassFailCounts": {
+				"Validate Response Status 201 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response Message indicates failure": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Performance Test response time less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Throughput": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Error Rate": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Latency": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Connection Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header has expected value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the Updated Course Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the Count of number of items in the data Object": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				11
+			],
+			"allTests": [
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": true,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Updated Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				}
+			]
+		},
+		{
+			"id": "5a496222-6a6d-4c40-a69b-9842bb36c758",
+			"name": "CreateCourse",
+			"url": "http://localhost:8884/create",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Validate Response Status 201 OK": true,
+				"Validate Response Message indicates failure": false,
+				"Performance Test response time less than 300ms": true,
+				"Performance Test Throughput": true,
+				"Performance Test Error Rate": false,
+				"Performance Test Latency": true,
+				"Response-Header Validation Content-Type header": true,
+				"Response-Header Validation Connection Value": true,
+				"Response-Header Validation Content-Type header has expected value": true,
+				"Validate the Created Course Response": true,
+				"Validate the Count of number of items in the data Object": true
+			},
+			"testPassFailCounts": {
+				"Validate Response Status 201 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response Message indicates failure": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Performance Test response time less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Throughput": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Error Rate": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Performance Test Latency": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Connection Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header has expected value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the Created Course Response": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the Count of number of items in the data Object": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				2
+			],
+			"allTests": [
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				}
+			]
+		},
+		{
+			"id": "73ffac4c-228c-42b1-b706-7d2fae5965cc",
+			"name": "DeleteCourse",
+			"url": "http://localhost:8884/9",
+			"time": 7,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Validate Response Status 201 OK": true,
+				"Validate Response Message indicates failure": false,
+				"Performance Test response time less than 300ms": true,
+				"Performance Test Throughput": true,
+				"Performance Test Error Rate": true,
+				"Performance Test Latency": true,
+				"Response-Header Validation Content-Type header": true,
+				"Response-Header Validation Connection Value": true,
+				"Response-Header Validation Content-Type header has expected value": true,
+				"Validate Response Message 'Course has been trashed successfully'": true,
+				"Validate Deleted Course Response Data": true,
+				"Validate the Count of number of items in the data Object": true
+			},
+			"testPassFailCounts": {
+				"Validate Response Status 201 OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response Message indicates failure": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Performance Test response time less than 300ms": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Throughput": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Error Rate": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Performance Test Latency": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Connection Value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header has expected value": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Response Message 'Course has been trashed successfully'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate Deleted Course Response Data": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate the Count of number of items in the data Object": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				7
+			],
+			"allTests": [
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": true,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate Response Message 'Course has been trashed successfully'": true,
+					"Validate Deleted Course Response Data": true,
+					"Validate the Count of number of items in the data Object": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 77,
+	"collection": {
+		"requests": [
+			{
+				"id": "9823a469-5306-41ce-8e6a-77a3862c5d39",
+				"method": "GET"
+			},
+			{
+				"id": "ba0db832-25fb-4d71-b890-039d15fdbfad",
+				"method": "GET"
+			},
+			{
+				"id": "aca3e6f0-aba4-4329-aa3f-4cf142917d89",
+				"method": "GET"
+			},
+			{
+				"id": "6d249bc5-ccfb-4cf5-973d-a633e719b290",
+				"method": "GET"
+			},
+			{
+				"id": "92537442-bec0-4cb3-bb0a-08580fbcc047",
+				"method": "GET"
+			},
+			{
+				"id": "c388cdf1-805d-48d9-a992-eddeea238981",
+				"method": "PUT"
+			},
+			{
+				"id": "5a496222-6a6d-4c40-a69b-9842bb36c758",
+				"method": "POST"
+			},
+			{
+				"id": "73ffac4c-228c-42b1-b706-7d2fae5965cc",
+				"method": "DELETE"
+			}
+		]
+	}
+}
