@@ -110,7 +110,7 @@ class CustomerService {
   }
   async createUser(userData) {
     try {
-      const userResponse = await axios.post(`${process.env.USER_SERVICE}`, {
+      const userResponse = await axios.post(`${process.env.USER_SERVICE_END_POINT}`, {
         email: userData.email,
         password: userData.password,
         role: userData.role,
