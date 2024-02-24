@@ -9,7 +9,7 @@ pipeline {
                checkout scmGit(branches: [[name: '*/development']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Vikx001/Studio-Ghibli.git']])
             }
         }
-        stage('Install dependencies'){
+        stage('Install dependencies'){ 
             steps{
             dir('frontend/studio-ghibli'){
             sh ('npm install')
