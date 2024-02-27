@@ -2,9 +2,13 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import { Dashboard, Auth } from "@/layouts";
 
 function App() {
+
+  
   const isLoggedIn = () => {
     // Example: Check if a token is stored in local storage
     const value = localStorage.getItem('authToken');
+    console.log(Math.random() + ' >> ' + value);
+    //return true;
     return value !== null && value !== ''; // Return true if there's a token and it's not an empty string
   };
   
