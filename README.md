@@ -43,12 +43,15 @@ Our product will be delivered using an Agile methodology that embraces the DevOp
 Sprint 1, Aneesh Ramakrishna Pillai 
 Sprint 2, Vikash Sharma
 Sprint 3, Binupa Chullickal Babu
+Sprint 4, Shreya Raghuvanshi
+Sprint 5, Sushmitha Holthal Manjunath
 
 # Product Owner
 Sprint 1, Neeharica Madanu
 Sprint 2, Shreya Raghuvanshi
 Sprint 3, Sushmitha Holthal Manjunath
-
+Sprint 4, Vikash Sharma
+Sprint 5, Binupa Chullickal Babu
 # Team Members
 1. Binupa Chullickal Babu (L00179364)
 2. Shreya Raghuvanshi (L00179092)
