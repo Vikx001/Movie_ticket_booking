@@ -9,8 +9,10 @@ import {
 } from "@/widgets/layout";
 import routes from "@/routes";
 import { useMaterialTailwindController, setOpenConfigurator } from "@/context";
+
 //import AddCourse from "@/pages/dashboard/courses/add-course";
 //import EditCourse from "@/pages/dashboard/courses/edit-course";
+
 
 export function Dashboard() {
   const [controller, dispatch] = useMaterialTailwindController();
