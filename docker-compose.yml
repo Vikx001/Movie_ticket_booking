@@ -33,7 +33,7 @@ services:
       - .env # Use the main .env file
     networks:
       - studio-ghibil-network
-  
+
   users:
     build: ./backend/users
     ports:

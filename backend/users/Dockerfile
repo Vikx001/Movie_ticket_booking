@@ -1,6 +1,7 @@
 FROM node:21
 WORKDIR /usr/src/app
 COPY package*.json ./
+RUN npm i bcrypt
 RUN npm install
 COPY . .
 # Set the environment variable NODE_ENV to 'dev'
