@@ -3,7 +3,7 @@ import {
   PlusCircleIcon,
   ShoppingCartIcon,
   CreditCardIcon,
-  LockOpenIcon,
+  LockOpenIcon, 
   BanknotesIcon,
 } from "@heroicons/react/24/solid";
 
