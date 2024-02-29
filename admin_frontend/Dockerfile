@@ -20,7 +20,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copy the built React application from the build stage to the NGINX web server directory
-COPY --from=dist /app/dist /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 # Expose the port specified in the PORT environment variable
 ARG PORT
