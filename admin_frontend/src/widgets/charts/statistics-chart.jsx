@@ -5,7 +5,7 @@ import {
   CardFooter,
   Typography,
 } from "@material-tailwind/react";
-import PropTypes from "prop-types";
+import PropTypes from "prop-types"; 
 import Chart from "react-apexcharts";
 
 export function StatisticsChart({ color, chart, title, description, footer }) {
