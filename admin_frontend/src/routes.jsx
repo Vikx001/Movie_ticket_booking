@@ -1,7 +1,10 @@
 import {
   HomeIcon,
   UserCircleIcon,
-  TableCellsIcon,
+  TableCellsIcon
+  InformationCircleIcon,
+  ServerStackIcon, 
+  RectangleStackIcon
   CheckBadgeIcon,
   PencilSquareIcon
 } from "@heroicons/react/24/solid";
