@@ -4,9 +4,10 @@ import { Dashboard, Auth } from "@/layouts";
 function App() {
  
   
-  const isLoggedIn = () => { 
-    const value = localStorage.getItem('authToken'); 
-    return true;
+  const isLoggedIn = () => {
+    const value = localStorage.getItem('authToken');
+    console.log(Math.random() + ' >> ' + value);
+    //return true;
     return value !== null && value !== ''; // Return true if there's a token and it's not an empty string
   };
   
