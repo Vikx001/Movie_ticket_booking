@@ -3,7 +3,7 @@ import {
   Input,
   Checkbox,
   Button,
-  Typography,
+  Typography
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
