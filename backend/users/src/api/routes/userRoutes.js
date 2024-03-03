@@ -11,16 +11,16 @@ router.post("/login", authController.authenticateUser);
 router.post("/",userController.createUser);
 
 // GET /users - Retrieve all users
-router.get("/", authMiddleware, userController.getAllUsers);
+router.get("/", userController.getAllUsers);
 
 // GET /users/:id - Retrieve a user by ID
-router.get("/:id",authMiddleware, userController.getUserById);
+router.get("/:id", userController.getUserById);
 
 // PUT /users/:id - Update a user's details
-router.put("/:id", authMiddleware, userController.updateUser);
+router.put("/:id", userController.updateUser);
 
 // DELETE /users/:id - Delete a user
-router.delete("/:id", authMiddleware, userController.deleteUser);
+router.delete("/:id", userController.deleteUser);
 
 // POST /users/logout - User logout
 router.post("/logout", authMiddleware, userController.logoutUser);

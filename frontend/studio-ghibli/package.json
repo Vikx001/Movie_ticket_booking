@@ -24,7 +24,11 @@
     "start": "react-scripts start",
     "build": "CI=false && react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "sonar": "node_modules/sonar-scanner/bin/sonar-scanner",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha && ./node_modules/.bin/lcov-result-merger 'coverage/**/*.json' | ./node_modules/.bin/lcov-to-sonarqube-incremental > coverage/lcov.info",
+    "sonartest": "nyc npm test"
+
   },
   "eslintConfig": {
     "extends": [

@@ -8,7 +8,7 @@ if (process.env.NODE_ENV !== "prod") {
 }
 
 module.exports = {
-  PORT: process.env.PORT,
+  USER_SERVICE_PORT: process.env.PORT,
   DB_HOST: process.env.DB_HOST,
   DB_NAME: process.env.DB_NAME,
   DB_USER: process.env.DB_USER,

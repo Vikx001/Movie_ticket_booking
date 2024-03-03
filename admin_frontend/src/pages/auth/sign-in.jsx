@@ -3,7 +3,7 @@ import {
   Input,
   Checkbox,
   Button,
-  Typography,
+  Typography
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -27,7 +27,7 @@ export function SignIn() {
     };
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/users/login`, {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/users/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

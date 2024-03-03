@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { error } = require("winston");
 const courseRoutes = require("./api/routes/courseRoutes");
+const { COURSE_SERVICE_PORT, DB_HOST, DB_USER } = require("./config");
 
 const app = express();
 app.use(cors());
@@ -27,9 +28,8 @@ app.use((error, req, res, next) => {
     },
   });
 });
+const APP_PORT = COURSE_SERVICE_PORT || 8884;
 
-const PORT = process.env.PORT || 8881;
-
-app.listen(PORT, () => {
-  console.log(`Course Service running on #${PORT}`);
+app.listen(APP_PORT, () => {
+  console.log(`Course Service running on #${APP_PORT}`);
 });
