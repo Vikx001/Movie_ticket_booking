@@ -9,7 +9,7 @@ ENV NODE_ENV=dev
 # Set the environment variable NODE_ENV to 'dev'
 #ENV NODE_ENV=prod
 
-EXPOSE 80
+EXPOSE 8888
 # Set the environment to run on dev
 CMD ["node", "index.js"]
 
