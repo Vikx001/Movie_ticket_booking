@@ -1,0 +1,864 @@
+{
+	"info": {
+		"_postman_id": "92ad14d7-f228-4126-8204-c1b2583700e0",
+		"name": "Mocker_User_Enrollement_Customer",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32483643"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Tobin13@hotmail.com\",\n    \"password\": \"abc123\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/login",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"Tobin13@hotmail.com\",\n    \"password\": \"abc123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"Authentication successful\",\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTIsImlhdCI6MTcwOTQ2NDI4MCwiZXhwIjoxNzA5NDY3ODgwfQ.yJ8anhAY13AA2llCzJK3lIZRi3o_aU3PTNNAdQURmm0\"\n}"
+				}
+			]
+		},
+		{
+			"name": "loginError",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\": \"abc123\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/loginError",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"loginError"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": \"abc123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/loginError",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"loginError"
+							]
+						}
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"Auth Controller WHERE parameter \\\"email_id\\\" has invalid \\\"undefined\\\" value\"\n}"
+				}
+			]
+		},
+		{
+			"name": "loginJsonError",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Tobin13@hotmail.com\"\n    \"password\": \"abc123\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/loginJsonError",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"loginJsonError"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"Tobin13@hotmail.com\"\n    \"password\": \"abc123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/loginJsonError",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"loginJsonError"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"error\": {\n        \"message\": \"Expected ',' or '}' after property value in JSON at position 41 (line 3 column 5)\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Tobin13@hotmail.com\",\n    \"password\": \"abc123\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"Tobin13@hotmail.com\",\n    \"password\": \"abc123\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/logout",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"Logout successful\"\n}"
+				}
+			]
+		},
+		{
+			"name": "createCustomer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"abc123\",\n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomJobArea}}\",\n    \"status\": 1,\n    \"role\": \"customer\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/createCustomer",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"createCustomer"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"abc123\",\n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomJobArea}}\",\n    \"status\": 1,\n    \"role\": \"customer\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/createCustomer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"createCustomer"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": {\n        \"id\": 22,\n        \"user_id\": 59,\n        \"full_name\": \"Enrique Carroll\",\n        \"phone_no\": \"507-395-0237\",\n        \"area_of_interests\": \"Configuration\",\n        \"status\": 1,\n        \"updated_at\": \"2024-03-03T11:16:03.027Z\",\n        \"created_at\": \"2024-03-03T11:16:03.027Z\"\n    },\n    \"message\": \"Customer has been created successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "createCustomerError",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{$randomEmail}}\",\n    \n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomJobArea}}\",\n    \"status\": 1,\n    \"role\": \"customer\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/createCustomerError",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"createCustomerError"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{$randomEmail}}\",\n    \n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomJobArea}}\",\n    \"status\": 1,\n    \"role\": \"customer\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/createCustomerError",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"createCustomerError"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"data\": [],\n    \"message\": \"\\\"password\\\" is required\"\n}"
+				}
+			]
+		},
+		{
+			"name": "getAllCustomer",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/getAllCustomer",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getAllCustomer"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/getAllCustomer",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getAllCustomer"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"User details have been fetched successfully.\",\n    \"data\": [\n        {\n            \"role\": \"admin\",\n            \"email_id\": \"admin30@admin.com\",\n            \"id\": 13,\n            \"user_id\": 50,\n            \"full_name\": \"Super Administrator\",\n            \"phone_no\": \"588576884\",\n            \"area_of_interests\": \"\",\n            \"status\": 1,\n            \"created_at\": \"2024-02-09T15:45:53.000Z\",\n            \"updated_at\": \"2024-02-09T15:45:53.000Z\"\n        },\n        {\n            \"role\": \"admin\",\n            \"email_id\": \"admin31@admin.com\",\n            \"id\": 14,\n            \"user_id\": 51,\n            \"full_name\": \"Super Administrator\",\n            \"phone_no\": \"588576884\",\n            \"area_of_interests\": \"\",\n            \"status\": 1,\n            \"created_at\": \"2024-02-09T15:59:04.000Z\",\n            \"updated_at\": \"2024-02-09T15:59:04.000Z\"\n        },\n        {\n            \"role\": \"admin\",\n            \"email_id\": \"Tobin13@hotmail.com\",\n            \"id\": 15,\n            \"user_id\": 52,\n            \"full_name\": \"Omar Kautzer\",\n            \"phone_no\": \"874-598-0211\",\n            \"area_of_interests\": \"Paradigm\",\n            \"status\": 1,\n            \"created_at\": \"2024-03-01T20:08:26.000Z\",\n            \"updated_at\": \"2024-03-01T20:08:26.000Z\"\n        },\n        {\n            \"role\": \"customer\",\n            \"email_id\": \"Irwin.Kassulke@hotmail.com\",\n            \"id\": 16,\n            \"user_id\": 53,\n            \"full_name\": \"Leona Parisian\",\n            \"phone_no\": \"895-557-5978\",\n            \"area_of_interests\": \"Group\",\n            \"status\": 1,\n            \"created_at\": \"2024-03-01T20:08:34.000Z\",\n            \"updated_at\": \"2024-03-01T20:08:34.000Z\"\n        },\n        {\n            \"role\": \"customer\",\n            \"email_id\": \"Gus.Hagenes@hotmail.com\",\n            \"id\": 17,\n            \"user_id\": 54,\n            \"full_name\": \"Bonnie Hackett\",\n            \"phone_no\": \"699-687-4242\",\n            \"area_of_interests\": \"juston.info\",\n            \"status\": -1,\n            \"created_at\": \"2024-03-01T21:40:37.000Z\",\n            \"updated_at\": \"2024-03-02T10:41:11.000Z\"\n        },\n        {\n            \"role\": \"customer\",\n            \"email_id\": \"Adell.Schoen77@hotmail.com\",\n            \"id\": 18,\n            \"user_id\": 55,\n            \"full_name\": \"Tommie Glover\",\n            \"phone_no\": \"641-716-0583\",\n            \"area_of_interests\": \"velva.net\",\n            \"status\": 1,\n            \"created_at\": \"2024-03-01T22:02:29.000Z\",\n            \"updated_at\": \"2024-03-02T10:49:18.000Z\"\n        },\n        {\n            \"role\": \"customer\",\n            \"email_id\": \"Antonetta.Bergstrom@gmail.com\",\n            \"id\": 19,\n            \"user_id\": 56,\n            \"full_name\": \"Conrad Bergstrom\",\n            \"phone_no\": \"713-456-4717\",\n            \"area_of_interests\": \"michael.net\",\n            \"status\": 1,\n            \"created_at\": \"2024-03-01T22:05:14.000Z\",\n            \"updated_at\": \"2024-03-02T10:49:18.000Z\"\n        },\n        {\n            \"role\": \"customer\",\n            \"email_id\": \"neeha@gmail.com\",\n            \"id\": 20,\n            \"user_id\": 57,\n            \"full_name\": \"Neeha\",\n            \"phone_no\": \"893456782\",\n            \"area_of_interests\": null,\n            \"status\": 1,\n            \"created_at\": \"2024-03-01T23:35:31.000Z\",\n            \"updated_at\": \"2024-03-01T23:35:31.000Z\"\n        },\n        {\n            \"role\": \"customer\",\n            \"email_id\": \"Tom59@gmail.com\",\n            \"id\": 21,\n            \"user_id\": 58,\n            \"full_name\": \"Karl Sporer\",\n            \"phone_no\": \"311-630-0237\",\n            \"area_of_interests\": \"Optimization\",\n            \"status\": 1,\n            \"created_at\": \"2024-03-03T10:55:37.000Z\",\n            \"updated_at\": \"2024-03-03T10:55:37.000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "getCustomer/56",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/getCustomer/56",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getCustomer",
+						"56"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/getCustomer/56",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getCustomer",
+								"56"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"User details has been fetched successfully.\",\n    \"data\": [\n        {\n            \"role\": \"customer\",\n            \"email_id\": \"Antonetta.Bergstrom@gmail.com\",\n            \"id\": 19,\n            \"user_id\": 56,\n            \"full_name\": \"Conrad Bergstrom\",\n            \"phone_no\": \"713-456-4717\",\n            \"area_of_interests\": \"michael.net\",\n            \"status\": 1,\n            \"created_at\": \"2024-03-01T22:05:14.000Z\",\n            \"updated_at\": \"2024-03-02T10:49:18.000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "getCustomerError/100",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/getCustomerError/100",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"getCustomerError",
+						"100"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/getCustomerError/100",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"getCustomerError",
+								"100"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"User is Empty!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "updateCustomer/55",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomDomainName}}\"\n}"
+				},
+				"url": {
+					"raw": "{{url}}/updateCustomer/55",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"updateCustomer",
+						"55"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomDomainName}}\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/updateCustomer/55",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"updateCustomer",
+								"55"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"customer with user ID:55 updated successfully\",\n    \"Data\": {\n        \"full_name\": \"Mrs. Nancy Dickinson\",\n        \"phone_no\": \"553-578-9060\",\n        \"area_of_interests\": \"wilfredo.name\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "updateCustomerError/100",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/updateCustomerError/100",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"updateCustomerError",
+						"100"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/updateCustomerError/100",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"updateCustomerError",
+								"100"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"User not exists!\"\n}"
+				}
+			]
+		},
+		{
+			"name": "deleteCustomer/54",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/deleteCustomer/54",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"deleteCustomer",
+						"54"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/deleteCustomer/54",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"deleteCustomer",
+								"54"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"User with user ID : 54 deleted successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "adminViewAllenrollements",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/adminViewAllenrollements",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"adminViewAllenrollements"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/adminViewAllenrollements",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"adminViewAllenrollements"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"Enrollment details have been fetched successfully.\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"customer_id\": 18,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2023-07-03\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 18,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2024-02-14\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 19,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2023-03-04\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 19,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2023-04-09\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 18,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2023-12-03\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 3,\n            \"customer_id\": 18,\n            \"course_id\": 3,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2024-02-06\",\n            \"created_at\": \"2024-02-10T00:21:39.000Z\",\n            \"updated_at\": \"2024-02-10T02:27:44.000Z\",\n            \"title\": \"My Course 11\",\n            \"description\": \"My Course Description 1\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\nLO Line 2\\\\nLO Line 3\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1\\\\nCI Line 2\\\\nCI Line 3\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "viewUserEnrollement/4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/viewUserEnrollement/4",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"viewUserEnrollement",
+						"4"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/viewUserEnrollement/4",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"viewUserEnrollement",
+								"4"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"Enrollment details have been fetched successfully.\",\n    \"data\": [\n        {\n            \"id\": 4,\n            \"customer_id\": 18,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2023-07-03\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 18,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2024-02-14\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 19,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2023-03-04\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 19,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2023-04-09\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        },\n        {\n            \"id\": 4,\n            \"customer_id\": 18,\n            \"course_id\": 4,\n            \"status\": 1,\n            \"payment_method\": \"cash\",\n            \"payment_status\": 1,\n            \"enrollment_date\": \"2023-12-03\",\n            \"created_at\": \"2024-02-10T00:22:47.000Z\",\n            \"updated_at\": \"2024-02-10T00:22:47.000Z\",\n            \"title\": \"My Course 1\",\n            \"description\": \"My Course Description\",\n            \"learning_outcomes\": \"\\\"LO Line 1 \\\\r\\\\n LO Line 2 \\\\r\\\\n LO Line 3 \\\\r\\\\n\\\"\",\n            \"course_inclusions\": \"\\\"CI Line 1 \\\\r\\\\n CI Line 2 \\\\r\\\\n CI Line 3 \\\\r\\\\n\\\"\",\n            \"is_certified\": 1,\n            \"author\": \"John Doe\",\n            \"course_content\": \"http://www.youtube.com\",\n            \"rating\": 0,\n            \"total_enrollments\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "viewUserEnrollementError/100",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/viewUserEnrollementError/100",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"viewUserEnrollementError",
+						"100"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{url}}/viewUserEnrollementError/100",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"viewUserEnrollementError",
+								"100"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"Enrollment is not exist in the course\"\n}"
+				}
+			]
+		},
+		{
+			"name": "createUserEnrollement",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer_id\": 18,\n    \"course_id\": 4,\n    \"enrollment_date\": \"{{$randomDatePast}}\",\n    \"payment_method\": \"cash\",\n    \"payment_status\": 1\n}"
+				},
+				"url": {
+					"raw": "{{url}}/createUserEnrollement",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"createUserEnrollement"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_id\": 18,\n    \"course_id\": 4,\n    \"enrollment_date\": \"{{$randomDatePast}}\",\n    \"payment_method\": \"cash\",\n    \"payment_status\": 1\n}"
+						},
+						"url": {
+							"raw": "{{url}}/createUserEnrollement",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"createUserEnrollement"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"User has been enrolled successfully\",\n    \"data\": {\n        \"id\": 20,\n        \"customer_id\": 18,\n        \"course_id\": 4,\n        \"status\": 1,\n        \"payment_method\": \"cash\",\n        \"payment_status\": 1,\n        \"enrollment_date\": \"2023-06-26T18:31:11.000Z\",\n        \"updated_at\": \"2024-03-03T11:23:59.695Z\",\n        \"created_at\": \"2024-03-03T11:23:59.695Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "createUserEnrollementError",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"customer_id\": 18,\n    \n    \"enrollment_date\": \"{{$randomDatePast}}\",\n    \"payment_method\": \"cash\",\n    \"payment_status\": 1\n}"
+				},
+				"url": {
+					"raw": "{{url}}/createUserEnrollementError",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"createUserEnrollementError"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Default",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"customer_id\": 18,\n    \n    \"enrollment_date\": \"{{$randomDatePast}}\",\n    \"payment_method\": \"cash\",\n    \"payment_status\": 1\n}"
+						},
+						"url": {
+							"raw": "{{url}}/createUserEnrollementError",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"createUserEnrollementError"
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": "{\n    \"message\": \"\\\"course_id\\\" is required\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://4da8cc11-5a6b-47b1-89af-c3a19a3893e6.mock.pstmn.io"
+		}
+	]
+}
