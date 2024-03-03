@@ -1,0 +1,239 @@
+{
+	"id": "8655c3a5-93b2-4cc3-8e2e-81f263ce42f5",
+	"name": "Data-Driven-Test-Course",
+	"timestamp": "2024-02-18T15:24:39.375Z",
+	"collection_id": "32483643-344e1a81-3918-41c8-a692-34d57ebd1eda",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 90,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-02-18T15:24:38.799Z",
+	"totalFail": 20,
+	"results": [
+		{
+			"id": "ca1850e6-226f-4e80-a5fa-0395367b9648",
+			"name": "CreateCourse",
+			"url": "http://localhost:8884/create",
+			"time": 2,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Validate Response Status 201 OK": true,
+				"Validate Response Message indicates failure": false,
+				"Performance Test response time less than 300ms": true,
+				"Performance Test Throughput": true,
+				"Performance Test Error Rate": false,
+				"Performance Test Latency": true,
+				"Response-Header Validation Content-Type header": true,
+				"Response-Header Validation Connection Value": true,
+				"Response-Header Validation Content-Type header has expected value": true,
+				"Validate the Created Course Response": true,
+				"Validate the Count of number of items in the data Object": true
+			},
+			"testPassFailCounts": {
+				"Validate Response Status 201 OK": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Validate Response Message indicates failure": {
+					"pass": 0,
+					"fail": 10
+				},
+				"Performance Test response time less than 300ms": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Performance Test Throughput": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Performance Test Error Rate": {
+					"pass": 0,
+					"fail": 10
+				},
+				"Performance Test Latency": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Response-Header Validation Connection Value": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Response-Header Validation Content-Type header has expected value": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Validate the Created Course Response": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Validate the Count of number of items in the data Object": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				11,
+				2,
+				2,
+				2,
+				2,
+				2,
+				2,
+				2,
+				2,
+				2
+			],
+			"allTests": [
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				},
+				{
+					"Validate Response Status 201 OK": true,
+					"Validate Response Message indicates failure": false,
+					"Performance Test response time less than 300ms": true,
+					"Performance Test Throughput": true,
+					"Performance Test Error Rate": false,
+					"Performance Test Latency": true,
+					"Response-Header Validation Content-Type header": true,
+					"Response-Header Validation Connection Value": true,
+					"Response-Header Validation Content-Type header has expected value": true,
+					"Validate the Created Course Response": true,
+					"Validate the Count of number of items in the data Object": true
+				}
+			]
+		}
+	],
+	"count": 10,
+	"totalTime": 29,
+	"collection": {
+		"requests": [
+			{
+				"id": "ca1850e6-226f-4e80-a5fa-0395367b9648",
+				"method": "POST"
+			}
+		]
+	}
+}
