@@ -4,7 +4,7 @@ import { Dashboard, Auth } from "@/layouts";
 function App() {
 
   
-  const isLoggedIn = () => {
+  const isLoggedIn = () => { 
     // Example: Check if a token is stored in local storage
     const value = localStorage.getItem('authToken');
     console.log(Math.random() + ' >> ' + value);
