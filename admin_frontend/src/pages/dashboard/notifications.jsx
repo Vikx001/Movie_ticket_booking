@@ -2,7 +2,7 @@ import React from "react";
 import {
   Typography,
   Alert,
-  Card,
+  Card, 
   CardHeader,
   CardBody,
 } from "@material-tailwind/react";
