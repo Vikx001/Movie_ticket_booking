@@ -1,13 +1,14 @@
 import {
   HomeIcon,
   UserCircleIcon,
-  TableCellsIcon,
+  TableCellsIcon
   InformationCircleIcon,
-  ServerStackIcon,
-  RectangleStackIcon,
+  ServerStackIcon, 
+  RectangleStackIcon
+  CheckBadgeIcon,
+  PencilSquareIcon
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
-import { SignIn, SignUp } from "@/pages/auth";
+import { Home, Profile, Courses, Notifications } from "@/pages/dashboard";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -25,42 +26,24 @@ export const routes = [
       },
       {
         icon: <UserCircleIcon {...icon} />,
-        name: "profile",
+        name: "customers",
         path: "/profile",
         element: <Profile />,
       },
       {
-        icon: <TableCellsIcon {...icon} />,
-        name: "tables",
-        path: "/tables",
-        element: <Tables />,
+        icon: <CheckBadgeIcon {...icon} />,
+        name: "courses",
+        path: "/courses",
+        element: <Courses />,
       },
       {
-        icon: <InformationCircleIcon {...icon} />,
-        name: "notifications",
+        icon: <PencilSquareIcon {...icon} />,
+        name: "enrollments",
         path: "/notifications",
         element: <Notifications />,
       },
     ],
-  },
-  {
-    title: "auth pages",
-    layout: "auth",
-    pages: [
-      {
-        icon: <ServerStackIcon {...icon} />,
-        name: "sign in",
-        path: "/sign-in",
-        element: <SignIn />,
-      },
-      {
-        icon: <RectangleStackIcon {...icon} />,
-        name: "sign up",
-        path: "/sign-up",
-        element: <SignUp />,
-      },
-    ],
-  },
+  }
 ];
 
 export default routes;

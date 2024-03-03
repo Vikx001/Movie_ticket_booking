@@ -9,6 +9,15 @@ services:
     networks:
       - studio-ghibil-network
 
+  admin_frontend:
+    build: ./admin_frontend
+    ports:
+      - "${ADMIN_FRONTEND_APPLICATION_PORT}:80" # Custom port for frontend
+    env_file:
+      - .env # Use the main .env file
+    networks:
+      - studio-ghibil-network
+
   gateway:
     build: ./backend/gateway
     ports:
@@ -27,6 +36,39 @@ services:
     build: ./backend/courses
     ports:
       - "${COURSE_SERVICE_PORT}:8884" # Custom port for courses microservice
+    depends_on:
+      - mysql
+    env_file:
+      - .env # Use the main .env file
+    networks:
+      - studio-ghibil-network
+
+  users:
+    build: ./backend/users
+    ports:
+      - "${USER_SERVICE_PORT}:8881" # Custom port for users microservice
+    depends_on:
+      - mysql
+    env_file:
+      - .env # Use the main .env file
+    networks:
+      - studio-ghibil-network
+
+  customers:
+    build: ./backend/customers
+    ports:
+      - "${CUSTOMER_SERVICE_PORT}:8882" # Custom port for customers microservice
+    depends_on:
+      - mysql
+    env_file:
+      - .env # Use the main .env file
+    networks:
+      - studio-ghibil-network
+
+  enrollment:
+    build: ./backend/enrollment
+    ports:
+      - "${ENROLLMENT_SERVICE_PORT}:8883" # Custom port for enrollment microservice
     depends_on:
       - mysql
     env_file:

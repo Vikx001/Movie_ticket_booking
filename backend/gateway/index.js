@@ -50,7 +50,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const APP_PORT = GATEWAY_SERVICE_PORT || 8880;
+const APP_PORT = GATEWAY_SERVICE_PORT || 80;
 
 app.listen(APP_PORT, () => {
   console.log(`Gateway running on ${APP_PORT}`);
