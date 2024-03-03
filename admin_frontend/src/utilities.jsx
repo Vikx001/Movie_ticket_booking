@@ -4,4 +4,4 @@ const isLoggedIn = () => {
     // Example: Check if a token is stored in local storage
     return true;
 };
-  
+   
