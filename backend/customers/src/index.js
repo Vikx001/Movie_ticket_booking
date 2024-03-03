@@ -3,6 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { error } = require("winston");
 const customerRoutes = require("./api/routes/customerRoutes");
+const { CUSTOMER_SERVICE_PORT } = require("./config");
 
 const app = express();
 app.use(cors());
@@ -28,8 +29,8 @@ app.use((error, req, res, next) => {
   });
 });
 
-const PORT = process.env.PORT || 8882;
+const APP_PORT = CUSTOMER_SERVICE_PORT || 9992;
 
-app.listen(8882, () => {
-  console.log("Customer Service running on #8882");
+app.listen(APP_PORT, () => {
+  console.log(`Customer Service running on #${APP_PORT}`);
 });

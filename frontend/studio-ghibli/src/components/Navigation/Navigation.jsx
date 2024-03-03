@@ -1,17 +1,17 @@
+
+
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import LanguageIcon from "@mui/icons-material/Language";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import Tooltip, { tooltipClasses } from "@mui/material/Tooltip";
-import Button from "@mui/material/Button"; // Adjusted for demonstration
-import LoginModal from "./LoginModal"; // Adjust the import path as needed
+import Button from "@mui/material/Button";
+import Snackbar from "@mui/material/Snackbar";
+import LoginModal from "./LoginModal";
 import SignUpModal from "./SignupModal";
-
-// Custom components, assuming these paths are correct
-import MenuButton from "../../share/UIElements/MenuButton/MenuButtom"; // Ensure the component name and import path are correct
+import MenuButton from "../../share/UIElements/MenuButton/MenuButtom";
 import RightTooltip from "./RightTooltip/RightTooltip";
 import SearchBar from "./SearchBar/SearchBar";
 import CartTooltip from "./CartTooltip/CartTooltip";
@@ -19,7 +19,10 @@ import Categories from "./Categories/Categories";
 
 const Navigation = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
-  const [signUpModalOpen, setSignUpModalOpen] = useState(false); // New state for the Sign Up modal
+  const [signUpModalOpen, setSignUpModalOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
 
   const handleLoginClick = () => {
     setLoginModalOpen(true);
@@ -30,11 +33,17 @@ const Navigation = () => {
   };
 
   const handleSignUpClick = () => {
-    setSignUpModalOpen(true); // Function to open the Sign Up modal
+    setSignUpModalOpen(true);
   };
 
   const handleSignUpModalClose = () => {
-    setSignUpModalOpen(false); // Function to close the Sign Up modal
+    setSignUpModalOpen(false);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+    setSnackbarMessage("You are logged out!");
+    setSnackbarOpen(true);
   };
 
   // Styled tooltip wrappers
@@ -60,23 +69,11 @@ const Navigation = () => {
           boxShadow: "0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%)",
         }}
       >
-        <Toolbar disableGutters sx={{ my: "auto", gap: 1 }}>
-          <Box>
-            <img
-              src="/images/header/logo-udemy.svg"
-              alt="Udemy Logo"
-              width="91"
-              height="34"
-            />
+        <Toolbar disableGutters sx={{ my: "auto", gap: 1, alignItems: "center" }}>
+          {/* Studio Ghibli Logo */}
+          <Box sx={{ marginRight: 2, display: 'flex', alignItems: 'center' }}>
+            <span style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Studio Ghibli</span>
           </Box>
-          <MenuButton>
-            <RightTooltipWithStyle
-              title={<Categories />}
-              placement="bottom-start"
-            >
-              <span>Categories</span>
-            </RightTooltipWithStyle>
-          </MenuButton>
           <Box sx={{ flexGrow: 1 }}>
             <SearchBar />
           </Box>
@@ -88,37 +85,61 @@ const Navigation = () => {
               <ShoppingCartOutlinedIcon sx={{ fontSize: 24 }} />
             </RightTooltipWithStyle>
           </MenuButton>
-          <Button
-            onClick={handleLoginClick}
-            variant="text"
-            sx={{
-              color: "blue",
-              fontSize: "1.4rem",
-              height: "4rem",
-              minWidth: "8rem",
-            }}
-          >
-            Log in
-          </Button>
-          <Button
-            onClick={handleSignUpClick}
-            variant="text"
-            sx={{ fontSize: "1.4rem", height: "4rem", minWidth: "8rem" }}
-          >
-            Sign up
-          </Button>
-          <Button sx={{ color: "white", height: "4rem", width: "4rem" }}>
-            <LanguageIcon sx={{ fontSize: "2rem" }} />
-          </Button>
+          {isLoggedIn ? (
+            <Button
+              onClick={handleLogout}
+              variant="text"
+              sx={{
+                color: "blue",
+                fontSize: "1.4rem",
+                height: "4rem",
+                minWidth: "8rem",
+              }}
+            >
+              Logout
+            </Button>
+          ) : (
+            <>
+              <Button
+                onClick={handleLoginClick}
+                variant="text"
+                sx={{
+                  color: "blue",
+                  fontSize: "1.4rem",
+                  height: "4rem",
+                  minWidth: "8rem",
+                }}
+              >
+                Log in
+              </Button>
+              <Button
+                onClick={handleSignUpClick}
+                variant="text"
+                sx={{ fontSize: "1.4rem", height: "4rem", minWidth: "8rem" }}
+              >
+                Sign up
+              </Button>
+            </>
+          )}
         </Toolbar>
       </AppBar>
-      <LoginModal open={loginModalOpen} handleClose={handleLoginModalClose} />
-      <SignUpModal
-        open={signUpModalOpen}
-        handleClose={handleSignUpModalClose}
+      <LoginModal open={loginModalOpen} handleClose={handleLoginModalClose} onLoginSuccess={() => setIsLoggedIn(true)} />
+      <SignUpModal open={signUpModalOpen} handleClose={handleSignUpModalClose} />
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={() => setSnackbarOpen(false)}
+        message={snackbarMessage}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        action={
+          <Button color="inherit" size="small" onClick={() => setSnackbarOpen(false)}>
+            Close
+          </Button>
+        }
       />
     </Box>
   );
 };
 
 export default Navigation;
+
