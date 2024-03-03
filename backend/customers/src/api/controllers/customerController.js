@@ -73,36 +73,109 @@ const CustomerController = {
   },
   async viewCustomer(req, res) {
     try {
-      const customer = await service.viewCustomer();
-      res.status(201).send({
-        message: "customer has been fetched successfully",
-        data: customer,
+      const userResponse = await service.viewUsers();
+      if (409 != userResponse) {
+   
+      const cutomerResponse = await service.viewCustomer();
+      const user = JSON.parse(JSON.stringify(userResponse.data));
+      const cutomer = JSON.parse(JSON.stringify(cutomerResponse));
+      const userDetail = cutomer.map((cutomer) => {
+      const customerDetail = user.find((u) => u.id === cutomer.user_id);
+        if (customerDetail) {
+          const { role, email_id } = customerDetail; // Specify specific columns here
+          return {
+            role,
+            email_id,
+            ...cutomer
+          };
+      }
       });
+      return res.status(HttpStatus.OK).json({
+        message: "User details have been fetched successfully.",
+        data: userDetail,
+      });
+    }
+    else {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        message: "User is Empty!"
+      });
+    }
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .send({ message: "Error in User", error: error.message });
+    }
+  },
+  async viewCustomerById(req, res) {
+    try {
+      const userId = req.params.id;
+      const userResponse = await service.viewUsersById(userId);
+      if (409 != userResponse) {
+      const cutomerResponse = await service.viewCustomerById(userId);
+      const user = JSON.parse(JSON.stringify(userResponse.data));
+      const cutomer = JSON.parse(JSON.stringify(cutomerResponse));
+      const userDetail = cutomer.map((cutomer) => {
+        const customerDetail = user.find((u) => u.id === cutomer.user_id);
+        if (customerDetail) {
+          const { role, email_id } = customerDetail; // Specify specific columns here
+          return {
+            role,
+            email_id,
+            ...cutomer
+          };
+      }
+      });
+      return res.status(HttpStatus.OK).json({
+        message: "User details has been fetched successfully.",
+        data: userDetail,
+      });
+    }
+    else {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        message: "User is Empty!"
+      });
+    }
+    } catch (error) {
+      res
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .send({ message: "Error in User", error: error.message });
     }
   },
   async deleteCustomer(req, res) {
+    const userId = req.params.id;
     try {
-      const userId = req.params.id;
-      const customer = await service.deleteCustomer(userId);
-      res
-        .status(200)
-        .send({ message: `customer ${customer} deleted successfully` });
+      const userResponse = await service.deleteUser(userId);
+      if (409 != userResponse) {
+      const cutomerResponse = await service.deleteCustomer(userId);
+      return res.status(HttpStatus.OK).send({ message: `User with user ID : ${userId} deleted successfully` });
+    }
+    else {
+      return res.status(HttpStatus.BAD_REQUEST).json({
+        message: "User is Empty!"
+      });
+    }
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res
+        .status(HttpStatus.INTERNAL_SERVER_ERROR)
+        .send({ message: "Error in User", error: error.message });
     }
   },
   async updateCustomer(req, res) {
     try {
       const userId = req.params.id;
       const customer = await service.updateCustomer(req.body, userId);
-      res.status(200).send({
-        message: `customer ${customer} update successfully`,
-        Data: req.body,
+      if (customer == 409)
+      {
+        return res.status(HttpStatus.BAD_REQUEST).json({
+        message: "User not exists!"
       });
+    } else{
+      res.status(HttpStatus.OK).send({
+        message: `customer with user ID:${userId} updated successfully`,
+        Data: req.body,
+      });}
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({ message: error.message });
     }
   },
 };

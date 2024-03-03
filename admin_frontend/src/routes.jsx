@@ -2,6 +2,9 @@ import {
   HomeIcon,
   UserCircleIcon,
   TableCellsIcon,
+  InformationCircleIcon,
+  ServerStackIcon, 
+  RectangleStackIcon,
   CheckBadgeIcon,
   PencilSquareIcon
 } from "@heroicons/react/24/solid";

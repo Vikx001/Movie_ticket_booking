@@ -2,7 +2,7 @@ export const pythonData = [
     {
       id: 0,
       img: "images/course-selection/python/1.png",
-      title: "Learning Python for Data Analysis and Visualization",
+      title: "Introduction to Filmmaking",
       desc: "Jose Portilla",
       rateScore: 4.7,
       reviewerNum: "12,345",
@@ -13,7 +13,7 @@ export const pythonData = [
     {
       id: 1,
       img: "images/course-selection/python/2.png",
-      title: "Python for Beginners - Learn Programming from scratch",
+      title: "Advanced Film Production Techniques",
       desc: "Edwin Diaz, Coding Faculty Solutions",
       rateScore: 4.6,
       reviewerNum: "122,345",
@@ -24,7 +24,7 @@ export const pythonData = [
     {
       id: 2,
       img: "images/course-selection/python/3.png",
-      title: "Learn Python: Python for Beginners",
+      title: "Screenwriting Fundamentals",
       desc: "Abrar Hussain",
       rateScore: 4.1,
       reviewerNum: "122,345",
@@ -34,7 +34,7 @@ export const pythonData = [
     {
       id: 3,
       img: "images/course-selection/python/4.png",
-      title: "Python for Data Structures, Algorithms, and Interviews!",
+      title: "Directing for Film",
       desc: "Jose Portilla",
       rateScore: 4.7,
       reviewerNum: "122,398",
@@ -46,7 +46,7 @@ export const pythonData = [
     {
       id: 4,
       img: "images/course-selection/python/5.png",
-      title: "Automate the Boring Stuff with Python Programming",
+      title: "Cinematography Essentials",
       desc: "Al Sweigart",
       rateScore: 4.7,
       reviewerNum: "77,809",
@@ -58,7 +58,7 @@ export const pythonData = [
     {
       id: 5,
       img: "images/course-selection/python/6.png",
-      title: "Python 3 For Offensive PenTest: A Complete Practical Course",
+      title: "Film Editing and Post-Production",
       desc: "Al Sweigart",
       rateScore: 4.6,
       reviewerNum: "199,008",
@@ -70,7 +70,7 @@ export const pythonData = [
     {
       id: 6,
       img: "images/course-selection/python/7.png",
-      title: "Taming Big Data with Apache Spark and Python - Hands On!",
+      title: "Acting for the Camera",
       desc: "Sundog Education",
       rateScore: 4.7,
       reviewerNum: "199,008",
@@ -84,7 +84,7 @@ export const pythonData = [
     {
       id: 0,
       img: "images/course-selection/javascript/1.jpeg",
-      title: "Javascript for Beginners",
+      title: "Documentary Filmmaking",
       desc: "Framework Tech Media",
       rateScore: 4.7,
       reviewerNum: "12,345",
@@ -95,7 +95,7 @@ export const pythonData = [
     {
       id: 1,
       img: "images/course-selection/javascript/2.jpeg",
-      title: "1 Hour JavaScript",
+      title: "Film Theory and Analysis",
       desc: "John Bura",
       rateScore: 4.7,
       reviewerNum: "1,198,709",
@@ -106,7 +106,7 @@ export const pythonData = [
     {
       id: 2,
       img: "images/course-selection/javascript/3.jpeg",
-      title: "1 Hour JavaScript",
+      title: "Independent Filmmaking Workshop",
       desc: "Anthony Alicea",
       rateScore: 4.74,
       reviewerNum: "43,598",
@@ -117,7 +117,7 @@ export const pythonData = [
     {
       id: 3,
       img: "images/course-selection/javascript/4.png",
-      title: "Javascript for Beginners Learn by Doing Practical Exercises",
+      title: "Genre Studies: Horror Films",
       desc: "Edwin Diaz",
       rateScore: 4.9,
       reviewerNum: "43,598",
@@ -129,7 +129,7 @@ export const pythonData = [
     {
       id: 4,
       img: "images/course-selection/javascript/5.png",
-      title: "Automate the Boring Stuff with JS Programming",
+      title: "Experimental Film Techniques",
       desc: "Al Sweigart",
       rateScore: 4.6,
       reviewerNum: "90,898",
@@ -140,7 +140,7 @@ export const pythonData = [
     {
       id: 5,
       img: "images/course-selection/javascript/6.jpeg",
-      title: "JavaScript from Beginner to Expert",
+      title: "Animation Production",
       desc: "Arkadiusz Wlodarczyk",
       rateScore: 4.4,
       reviewerNum: "21,398",
@@ -152,7 +152,7 @@ export const pythonData = [
     {
       id: 6,
       img: "images/course-selection/javascript/7.jpeg",
-      title: "JavaScript for Kids: Code Your Own Games and Apps at Any Age",
+      title: "Visual Effects for Film",
       desc: "Bryson Payne",
       rateScore: 4.3,
       reviewerNum: "337,398",
@@ -165,7 +165,7 @@ export const pythonData = [
     {
       id: 0,
       img: "images/course-selection/excel/1.jpeg",
-      title: "Microsoft Excel - From Beginner to Expert in 6 Hours",
+      title: "Sound Design for Film",
       desc: "Todd McLeod",
       rateScore: 4.5,
       reviewerNum: "20,897",
@@ -175,7 +175,7 @@ export const pythonData = [
     {
       id: 1,
       img: "images/course-selection/excel/2.jpeg",
-      title: "Microsoft Excel 2013 Advanced. Online Excel Training Course",
+      title: "Producing for Film",
       desc: "Infinite Skills",
       rateScore: 4.3,
       reviewerNum: "337,398",
@@ -186,7 +186,7 @@ export const pythonData = [
     {
       id: 2,
       img: "images/course-selection/excel/3.jpeg",
-      title: "Sharper skills using Microsoft Excel 2010 for business",
+      title: "Film Marketing and Distribution",
       desc: "Ulrika Hedlund",
       rateScore: 4.2,
       reviewerNum: "46,767",
@@ -197,7 +197,7 @@ export const pythonData = [
     {
       id: 3,
       img: "images/course-selection/excel/4.jpeg",
-      title: "Excel 2013",
+      title: "Film History: Classic Hollywood",
       desc: "Learnit Anytime",
       rateScore: 4.2,
       reviewerNum: "46,767",
@@ -208,7 +208,7 @@ export const pythonData = [
     {
       id: 4,
       img: "images/course-selection/excel/5.jpeg",
-      title: "7 Steps To Excel Success - Excel Skills And Power Tips",
+      title: "World Cinema Appreciation",
       desc: "Billy Wigley, Stephanie Jhoy Tumulak",
       rateScore: 4.8,
       reviewerNum: "46,767",
@@ -219,7 +219,7 @@ export const pythonData = [
     {
       id: 5,
       img: "images/course-selection/excel/6.jpeg",
-      title: "Advanced Excel - Bigginner to Ninja level (includes Charts)",
+      title: "Film Criticism and Reviewing",
       desc: "Rishabh Pugalia, Yoda Learning",
       rateScore: 4.7,
       reviewerNum: "46,767",
@@ -230,7 +230,7 @@ export const pythonData = [
     {
       id: 6,
       img: "images/course-selection/excel/7.jpeg",
-      title: "Use Excel Like A Pro. Fast.",
+      title: "Guerrilla Filmmaking",
       desc: "Kieran Luke",
       rateScore: 4.7,
       reviewerNum: "66,732",
@@ -243,7 +243,7 @@ export const pythonData = [
     {
       id: 0,
       img: "images/course-selection/aws/1.jpeg",
-      title: "Amazon Web Services (AWS) Certified 2022 - 4 Certifications!",
+      title: "Short Film Production",
       desc: "Paul Coady",
       rateScore: 4.5,
       reviewerNum: "455,665",
@@ -254,7 +254,7 @@ export const pythonData = [
     {
       id: 1,
       img: "images/course-selection/aws/2.jpeg",
-      title: "AWS Certified Security Specialty 2022",
+      title: "Feature Film Development",
       desc: "Zeal Vora",
       rateScore: 4.5,
       reviewerNum: "45,632",
@@ -265,7 +265,7 @@ export const pythonData = [
     {
       id: 2,
       img: "images/course-selection/aws/3.jpeg",
-      title: "Part 1: AWS Certified Solutions Architect SAA C02",
+      title: "Writing for Television and Film",
       desc: "Lingam",
       rateScore: 4.5,
       reviewerNum: "45,632",
@@ -287,7 +287,7 @@ export const pythonData = [
     {
       id: 4,
       img: "images/course-selection/aws/5.jpeg",
-      title: "Part 2: AWS Certified Solutions Architect SAA C02",
+      title: "Directing Actors for Film",
       desc: "Lingam",
       rateScore: 4.7,
       reviewerNum: "3,343",
@@ -298,7 +298,7 @@ export const pythonData = [
     {
       id: 5,
       img: "images/course-selection/aws/6.jpeg",
-      title: "AWS Certified Solutions Architect - Associate 2022",
+      title: "Storyboarding and Previsualization",
       desc: "Alan Rodrigues",
       rateScore: 4.9,
       reviewerNum: "2,134",
@@ -309,7 +309,7 @@ export const pythonData = [
     {
       id: 6,
       img: "images/course-selection/aws/7.jpeg",
-      title: "AWS Certified Solutions Architect - Associate 2022",
+      title: "Film Budgeting and Financing",
       desc: "Zeal Vora",
       rateScore: 4.9,
       reviewerNum: "1,234",
@@ -321,7 +321,7 @@ export const pythonData = [
     {
       id: 0,
       img: "images/course-selection/data-science/1.jpeg",
-      title: "Data Science A-Z™: Real-Life Data Science Exercises Included",
+      title: "Green Screen Techniques",
       desc: "Kirill Ereme",
       rateScore: 4.5,
       reviewerNum: "455,665",
@@ -331,7 +331,7 @@ export const pythonData = [
     {
       id: 1,
       img: "images/course-selection/data-science/2.jpeg",
-      title: "Python for Data Science and Machine Learning Bootcamp",
+      title: "3D Filmmaking",
       desc: "Frank Kane",
       rateScore: 4.5,
       reviewerNum: "45,632",
@@ -342,7 +342,7 @@ export const pythonData = [
     {
       id: 2,
       img: "images/course-selection/data-science/3.jpeg",
-      title: "Machine Learning, Data Science and Deep Learning with Python",
+      title: "Location Scouting and Management",
       desc: "Frank Kane",
       rateScore: 4.9,
       reviewerNum: "2,134",
@@ -353,7 +353,7 @@ export const pythonData = [
     {
       id: 3,
       img: "images/course-selection/data-science/4.jpeg",
-      title: "Data Science: Deep Learning and Neural Networks in Python",
+      title: "Lighting for Film",
       desc: "Lazy Programmer Inc.",
       rateScore: 4.5,
       reviewerNum: "45,632",
@@ -364,7 +364,7 @@ export const pythonData = [
     {
       id: 4,
       img: "images/course-selection/data-science/5.jpeg",
-      title: "R Programming A-Z™: R For Data Science With Real Exercises!",
+      title: "Foley Artistry",
       desc: "Kirill Eremet",
       rateScore: 4.8,
       reviewerNum: "46,767",
@@ -375,7 +375,7 @@ export const pythonData = [
     {
       id: 5,
       img: "images/course-selection/data-science/6.jpeg",
-      title: "Data Science and Machine Learning Bootcamp with R",
+      title: "Film Festivals and Industry Events",
       desc: "Al Sweigart",
       rateScore: 4.1,
       reviewerNum: "46,767",
@@ -386,7 +386,7 @@ export const pythonData = [
     {
       id: 6,
       img: "images/course-selection/data-science/7.jpeg",
-      title: "R Programming: Advanced Analytics In R For Data Science",
+      title: "Film Preservation and Restoration",
       desc: "Kirill Ereme",
       rateScore: 4.3,
       reviewerNum: "337,398",
@@ -397,7 +397,7 @@ export const pythonData = [
     {
       id: 7,
       img: "images/course-selection/data-science/8.jpeg",
-      title: "Python for Data Science and Machine Learning Bootcamp",
+      title: "Ethics in Filmmaking",
       desc: "Jose Portilla",
       rateScore: 4.9,
       reviewerNum: "1,234",
