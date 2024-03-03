@@ -9,6 +9,8 @@ import {
 } from "@/widgets/layout";
 import routes from "@/routes";
 import { useMaterialTailwindController, setOpenConfigurator } from "@/context";
+import AddCourse from "@/pages/dashboard/courses/add-course";
+import EditCourse from "@/pages/dashboard/courses/edit-course";
 
 //import AddCourse from "@/pages/dashboard/courses/add-course";
 //import EditCourse from "@/pages/dashboard/courses/edit-course";
@@ -38,9 +40,8 @@ export function Dashboard() {
                 <Route exact path={path} element={element} />
               ))
           )}
-
-          {/* <Route exact path={"courses/add"} element={<AddCourse />} />
-          <Route exact path={"courses/edit/:id"} element={<EditCourse />} /> */}
+          <Route exact path={"courses/add"} element={<AddCourse />} />
+          <Route exact path={"courses/edit/:id"} element={<EditCourse />} />
         </Routes>
         <div className="text-blue-gray-600">
           <Footer />
