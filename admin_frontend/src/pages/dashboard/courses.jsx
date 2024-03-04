@@ -14,7 +14,7 @@ import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export function Courses() {
-    const [courseData, setCourseData] = useState([]);
+    const [courseData, setCourseData] = useState([]); //Hello This is set to ok
 
     useEffect(() => {
         const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/courses`; // Your API endpoint
