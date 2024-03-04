@@ -66,7 +66,7 @@ export function Courses() {
             return; // Stop form submission
         }
 
-        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/courses/create`; // Your API endpoint
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/courses/create`; // Your API endpoint
         let subMissionErrors = {};
       
         try {

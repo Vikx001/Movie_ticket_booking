@@ -32,7 +32,7 @@ export function EditCourse() {
 
     useEffect(() => {
         const fetchData = async () => {
-        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/courses/${id}`; // Your API endpoint
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/courses/${id}`; // Your API endpoint
           try {
             const response = await fetch(apiUrl); 
             const {data} = await response.json();
@@ -92,7 +92,7 @@ export function EditCourse() {
             console.log("Validation failed.");
             return; // Stop form submission
         }
-        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/courses/${id}`; // Your API endpoint
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/courses/${id}`; // Your API endpoint
         let subMissionErrors = {};
       
         try {

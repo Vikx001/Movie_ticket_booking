@@ -17,7 +17,7 @@ export function Courses() {
     const [courseData, setCourseData] = useState([]);
 
     useEffect(() => {
-        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/courses`; // Your API endpoint
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/courses`; // Your API endpoint
         fetch(apiUrl)
           .then(response => response.json())
           .then(data => setCourseData(data.data))
