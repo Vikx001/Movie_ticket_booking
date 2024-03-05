@@ -3,6 +3,9 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm i bcrypt
 RUN npm install
+RUN apt-get update && \
+    apt-get install -y mysql-client && \
+    rm -rf /var/lib/apt/lists/*
 COPY . .
 # Set the environment variable NODE_ENV to 'dev'
 ENV NODE_ENV=dev
