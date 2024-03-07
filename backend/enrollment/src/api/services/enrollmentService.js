@@ -16,7 +16,7 @@ class EnrollmentService {
   async viewEnrolledUser(data) {
     try {
       const enrollment = await Enrollment.findAll({
-        attributes:['id','customer_id','course_id',"status","payment_method","payment_status","enrollment_date",'created_at','updated_at']
+        attributes:[ ['id', 'enrollment_id'],'customer_id','course_id',"status","payment_method","payment_status","enrollment_date",'created_at','updated_at']
     });
       return enrollment;
     } catch (error) {
@@ -26,7 +26,7 @@ class EnrollmentService {
   async viewEnrolledUserByCourseId(id) {
     try {
       const enrollment = await Enrollment.findAll({
-        attributes:['id','customer_id','course_id',"status","payment_method","payment_status","enrollment_date",'created_at','updated_at'],
+        attributes:[['id', 'enrollment_id'],'customer_id','course_id',"status","payment_method","payment_status","enrollment_date",'created_at','updated_at'],
         where: {
           course_id: id,
         },
@@ -41,6 +41,18 @@ class EnrollmentService {
       const userResponse = await axios.get(`${process.env.COURSE_SERVICE_END_POINT}` );
         if (userResponse.data) {
         return userResponse.data;
+      } else {
+        return 409;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+  async viewCustomers() {
+    try {
+      const customerResponse = await axios.get(`${process.env.CUSTOMER_SERVICE_END_POINT}`);
+      if (customerResponse.data) {
+        return customerResponse.data;
       } else {
         return 409;
       }

@@ -33,15 +33,21 @@ const EnrollmentController = {
   async viewEnrolledUser(req, res) {
       try {
         const course = await service.viewCourses(req.body);
-        if (409 != course) {
+        const customerResponse = await service.viewCustomers();
+        if (409 != course && 409 != customerResponse) {
         const enroll = await service.viewEnrolledUser(req.body);
         const courses = JSON.parse(JSON.stringify(course.data));
         const enrolls = JSON.parse(JSON.stringify(enroll));
+        const users = JSON.parse(JSON.stringify(customerResponse.data));
         const enrollDetail = enrolls.map((enrolls) => {
           const courseDetail = courses.find((c) => c.id === enrolls.course_id);
+          const Customers=users.find((cs) => cs.id === enrolls.customer_id);
+          const { id: courseId, ...restOfCourseDetail } = courseDetail;
+          const { id: customerId, ...restOfCustomers } = Customers;
           return {
             ...enrolls,
-            ...courseDetail,
+            ...restOfCustomers,
+            ...restOfCourseDetail,
           };
         });
         return res.status(HttpStatus.CREATED).json({
@@ -69,13 +75,19 @@ const EnrollmentController = {
       { return res.status(HttpStatus.OK).json({
         message: "Enrollment is not exist in the course"}); }else{
       const course = await service.viewCourses(req.body);
+      const customerResponse = await service.viewCustomers();
       const courses = JSON.parse(JSON.stringify(course.data));
+      const users = JSON.parse(JSON.stringify(customerResponse.data));
       const enrolls = JSON.parse(JSON.stringify(enroll));
       const enrollDetail = enrolls.map((enrolls) => {
         const courseDetail = courses.find((c) => c.id === enrolls.course_id);
+        const Customers=users.find((cs) => cs.id === enrolls.customer_id);
+        const { id: courseId, ...restOfCourseDetail } = courseDetail;
+        const { id: customerId, ...restOfCustomers } = Customers;
         return {
           ...enrolls,
-          ...courseDetail,
+          ...restOfCustomers,
+          ...restOfCourseDetail,
         };
       });
       return res.status(HttpStatus.OK).json({
