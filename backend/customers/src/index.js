@@ -29,7 +29,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-const APP_PORT = CUSTOMER_SERVICE_PORT || 9992;
+const APP_PORT = CUSTOMER_SERVICE_PORT || 8882;
 
 app.listen(APP_PORT, () => {
   console.log(`Customer Service running on #${APP_PORT}`);
