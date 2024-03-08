@@ -68,54 +68,6 @@ const CourseSelectionContainer = () => {
         Choose from 183,000 online video courses with new additions published
         every month
       </Subtitle>
-      <ButtonContainer>
-        <Button
-          onClick={() => setTriggerElement("Python")}
-          isActive={triggerElement === "Python"}
-        >
-          Python
-        </Button>
-        <Button
-          onClick={() => setTriggerElement("JS")}
-          isActive={triggerElement === "JS"}
-        >
-          JavaScript
-        </Button>
-        <Button
-          onClick={() => setTriggerElement("Aws")}
-          isActive={triggerElement === "Aws"}
-        >
-          AWS Certification
-        </Button>
-        <Button
-          onClick={() => setTriggerElement("Excel")}
-          isActive={triggerElement === "Excel"}
-        >
-          Excel
-        </Button>
-        <Button
-          onClick={() => setTriggerElement("DataScience")}
-          isActive={triggerElement === "DataScience"}
-        >
-          Data Science
-        </Button>
-      </ButtonContainer>
-      <BorderStyle>
-        <ExplanationContainer>
-          <MainTitle>{state.title}</MainTitle>
-          <DiscriptionContainer>{state.description}</DiscriptionContainer>
-          <LinkButton color="white" height="4.2rem" width="fit-content">
-            Explore {state.name}
-          </LinkButton>
-        </ExplanationContainer>
-        <SliderContainer>
-          {triggerElement === "Python" && <Carousel data={pythonData} />}
-          {triggerElement === "JS" && <Carousel data={js} />}
-          {triggerElement === "Aws" && <Carousel data={aws} />}
-          {triggerElement === "DataScience" && <Carousel data={dataScience} />}
-          {triggerElement === "Excel" && <Carousel data={excel} />}
-        </SliderContainer>
-      </BorderStyle>
     </>
   );
 };
