@@ -42,7 +42,7 @@ export function SignIn() {
       const data = await response.json(); // Assuming the response contains the auth token
       localStorage.setItem('authToken', data.token); // Save the token in local storage
       navigate("/dashboard/home",{ replace: true }); // Redirect after successful login
-      window.location.href = '/dashboard/home';
+      window.location.href = '/dashboard/courses';
 
     } catch (error) {
       setError('Failed to log in. Please check your credentials.');
