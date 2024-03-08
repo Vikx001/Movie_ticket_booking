@@ -12,6 +12,7 @@ const {
   ENROLLMENT_SERVICE_PORT,
   COURSE_SERVICE_PORT,
 } = require("./config");
+const authMiddleware = require("./middleware/authMiddleware");
 const app = express();
 
 // CORS options
@@ -34,10 +35,12 @@ const CUSTOMER_SERVICE = app.use(
 );
 app.use(
   "/api/customers",
+  authMiddleware,
   proxy(`${CUSTOMER_SERVICE_END_POINT}:${CUSTOMER_SERVICE_PORT}`)
 );
 app.use(
   "/api/enrollment",
+  authMiddleware,
   proxy(`${ENROLLMENT_SERVICE_END_POINT}:${ENROLLMENT_SERVICE_PORT}`)
 );
 app.use(
