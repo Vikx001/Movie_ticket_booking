@@ -8,7 +8,7 @@ authController;
 router.post("/login", authController.authenticateUser);
 
 // POST /users - Create a new user
-router.post("/",userController.createUser);
+router.post("/", userController.createUser);
 
 // GET /users - Retrieve all users
 router.get("/", userController.getAllUsers);
@@ -24,6 +24,12 @@ router.delete("/:id", userController.deleteUser);
 
 // POST /users/logout - User logout
 router.post("/logout", authMiddleware, userController.logoutUser);
+
+// POST /users/logout - User logout
+router.get("/verify/token", authMiddleware, userController.verifyUser);
+
+// GET /users/:id/profile - Get user's profile
+router.get("/:id/profile", authMiddleware, userController.getUserProfile);
 
 // GET /users/:id/profile - Get user's profile
 router.get("/:id/profile", authMiddleware, userController.getUserProfile);

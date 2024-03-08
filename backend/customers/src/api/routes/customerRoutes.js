@@ -9,7 +9,7 @@ router.get("/", customerController.viewCustomer);
 // GET /user/:id - Retrive a customer
 router.get("/:id", customerController.viewCustomerById);
 // DELETE /customer/:id - Delete a customer
-router.delete("/:id",authMiddleware, customerController.deleteCustomer);
+router.delete("/:id", authMiddleware, customerController.deleteCustomer);
 // UPDATE /user/:id - update a customer
-router.put("/:id",authMiddleware, customerController.updateCustomer);
+router.put("/:id", authMiddleware, customerController.updateCustomer);
 module.exports = router;

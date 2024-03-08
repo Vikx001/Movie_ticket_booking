@@ -1,6 +1,8 @@
+const { APP_SECRET } = require("../../config");
 const HttpStatus = require("../../utils/HttpStatus");
 const userService = require("../services/userService");
 const userValidationSchema = require("../validations/userSchema");
+const jwt = require("jsonwebtoken");
 
 const UserController = {
   async createUser(req, res) {
@@ -112,6 +114,19 @@ const UserController = {
       res.status(400).json({ msg: "Unable to logout" });
     } catch (error) {
       res.status(200).send({ message: "Logout successful" });
+    }
+  },
+
+  async verifyUser(req, res) {
+    try {
+      console.log("WELCOME");
+      const token = req.headers.authorization.split(" ")[1];
+      const decoded = jwt.verify(token, APP_SECRET);
+      res
+        .status(200)
+        .json({ msg: "Profile Fetched Successfully", data: decoded });
+    } catch (error) {
+      res.status(400).send({ message: "Invalid Data" });
     }
   },
 
