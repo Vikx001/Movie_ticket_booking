@@ -1,59 +1,45 @@
 const Customer = require("../../models/customerModel");
-const Joi = require("joi");
+const { QueryTypes } = require("sequelize");
 const axios = require("axios");
-const fs = require("fs/promises");
+const dB = require("../../config/database");
+const ApiService = require("./apiService");
+const UserService = require("./userService");
+
 class CustomerService {
+  constructor() {
+    this.apiService = new ApiService(process.env.USER_SERVICE_END_POINT);
+    this.userService = new UserService();
+  }
+
   async createCustomer(data) {
     try {
-      const customer = await Customer.create(this.extractCustomerFields(data));
+      const customer = await Customer.create(this._extractCustomerFields(data));
       return customer;
     } catch (error) {
       throw new Error(error.message);
     }
   }
-  async viewCustomer() {
-    try{
-      const customerDetails = await Customer.findAll({
-      attributes: [
-        "id",
-        "user_id",
-        "full_name",
-        "phone_no",
-        "area_of_interests",
-        "status",
-        "created_at",
-        "updated_at",
-      ],
-    });
-    return customerDetails;
-  }catch (error) {
-    throw new Error(error.message);
+
+  async viewCustomers() {
+    return this._queryDB(
+      "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id"
+    );
   }
+
+  async viewCustomerById(id) {
+    return this._findCustomer(id);
   }
-  async viewCustomerById(userId) {
-    try{
-      const customerDetails = await Customer.findAll({
-      attributes: [
-        "id",
-        "user_id",
-        "full_name",
-        "phone_no",
-        "area_of_interests",
-        "status",
-        "created_at",
-        "updated_at",
-      ],
-      where: {
-          user_id: userId,
-        },
-    });
-    return customerDetails;
-  }catch (error) {
-    throw new Error(error.message);
+
+  async deleteCustomer(id) {
+    return this._deleteCustomer({ id });
   }
+
+  async updateCustomer(customerDetail, customer_id) {
+    return this._updateCustomer(customerDetail, { id: customer_id });
   }
-  // Extracts course fields from data
-  extractCustomerFields(data) {
+
+  // Private methods for internal use
+  _extractCustomerFields(data) {
     return {
       user_id: data.user_id,
       full_name: data.full_name,
@@ -62,105 +48,54 @@ class CustomerService {
       status: data.status,
     };
   }
-  async deleteCustomer(id) {
-    try {
-      const customerdelete = await Customer.update(
-        {
-          status: -1,
-        },
-        {
-          where: {
-            user_id: id,
-          },
-        }
-      );
 
-      return customerdelete;
-    } catch {
+  async _queryDB(query, options = {}) {
+    try {
+      return await dB.query(query, { type: QueryTypes.SELECT, ...options });
+    } catch (error) {
       throw new Error(error.message);
     }
   }
-  async updateCustomer(customerDetail, userId) {
+
+  async _findCustomer(id) {
     try {
-      const userExists = await Customer.findOne({
-        where: {
-          user_id: userId,
-          status: 1,
-        }});
-      if (!userExists || null == userExists) {
-        return 409;
-        } else{
-      const userupdate = await Customer.update(
-        {
-          full_name: customerDetail.full_name,
-          phone_no: customerDetail.phone_no,
-          area_of_interests: customerDetail.area_of_interests,
-        },
-        {
-          where: {
-            user_id: userId,
-          },
-        }
+      return this._queryDB(
+        "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.id=" +
+          id
       );
-      return userupdate;
-      }
-    } catch {
+    } catch (error) {
       throw new Error(error.message);
     }
   }
-  async createUser(userData) {
+
+  async _deleteCustomer(condition) {
     try {
-      const userResponse = await axios.post(`${process.env.USER_SERVICE_END_POINT}`, {
-        email: userData.email,
-        password: userData.password,
-        role: userData.role,
+      await Customer.destroy({ where: condition });
+      return true;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  async _updateCustomer(updateValues, condition) {
+    try {
+      const result = await Customer.update(updateValues, {
+        where: condition,
+        returning: true,
       });
-      if (userResponse.data.result) {
-        return userResponse.data;
+
+      const updateCount = result[0];
+      const updatedCustomers = result[1]; // This would be an array of updated customers
+
+      if (updateCount === 1 && updatedCustomers.length > 0) {
+        return updatedCustomers[0]; // Return the first (and should be only) updated customer
       } else {
-        return 409;
-      }
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  }
-  async viewUsers() {
-    try {
-      const userResponse = await axios.get(`${process.env.USER_SERVICE_END_POINT}`
-      );
-      if (userResponse.data.data.result) {
-        return userResponse.data.data;
-      } else {
-        return 409;
-      }
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  }
-  async viewUsersById(userId) {
-    try {
-      const userResponse = await axios.get(`${process.env.USER_SERVICE_END_POINT}/${userId}`
-      );
-      if (userResponse.data.data.result) {
-        return userResponse.data.data;
-      } else {
-        return 409;
-      }
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  }
-  async deleteUser(userId) {
-    try {
-      const userResponse = await axios.delete(`${process.env.USER_SERVICE_END_POINT}/${userId}`);
-      if (userResponse.data) {
-        return userResponse.data;
-      } else {
-        return 409;
+        return null; // No customers updated, or conditions matched more than one.
       }
     } catch (error) {
       throw new Error(error.message);
     }
   }
 }
+
 module.exports = CustomerService;

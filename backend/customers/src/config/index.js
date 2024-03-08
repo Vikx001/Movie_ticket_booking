@@ -13,4 +13,5 @@ module.exports = {
   DB_USER: process.env.DB_USER,
   DB_PASSWORD: process.env.DB_PASSWORD,
   APP_SECRET: process.env.APP_SECRET,
+  USER_SERVICE_END_POINT: process.env.USER_SERVICE_END_POINT,
 };

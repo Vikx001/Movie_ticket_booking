@@ -9,6 +9,7 @@ import {
   PencilSquareIcon
 } from "@heroicons/react/24/solid";
 import { Home, Profile, Courses, Notifications } from "@/pages/dashboard";
+import { Customers } from "./pages/dashboard/courses/customers/customers";
 
 const icon = {
   className: "w-5 h-5 text-inherit",
@@ -27,8 +28,8 @@ export const routes = [
       {
         icon: <UserCircleIcon {...icon} />,
         name: "customers",
-        path: "/profile",
-        element: <Profile />,
+        path: "/customers",
+        element: <Customers />,
       },
       {
         icon: <CheckBadgeIcon {...icon} />,
