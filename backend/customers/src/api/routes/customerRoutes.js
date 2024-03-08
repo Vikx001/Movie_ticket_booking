@@ -3,13 +3,18 @@ const router = express.Router();
 const customerController = require("../controllers/customerController");
 const authMiddleware = require("../middleware/authMiddleware");
 
+//Create new Customer
 router.post("/", customerController.createCustomer);
 
-router.get("/", customerController.viewCustomer);
-// GET /user/:id - Retrive a customer
-router.get("/:id", customerController.viewCustomerById);
-// DELETE /customer/:id - Delete a customer
-router.delete("/:id", authMiddleware, customerController.deleteCustomer);
+//List all Customers
+router.get("/", customerController.listCustomers);
+
+// GET /customer/:id - Retrive customer details
+router.get("/:id", customerController.viewCustomer);
+
 // UPDATE /user/:id - update a customer
 router.put("/:id", authMiddleware, customerController.updateCustomer);
 module.exports = router;
+
+// DELETE /customer/:id - Delete a customer
+router.delete("/:id", authMiddleware, customerController.deleteCustomer);

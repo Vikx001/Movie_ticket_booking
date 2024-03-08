@@ -1,183 +1,154 @@
 const HttpStatus = require("../../utils/HttpStatus");
-const customerService = require("../services/customerService");
+const userService = new (require("../services/userService"))();
+const customerService = new (require("../services/customerService"))();
 const customerValidationSchema = require("../validations/customerSchema");
-const service = new customerService();
 const Joi = require("joi");
 
+// Utility function to send responses
+const sendResponse = (res, status, message, data = null) => {
+  const responseData = { message, data };
+  res.status(status).json(responseData);
+};
+
 const CustomerController = {
-  /**
-   * This function validate the given request and trigger the Enrollment Service
-   * @param {*} req
-   * @param {*} res
-   * @returns JsonResponse
-   */
   async createCustomer(req, res) {
     // Validate the request body first
     const { error } = customerValidationSchema.validate(req.body);
-    const responseData = {
-      data: [],
-      message: "",
-    };
-
     if (error) {
-      return res.status(HttpStatus.BAD_REQUEST).json({
-        ...responseData,
-        message: error.details[0].message,
-      });
+      return sendResponse(
+        res,
+        HttpStatus.BAD_REQUEST,
+        error.details[0].message
+      );
     }
 
     try {
-      // Prepare user data, defaulting role to "customer" if not provided or invalid
       const role =
         req.body.role && req.body.role.trim() !== ""
           ? req.body.role
           : "customer";
-
       const userData = {
         email: req.body.email,
         password: req.body.password,
-        role: role,
+        role,
       };
 
       // Create user and get userId
-      const userServiceResponse = await service.createUser(userData);
-      if (409 != userServiceResponse) {
-        // Prepare customer data
-        const userId = userServiceResponse.data.id;
+      const userInfo = await userService.createUser(userData);
+
+      if (null != userInfo && userInfo.result) {
+        const userId = userInfo.data.id;
         const customerData = { ...req.body, user_id: userId };
-
-        // Create customer
-        const customer = await service.createCustomer(customerData);
-
-        // Respond with 201 Created and the created customer object
-
-        return res.status(HttpStatus.CREATED).json({
-          ...responseData,
-          message: "Customer has been created successfully.",
-          data: customer,
-        });
+        const customer = await customerService.createCustomer(customerData);
+        sendResponse(
+          res,
+          HttpStatus.CREATED,
+          "Customer has been created successfully.",
+          customer
+        );
       } else {
-        return res.status(HttpStatus.BAD_REQUEST).json({
-          ...responseData,
-          message: "This email address already exists!",
-          data: req.body,
-        });
+        sendResponse(res, HttpStatus.BAD_REQUEST, userInfo.message);
       }
     } catch (error) {
-      // Respond with 500 Internal Server Error and the error message
-      return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-        ...responseData,
-        message: `Error: ${error.message}`,
-      });
+      console.log(error);
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
     }
   },
+
+  async listCustomers(req, res) {
+    try {
+      const customers = await customerService.viewCustomers();
+      sendResponse(
+        res,
+        HttpStatus.OK,
+        "User details have been fetched successfully.",
+        customers
+      );
+    } catch (error) {
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
+    }
+  },
+
   async viewCustomer(req, res) {
+    const customer_id = req.params.id;
     try {
-      const userResponse = await service.viewUsers();
-      if (409 != userResponse) {
-        const cutomerResponse = await service.viewCustomer();
-        const user = JSON.parse(JSON.stringify(userResponse.data));
-        const cutomer = JSON.parse(JSON.stringify(cutomerResponse));
-        const userDetail = cutomer.map((cutomer) => {
-          const customerDetail = user.find((u) => u.id === cutomer.user_id);
-          if (customerDetail) {
-            const { role, email_id } = customerDetail; // Specify specific columns here
-            return {
-              role,
-              email_id,
-              ...cutomer,
-            };
-          }
-        });
-        return res.status(HttpStatus.OK).json({
-          message: "User details have been fetched successfully.",
-          data: userDetail,
-        });
+      const customerInfo = await customerService.viewCustomerById(customer_id);
+      if (null != customerInfo) {
+        sendResponse(
+          res,
+          HttpStatus.OK,
+          "User details have been fetched successfully.",
+          customerInfo
+        );
       } else {
-        return res.status(HttpStatus.BAD_REQUEST).json({
-          message: "User is Empty!",
-        });
+        sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
       }
     } catch (error) {
-      res
-        .status(HttpStatus.INTERNAL_SERVER_ERROR)
-        .send({ message: "Error in User", error: error.message });
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
     }
   },
-  async viewCustomerById(req, res) {
-    try {
-      const userId = req.params.id;
-      const userResponse = await service.viewUsersById(userId);
-      if (409 != userResponse) {
-        const cutomerResponse = await service.viewCustomerById(userId);
-        const user = JSON.parse(JSON.stringify(userResponse.data));
-        const cutomer = JSON.parse(JSON.stringify(cutomerResponse));
-        const userDetail = cutomer.map((cutomer) => {
-          const customerDetail = user.find((u) => u.id === cutomer.user_id);
-          if (customerDetail) {
-            const { role, email_id } = customerDetail; // Specify specific columns here
-            return {
-              role,
-              email_id,
-              ...cutomer,
-            };
-          }
-        });
-        return res.status(HttpStatus.OK).json({
-          message: "User details has been fetched successfully.",
-          data: userDetail,
-        });
-      } else {
-        return res.status(HttpStatus.BAD_REQUEST).json({
-          message: "User is Empty!",
-        });
-      }
-    } catch (error) {
-      res
-        .status(HttpStatus.INTERNAL_SERVER_ERROR)
-        .send({ message: "Error in User", error: error.message });
-    }
-  },
+
   async deleteCustomer(req, res) {
-    const userId = req.params.id;
+    const customer_id = req.params.id;
+
     try {
-      const userResponse = await service.deleteUser(userId);
-      if (409 != userResponse) {
-        const cutomerResponse = await service.deleteCustomer(userId);
-        return res
-          .status(HttpStatus.OK)
-          .send({
-            message: `User with user ID : ${userId} deleted successfully`,
-          });
+      const customerInfo = await customerService.viewCustomerById(customer_id);
+
+      const customerResponse = await customerService.deleteCustomer(
+        customer_id
+      );
+
+      if (customerResponse) {
+        await userService.deleteUser(customerInfo[0].user_id);
+        sendResponse(res, HttpStatus.OK, `Customer deleted successfully`);
       } else {
-        return res.status(HttpStatus.BAD_REQUEST).json({
-          message: "User is Empty!",
-        });
+        sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
       }
     } catch (error) {
-      res
-        .status(HttpStatus.INTERNAL_SERVER_ERROR)
-        .send({ message: "Error in User", error: error.message });
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
     }
   },
+
   async updateCustomer(req, res) {
+    const customer_id = req.params.id;
     try {
-      const userId = req.params.id;
-      const customer = await service.updateCustomer(req.body, userId);
-      if (customer == 409) {
-        return res.status(HttpStatus.BAD_REQUEST).json({
-          message: "User not exists!",
-        });
+      const updateResponse = await customerService.updateCustomer(
+        req.body,
+        customer_id
+      );
+
+      if (updateResponse !== 409) {
+        sendResponse(
+          res,
+          HttpStatus.OK,
+          `Customer details updated successfully`,
+          req.body
+        );
       } else {
-        res.status(HttpStatus.OK).send({
-          message: `customer with user ID:${userId} updated successfully`,
-          Data: req.body,
-        });
+        sendResponse(res, HttpStatus.BAD_REQUEST, "User not exists!");
       }
     } catch (error) {
-      res
-        .status(HttpStatus.INTERNAL_SERVER_ERROR)
-        .json({ message: error.message });
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
     }
   },
 };

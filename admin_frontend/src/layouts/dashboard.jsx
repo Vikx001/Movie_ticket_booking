@@ -11,6 +11,7 @@ import routes from "@/routes";
 import { useMaterialTailwindController, setOpenConfigurator } from "@/context";
 import AddCourse from "@/pages/dashboard/courses/add-course";
 import EditCourse from "@/pages/dashboard/courses/edit-course";
+import { EditCustomer } from "@/pages/dashboard/courses/customers/edit-customer";
 
 //import AddCourse from "@/pages/dashboard/courses/add-course";
 //import EditCourse from "@/pages/dashboard/courses/edit-course";
@@ -42,6 +43,7 @@ export function Dashboard() {
           )}
           <Route exact path={"courses/add"} element={<AddCourse />} />
           <Route exact path={"courses/edit/:id"} element={<EditCourse />} />
+          <Route exact path={"customers/edit/:id"} element={<EditCustomer />} />          
         </Routes>
         <div className="text-blue-gray-600">
           <Footer />
