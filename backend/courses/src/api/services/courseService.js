@@ -113,11 +113,8 @@ class CourseService {
       options.order = [[order, sort]];
     }
 
-    console.log(options); // This will show you the final query options
-
     try {
       const courses = await Course.findAll(options);
-      console.log(courses); // Assuming you want to log the fetched courses for debugging
       return courses;
     } catch (error) {
       throw new Error(error.message);

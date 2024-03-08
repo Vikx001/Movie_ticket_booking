@@ -44,22 +44,21 @@ class UserService {
       data: "",
     };
     try {
-    const user = await User.findAll({
-      attributes: ["id","email_id", "role"],
-    });
-    if(user.length ===0 )
-    {
-      returnData.result = false;
-      returnData.data = "User is not exist !";
-      return returnData;
-    } else{
-      returnData.result = true;
-      returnData.data = user;
-      return returnData; }
-  }
-  catch{
-    throw new Error(error.message);
-  }
+      const user = await User.findAll({
+        attributes: ["id", "email_id", "role"],
+      });
+      if (user.length === 0) {
+        returnData.result = false;
+        returnData.data = "User is not exist !";
+        return returnData;
+      } else {
+        returnData.result = true;
+        returnData.data = user;
+        return returnData;
+      }
+    } catch {
+      throw new Error(error.message);
+    }
   }
 
   async getUserById(id) {
@@ -74,15 +73,15 @@ class UserService {
           id: id,
         },
       });
-      if(user.length ===0 )
-      {
+      if (user.length === 0) {
         returnData.result = false;
         returnData.data = "User is not exist !";
         return returnData;
-      } else{
+      } else {
         returnData.result = true;
         returnData.data = user;
-        return returnData; }
+        return returnData;
+      }
     } catch {
       throw new Error(error.message);
     }
@@ -102,7 +101,7 @@ class UserService {
         }
       );
 
-      const res = await axios.put("http://localhost:8880/customers/" + id, {
+      const res = await axios.put(CUSTOMER_SERVICE_END_POINT + "/" + id, {
         full_name,
         phone_no,
         area_of_interests,
