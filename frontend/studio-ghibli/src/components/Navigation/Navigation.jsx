@@ -1,5 +1,3 @@
-
-
 import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
@@ -16,6 +14,7 @@ import RightTooltip from "./RightTooltip/RightTooltip";
 import SearchBar from "./SearchBar/SearchBar";
 import CartTooltip from "./CartTooltip/CartTooltip";
 import Categories from "./Categories/Categories";
+import { AppRegistration } from "@mui/icons-material";
 
 const Navigation = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -69,10 +68,35 @@ const Navigation = () => {
           boxShadow: "0 2px 4px rgb(0 0 0 / 8%), 0 4px 12px rgb(0 0 0 / 8%)",
         }}
       >
-        <Toolbar disableGutters sx={{ my: "auto", gap: 1, alignItems: "center" }}>
+        <Toolbar
+          disableGutters
+          sx={{ my: "auto", gap: 1, alignItems: "center" }}
+        >
           {/* Studio Ghibli Logo */}
-          <Box sx={{ marginRight: 2, display: 'flex', alignItems: 'center' }}>
-            <span style={{ fontWeight: 'bold', fontSize: '1.5rem' }}>Studio Ghibli</span>
+          <Box
+            sx={{
+              bgcolor: "#000000", // Use theme's primary color
+              color: "white", // Text color
+              fontWeight: "bold",
+              fontSize: "2rem",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              borderRadius: "20px", // Rounded corners
+              width: "200px", // Fixed width
+              height: "100px", // Fixed height
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Subtle shadow for depth
+              "&:hover": {
+                // Hover effect
+                backgroundColor: "primary.dark", // Darken on hover
+                boxShadow: "0 8px 16px rgba(0, 0, 0, 0.3)", // Larger shadow on hover
+              },
+              userSelect: "none", // Prevent text selection
+              transition: "all 0.3s ease-in-out", // Smooth transition for hover effects
+              cursor: "pointer", // Change cursor to indicate interactivity
+            }}
+          >
+            Studio Ghibli
           </Box>
           <Box sx={{ flexGrow: 1 }}>
             <SearchBar />
@@ -104,10 +128,11 @@ const Navigation = () => {
                 onClick={handleLoginClick}
                 variant="text"
                 sx={{
-                  color: "blue",
+                  border: "1px solid #000000",
+                  color: "#000000",
                   fontSize: "1.4rem",
-                  height: "4rem",
-                  minWidth: "8rem",
+                  borderRadius: 0,
+                  textTransform: "none",
                 }}
               >
                 Log in
@@ -115,7 +140,14 @@ const Navigation = () => {
               <Button
                 onClick={handleSignUpClick}
                 variant="text"
-                sx={{ fontSize: "1.4rem", height: "4rem", minWidth: "8rem" }}
+                sx={{
+                  border: "1px solid #000000",
+                  color: "#ffffff",
+                  fontSize: "1.4rem",
+                  borderRadius: 0,
+                  textTransform: "none",
+                  bgcolor: "#000000",
+                }}
               >
                 Sign up
               </Button>
@@ -123,16 +155,27 @@ const Navigation = () => {
           )}
         </Toolbar>
       </AppBar>
-      <LoginModal open={loginModalOpen} handleClose={handleLoginModalClose} onLoginSuccess={() => setIsLoggedIn(true)} />
-      <SignUpModal open={signUpModalOpen} handleClose={handleSignUpModalClose} />
+      <LoginModal
+        open={loginModalOpen}
+        handleClose={handleLoginModalClose}
+        onLoginSuccess={() => setIsLoggedIn(true)}
+      />
+      <SignUpModal
+        open={signUpModalOpen}
+        handleClose={handleSignUpModalClose}
+      />
       <Snackbar
         open={snackbarOpen}
         autoHideDuration={6000}
         onClose={() => setSnackbarOpen(false)}
         message={snackbarMessage}
-        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
         action={
-          <Button color="inherit" size="small" onClick={() => setSnackbarOpen(false)}>
+          <Button
+            color="inherit"
+            size="small"
+            onClick={() => setSnackbarOpen(false)}
+          >
             Close
           </Button>
         }
@@ -142,4 +185,3 @@ const Navigation = () => {
 };
 
 export default Navigation;
-
