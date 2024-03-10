@@ -1,16 +1,27 @@
 const Enrollment = require("../../models/enrollmentModel");
 const Course = require("../../models/enrollmentModel");
+const { QueryTypes } = require("sequelize");
 const Joi = require("joi");
 const axios = require("axios");
+const dB = require("../../config/database");
 
 class EnrollmentService {
   async enrollUser(data, user) {
     try {
+      console.log(user);
       const insertData = this.extractEnrollFields(data);
       insertData.customer_id = user.id;
-      console.log(insertData);
       const enrollment = await Enrollment.create(insertData);
       return enrollment;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+  async getEnrollments() {
+    try {
+      return this._queryDB(
+        "SELECT e.*, c.title, c.total_enrollments, ct.id as customer_id, ct.full_name, ct.phone_no, u.email_id FROM `enrollments` e INNER JOIN `customers` ct ON ct.id = e.customer_id INNER JOIN courses c ON c.id = e.course_id INNER JOIN users u on u.id = ct.user_id"
+      );
     } catch (error) {
       throw new Error(error.message);
     }
@@ -111,6 +122,13 @@ class EnrollmentService {
       } else {
         return 404;
       }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+  async _queryDB(query, options = {}) {
+    try {
+      return await dB.query(query, { type: QueryTypes.SELECT, ...options });
     } catch (error) {
       throw new Error(error.message);
     }
