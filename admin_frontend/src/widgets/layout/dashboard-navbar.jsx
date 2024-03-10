@@ -83,9 +83,6 @@ export function DashboardNavbar() {
           </Typography>
         </div>
         <div className="flex items-center">
-          <div className="mr-auto md:mr-4 md:w-56">
-            <Input label="Search" />
-          </div>
           <IconButton
             variant="text"
             color="blue-gray"
@@ -132,14 +129,14 @@ export function DashboardNavbar() {
                     color="blue-gray"
                     className="mb-1 font-normal"
                   >
-                    <strong>New message</strong> from Laur
+                    <strong>New Customer</strong> Enrolled into a Course
                   </Typography>
                   <Typography
                     variant="small"
                     color="blue-gray"
                     className="flex items-center gap-1 text-xs font-normal opacity-60"
                   >
-                    <ClockIcon className="h-3.5 w-3.5" /> 13 minutes ago
+                    <ClockIcon className="h-3.5 w-3.5" /> 1 minutes ago
                   </Typography>
                 </div>
               </MenuItem>

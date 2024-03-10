@@ -23,7 +23,6 @@ const EnrollmentController = {
         const userInfo = await service.getUserInfo(
           req.headers.authorization.split(" ")[1]
         );
-
         const course = await service.enrollUser(req.body, userInfo.data);
         res.status(HttpStatus.CREATED).send({
           message: "User has been enrolled successfully",

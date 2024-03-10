@@ -119,7 +119,6 @@ const UserController = {
 
   async verifyUser(req, res) {
     try {
-      console.log("WELCOME");
       const token = req.headers.authorization.split(" ")[1];
       const decoded = jwt.verify(token, APP_SECRET);
       res

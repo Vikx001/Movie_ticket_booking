@@ -8,7 +8,6 @@ const dB = require("../../config/database");
 class EnrollmentService {
   async enrollUser(data, user) {
     try {
-      console.log(user);
       const insertData = this.extractEnrollFields(data);
       insertData.customer_id = user.id;
       const enrollment = await Enrollment.create(insertData);
@@ -116,7 +115,6 @@ class EnrollmentService {
           },
         }
       );
-
       if (null != user_info.data) {
         return user_info.data;
       } else {

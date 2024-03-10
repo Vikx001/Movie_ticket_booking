@@ -30,6 +30,10 @@ class CustomerService {
     return this._findCustomer(id);
   }
 
+  async viewCustomerByUserId(id) {
+    return this._findCustomerByUserId(id);
+  }
+
   async deleteCustomer(id) {
     return this._deleteCustomer({ id });
   }
@@ -61,6 +65,17 @@ class CustomerService {
     try {
       return this._queryDB(
         "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.id=" +
+          id
+      );
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  async _findCustomerByUserId(id) {
+    try {
+      return this._queryDB(
+        "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.user_id=" +
           id
       );
     } catch (error) {
