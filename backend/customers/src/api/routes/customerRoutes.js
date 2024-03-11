@@ -12,6 +12,9 @@ router.get("/", customerController.listCustomers);
 // GET /customer/:id - Retrive customer details
 router.get("/:id", customerController.viewCustomer);
 
+// GET /customer/user/:id - Retrive customer details by user id
+router.get("/user/:id", customerController.viewCustomerByUserId);
+
 // UPDATE /user/:id - update a customer
 router.put("/:id", authMiddleware, customerController.updateCustomer);
 module.exports = router;

@@ -100,6 +100,29 @@ const CustomerController = {
     }
   },
 
+  async viewCustomerByUserId(req, res) {
+    const user_id = req.params.id;
+    try {
+      const customerInfo = await customerService.viewCustomerByUserId(user_id);
+      if (null != customerInfo) {
+        sendResponse(
+          res,
+          HttpStatus.OK,
+          "Customer details have been fetched successfully.",
+          customerInfo
+        );
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, "Customer not found!");
+      }
+    } catch (error) {
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
+    }
+  },
+
   async deleteCustomer(req, res) {
     const customer_id = req.params.id;
 

@@ -22,7 +22,7 @@ const authService = {
         throw new Error("Invalid credentials");
       } else {
         const userDetails = await this.getCustomerProfile(user.id);
-        console.log(userDetails);
+        console.log("LOGGGGG ", userDetails);
         const userData = {
           id: user.id,
           profile: userDetails.data || [],
@@ -39,11 +39,9 @@ const authService = {
 
   async getCustomerProfile(user_id) {
     try {
-      console.log(`${process.env.CUSTOMER_SERVICE_END_POINT}/${user_id}`);
       const customer_response = await axios.get(
-        `${process.env.CUSTOMER_SERVICE_END_POINT}/${user_id}`
+        `${process.env.CUSTOMER_SERVICE_END_POINT}/user/${user_id}`
       );
-
       if (null != customer_response.data) {
         return customer_response.data;
       } else {

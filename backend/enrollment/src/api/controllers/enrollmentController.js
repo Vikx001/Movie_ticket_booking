@@ -23,7 +23,6 @@ const EnrollmentController = {
         const userInfo = await service.getUserInfo(
           req.headers.authorization.split(" ")[1]
         );
-
         const course = await service.enrollUser(req.body, userInfo.data);
         res.status(HttpStatus.CREATED).send({
           message: "User has been enrolled successfully",
@@ -36,6 +35,21 @@ const EnrollmentController = {
       }
     }
   },
+
+  async listEnrollments(req, res) {
+    try {
+      const enrollmentListing = await service.getEnrollments();
+      res.status(200).send({
+        message: "Data fetched successfully",
+        data: enrollmentListing,
+      });
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Error in enrollment listing", error: error.message });
+    }
+  },
+
   async viewEnrolledUser(req, res) {
     try {
       const course = await service.viewCourses(req.body);
