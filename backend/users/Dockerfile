@@ -5,8 +5,18 @@ RUN npm i bcrypt
 RUN npm install
 
 COPY . .
+
 # Set the environment variable NODE_ENV to 'dev'
-ENV NODE_ENV=dev
+ENV NODE_ENV=local
+
+#Choose approporaite env content
+RUN if [ "$ENV" = "production" ]; then \
+    cp .env.production .env; \
+    elif [ "$ENV" = "dev" ]; then \
+    cp .env.dev .env; \
+    else \
+    cp .env.local .env; \
+    fi
 
 # Set the environment variable NODE_ENV to 'dev'
 #ENV NODE_ENV=prod

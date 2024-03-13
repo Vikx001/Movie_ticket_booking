@@ -3,13 +3,20 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
-# Set the environment variable NODE_ENV to 'dev'
-ENV NODE_ENV=dev
 
 # Set the environment variable NODE_ENV to 'dev'
-#ENV NODE_ENV=prod
+ENV NODE_ENV=local
 
-EXPOSE 9992
+#Choose approporaite env content
+RUN if [ "$ENV" = "production" ]; then \
+    cp .env.production .env; \
+    elif [ "$ENV" = "dev" ]; then \
+    cp .env.dev .env; \
+    else \
+    cp .env.local .env; \
+    fi
+
+EXPOSE 8882
 # Set the environment to run on dev
 CMD ["node", "src/index.js"]
 
