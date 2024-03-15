@@ -1,34 +1,43 @@
-# Use an appropriate base image for building React applications
+# Stage 1: Build the React application
 FROM node:14 AS build
 
-# Set the working directory inside the container
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy package.json and package-lock.json to the working directory
+# Copy package.json and package-lock.json (or yarn.lock) to work directory
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the rest of the application's source code
 COPY . .
 
-# Build the React application
+# Argument to specify the environment (default is `local`)
+ARG ENV=local
+
+# Ensure no .env files are present
+RUN rm -f .env
+
+# Optionally, you can list the directory contents for debugging purposes
+#RUN ls -la
+
+# Use a shell command to conditionally copy the correct .env file
+# If ENV is production, use .env.production, otherwise use the respective .env file
+#RUN if [ "$ENV" = "production" ]; then cp -f .env.production .env.local; else cp -f .env .env.local; fi
+RUN if [ "$ENV" != "production" ]; then cp -f .env.local .env.production; fi
+
+# Build the application
 RUN npm run build
 
-# Use a lightweight web server to serve the built React application
+# Stage 2: Serve the application with NGINX
 FROM nginx:alpine
 
-# Copy the built React application from the build stage to the NGINX web server directory
+# Copy the built app from the previous stage
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Expose the port specified in the PORT environment variable
-ARG PORT
-ENV PORT=${FRONTEND_APPLICATION_PORT}
-EXPOSE ${FRONTEND_APPLICATION_PORT}
+# Copy the nginx configuration (if you have one)
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Copy custom NGINX configuration
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-
-# Command to start NGINX web server
+# Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
