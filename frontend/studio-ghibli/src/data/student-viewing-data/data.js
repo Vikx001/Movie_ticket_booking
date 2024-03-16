@@ -9,7 +9,8 @@ export const courses = [
         price:129.99,
         onSale: true,
         onSalePrice:99.99,
-        mark: "Bestseller"
+        mark: "Bestseller",
+        shortdesc: "Virtual reality filmmaking involves the creation of immersive, 360-degree video content that allows viewers to explore a film environment in all directions. Unlike traditional filmmaking, which is limited to a framed view chosen by the director, VR filmmaking gives the audience the freedom to look around within the virtual world. This approach uses specialized cameras and software to capture and stitch together a spherical scene, offering an unprecedented level of immersion and interaction. The audience can experience being in the middle of the action, whether it's a narrative film, documentary, or interactive experience. VR filmmaking is still evolving, with filmmakers exploring its potential to tell stories in new and engaging ways."
   
     },
     {
@@ -21,7 +22,8 @@ export const courses = [
         reviewerNum:"128,636",
         price:199.99,
         onSale: false,
-        mark: "Bestseller"
+        mark: "Bestseller",
+        shortdesc:""
 
     },
     {
@@ -33,6 +35,7 @@ export const courses = [
         reviewerNum:"285,191",
         price:149.99,
         onSale: false,
+        shortdesc:""
  
     },
     {
@@ -44,7 +47,8 @@ export const courses = [
         reviewerNum:"154,729",
         price:179.99,
         onSale: false,
-        mark: "Bestseller"
+        mark: "Bestseller",
+        shortdesc:""
     },
     {
         id: 4,
@@ -55,7 +59,8 @@ export const courses = [
         reviewerNum:"102,409",
         price:139.99,
         onSale: false,
-        mark: "Bestseller"
+        mark: "Bestseller",
+        shortdesc:""
     },
     {
         id: 5,
@@ -66,7 +71,8 @@ export const courses = [
         reviewerNum:"64,376",
         price:119.99,
         onSale: false,
-        mark: "Bestseller"
+        mark: "Bestseller",
+        shortdesc:""
     },
     {
         id: 6,
@@ -78,6 +84,7 @@ export const courses = [
         price:109.99,
         onSale: true,
         onSalePrice:79.99,
+        shortdesc:""
 
     },
   ];
@@ -93,7 +100,8 @@ export const courses = [
         reviewerNum:"261",
         price:44.99,
         onSale: false,
-        mark: ""
+        mark: "",
+        shortdesc:""
   
     },
     {
@@ -105,7 +113,8 @@ export const courses = [
       reviewerNum:"261",
       price:44.99,
       onSale: false,
-      mark: "Bestseller"
+      mark: "Bestseller",
+      shortdesc:""
 
     },
     {
@@ -117,7 +126,8 @@ export const courses = [
         reviewerNum:"142",
         price:24.99,
         onSale: false,
-        mark: "Bestseller"
+        mark: "Bestseller",
+        shortdesc:""
     },
     {
         id: 3,
@@ -130,7 +140,8 @@ export const courses = [
         price:119.99,
         onSale: true,
         onSalePrice:89.99,
-        mark: ""
+        mark: "",
+        shortdesc:""
     },
     {
         id: 4,
@@ -141,7 +152,8 @@ export const courses = [
         reviewerNum:"44",
         price:54.99,
         onSale: false,
-        mark: "Bestseller"
+        mark: "Bestseller",
+        shortdesc:""
     },
     {
         id: 5,
@@ -152,7 +164,8 @@ export const courses = [
         reviewerNum:"344",
         price:24.99,
         onSale: false,
-        mark: ""
+        mark: "",
+        shortdesc:""
     },
     {
         id: 6,
@@ -164,7 +177,8 @@ export const courses = [
         price:139.99,
         onSale: true,
         onSalePrice:79.99,
-        mark: ""
+        mark: "",
+        shortdesc:""
     },
   ];
 

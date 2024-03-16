@@ -28,7 +28,7 @@ const LoginModal = ({ open, handleClose, onLoginSuccess }) => {
       handleClose();
       setSnackbarMessage("You are logged in!");
       setSnackbarOpen(true);
-      onLoginSuccess(); // Notify parent component about successful login
+      onLoginSuccess(); 
     } catch (error) {
       console.error("Error during login:", error);
       setSnackbarMessage("Login failed. Please try again.");
