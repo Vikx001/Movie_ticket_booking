@@ -128,7 +128,7 @@ const CustomerController = {
 
     try {
       const customerInfo = await customerService.viewCustomerById(customer_id);
-
+      if(customerInfo.length>0){
       const customerResponse = await customerService.deleteCustomer(
         customer_id
       );
@@ -139,6 +139,8 @@ const CustomerController = {
       } else {
         sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
       }
+    } else { sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
+    }
     } catch (error) {
       sendResponse(
         res,
