@@ -39,9 +39,9 @@ export function EditCourse() {
             const {data} = await response.json();
             setCourse({
               title: data.title,
-              description: data.description,
-              learning_outcomes: data.learning_outcomes,
-              course_inclusions: data.course_inclusions,
+              description: data.description.replace(/\r\n/g, '\n'),
+              learning_outcomes: data.learning_outcomes.replace(/\r\n/g, '\n'),
+              course_inclusions: data.course_inclusions.replace(/\r\n/g, '\n'),
               is_certified: data.is_certified,
               author: data.author,
               price: data.price,
