@@ -6,11 +6,9 @@ import FeaturedTopicsContainer from "./container/FeaturedTopicsContainer";
 import AdvertisementContainer from "./container/AdvertisementContainer";
 import FooterContainer from "./container/FooterContainer";
 
-
 function App() {
   return (
     <>
-
       {/* Vikash */}
       <HeaderContainer />
       <CourseSelectionContainer />
