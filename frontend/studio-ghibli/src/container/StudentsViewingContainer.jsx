@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import { courses, sugestedCourses } from "../data/student-viewing-data/data";
 
@@ -66,6 +66,30 @@ const CopyStudentsViewingContainer = () => {
   const [activeItemIndex2, setActiveItemIndex2] = useState(0);
   const chevronWidth = 50;
 
+  const [recentlyAddedCourse, setRecentCourse] = useState([]); //Hello This is set to ok
+  const [topRatedCourse, setTopCourse] = useState([]); //Hello This is set to ok
+
+  useEffect(() => {
+    fetchRecentlyAddedCourses();
+    fetchTopRatedCourses();
+  }, []);
+
+  const fetchRecentlyAddedCourses = () => {
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/courses?order_by=id&sort=desc`; // Your API endpoint
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => setRecentCourse(data.data))
+      .catch((error) => console.error("Failed to fetch data:", error));
+  };
+
+  const fetchTopRatedCourses = () => {
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/courses?order_by=rating&sort=desc`; // Your API endpoint
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => setTopCourse(data.data))
+      .catch((error) => console.error("Failed to fetch data:", error));
+  };
+
   return (
     <Container>
       <CoursesList>
@@ -100,7 +124,7 @@ const CopyStudentsViewingContainer = () => {
             outsideChevron={false}
             chevronWidth={chevronWidth}
           >
-            {courses.map((item) => (
+            {recentlyAddedCourse.map((item) => (
               <Course item={item} key={item.id} />
             ))}
           </ItemsCarousel>
@@ -139,7 +163,7 @@ const CopyStudentsViewingContainer = () => {
             outsideChevron={false}
             chevronWidth={chevronWidth}
           >
-            {sugestedCourses.map((item) => (
+            {topRatedCourse.map((item) => (
               <Course item={item} key={item.id} />
             ))}
           </ItemsCarousel>

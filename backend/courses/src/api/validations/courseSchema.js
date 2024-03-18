@@ -7,6 +7,7 @@ const courseValidationSchema = Joi.object({
   course_inclusions: Joi.any(),
   is_certified: Joi.any(),
   author: Joi.string().required(),
+  price: Joi.string().required(),
   status: Joi.number().max(1).required(),
   rating: Joi.number().min(0).required(),
   total_enrollments: Joi.number().min(0).required(),
