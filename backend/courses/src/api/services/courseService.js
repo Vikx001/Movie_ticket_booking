@@ -37,6 +37,7 @@ class CourseService {
       course_inclusions: data.course_inclusions,
       is_certified: data.is_certified,
       author: data.author,
+      price: data.price,
       rating: data.rating,
       total_enrollments: data.total_enrollments,
       status: data.status,

@@ -17,7 +17,7 @@ export function Enrollments() {
     const [enrollmentData, setEnrollmentData] = useState([]); //Hello This is set to ok
 
     useEffect(() => {
-        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/enrollment`; // Your API endpoint
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/enrollment`; // Your API endpoint
         fetch(apiUrl)
           .then(response => response.json())
           .then(data => setEnrollmentData(data.data))

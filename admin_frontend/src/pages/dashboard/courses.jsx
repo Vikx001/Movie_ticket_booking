@@ -12,12 +12,13 @@ import { EllipsisVerticalIcon } from "@heroicons/react/24/outline";
 import { authorsTableData, projectsTableData } from "@/data";
 import { NavLink } from "react-router-dom";
 import { useEffect, useState } from "react";
+import CurrencyFormatter from "@/widgets/CurrencyFormatter";
 
 export function Courses() {
     const [courseData, setCourseData] = useState([]); //Hello This is set to ok
 
     useEffect(() => {
-        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/courses`; // Your API endpoint
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/courses`; // Your API endpoint
         fetch(apiUrl)
           .then(response => response.json())
           .then(data => setCourseData(data.data))
@@ -67,7 +68,7 @@ export function Courses() {
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["title", "total enrollments", "status",  "created date","", ""].map((el) => (
+                {["title", "price", "total enrollments", "status",  "created date","", ""].map((el) => (
                   <th
                     key={el}
                     className="border-b border-blue-gray-50 py-3 px-5 text-left"
@@ -84,7 +85,7 @@ export function Courses() {
             </thead>
             <tbody>
               {courseData.map(
-                ({ title, total_enrollments, status, created_at, id}, key) => {
+                ({ title, price, total_enrollments, status, created_at, id}, key) => {
                   const className = `py-3 px-5 ${
                     key === authorsTableData.length - 1
                       ? ""
@@ -106,6 +107,11 @@ export function Courses() {
                           </div>
                         </div>
                       </td>
+                      <td className={className}>
+                        <Typography className="text-xs font-semibold text-blue-gray-600">
+                          <CurrencyFormatter value={price}></CurrencyFormatter>
+                        </Typography>
+                      </td>                        
                       <td className={className}>
                         <Typography className="text-xs font-semibold text-blue-gray-600">
                           {total_enrollments}

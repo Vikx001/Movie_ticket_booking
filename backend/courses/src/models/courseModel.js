@@ -30,6 +30,10 @@ const Course = dB.define(
       type: Sequelize.STRING,
       allowNull: false,
     },
+    price: {
+      type: Sequelize.DOUBLE,
+      allowNull: true,
+    },
     course_content: {
       type: Sequelize.STRING,
       allowNull: false,

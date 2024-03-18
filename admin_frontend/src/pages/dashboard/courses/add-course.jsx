@@ -23,6 +23,7 @@ export function Courses() {
         course_inclusions: '',
         is_certified: false,
         author: '',
+        price:'',
         status: '',
         course_content: ''
     });    
@@ -37,6 +38,11 @@ export function Courses() {
           newErrors.title = "Title is required";
           isValid = false;
         }
+
+        if (!course.price.trim() || isNaN(course.price.trim())) {
+            newErrors.price = "Enter a valid price";
+            isValid = false;
+          }        
       
         if (!course.course_content.trim()) {
           newErrors.course_content = "Course Content is required";
@@ -59,14 +65,12 @@ export function Courses() {
     const handleSubmit = async(e) => {
         e.preventDefault();
 
-        console.log(course);
-
         if (!validateForm()) {
             console.log("Validation failed.");
             return; // Stop form submission
         }
 
-        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/courses/create`; // Your API endpoint
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/courses/create`; // Your API endpoint
         let subMissionErrors = {};
       
         try {
@@ -182,7 +186,24 @@ export function Courses() {
                             }}
                             onChange={handleChange}
                         />                      
-                    </div>                    
+                    </div>   
+                    <div className="w-full md:w-1/2 px-3">
+                        <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                            Course Price
+                        </label>
+                        <Input
+                            name="price"
+                            placeholder=""
+                            className="appearance-none block w-full text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" 
+                            labelProps={{
+                                className: "before:content-none after:content-none",
+                            }}
+                            onChange={handleChange}
+                        />       
+                        { !!errors.price ? <p class="text-red-500 text-xs italic">Enter a valid price.</p> : <></> }               
+                    </div>   
+                </div>
+                <div className="flex flex-wrap -mx-3 mb-6">                               
                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
                         <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">Show ON Header</label>
                         <Switch
