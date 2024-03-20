@@ -9,7 +9,7 @@ ENV NODE_ENV=local
 
 #Choose approporaite env content
 #RUN if [ "$ENV" = "production" ]; then \
-cp .env.production .env; 
+CMD cp .env.production .env; 
     #elif [ "$ENV" = "dev" ]; then \
     #cp .env.dev .env; \
     #else \
