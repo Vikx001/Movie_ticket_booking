@@ -14,7 +14,7 @@ import RightTooltip from "./RightTooltip/RightTooltip";
 import SearchBar from "./SearchBar/SearchBar";
 import CartTooltip from "./CartTooltip/CartTooltip";
 import Categories from "./Categories/Categories";
-import { AppRegistration } from "@mui/icons-material";
+import { AppRegistration, Person } from "@mui/icons-material";
 
 const Navigation = () => {
   const [loginModalOpen, setLoginModalOpen] = useState(false);
@@ -115,7 +115,7 @@ const Navigation = () => {
               title={<CartTooltip />}
               placement="bottom-end"
             >
-              <ShoppingCartOutlinedIcon sx={{ fontSize: 24 }} />
+              <Person sx={{ fontSize: 24 }} />
             </RightTooltipWithStyle>
           </MenuButton>
           {isLoggedIn ? (

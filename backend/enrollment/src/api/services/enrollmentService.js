@@ -29,6 +29,17 @@ class EnrollmentService {
       throw new Error(error.message);
     }
   }
+
+  async getEnrollmentsByUserId(id) {
+    try {
+      return this._queryDB(
+        `SELECT e.*, c.title, c.course_content FROM enrollments e INNER JOIN courses c on c.id = e.course_id WHERE e.customer_id = ${id} GROUP BY e.course_id`
+      );
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
   async viewEnrolledUser(data) {
     try {
       const enrollment = await Enrollment.findAll({
@@ -124,6 +135,24 @@ class EnrollmentService {
       throw new Error(error.message);
     }
   }
+
+  async getUserDetails(id, token) {
+    try {
+      const user_info = await axios.get(`${USER_SERVICE_END_POINT}/${id}`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      if (null != user_info.data) {
+        return user_info.data;
+      } else {
+        return 404;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
   async _queryDB(query, options = {}) {
     try {
       return await dB.query(query, { type: QueryTypes.SELECT, ...options });
