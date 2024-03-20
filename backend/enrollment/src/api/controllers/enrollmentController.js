@@ -13,7 +13,6 @@ const EnrollmentController = {
    */
   async enrollUser(req, res) {
     const { error } = enrollmentValidationSchema.validate(req.body);
-
     if (error) {
       return res
         .status(HttpStatus.BAD_REQUEST)
@@ -23,6 +22,7 @@ const EnrollmentController = {
         const userInfo = await service.getUserInfo(
           req.headers.authorization.split(" ")[1]
         );
+        console.log(userInfo);
         const course = await service.enrollUser(req.body, userInfo.data);
         res.status(HttpStatus.CREATED).send({
           message: "User has been enrolled successfully",

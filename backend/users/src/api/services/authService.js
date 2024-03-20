@@ -22,7 +22,6 @@ const authService = {
         throw new Error("Invalid credentials");
       } else {
         const userDetails = await this.getCustomerProfile(user.id);
-        console.log("LOGGGGG ", userDetails);
         const userData = {
           id: user.id,
           profile: userDetails.data || [],
