@@ -4,7 +4,7 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 # Set the environment variable NODE_ENV to 'dev'
-ENV NODE_ENV=local
+#ENV NODE_ENV=local
 
 #Choose approporaite env content
 #RUN if [ "$ENV" = "production" ]; then \
