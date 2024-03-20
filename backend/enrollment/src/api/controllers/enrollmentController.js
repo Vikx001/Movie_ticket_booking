@@ -38,7 +38,31 @@ const EnrollmentController = {
 
   async listEnrollments(req, res) {
     try {
+      const userInfo = await service.getUserInfo(
+        req.headers.authorization.split(" ")[1]
+      );
+
       const enrollmentListing = await service.getEnrollments();
+      res.status(200).send({
+        message: "Data fetched successfully",
+        data: enrollmentListing,
+      });
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Error in enrollment listing", error: error.message });
+    }
+  },
+
+  async listUserEnrollments(req, res) {
+    try {
+      const userInfo = await service.getUserInfo(
+        req.headers.authorization.split(" ")[1]
+      );
+
+      const enrollmentListing = await service.getEnrollmentsByUserId(
+        userInfo.data.id
+      );
       res.status(200).send({
         message: "Data fetched successfully",
         data: enrollmentListing,
