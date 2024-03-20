@@ -123,24 +123,54 @@ const CustomerController = {
     }
   },
 
+  async viewCustomerEnrollments(req, res) {
+    try {
+      const userInfo = await customerService.getUserInfo(
+        req.headers.authorization.split(" ")[1]
+      );
+      console.l;
+      const customerEnrollments = await customerService.viewCustomerEnrollments(
+        userInfo[0].profile.id
+      );
+
+      if (null != customerEnrollments) {
+        sendResponse(
+          res,
+          HttpStatus.OK,
+          "Customer Enrollments have been fetched successfully.",
+          customerEnrollments
+        );
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, "Customer not found!");
+      }
+    } catch (error) {
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error viewCustomerEnrollments : ${error.message}`
+      );
+    }
+  },
+
   async deleteCustomer(req, res) {
     const customer_id = req.params.id;
 
     try {
       const customerInfo = await customerService.viewCustomerById(customer_id);
-      if(customerInfo.length>0){
-      const customerResponse = await customerService.deleteCustomer(
-        customer_id
-      );
+      if (customerInfo.length > 0) {
+        const customerResponse = await customerService.deleteCustomer(
+          customer_id
+        );
 
-      if (customerResponse) {
-        await userService.deleteUser(customerInfo[0].user_id);
-        sendResponse(res, HttpStatus.OK, `Customer deleted successfully`);
+        if (customerResponse) {
+          await userService.deleteUser(customerInfo[0].user_id);
+          sendResponse(res, HttpStatus.OK, `Customer deleted successfully`);
+        } else {
+          sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
+        }
       } else {
         sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
       }
-    } else { sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
-    }
     } catch (error) {
       sendResponse(
         res,
