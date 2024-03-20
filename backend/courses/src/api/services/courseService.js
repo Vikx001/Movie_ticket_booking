@@ -118,7 +118,7 @@ class CourseService {
       const courses = await Course.findAll(options);
       return courses;
     } catch (error) {
-      throw new Error(error.message);
+      throw new Error(error);
     }
   }
 }

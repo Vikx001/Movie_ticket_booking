@@ -20,7 +20,7 @@ export function Customers() {
     }, []);
 
     const fetchCustomers = async () => {
-        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/customers`;
+        const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/customers`;
         try {
             const response = await fetch(apiUrl);
             const data = await response.json();
@@ -34,7 +34,7 @@ export function Customers() {
     const handleDeleteClick = async (e, itemId) => {
         e.preventDefault();
         if(confirm('Are you sure?')) {
-            const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/api/customers/${itemId}`;
+            const apiUrl = `${import.meta.env.VITE_API_BASE_URL}/customers/${itemId}`;
             try {
                 const response = await fetch(apiUrl, {
                     method: 'DELETE',

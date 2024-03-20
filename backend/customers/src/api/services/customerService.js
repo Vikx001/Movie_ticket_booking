@@ -4,6 +4,7 @@ const axios = require("axios");
 const dB = require("../../config/database");
 const ApiService = require("./apiService");
 const UserService = require("./userService");
+const { USER_SERVICE_END_POINT } = require("../../config");
 
 class CustomerService {
   constructor() {
@@ -42,6 +43,31 @@ class CustomerService {
     return this._updateCustomer(customerDetail, { id: customer_id });
   }
 
+  async viewCustomerEnrollments(id) {
+    return this._findEnrollmentsByCustomer(id);
+  }
+
+  async getUserInfo(token) {
+    console.log(`${USER_SERVICE_END_POINT}/verify/token`);
+    try {
+      const user_info = await axios.get(
+        `${USER_SERVICE_END_POINT}/verify/token`,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+      if (null != user_info.data) {
+        return user_info.data;
+      } else {
+        return 404;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
   // Private methods for internal use
   _extractCustomerFields(data) {
     return {
@@ -76,6 +102,17 @@ class CustomerService {
     try {
       return this._queryDB(
         "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.user_id=" +
+          id
+      );
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  async _findEnrollmentsByCustomer(id) {
+    try {
+      return this._queryDB(
+        "SELECT e.customer_id, c.title, c.course_content FROM `enrollments` e INNER JOIN customers ct on ct.id = e.customer_id INNER JOIN courses c on c.id = e.course_id WHERE e.customer_id=" +
           id
       );
     } catch (error) {
