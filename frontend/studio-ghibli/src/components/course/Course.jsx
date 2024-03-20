@@ -160,7 +160,10 @@ const Course = ({ item }) => {
     setDialogOpen(false);
   };
 
-  const handlePayAndEnroll = () => {
+  const handlePayAndEnroll = (id) => {
+    if (0 != id) {
+      setCourseId(id);
+    }
     setDialogOpen(false);
     setPaymentDialogOpen(true);
   };
@@ -261,7 +264,7 @@ const Course = ({ item }) => {
             </PriceWrapper>
 
             <button
-              onClick={handleEnrollClick}
+              onClick={() => handlePayAndEnroll(item.id)}
               style={{
                 padding: "8px 12px",
                 fontSize: "14px",
@@ -370,7 +373,7 @@ const Course = ({ item }) => {
               Cancel
             </Button>
             <Button
-              onClick={handlePayAndEnroll}
+              onClick={() => handlePayAndEnroll(0)}
               color="primary"
               variant="contained"
             >
