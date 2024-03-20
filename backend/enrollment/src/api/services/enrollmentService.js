@@ -4,6 +4,10 @@ const { QueryTypes } = require("sequelize");
 const Joi = require("joi");
 const axios = require("axios");
 const dB = require("../../config/database");
+const {
+  CUSTOMER_SERVICE_END_POINT,
+  USER_SERVICE_END_POINT,
+} = require("../../config");
 
 class EnrollmentService {
   async enrollUser(data, user) {
@@ -70,9 +74,7 @@ class EnrollmentService {
   }
   async viewCourses(data) {
     try {
-      const userResponse = await axios.get(
-        `${process.env.COURSE_SERVICE_END_POINT}`
-      );
+      const userResponse = await axios.get(CUSTOMER_SERVICE_END_POINT);
       if (userResponse.data) {
         return userResponse.data;
       } else {
@@ -84,9 +86,7 @@ class EnrollmentService {
   }
   async viewCustomers() {
     try {
-      const customerResponse = await axios.get(
-        `${process.env.CUSTOMER_SERVICE_END_POINT}`
-      );
+      const customerResponse = await axios.get(CUSTOMER_SERVICE_END_POINT);
       if (customerResponse.data) {
         return customerResponse.data;
       } else {
@@ -108,10 +108,10 @@ class EnrollmentService {
   async getUserInfo(token) {
     try {
       const user_info = await axios.get(
-        `${process.env.USER_SERVICE_END_POINT}/verify/token`,
+        `${USER_SERVICE_END_POINT}/verify/token`,
         {
           headers: {
-            Authorization: "Basic " + token,
+            Authorization: "Bearer " + token,
           },
         }
       );

@@ -34,3 +34,6 @@ html {
   font-size: 62.5%;
   box-sizing: border-box;
 }
+.form-control{
+  font-size: '1.2rem';
+}

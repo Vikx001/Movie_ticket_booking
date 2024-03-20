@@ -69,6 +69,8 @@ const CopyStudentsViewingContainer = () => {
   const [recentlyAddedCourse, setRecentCourse] = useState([]); //Hello This is set to ok
   const [topRatedCourse, setTopCourse] = useState([]); //Hello This is set to ok
 
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+
   useEffect(() => {
     fetchRecentlyAddedCourses();
     fetchTopRatedCourses();

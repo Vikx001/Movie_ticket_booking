@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
@@ -23,6 +23,14 @@ const Navigation = () => {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarMessage, setSnackbarMessage] = useState("");
 
+  useEffect(() => {
+    const authToken = localStorage.getItem("authToken");
+
+    if (authToken) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
   const handleLoginClick = () => {
     setLoginModalOpen(true);
   };
@@ -41,6 +49,7 @@ const Navigation = () => {
 
   const handleLogout = () => {
     setIsLoggedIn(false);
+    localStorage.removeItem("authToken");
     setSnackbarMessage("You are logged out!");
     setSnackbarOpen(true);
   };
