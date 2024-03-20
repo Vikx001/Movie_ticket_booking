@@ -28,7 +28,7 @@ app.use((error, req, res, next) => {
     },
   });
 });
-const APP_PORT = COURSE_SERVICE_PORT || 8884;
+const APP_PORT = COURSE_SERVICE_PORT || 8888;
 
 app.listen(APP_PORT, () => {
   console.log(`Course Service running on #${APP_PORT}`);
