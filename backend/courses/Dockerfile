@@ -8,8 +8,8 @@ COPY . .
 ENV NODE_ENV=local
 
 #Choose approporaite env content
-RUN if [ "$ENV" = "production" ]; then \
-    cp .env.production .env; \
+#RUN if [ "$ENV" = "production" ]; then \
+cp .env.production .env; 
     #elif [ "$ENV" = "dev" ]; then \
     #cp .env.dev .env; \
     #else \
