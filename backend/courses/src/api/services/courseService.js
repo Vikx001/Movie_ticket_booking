@@ -118,6 +118,7 @@ class CourseService {
       const courses = await Course.findAll(options);
       return courses;
     } catch (error) {
+      res.status(500).json({ message: error.message });
       throw new Error(error.message);
     }
   }
