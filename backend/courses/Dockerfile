@@ -17,7 +17,6 @@ CMD cp .env.production .env;
     #fi
 
 EXPOSE 8884
-USER root
 # Set the environment to run on dev
 CMD ["node", "src/index.js"]
 
