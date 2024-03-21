@@ -27,7 +27,6 @@ app.use(express.json());
  * The Proxy Package will route requests coming to these -
  * end point to respective microservices
  */
-console.log("User Service :", `${USER_SERVICE_END_POINT}:${USER_SERVICE_PORT}`);
 
 const CUSTOMER_SERVICE = app.use(
   "/api/users",
