@@ -5,7 +5,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 script {
-                    def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
+                    def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend/studio-ghibli']
                     for (folder in folders) {
                         // Build Docker image
                         sh "docker build -f ./${folder}/Dockerfiles/Dockerfile -t aneeshrp/${folder}:latest ./${folder}"
