@@ -13,11 +13,13 @@ RUN npm install
 # Copy the rest of the application's source code
 COPY . .
 
+COPY .env .env.production
+
 # Argument to specify the environment (default is `local`)
 ARG ENV=production
 
 # Ensure no .env files are present
-RUN rm -f .env
+#RUN rm -f .env
 
 # Optionally, you can list the directory contents for debugging purposes
 #RUN ls -la
