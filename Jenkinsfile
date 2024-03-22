@@ -7,10 +7,13 @@ pipeline {
                 script {
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend/studio-ghibli']
                     for (folder in folders) {
+                        // Modify folder name to replace / with -
+                        def repositoryName = folder.replaceAll('/', '-')
+                        
                         // Build Docker image
-                        sh "docker build -f ./${folder}/Dockerfiles/Dockerfile -t aneeshrp/${folder}:latest ./${folder}"
+                        sh "docker build -f ./${folder}/Dockerfiles/Dockerfile -t aneeshrp/${repositoryName}:latest ./${folder}"
                         // Run SonarQube analysis
-                        //sh "sonar-scanner -Dsonar.projectKey=${folder} -Dsonar.sources=./${folder}"
+                        //sh "sonar-scanner -Dsonar.projectKey=${repositoryName} -Dsonar.sources=./${folder}"
                     }
                 }
             }
@@ -28,8 +31,11 @@ pipeline {
                     
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
+                        // Modify folder name to replace / with -
+                        def repositoryName = folder.replaceAll('/', '-')
+                        
                         // Push Docker image to Docker Hub
-                        sh "docker push aneeshrp/${folder}:latest"
+                        sh "docker push aneeshrp/${repositoryName}:latest"
                     }
                 }
             }
