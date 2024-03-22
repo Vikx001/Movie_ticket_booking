@@ -5,12 +5,11 @@ pipeline {
         stage('Build and Test') {
             steps {
                 // Iterate over folders and build Docker images
-                // Example:
                 script {
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
                         // Build Docker image
-                        sh "docker build -t aneeshrp/${folder}:latest ./${folder}/Dockerfiles/Dockerfile.Dev"
+                        sh "docker build -t aneeshrp/${folder}:latest ./${folder}/Dockerfiles/Dockerfile.Local"
                         // Run SonarQube analysis
                         // Example:
                         sh "sonar-scanner -Dsonar.projectKey=${folder} -Dsonar.sources=./${folder}"
