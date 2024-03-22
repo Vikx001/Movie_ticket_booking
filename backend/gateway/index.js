@@ -6,6 +6,7 @@ const {
   CUSTOMER_SERVICE_END_POINT,
   ENROLLMENT_SERVICE_END_POINT,
   COURSE_SERVICE_END_POINT,
+  GATEWAY_SERVICE_END_POINT,
   GATEWAY_SERVICE_PORT,
   USER_SERVICE_PORT,
   CUSTOMER_SERVICE_PORT,
@@ -13,6 +14,11 @@ const {
   COURSE_SERVICE_PORT,
 } = require("./config");
 const app = express();
+const swaggerUI = require("swagger-ui-express");
+const yamljs=require("yamljs")
+const swaggerJsDocs = yamljs.load("./swagger/api.yml");
+swaggerJsDocs.servers[0].url=GATEWAY_SERVICE_END_POINT;
+app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 
 // CORS options
 const corsOptions = {
