@@ -4,14 +4,12 @@ pipeline {
     stages {
         stage('Build and Test') {
             steps {
-                // Iterate over folders and build Docker images
                 script {
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
                         // Build Docker image
-                        sh "docker build -f ./${folder}/Dockerfiles/Dockerfile -t aneeshrp/${folder}:latest"
+                        sh "docker build -f ./${folder}/Dockerfiles/Dockerfile -t aneeshrp/${folder}:latest ./${folder}"
                         // Run SonarQube analysis
-                        // Example:
                         sh "sonar-scanner -Dsonar.projectKey=${folder} -Dsonar.sources=./${folder}"
                     }
                 }
@@ -23,7 +21,7 @@ pipeline {
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
                         // Push Docker image to Docker Hub
-                        sh "docker push your-dockerhub-username/${folder}:latest"
+                        sh "docker push aneeshrp/${folder}:latest"
                     }
                 }
             }
