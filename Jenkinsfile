@@ -22,33 +22,31 @@ pipeline {
         docker "docker" // Assuming Docker is installed and available on the Jenkins machine
     }
 
-    script { // Add this script block
+    stages {
+        for (stage in stages) {
+            stage(stage) {
+                steps {
+                    script {
+                        // Checkout the Git repository
+                        git branch: 'development', // Adjust if using a different branch
+                            credentialsId: 'fb103d21-0302-4a4d-969d-f3dec615847c', // Replace with your Git credentials ID if needed
+                            url: 'https://github.com/Vikx001/Studio-Ghibli.git' // Replace with your repository details
 
-        stages {
-            for (stage in stages) {
-                stage(stage) {
-                    steps {
-                        script {
-                            // Checkout the Git repository
-                            git branch: 'development', // Adjust if using a different branch
-                               credentialsId: 'fb103d21-0302-4a4d-969d-f3dec615847c', // Replace with your Git credentials ID if needed
-                               url: 'https://github.com/Vikx001/Studio-Ghibli.git' // Replace with your repository details
+                        // Build Docker image with proper naming convention
+                        def imageName = "${DOCKER_REGISTRY}/${stage}:latest"
+                        docker.build(imageName: imageName, dockerfile: "${stage}/Dockerfiles/Dockerfile")
 
-                            // Build Docker image with proper naming convention
-                            def imageName = "${DOCKER_REGISTRY}/${stage}:latest"
-                            docker.build(imageName: imageName, dockerfile: "${stage}/Dockerfiles/Dockerfile")
+                        // Run SonarQube analysis (optional)
+                        // if (env.SONAR_HOST) {
+                        //     sh "sonar-scanner -Dproject.key=${env.SONAR_HOST}"
+                        // }
 
-                            // Run SonarQube analysis (optional)
-                            // if (env.SONAR_HOST) {
-                            //     sh "sonar-scanner -Dproject.key=${env.SONAR_HOST}"
-                            // }
-
-                            // Push Docker image to DockerHub
-                            docker.push(imageName)
-                        }
+                        // Push Docker image to DockerHub
+                        docker.push(imageName)
                     }
                 }
             }
         }
-    } // End script block
+    }
+
 }
