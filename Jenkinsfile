@@ -21,7 +21,7 @@ pipeline {
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
                         // Push Docker image to Docker Hub
-                        sh "docker push aneeshrp/sg-project-group1/${folder}:latest"
+                        sh "docker push aneeshrp/${folder}:latest"
                     }
                 }
             }
