@@ -18,4 +18,4 @@ ENV NODE_ENV='production'
 EXPOSE 8888
 
 # Default command (can be overridden at runtime)
-CMD [ "node", "src/index.js" ]
+CMD [ "node", "index.js" ]
