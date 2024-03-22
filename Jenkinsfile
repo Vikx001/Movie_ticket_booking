@@ -11,7 +11,7 @@ pipeline {
                         def repositoryName = folder.replaceAll('/', '-')
                         
                         // Build Docker image
-                        sh "docker build -f ./${folder}/Dockerfiles/Dockerfile -t aneeshrp/${repositoryName}:latest ./${folder}"
+                        sh "docker build -f ./${folder}/Dockerfiles/Dockerfile.Dev -t aneeshrp/${repositoryName}:latest ./${folder}"
                         // Run SonarQube analysis
                         //sh "sonar-scanner -Dsonar.projectKey=${repositoryName} -Dsonar.sources=./${folder}"
                     }
