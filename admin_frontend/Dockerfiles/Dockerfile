@@ -13,6 +13,8 @@ RUN npm install
 # Copy the rest of the application's source code
 COPY . .
 
+COPY .env .env.production
+
 # Argument to specify the environment (default is `local`)
 ARG ENV=production
 
