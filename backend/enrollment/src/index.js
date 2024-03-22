@@ -3,7 +3,7 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const { error } = require("winston");
 const enrollmentRoutes = require("./api/routes/enrollmentRoutes");
-const { ENROLLMENT_SERVICE_PORT } = require("./config");
+const { ENROLLMENT_SERVICE_PORT, APPLICATION_PORT } = require("./config");
 
 const app = express();
 app.use(cors());
@@ -29,7 +29,7 @@ app.use((error, req, res, next) => {
   });
 });
 
-const APP_PORT = ENROLLMENT_SERVICE_PORT || 8883;
+const APP_PORT = APPLICATION_PORT || 8883;
 
 app.listen(APP_PORT, () => {
   console.log(`Enrollment Service running on #${APP_PORT}`);
