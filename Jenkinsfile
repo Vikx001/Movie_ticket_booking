@@ -8,8 +8,8 @@ pipeline {
                 script {
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
-                        // Build Docker image
-                        sh "docker build -t aneeshrp/${folder}:latest ./${folder}/Dockerfiles/Dockerfile.Local"
+                        // Find Dockerfile and build Docker image
+                        sh "docker build -t aneeshrp/${folder}:latest $(find ${folder}/Dockerfiles -type f -name Dockerfile.Local -print -quit)"
                         // Run SonarQube analysis
                         // Example:
                         sh "sonar-scanner -Dsonar.projectKey=${folder} -Dsonar.sources=./${folder}"
