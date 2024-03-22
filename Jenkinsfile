@@ -9,7 +9,7 @@ pipeline {
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
                         // Build Docker image
-                        sh "docker build -t aneeshrp/${folder}:latest -f ./${folder}/Dockerfiles/Dockerfile"
+                        sh "docker build -f ./${folder}/Dockerfiles/Dockerfile -t aneeshrp/${folder}:latest"
                         // Run SonarQube analysis
                         // Example:
                         sh "sonar-scanner -Dsonar.projectKey=${folder} -Dsonar.sources=./${folder}"
