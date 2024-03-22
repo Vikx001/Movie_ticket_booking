@@ -18,6 +18,14 @@ pipeline {
         stage('Push to Docker Hub') {
             steps {
                 script {
+                    // Define Docker Hub credentials ID
+                    def dockerHubCredentialsId = 'docker-sg-group-1-cred'
+                    
+                    // Docker login command
+                    withCredentials([usernamePassword(credentialsId: dockerHubCredentialsId, passwordVariable: 'DOCKERHUB_PASSWORD', usernameVariable: 'DOCKERHUB_USERNAME')]) {
+                        sh "docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD"
+                    }
+                    
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
                         // Push Docker image to Docker Hub
