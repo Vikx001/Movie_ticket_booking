@@ -5,7 +5,7 @@ pipeline {
         stage('Build and Test') {
             steps {
                 script {
-                    def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend/studio-ghibli']
+                    def folders = ['admin_frontend', 'frontend/studio-ghibli', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment']
                     for (folder in folders) {
                         // Modify folder name to replace / with -
                         def repositoryName = folder.replaceAll('/', '-')
@@ -29,7 +29,7 @@ pipeline {
                         sh "echo \$DOCKERHUB_PASSWORD | docker login -u \$DOCKERHUB_USERNAME --password-stdin"
                     }
                     
-                    def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
+                    def folders = ['admin_frontend', , 'frontend/studio-ghibli','backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment']
                     for (folder in folders) {
                         // Modify folder name to replace / with -
                         def repositoryName = folder.replaceAll('/', '-')
