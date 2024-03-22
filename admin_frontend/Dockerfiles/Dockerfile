@@ -19,7 +19,7 @@ COPY .env .env.production
 ARG ENV=production
 
 # Ensure no .env files are present
-RUN rm -f .env
+#RUN rm -f .env
 
 # Optionally, you can list the directory contents for debugging purposes
 #RUN ls -la
