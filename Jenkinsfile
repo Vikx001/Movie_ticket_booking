@@ -10,7 +10,7 @@ pipeline {
                         // Build Docker image
                         sh "docker build -f ./${folder}/Dockerfiles/Dockerfile -t aneeshrp/${folder}:latest ./${folder}"
                         // Run SonarQube analysis
-                        sh "sonar-scanner -Dsonar.projectKey=${folder} -Dsonar.sources=./${folder}"
+                        //sh "sonar-scanner -Dsonar.projectKey=${folder} -Dsonar.sources=./${folder}"
                     }
                 }
             }
@@ -21,7 +21,7 @@ pipeline {
                     def folders = ['admin_frontend', 'backend/gateway', 'backend/users', 'backend/customers', 'backend/courses', 'backend/enrollment', 'frontend']
                     for (folder in folders) {
                         // Push Docker image to Docker Hub
-                        sh "docker push aneeshrp/${folder}:latest"
+                        sh "docker push aneeshrp/sg-project-group1/${folder}:latest"
                     }
                 }
             }
