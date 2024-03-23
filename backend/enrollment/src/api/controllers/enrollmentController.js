@@ -12,6 +12,12 @@ const EnrollmentController = {
    * @returns JsonResponse
    */
   async enrollUser(req, res) {
+    if (req.headers['auth']) {
+        // Replace 'auth' with 'Authorization'
+        req.headers['authorization'] = req.headers['auth'];
+        // Delete the 'auth' header
+        delete req.headers['auth'];
+    }
     const { error } = enrollmentValidationSchema.validate(req.body);
     if (error) {
       return res
@@ -37,6 +43,12 @@ const EnrollmentController = {
 
   async listEnrollments(req, res) {
     try {
+      if (req.headers['auth']) {
+        // Replace 'auth' with 'Authorization'
+        req.headers['authorization'] = req.headers['auth'];
+        // Delete the 'auth' header
+        delete req.headers['auth'];
+    }
       const userInfo = await service.getUserInfo(
         req.headers.authorization.split(" ")[1]
       );
@@ -55,6 +67,12 @@ const EnrollmentController = {
 
   async listUserEnrollments(req, res) {
     try {
+      if (req.headers['auth']) {
+        // Replace 'auth' with 'Authorization'
+        req.headers['authorization'] = req.headers['auth'];
+        // Delete the 'auth' header
+        delete req.headers['auth'];
+    }
       const userInfo = await service.getUserInfo(
         req.headers.authorization.split(" ")[1]
       );

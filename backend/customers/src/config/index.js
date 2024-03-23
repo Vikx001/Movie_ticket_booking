@@ -1,11 +1,11 @@
 const dotEnv = require("dotenv");
-dotEnv.config();
-if (process.env.NODE_ENV !== "prod") {
+if (process.env.NODE_ENV !== "production") {
   const configFile = `./.env.${process.env.NODE_ENV}`;
   dotEnv.config({ path: configFile, override: true });
 } else {
   dotEnv.config();
 }
+
 module.exports = {
   CUSTOMER_SERVICE_PORT: process.env.CUSTOMER_SERVICE_PORT,
   DB_HOST: process.env.DB_HOST,

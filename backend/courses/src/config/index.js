@@ -1,11 +1,11 @@
 const dotEnv = require("dotenv");
-
-if (process.env.NODE_ENV !== "prod") {
+if (process.env.NODE_ENV != "production") {
   const configFile = `./.env.${process.env.NODE_ENV}`;
   dotEnv.config({ path: configFile });
 } else {
   dotEnv.config();
 }
+
 module.exports = {
   COURSE_SERVICE_PORT: process.env.COURSE_SERVICE_PORT,
   DB_HOST: process.env.DB_HOST,
