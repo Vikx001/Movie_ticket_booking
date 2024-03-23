@@ -7,7 +7,7 @@
     "start": "nodemon src/index.js",
     "start-mac": "NODE_ENV=dev nodemon src/index.js",
     "start-mac-lc": "NODE_ENV=local nodemon src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage"
   },
   "keywords": [
     "#microservices",
@@ -22,6 +22,7 @@
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "jest": "^29.7.0",
     "joi": "^17.12.0",
     "jsonwebtoken": "^9.0.2",
     "mysql": "^2.18.1",
