@@ -12,6 +12,7 @@ const {
   CUSTOMER_SERVICE_PORT,
   ENROLLMENT_SERVICE_PORT,
   COURSE_SERVICE_PORT,
+  APPLICATION_PORT,
 } = require("./config");
 const app = express();
 const swaggerUI = require("swagger-ui-express");
@@ -56,7 +57,7 @@ app.use((req, res, next) => {
   next();
 });
 
-const APP_PORT = GATEWAY_SERVICE_PORT || 8880;
+const APP_PORT = APPLICATION_PORT || 8880;
 
 app.listen(APP_PORT, () => {
   console.log(`Gateway running on ${APP_PORT}`);

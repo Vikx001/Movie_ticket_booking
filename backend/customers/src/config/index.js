@@ -15,4 +15,5 @@ module.exports = {
   DB_PASSWORD: process.env.DB_PASSWORD,
   APP_SECRET: process.env.APP_SECRET,
   USER_SERVICE_END_POINT: process.env.USER_SERVICE_END_POINT,
+  APPLICATION_PORT: process.env.APPLICATION_PORT,
 };
