@@ -19,16 +19,8 @@ COPY . .
 ARG ENV=local
 
 # Ensure no .env files are present
-RUN rm -f .env
 
-
-RUN if [ "$ENV" = "production" ]; then \
-    cp .env.production .env; \
-    elif [ "$ENV" = "local" ]; then \
-    cp .env.local .env; \
-    else \
-    cp .env.dev .env; \
-    fi
+COPY .env.production .env
 
 # Build the application
 RUN npm run build
