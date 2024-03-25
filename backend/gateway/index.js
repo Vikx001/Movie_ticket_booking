@@ -50,7 +50,8 @@ app.use(
 );
 app.use(
   "/api/courses",
-  proxy(`${COURSE_SERVICE_END_POINT}:${COURSE_SERVICE_PORT}`)
+  //proxy(`${COURSE_SERVICE_END_POINT}:${COURSE_SERVICE_PORT}`)
+  proxy(`${COURSE_SERVICE_END_POINT}:31900`)
 );
 
 app.use((req, res, next) => {
@@ -62,6 +63,6 @@ const APP_PORT = APPLICATION_PORT || 8880;
 
 app.listen(APP_PORT, () => {
   console.log(`IP ||   ${COURSE_SERVICE_END_POINT}`);
-  console.log(`PORT ||   ${COURSE_SERVICE_PORT}  `);
+  console.log(`PORT ||  31900  `);
   console.log(`Gateway running on ${APP_PORT}`);
 });
