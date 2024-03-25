@@ -38,15 +38,18 @@ app.use(express.json());
 
 const CUSTOMER_SERVICE = app.use(
   "/api/users",
-  proxy(`${USER_SERVICE_END_POINT}:${USER_SERVICE_PORT}`)
+  //proxy(`${USER_SERVICE_END_POINT}:${USER_SERVICE_PORT}`)
+  proxy(`${COURSE_SERVICE_END_POINT}:32424`)
 );
 app.use(
   "/api/customers",
-  proxy(`${CUSTOMER_SERVICE_END_POINT}:${CUSTOMER_SERVICE_PORT}`)
+  //proxy(`${CUSTOMER_SERVICE_END_POINT}:${CUSTOMER_SERVICE_PORT}`)
+  proxy(`${COURSE_SERVICE_END_POINT}:30598`)
 );
-app.use(
+app. use(
   "/api/enrollment",
-  proxy(`${ENROLLMENT_SERVICE_END_POINT}:${ENROLLMENT_SERVICE_PORT}`)
+  //proxy(`${ENROLLMENT_SERVICE_END_POINT}:${ENROLLMENT_SERVICE_PORT}`)
+  proxy(`${COURSE_SERVICE_END_POINT}:32606`)
 );
 app.use(
   "/api/courses",
