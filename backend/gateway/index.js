@@ -61,5 +61,6 @@ app.use((req, res, next) => {
 const APP_PORT = APPLICATION_PORT || 8880;
 
 app.listen(APP_PORT, () => {
+  console.log(`${COURSE_SERVICE_END_POINT}:${COURSE_SERVICE_PORT}`);
   console.log(`Gateway running on ${APP_PORT}`);
 });
