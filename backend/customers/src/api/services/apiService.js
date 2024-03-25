@@ -7,8 +7,7 @@ class ApiService {
 
   async request(method, path, data = {}) {
     try {
-      const url = `${this.baseUrl}/${path}`;
-      console.log(url);
+      const url = `${this.baseUrl}${path ? "/" + path : ""}`;
       const response = await axios({ method, url, data });
       return response.data;
     } catch (error) {

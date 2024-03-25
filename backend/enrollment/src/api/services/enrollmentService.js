@@ -23,7 +23,7 @@ class EnrollmentService {
   async getEnrollments() {
     try {
       return this._queryDB(
-        "SELECT e.*, c.title, c.total_enrollments, ct.id as customer_id, ct.full_name, ct.phone_no, u.email_id FROM `enrollments` e INNER JOIN `customers` ct ON ct.id = e.customer_id INNER JOIN courses c ON c.id = e.course_id INNER JOIN users u on u.id = ct.user_id ORDER by id DESC"
+        "SELECT e.*, c.title, c.total_enrollments, ct.id as customer_id, ct.full_name, ct.phone_no, u.email_id FROM `enrollments` e LEFT JOIN `customers` ct ON ct.id = e.customer_id LEFT JOIN courses c ON c.id = e.course_id LEFT JOIN users u on u.id = ct.user_id ORDER by id DESC"
       );
     } catch (error) {
       throw new Error(error.message);

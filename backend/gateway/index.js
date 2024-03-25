@@ -17,10 +17,10 @@ const {
 } = require("./config");
 const app = express();
 const swaggerUI = require("swagger-ui-express");
-const yamljs=require("yamljs")
+const yamljs = require("yamljs");
 const swaggerJsDocs = yamljs.load("./swagger/api.yml");
-swaggerJsDocs.servers[0].url=GATEWAY_SERVICE_END_POINT;
-app.use('/api-docs', swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
+swaggerJsDocs.servers[0].url = GATEWAY_SERVICE_END_POINT;
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerJsDocs));
 
 // CORS options
 const corsOptions = {
@@ -38,23 +38,23 @@ app.use(express.json());
 
 const CUSTOMER_SERVICE = app.use(
   "/api/users",
-  //proxy(`${USER_SERVICE_END_POINT}:${USER_SERVICE_PORT}`)
-  proxy(`${COURSE_SERVICE_END_POINT}:32424`)
+  proxy(`${USER_SERVICE_END_POINT}:${USER_SERVICE_PORT}`)
+  //proxy(`${COURSE_SERVICE_END_POINT}:32424`)
 );
 app.use(
   "/api/customers",
-  //proxy(`${CUSTOMER_SERVICE_END_POINT}:${CUSTOMER_SERVICE_PORT}`)
-  proxy(`${COURSE_SERVICE_END_POINT}:30598`)
+  proxy(`${CUSTOMER_SERVICE_END_POINT}:${CUSTOMER_SERVICE_PORT}`)
+  //proxy(`${COURSE_SERVICE_END_POINT}:30598`)
 );
-app. use(
+app.use(
   "/api/enrollment",
-  //proxy(`${ENROLLMENT_SERVICE_END_POINT}:${ENROLLMENT_SERVICE_PORT}`)
-  proxy(`${COURSE_SERVICE_END_POINT}:32606`)
+  proxy(`${ENROLLMENT_SERVICE_END_POINT}:${ENROLLMENT_SERVICE_PORT}`)
+  //proxy(`${COURSE_SERVICE_END_POINT}:32606`)
 );
 app.use(
   "/api/courses",
-  //proxy(`${COURSE_SERVICE_END_POINT}:${COURSE_SERVICE_PORT}`)
-  proxy(`${COURSE_SERVICE_END_POINT}:31900`)
+  proxy(`${COURSE_SERVICE_END_POINT}:${COURSE_SERVICE_PORT}`)
+  //proxy(`${COURSE_SERVICE_END_POINT}:31900`)
 );
 
 app.use((req, res, next) => {
