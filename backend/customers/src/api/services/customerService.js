@@ -99,8 +99,8 @@ class CustomerService {
   }
 
   async _findCustomerByUserId(id) {
-    console.log( `SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.user_id=${
-          id}`);
+    console.log( "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.user_id=" +
+          id);
     try {
       return this._queryDB(
         "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.user_id=" +
