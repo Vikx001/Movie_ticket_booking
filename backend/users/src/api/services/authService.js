@@ -3,7 +3,7 @@ const User = require("../../models/userModel");
 const { use } = require("../routes/userRoutes");
 const bcrypt = require("bcrypt");
 const Op = require("sequelize");
-const { APP_SECRET } = require("../../config");
+const { APP_SECRET, CUSTOMER_SERVICE_END_POINT } = require("../../config");
 const axios = require("axios");
 
 const authService = {
@@ -39,7 +39,7 @@ const authService = {
   async getCustomerProfile(user_id) {
     try {
       const customer_response = await axios.get(
-        `${process.env.CUSTOMER_SERVICE_END_POINT}/user/${user_id}`
+        `${CUSTOMER_SERVICE_END_POINT}/user/${user_id}`
       );
       if (null != customer_response.data) {
         return customer_response.data;
