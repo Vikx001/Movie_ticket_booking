@@ -37,6 +37,7 @@ const authService = {
   },
 
   async getCustomerProfile(user_id) {
+    console.log(`${CUSTOMER_SERVICE_END_POINT}/user/${user_id}`);
     try {
       const customer_response = await axios.get(
         `${CUSTOMER_SERVICE_END_POINT}/user/${user_id}`
