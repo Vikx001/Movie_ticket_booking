@@ -19,7 +19,7 @@ pipeline {
         stage('Build'){
             steps{
             dir('frontend/studio-ghibli'){ 
-            sh ('npm install --save-dev nyc && npm install istanbul --save-dev && npm install --save-dev @babel/plugin-proposal-private-property-in-object && npm run build')
+            sh ('npm install -g license-checker && npm install --save-dev nyc && npm install istanbul --save-dev && npm install --save-dev @babel/plugin-proposal-private-property-in-object && npm run build')
             }
         }
     }
@@ -54,5 +54,11 @@ pipeline {
         
 }
 }
+	stage('Generating SBOM'){
+            steps{
+            dir('frontend/studio-ghibli'){ 
+            sh ('license-checker --json --out sbom.json')}
+}
+} 
 }
 }
