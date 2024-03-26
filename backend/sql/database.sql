@@ -144,9 +144,9 @@ CREATE TABLE `enrollments` (
   `status` int(11) DEFAULT NULL,
   `payment_method` varchar(255) DEFAULT NULL,
   `payment_status` int(11) DEFAULT NULL,
-  `enrollment_date` date DEFAULT current_timestamp(),
-  `created_at` timestamp NULL DEFAULT current_timestamp(),
-  `updated_at` timestamp NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `enrollment_date` date DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -212,20 +212,20 @@ CREATE TABLE `users` (
 INSERT INTO `users` (`id`, `email_id`, `password`, `role`, `status`, `created_at`, `updated_at`) VALUES
 (1, 'admin@studioghibli.com', '$2b$10$pvZr6491u3lU/sj/9O5HYuRLfNEPj3vgFJgoQByp4cpFyQY5H.PgS', 'admin', 1, '2024-03-10 11:31:23', '2024-03-10 11:31:23'),
 (2, 'HubertLForrester@teleworm.us', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2024-03-10 11:33:46', '2024-03-10 11:33:46'),
-(4, 'LauraWKing@dayrep.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2001-01-24 00:00:00', '0000-00-00 00:00:00'),
-(5, 'AndrewCArrington@dayrep.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2005-01-24 00:00:00', '0000-00-00 00:00:00'),
-(6, 'JanieLGoddard@dayrep.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2010-01-24 00:00:00', '0000-00-00 00:00:00'),
-(7, 'CindyPElmore@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2015-01-24 00:00:00', '0000-00-00 00:00:00'),
-(8, 'EdnaRMorrison@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2020-01-24 00:00:00', '0000-00-00 00:00:00'),
-(9, 'RobertJGolding@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2025-01-24 00:00:00', '0000-00-00 00:00:00'),
-(10, 'HeatherJPaulson@teleworm.us', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2031-01-24 00:00:00', '0000-00-00 00:00:00'),
-(11, 'LaurenceRToney@dayrep.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2005-02-24 00:00:00', '0000-00-00 00:00:00'),
-(12, 'EduardoJFerry@jourrapide.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2010-02-24 00:00:00', '0000-00-00 00:00:00'),
-(13, 'AndreaJMorrell@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2015-02-24 00:00:00', '0000-00-00 00:00:00'),
-(14, 'BarbaraRJohnson@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2020-02-24 00:00:00', '0000-00-00 00:00:00'),
-(15, 'ArronARivers@jourrapide.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2025-02-24 00:00:00', '0000-00-00 00:00:00'),
-(16, 'KristenDCampbell@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2005-03-24 00:00:00', '0000-00-00 00:00:00'),
-(17, 'WilliamVVanslyke@teleworm.us', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2007-03-24 00:00:00', '0000-00-00 00:00:00');
+(4, 'LauraWKing@dayrep.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2001-01-24 00:00:00', NULL),
+(5, 'AndrewCArrington@dayrep.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2005-01-24 00:00:00', NULL),
+(6, 'JanieLGoddard@dayrep.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2010-01-24 00:00:00', NULL),
+(7, 'CindyPElmore@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2015-01-24 00:00:00', NULL),
+(8, 'EdnaRMorrison@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2020-01-24 00:00:00', NULL),
+(9, 'RobertJGolding@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2025-01-24 00:00:00', NULL),
+(10, 'HeatherJPaulson@teleworm.us', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2031-01-24 00:00:00', NULL),
+(11, 'LaurenceRToney@dayrep.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2005-02-24 00:00:00', NULL),
+(12, 'EduardoJFerry@jourrapide.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2010-02-24 00:00:00', NULL),
+(13, 'AndreaJMorrell@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2015-02-24 00:00:00', NULL),
+(14, 'BarbaraRJohnson@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2020-02-24 00:00:00', NULL),
+(15, 'ArronARivers@jourrapide.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2025-02-24 00:00:00', NULL),
+(16, 'KristenDCampbell@armyspy.com', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2005-03-24 00:00:00', NULL),
+(17, 'WilliamVVanslyke@teleworm.us', '$2b$10$eDlfZmE6IhSsNMG6c9/0P./ThMl0jqJweJFq5QyL/n4qvCvOFpelm', 'customer', 1, '2007-03-24 00:00:00', NULL);
 
 --
 -- Indexes for dumped tables

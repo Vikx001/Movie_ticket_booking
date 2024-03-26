@@ -49,9 +49,6 @@ const EnrollmentController = {
         // Delete the 'auth' header
         delete req.headers["auth"];
       }
-      const userInfo = await service.getUserInfo(
-        req.headers.authorization.split(" ")[1]
-      );
 
       const enrollmentListing = await service.getEnrollments();
       res.status(200).send({
