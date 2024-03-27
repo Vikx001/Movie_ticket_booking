@@ -1,0 +1,2 @@
+ID,Source,Req. Timestamp,Method,URL,Code,Reason,RTT,Size Resp. Body,Highest Alert,Note,Tags
+1,Proxy,Tue Mar 26 21:40:22 GMT 2024,GET,http://localhost:9991,200,OK,9,1941,Medium,false,"Script, Comment"

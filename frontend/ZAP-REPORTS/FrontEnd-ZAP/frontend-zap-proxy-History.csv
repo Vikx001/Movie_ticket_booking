@@ -1,0 +1,29 @@
+ID,Source,Req. Timestamp,Method,URL,Code,Reason,RTT,Size Resp. Body,Highest Alert,Note,Tags
+173261,Proxy,Tue Mar 26 11:23:06 GMT 2024,POST,http://localhost:8880/api/users/login,200,OK,342,545,Low,false,JSON
+173267,Proxy,Tue Mar 26 11:26:38 GMT 2024,POST,http://localhost:8880/api/customers,201,Created,111,233,Low,false,JSON
+173268,Proxy,Tue Mar 26 11:32:12 GMT 2024,POST,http://localhost:8880/api/enrollment,201,Created,124,233,Low,false,JSON
+173269,Proxy,Tue Mar 26 11:33:55 GMT 2024,GET,http://localhost:8880/api/courses/8,201,Created,27,480,Low,false,JSON
+173271,Proxy,Tue Mar 26 11:37:00 GMT 2024,GET,http://localhost:8880/api/enrollment/user/enrollments?order_by=id&sort=desc%60,500,Internal Server Error,26,278,Low,false,JSON
+173274,Proxy,Tue Mar 26 11:42:27 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,200,OK,136,17,,false,JSON
+173276,Proxy,Tue Mar 26 11:42:27 GMT 2024,GET,http://localhost:9990/,200,OK,7,644,Medium,false,Script
+173278,Proxy,Tue Mar 26 11:42:28 GMT 2024,GET,http://localhost:9990/static/js/main.96e5847e.js,200,OK,12,686419,Low,false,"Script, Comment"
+173280,Proxy,Tue Mar 26 11:42:28 GMT 2024,GET,http://localhost:9990/static/css/main.1d05e13a.css,200,OK,2,76680,,false,
+173283,Proxy,Tue Mar 26 11:42:28 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&display=swap,200,OK,56,6420,,false,Comment
+173285,Proxy,Tue Mar 26 11:42:29 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi41ORIgCW6cTvWGnze4EgUNNDfTKxIFDdzkyiwh0KTMr-mEIXI=?alt=proto,200,OK,77,28,Low,false,
+173289,Proxy,Tue Mar 26 11:42:30 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi41ORJRCbTmrF5B_mW2EgUNBu27_xIFDQbtu_8SBQ0G7bv_EgUNBu27_xIFDQbtu_8SBQ0G7bv_EgUNBu27_xIFDQbtu_8SBQ0G7bv_IbjyBhz3kidQ?alt=proto,200,OK,59,112,Low,false,
+173314,Proxy,Tue Mar 26 11:42:32 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi41ORIZCdV6cZA_GYFJEgUNkWGVTiFmMZ3h0pHEJg==?alt=proto,200,OK,62,16,Low,false,
+173315,Proxy,Tue Mar 26 11:42:32 GMT 2024,GET,http://localhost:9990/manifest.json,200,OK,1,492,Low,false,JSON
+173316,Proxy,Tue Mar 26 11:42:32 GMT 2024,GET,https://fonts.gstatic.com/s/playfairdisplay/v37/nuFiD-vYSZviVYUb_rj3ij__anPXDTzYgEM86xQ.woff2,200,OK,62,38340,Low,false,Comment
+173321,Proxy,Tue Mar 26 11:42:33 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi41ORJmCdghpfjbAUzPEgUNNDfTKxIFDdzkyiwSBQ0G7bv_EgUNBu27_xIFDQbtu_8SBQ0G7bv_EgUNBu27_xIFDQbtu_8SBQ0G7bv_EgUNBu27_xIFDQbtu_8SBQ2RYZVOIdZr6BUIQ5oKEiAJbpxO9YafN7gSBQ00N9MrEgUN3OTKLCHWa-gVCEOaChJRCbTmrF5B_mW2EgUNBu27_xIFDQbtu_8SBQ0G7bv_EgUNBu27_xIFDQbtu_8SBQ0G7bv_EgUNBu27_xIFDQbtu_8SBQ0G7bv_IdZr6BUIQ5oKEhkJ1XpxkD8ZgUkSBQ2RYZVOIdZr6BUIQ5oK?alt=proto,200,OK,56,300,Low,false,
+173322,Proxy,Tue Mar 26 11:42:34 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi41ORInCV3iQsMKtO1LEgUNNDfTKxIFDdzkyiwSBQ2RYZVOIfq1tAr3g5KBEiAJbpxO9YafN7gSBQ00N9MrEgUN3OTKLCH6tbQK94OSgRIZCdV6cZA_GYFJEgUNkWGVTiH6tbQK94OSgQ==?alt=proto,200,OK,61,80,Low,false,
+173325,Proxy,Tue Mar 26 11:42:36 GMT 2024,POST,https://optimizationguide-pa.googleapis.com/v1:GetModels?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw,200,OK,74,2449,Low,false,
+173327,Proxy,Tue Mar 26 11:42:38 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=1709568210&target=OPTIMIZATION_TARGET_NOTIFICATION_PERMISSION_PREDICTIONS,200,OK,74,5139,Medium,false,
+173328,Proxy,Tue Mar 26 11:42:38 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=1679317318&target=OPTIMIZATION_TARGET_LANGUAGE_DETECTION,200,OK,120,265059,Medium,false,Comment
+173329,Proxy,Tue Mar 26 11:42:38 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=1673999601&target=OPTIMIZATION_TARGET_PAGE_VISIBILITY,200,OK,113,883094,Medium,false,Comment
+173330,Proxy,Tue Mar 26 11:42:38 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=4&target=OPTIMIZATION_TARGET_PAGE_TOPICS_V2,200,OK,127,2222106,,false,
+173331,Proxy,Tue Mar 26 11:42:38 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=1709568188&target=OPTIMIZATION_TARGET_GEOLOCATION_PERMISSION_PREDICTIONS,200,OK,109,45164,Medium,false,Comment
+173332,Proxy,Tue Mar 26 11:42:38 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=1696267841&target=OPTIMIZATION_TARGET_OMNIBOX_URL_SCORING,200,OK,72,4680,,false,
+173333,Proxy,Tue Mar 26 11:42:38 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=1710169458&target=OPTIMIZATION_TARGET_CLIENT_SIDE_PHISHING,200,OK,143,2747168,Medium,false,Comment
+173334,Proxy,Tue Mar 26 11:42:39 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=1689043206&target=OPTIMIZATION_TARGET_VISUAL_SEARCH_CLASSIFICATION,200,OK,129,1463571,Medium,false,Comment
+173335,Proxy,Tue Mar 26 11:42:38 GMT 2024,GET,https://optimizationguide-pa.googleapis.com/downloads?name=1691042511&target=OPTIMIZATION_TARGET_NEW_TAB_PAGE_HISTORY_CLUSTERS_MODULE_RANKING,200,OK,2894,3844,Medium,false,
+173336,Proxy,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990,200,OK,9,644,Medium,false,Script

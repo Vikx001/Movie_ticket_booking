@@ -1,0 +1,38 @@
+Processed,Method,URI,Flags
+true,GET,http://localhost:9991,Seed
+true,GET,http://localhost:9991/robots.txt,Seed
+true,GET,http://localhost:9991/sitemap.xml,Seed
+true,GET,http://localhost:9991/img/favicon.png,
+false,GET,https://fonts.googleapis.com/css2?display=swap&family=Roboto:wght@300;400;500;700;900,Out of Scope
+false,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,Out of Scope
+true,GET,http://localhost:9991/assets/index-f63d4ef4.css,
+false,GET,https://api.nepcha.com/js/nepcha-analytics.js,Out of Scope
+true,GET,http://localhost:9991/assets/index-f60dc4fb.js,
+false,GET,https://www.creative-tim.com/product/material-tailwind-dashboard-react,Out of Scope
+false,GET,https://www.creative-tim.com/,Out of Scope
+false,GET,https://github.com/creativetimofficial/material-tailwind-dashboard-react/blob/main/LICENSE.md,Out of Scope
+false,GET,https://reactjs.org/docs/error-decoder.html?invariant,Out of Scope
+false,GET,http://www.w3.org/1999/xlink,Out of Scope
+false,GET,http://www.w3.org/XML/1998/namespace,Out of Scope
+false,GET,http://www.w3.org/2000/svg,Out of Scope
+false,GET,http://www.w3.org/1998/Math/MathML,Out of Scope
+false,GET,http://www.w3.org/1999/xhtml,Out of Scope
+false,GET,http://jedwatson.github.io/classnames,Out of Scope
+false,GET,http://fb.me/use-check-prop-types,Out of Scope
+false,GET,https://www.framer.com/docs/guide-upgrade/,Out of Scope
+false,GET,https://github.com/focus-trap/tabbable/blob/master/LICENSE,Out of Scope
+false,GET,https://www.material-tailwind.com/docs/react/collapse,Out of Scope
+false,GET,https://demos.creative-tim.com/material-dashboard/assets/img/team-2.jpg,Out of Scope
+false,GET,https://demos.creative-tim.com/material-dashboard/assets/img/small-logos/logo-spotify.svg,Out of Scope
+false,GET,http://svgjs.dev/,Out of Scope
+false,GET,http://www.w3.org/2000/xmlns/,Out of Scope
+true,GET,http://localhost:8880/api/courses,
+true,GET,http://localhost:8880/api/courses/$,
+true,GET,http://localhost:8880/api/customers,
+true,GET,http://localhost:8880/api/customers/$,
+true,GET,http://localhost:8880/api/enrollment,
+true,GET,http://localhost:8880/api/courses/create,
+true,GET,http://localhost:8880/api/api/customers/$,
+true,GET,http://localhost:8880/api/users/login,
+false,GET,https://www.youtube.com/,Out of Scope
+false,GET,https://www.youtube.com/embed/_2uZ7IabVOM?si=0UPcdPjZDRPqMDHp,Out of Scope

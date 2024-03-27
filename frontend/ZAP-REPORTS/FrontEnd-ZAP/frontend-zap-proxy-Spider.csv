@@ -1,0 +1,27 @@
+Processed,Req. Timestamp,Method,URL,Code,Reason,RTT,Size Resp. Header,Size Resp. Body,Highest Alert,Tags
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990,200,OK,2,238,644,Medium,Script
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/robots.txt,200,OK,10,237,67,Low,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/sitemap.xml,404,Not Found,12,155,555,Medium,Comment
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/,200,OK,12,238,644,Medium,Script
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/images/advertisement,301,Moved Permanently,3,213,169,Low,
+Not Text,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/logo192.png,200,OK,4,240,5347,Low,
+Not Text,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/favicon.ico,200,OK,4,242,3870,Low,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/images,301,Moved Permanently,4,199,169,Low,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/images/footer,301,Moved Permanently,1,206,169,Low,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/manifest.json,200,OK,3,245,492,Low,JSON
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/static/css/main.1d05e13a.css,200,OK,12,241,76680,Low,Comment
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/static/js/main.96e5847e.js,200,OK,26,256,686419,Low,"Script, Comment"
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/images/top-categories,301,Moved Permanently,1,214,169,Low,
+I/O Error,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost/images/footer/,400,ZAP IO Error,1,92,4201,,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/images/header,301,Moved Permanently,2,206,169,Low,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/static,301,Moved Permanently,2,199,169,Low,
+I/O Error,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost/images/,400,ZAP IO Error,1,92,4201,,
+I/O Error,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost/images/advertisement/,400,ZAP IO Error,1,92,4201,,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/static/css,301,Moved Permanently,12,203,169,Low,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:9990/static/js,301,Moved Permanently,7,202,169,Low,
+I/O Error,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost/images/top-categories/,400,ZAP IO Error,0,92,4201,,
+I/O Error,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost/static/,400,ZAP IO Error,1,92,4201,,
+I/O Error,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost/images/header/,400,ZAP IO Error,0,92,4201,,
+I/O Error,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost/static/js/,400,ZAP IO Error,0,92,4201,,
+I/O Error,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost/static/css/,400,ZAP IO Error,0,92,4201,,
+Successfully,Tue Mar 26 11:44:43 GMT 2024,GET,http://localhost:8880/,404,Not Found,19,404,139,Medium,
