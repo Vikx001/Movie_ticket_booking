@@ -1,5 +1,4 @@
-
-import React from "react";
+import React, { useEffect } from "react";
 
 import { courses, sugestedCourses } from "../data/student-viewing-data/data";
 
@@ -7,14 +6,10 @@ import Course from "../components/course/Course";
 
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faAngleLeft,
-  faAngleRight,
-} from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
-import { useState } from 'react';
+import { useState } from "react";
 import ItemsCarousel from "react-items-carousel";
-
 
 const Container = styled.div`
   margin-top: 6.4rem;
@@ -71,77 +66,110 @@ const CopyStudentsViewingContainer = () => {
   const [activeItemIndex2, setActiveItemIndex2] = useState(0);
   const chevronWidth = 50;
 
+  const [recentlyAddedCourse, setRecentCourse] = useState([]); //Hello This is set to ok
+  const [topRatedCourse, setTopCourse] = useState([]); //Hello This is set to ok
+
+  const [loginModalOpen, setLoginModalOpen] = useState(false);
+
+  useEffect(() => {
+    fetchRecentlyAddedCourses();
+    fetchTopRatedCourses();
+  }, []);
+
+  const fetchRecentlyAddedCourses = () => {
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/courses?order_by=id&sort=desc`; // Your API endpoint
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => setRecentCourse(data.data))
+      .catch((error) => console.error("Failed to fetch data:", error));
+  };
+
+  const fetchTopRatedCourses = () => {
+    const apiUrl = `${process.env.REACT_APP_API_BASE_URL}/api/courses?order_by=rating&sort=desc`; // Your API endpoint
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => setTopCourse(data.data))
+      .catch((error) => console.error("Failed to fetch data:", error));
+  };
+
   return (
     <Container>
       <CoursesList>
-        <StudentsViewingTitle>StudentsViewing</StudentsViewingTitle>
+        <StudentsViewingTitle>Recently Added Courses</StudentsViewingTitle>
 
-        <CourseWrapper>       
-            <ItemsCarousel
-              requestToChangeActive={setActiveItemIndex1}
-              activeItemIndex={activeItemIndex1}
-              numberOfCards={5}
-              gutter={15}
-              leftChevron={<Arrow direction="left">{ 
-                              <FontAwesomeIcon
-                                style={{ color: "white", fontSize: "2rem" }}
-                                icon={faAngleLeft}
-                              />}
-                          </Arrow>}
-              rightChevron={<Arrow direction="right">{ 
-                              <FontAwesomeIcon
-                                style={{ color: "white", fontSize: "2rem" }}
-                                icon={faAngleRight}
-                              />}
-                            </Arrow>}
-              outsideChevron={false}
-              chevronWidth={chevronWidth}
-            >
-      
-                {courses.map((item) => (
-                    <Course item={item} key={item.id} />
-                ))}
-
-            </ItemsCarousel>
+        <CourseWrapper>
+          <ItemsCarousel
+            requestToChangeActive={setActiveItemIndex1}
+            activeItemIndex={activeItemIndex1}
+            numberOfCards={5}
+            gutter={15}
+            leftChevron={
+              <Arrow direction="left">
+                {
+                  <FontAwesomeIcon
+                    style={{ color: "white", fontSize: "2rem" }}
+                    icon={faAngleLeft}
+                  />
+                }
+              </Arrow>
+            }
+            rightChevron={
+              <Arrow direction="right">
+                {
+                  <FontAwesomeIcon
+                    style={{ color: "white", fontSize: "2rem" }}
+                    icon={faAngleRight}
+                  />
+                }
+              </Arrow>
+            }
+            outsideChevron={false}
+            chevronWidth={chevronWidth}
+          >
+            {recentlyAddedCourse.map((item) => (
+              <Course item={item} key={item.id} />
+            ))}
+          </ItemsCarousel>
         </CourseWrapper>
-
       </CoursesList>
 
       <CoursesList>
-        <StudentsViewingTitle>
-          Because you searched for{" "}
-          <span style={{ color: "purple" }}>"zero to master"</span>{" "}
-        </StudentsViewingTitle>
-       
-        <CourseWrapper>       
-            <ItemsCarousel
-              requestToChangeActive={setActiveItemIndex2}
-              activeItemIndex={activeItemIndex2}
-              numberOfCards={5}
-              gutter={15}
-              leftChevron={<Arrow direction="left">{ 
-                              <FontAwesomeIcon
-                                style={{ color: "white", fontSize: "2rem" }}
-                                icon={faAngleLeft}
-                              />}
-                          </Arrow>}
-              rightChevron={<Arrow direction="right">{ 
-                              <FontAwesomeIcon
-                                style={{ color: "white", fontSize: "2rem" }}
-                                icon={faAngleRight}
-                              />}
-                            </Arrow>}
-              outsideChevron={false}
-              chevronWidth={chevronWidth}
-            >
-      
-                {sugestedCourses.map((item) => (
-                    <Course item={item} key={item.id} />
-                ))}
+        <StudentsViewingTitle>Tope Rated Courses</StudentsViewingTitle>
 
-            </ItemsCarousel>
+        <CourseWrapper>
+          <ItemsCarousel
+            requestToChangeActive={setActiveItemIndex2}
+            activeItemIndex={activeItemIndex2}
+            numberOfCards={5}
+            gutter={15}
+            leftChevron={
+              <Arrow direction="left">
+                {
+                  <FontAwesomeIcon
+                    style={{ color: "white", fontSize: "2rem" }}
+                    icon={faAngleLeft}
+                  />
+                }
+              </Arrow>
+            }
+            rightChevron={
+              <Arrow direction="right">
+                {
+                  <FontAwesomeIcon
+                    style={{ color: "white", fontSize: "2rem" }}
+                    icon={faAngleRight}
+                  />
+                }
+              </Arrow>
+            }
+            outsideChevron={false}
+            chevronWidth={chevronWidth}
+          >
+            {topRatedCourse.map((item) => (
+              <Course item={item} key={item.id} />
+            ))}
+          </ItemsCarousel>
         </CourseWrapper>
-  
       </CoursesList>
     </Container>
   );

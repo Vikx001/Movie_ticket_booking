@@ -39,54 +39,49 @@ class UserService {
   }
 
   async getAllUsers() {
-    const user = await User.findAll({
-      attributes: ["id", "username", "email_id", "password", "role"],
-    });
-
-    const customer = await axios({
-      method: "get",
-      url: "http://localhost:8880/customers/",
-    });
-
-    const users = JSON.parse(JSON.stringify(user));
-    const customers = JSON.parse(JSON.stringify(customer.data.data));
-    const userDetail = users.map((users) => {
-      const customerDetail = customers.find((c) => c.user_id === users.id);
-      return {
-        ...users,
-        ...customerDetail,
-      };
-    });
-    return userDetail;
+    const returnData = {
+      result: "",
+      data: "",
+    };
+    try {
+      const user = await User.findAll({
+        attributes: ["id", "email_id", "role"],
+      });
+      if (user.length === 0) {
+        returnData.result = false;
+        returnData.data = "User is not exist !";
+        return returnData;
+      } else {
+        returnData.result = true;
+        returnData.data = user;
+        return returnData;
+      }
+    } catch {
+      throw new Error(error.message);
+    }
   }
 
   async getUserById(id) {
+    const returnData = {
+      result: "",
+      data: "",
+    };
     try {
       const user = await User.findAll({
-        attributes: ["id", "username", "email_id", "password", "role"],
+        attributes: ["id", "email_id", "role"],
         where: {
           id: id,
         },
       });
-
-      if (user.length == 0) {
-        return;
+      if (user.length === 0) {
+        returnData.result = false;
+        returnData.data = "User is not exist !";
+        return returnData;
+      } else {
+        returnData.result = true;
+        returnData.data = user;
+        return returnData;
       }
-      const customer = await axios({
-        method: "get",
-        url: "http://localhost:8880/customers/",
-      });
-
-      const users = JSON.parse(JSON.stringify(user));
-      const customers = JSON.parse(JSON.stringify(customer.data.data));
-      const userDetail = users.map((users) => {
-        const customerDetail = customers.find((c) => c.user_id === users.id);
-        return {
-          ...users,
-          ...customerDetail,
-        };
-      });
-      return userDetail;
     } catch {
       throw new Error(error.message);
     }
@@ -106,7 +101,7 @@ class UserService {
         }
       );
 
-      const res = await axios.put("http://localhost:8880/customers/" + id, {
+      const res = await axios.put(CUSTOMER_SERVICE_END_POINT + "/" + id, {
         full_name,
         phone_no,
         area_of_interests,
@@ -121,7 +116,7 @@ class UserService {
     try {
       const userdelete = await User.update(
         {
-          status: 0,
+          status: -1,
         },
         {
           where: {
@@ -129,7 +124,6 @@ class UserService {
           },
         }
       );
-      const res = await axios.delete("http://localhost:8880/customers/" + id);
       return userdelete;
     } catch {
       throw new Error(error.message);

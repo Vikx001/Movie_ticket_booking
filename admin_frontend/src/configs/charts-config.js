@@ -5,7 +5,7 @@ export const chartsConfig = {
     },
   },
   title: {
-    show: "",
+    show: "", 
   },
   dataLabels: {
     enabled: false,

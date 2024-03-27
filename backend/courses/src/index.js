@@ -1,9 +1,15 @@
+require("newrelic");
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const { error } = require("winston");
 const courseRoutes = require("./api/routes/courseRoutes");
-const { COURSE_SERVICE_PORT, DB_HOST, DB_USER } = require("./config");
+const {
+  COURSE_SERVICE_PORT,
+  DB_HOST,
+  DB_USER,
+  APPLICATION_PORT,
+} = require("./config");
 
 const app = express();
 app.use(cors());
@@ -28,7 +34,7 @@ app.use((error, req, res, next) => {
     },
   });
 });
-const APP_PORT = COURSE_SERVICE_PORT || 8884;
+const APP_PORT = APPLICATION_PORT || 8884;
 
 app.listen(APP_PORT, () => {
   console.log(`Course Service running on #${APP_PORT}`);

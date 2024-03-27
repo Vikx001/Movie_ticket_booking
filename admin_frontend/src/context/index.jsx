@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const MaterialTailwind = React.createContext(null);
 MaterialTailwind.displayName = "MaterialTailwindContext";
 
-export function reducer(state, action) {
+export function reducer(state, action) { 
   switch (action.type) {
     case "OPEN_SIDENAV": {
       return { ...state, openSidenav: action.value };

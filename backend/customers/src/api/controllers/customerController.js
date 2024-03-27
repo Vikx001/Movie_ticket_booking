@@ -1,108 +1,209 @@
 const HttpStatus = require("../../utils/HttpStatus");
-const customerService = require("../services/customerService");
+const userService = new (require("../services/userService"))();
+const customerService = new (require("../services/customerService"))();
 const customerValidationSchema = require("../validations/customerSchema");
-const service = new customerService();
 const Joi = require("joi");
 
+// Utility function to send responses
+const sendResponse = (res, status, message, data = null) => {
+  const responseData = { message, data };
+  res.status(status).json(responseData);
+};
+
 const CustomerController = {
-  /**
-   * This function validate the given request and trigger the Enrollment Service
-   * @param {*} req
-   * @param {*} res
-   * @returns JsonResponse
-   */
   async createCustomer(req, res) {
     // Validate the request body first
     const { error } = customerValidationSchema.validate(req.body);
-    const responseData = {
-      data: [],
-      message: "",
-    };
-
     if (error) {
-      return res.status(HttpStatus.BAD_REQUEST).json({
-        ...responseData,
-        message: error.details[0].message,
-      });
+      return sendResponse(
+        res,
+        HttpStatus.BAD_REQUEST,
+        error.details[0].message
+      );
     }
 
     try {
-      // Prepare user data, defaulting role to "customer" if not provided or invalid
       const role =
         req.body.role && req.body.role.trim() !== ""
           ? req.body.role
           : "customer";
-
       const userData = {
         email: req.body.email,
         password: req.body.password,
-        role: role,
+        role,
       };
 
       // Create user and get userId
-      const userServiceResponse = await service.createUser(userData);
-      if (409 != userServiceResponse) {
-        // Prepare customer data
-        const userId = userServiceResponse.data.id;
+      const userInfo = await userService.createUser(userData);
+
+      if (null != userInfo && userInfo.result) {
+        const userId = userInfo.data.id;
         const customerData = { ...req.body, user_id: userId };
-
-        // Create customer
-        const customer = await service.createCustomer(customerData);
-
-        // Respond with 201 Created and the created customer object
-
-        return res.status(HttpStatus.CREATED).json({
-          ...responseData,
-          message: "Customer has been created successfully.",
-          data: customer,
-        });
+        const customer = await customerService.createCustomer(customerData);
+        sendResponse(
+          res,
+          HttpStatus.CREATED,
+          "Customer has been created successfully.",
+          customer
+        );
       } else {
-        return res.status(HttpStatus.BAD_REQUEST).json({
-          ...responseData,
-          message: "This email address already exists!",
-          data: req.body,
-        });
+        sendResponse(res, HttpStatus.BAD_REQUEST, userInfo.message);
       }
     } catch (error) {
-      // Respond with 500 Internal Server Error and the error message
-      return res.status(HttpStatus.INTERNAL_SERVER_ERROR).json({
-        ...responseData,
-        message: `Error: ${error.message}`,
-      });
+      console.log(error);
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
     }
   },
+
+  async listCustomers(req, res) {
+    try {
+      const customers = await customerService.viewCustomers();
+      sendResponse(
+        res,
+        HttpStatus.OK,
+        "User details have been fetched successfully.",
+        customers
+      );
+    } catch (error) {
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
+    }
+  },
+
   async viewCustomer(req, res) {
+    const customer_id = req.params.id;
     try {
-      const customer = await service.viewCustomer();
-      res.status(201).send({
-        message: "customer has been fetched successfully",
-        data: customer,
-      });
+      const customerInfo = await customerService.viewCustomerById(customer_id);
+      if (null != customerInfo) {
+        sendResponse(
+          res,
+          HttpStatus.OK,
+          "User details have been fetched successfully.",
+          customerInfo
+        );
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
+      }
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
     }
   },
+
+  async viewCustomerByUserId(req, res) {
+    const user_id = req.params.id;
+    try {
+      const customerInfo = await customerService.viewCustomerByUserId(user_id);
+      if (null != customerInfo) {
+        sendResponse(
+          res,
+          HttpStatus.OK,
+          "Customer details have been fetched successfully.",
+          customerInfo
+        );
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, "Customer not found!");
+      }
+    } catch (error) {
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
+    }
+  },
+
+  async viewCustomerEnrollments(req, res) {
+    try {
+      const userInfo = await customerService.getUserInfo(
+        req.headers.authorization.split(" ")[1]
+      );
+      console.l;
+      const customerEnrollments = await customerService.viewCustomerEnrollments(
+        userInfo[0].profile.id
+      );
+
+      if (null != customerEnrollments) {
+        sendResponse(
+          res,
+          HttpStatus.OK,
+          "Customer Enrollments have been fetched successfully.",
+          customerEnrollments
+        );
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, "Customer not found!");
+      }
+    } catch (error) {
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error viewCustomerEnrollments : ${error.message}`
+      );
+    }
+  },
+
   async deleteCustomer(req, res) {
+    const customer_id = req.params.id;
+
     try {
-      const userId = req.params.id;
-      const customer = await service.deleteCustomer(userId);
-      res
-        .status(200)
-        .send({ message: `customer ${customer} deleted successfully` });
+      const customerInfo = await customerService.viewCustomerById(customer_id);
+      if (customerInfo.length > 0) {
+        const customerResponse = await customerService.deleteCustomer(
+          customer_id
+        );
+
+        if (customerResponse) {
+          await userService.deleteUser(customerInfo[0].user_id);
+          sendResponse(res, HttpStatus.OK, `Customer deleted successfully`);
+        } else {
+          sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
+        }
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, "User is Empty!");
+      }
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
     }
   },
+
   async updateCustomer(req, res) {
+    const customer_id = req.params.id;
     try {
-      const userId = req.params.id;
-      const customer = await service.updateCustomer(req.body, userId);
-      res.status(200).send({
-        message: `customer ${customer} update successfully`,
-        Data: req.body,
-      });
+      const updateResponse = await customerService.updateCustomer(
+        req.body,
+        customer_id
+      );
+
+      if (updateResponse !== 409) {
+        sendResponse(
+          res,
+          HttpStatus.OK,
+          `Customer details updated successfully`,
+          req.body
+        );
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, "User not exists!");
+      }
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      sendResponse(
+        res,
+        HttpStatus.INTERNAL_SERVER_ERROR,
+        `Error: ${error.message}`
+      );
     }
   },
 };

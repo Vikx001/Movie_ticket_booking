@@ -1,12 +1,11 @@
 const jwt = require("jsonwebtoken");
-
-const secretKey = "1234567890";
+const { APP_SECRET } = require("../../config");
 
 const authMiddleware = (req, res, next) => {
   try {
     const token = req.headers.authorization.split(" ")[1];
-    
-    const decoded = jwt.verify(token, secretKey);
+
+    const decoded = jwt.verify(token, APP_SECRET);
     req.userData = decoded;
     next();
   } catch (error) {

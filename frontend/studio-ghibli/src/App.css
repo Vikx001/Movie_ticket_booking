@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.course-details {
+  display: flex;
+  flex-direction: column; /* To stack rows vertically */
+}
+
+.details-row {
+  display: flex;
+  align-items: center; /* To align items vertically in the row */
+}
+
+.details-row > * {
+  margin-right: 8px; /* Adjust spacing between elements */
+}
+
+.form-control{
+  font-size: '1.2rem';
+}

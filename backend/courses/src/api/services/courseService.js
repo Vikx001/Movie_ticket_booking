@@ -37,6 +37,7 @@ class CourseService {
       course_inclusions: data.course_inclusions,
       is_certified: data.is_certified,
       author: data.author,
+      price: data.price,
       rating: data.rating,
       total_enrollments: data.total_enrollments,
       status: data.status,
@@ -113,14 +114,11 @@ class CourseService {
       options.order = [[order, sort]];
     }
 
-    console.log(options); // This will show you the final query options
-
     try {
       const courses = await Course.findAll(options);
-      console.log(courses); // Assuming you want to log the fetched courses for debugging
       return courses;
     } catch (error) {
-      throw new Error(error.message);
+      throw new Error(error);
     }
   }
 }
