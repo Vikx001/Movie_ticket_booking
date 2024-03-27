@@ -182,3 +182,5 @@ For Sprint 3 to 7 -> 1 SP= 2 hour
 
 # Definition of Ready/Done
 Will be mentioned in the accepted criteria of each task posted in Jira
+
+#comment
