@@ -42,7 +42,7 @@ COPY --from=build /app/dist /usr/share/nginx/html
 #COPY nginx.conf /etc/nginx/nginx.conf
 
 # Copy the nginx configuration (if you have one)
-# COPY nginx.conf /etc/nginx/conf.d/default.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Start NGINX
 CMD ["nginx", "-g", "daemon off;"]
