@@ -1,0 +1,371 @@
+Processed,ID,Req. Timestamp,Method,URL,Code,Reason,RTT,Size Resp. Header,Size Resp. Body,Highest Alert,Note,Tags
+Out of Scope,40,Tue Mar 26 21:40:27 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,41,Tue Mar 26 21:40:27 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,42,Tue Mar 26 21:40:28 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,43,Tue Mar 26 21:40:28 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,44,Tue Mar 26 21:40:28 GMT 2024,GET,http://localhost:9991/,200,OK,3,239,1941,Medium,false,"Script, Comment"
+Processed,45,Tue Mar 26 21:40:28 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,17,242,119620,Low,false,
+Processed,46,Tue Mar 26 21:40:28 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,24,258,1417192,Low,false,
+Out of Scope,47,Tue Mar 26 21:40:28 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,48,Tue Mar 26 21:40:29 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,126,812,3011,Low,false,Comment
+Processed,51,Tue Mar 26 21:40:29 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,143,808,3011,Low,false,Comment
+Processed,52,Tue Mar 26 21:40:29 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,143,943,101784,Informational,false,Comment
+Processed,59,Tue Mar 26 21:40:29 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,2,238,809,Low,false,
+Processed,60,Tue Mar 26 21:40:29 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,2,243,101385,Low,false,Comment
+Out of Scope,61,Tue Mar 26 21:40:30 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,62,Tue Mar 26 21:40:31 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,63,Tue Mar 26 21:40:31 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,64,Tue Mar 26 21:40:31 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,65,Tue Mar 26 21:40:31 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,66,Tue Mar 26 21:40:32 GMT 2024,GET,http://localhost:9991/,200,OK,3,239,1941,Medium,false,"Script, Comment"
+Processed,67,Tue Mar 26 21:40:32 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,16,258,1417192,Low,false,
+Processed,68,Tue Mar 26 21:40:32 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,6,242,119620,Low,false,
+Out of Scope,69,Tue Mar 26 21:40:32 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,70,Tue Mar 26 21:40:32 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,36,810,3011,Low,false,Comment
+Processed,71,Tue Mar 26 21:40:32 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,41,814,3011,Low,false,Comment
+Processed,72,Tue Mar 26 21:40:32 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,108,945,101784,Informational,false,Comment
+Processed,73,Tue Mar 26 21:40:32 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,1,238,809,Low,false,
+Processed,74,Tue Mar 26 21:40:32 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,3,243,101385,Low,false,
+Processed,75,Tue Mar 26 21:40:32 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,3,243,101385,Low,false,
+Out of Scope,76,Tue Mar 26 21:40:33 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,77,Tue Mar 26 21:40:33 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,78,Tue Mar 26 21:40:33 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,79,Tue Mar 26 21:40:34 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,6,373,0,Low,false,
+Processed,80,Tue Mar 26 21:40:34 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,15,313,44,Low,false,JSON
+Out of Scope,81,Tue Mar 26 21:40:34 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Out of Scope,82,Tue Mar 26 21:40:35 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,83,Tue Mar 26 21:40:35 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,84,Tue Mar 26 21:40:35 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,85,Tue Mar 26 21:40:36 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,86,Tue Mar 26 21:40:36 GMT 2024,GET,http://localhost:9991/,200,OK,2,239,1941,Medium,false,"Script, Comment"
+Processed,87,Tue Mar 26 21:40:36 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,10,242,119620,Low,false,
+Processed,88,Tue Mar 26 21:40:36 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,20,258,1417192,Low,false,
+Out of Scope,89,Tue Mar 26 21:40:36 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,90,Tue Mar 26 21:40:36 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,33,810,3011,Low,false,Comment
+Processed,91,Tue Mar 26 21:40:36 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,41,812,3011,Low,false,Comment
+Processed,92,Tue Mar 26 21:40:36 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,98,949,101784,Informational,false,
+Processed,93,Tue Mar 26 21:40:36 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,16,238,809,Low,false,
+Processed,94,Tue Mar 26 21:40:36 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,2,243,101385,Low,false,
+Out of Scope,95,Tue Mar 26 21:40:37 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,96,Tue Mar 26 21:40:37 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,97,Tue Mar 26 21:40:37 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,98,Tue Mar 26 21:40:37 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,99,Tue Mar 26 21:40:37 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,100,Tue Mar 26 21:40:37 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,5,373,0,Low,false,
+Processed,101,Tue Mar 26 21:40:38 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,8,313,44,Low,false,JSON
+Processed,102,Tue Mar 26 21:40:38 GMT 2024,GET,http://localhost:9991/,200,OK,5,239,1941,Medium,false,"Script, Comment"
+Processed,103,Tue Mar 26 21:40:38 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,6,242,119620,Low,false,
+Processed,104,Tue Mar 26 21:40:38 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,19,258,1417192,Low,false,
+Out of Scope,105,Tue Mar 26 21:40:38 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,106,Tue Mar 26 21:40:38 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,30,818,3011,Low,false,Comment
+Processed,107,Tue Mar 26 21:40:38 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,37,810,3011,Low,false,Comment
+Processed,108,Tue Mar 26 21:40:38 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,99,947,101784,Informational,false,Comment
+Processed,109,Tue Mar 26 21:40:38 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,3,238,809,Low,false,
+Processed,110,Tue Mar 26 21:40:38 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,5,243,101385,Low,false,
+Processed,111,Tue Mar 26 21:40:39 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,112,Tue Mar 26 21:40:39 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Out of Scope,113,Tue Mar 26 21:40:39 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,114,Tue Mar 26 21:40:39 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,115,Tue Mar 26 21:40:39 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,116,Tue Mar 26 21:40:39 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,4,373,0,Low,false,
+Processed,117,Tue Mar 26 21:40:39 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,15,313,44,Low,false,
+Out of Scope,118,Tue Mar 26 21:40:39 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Out of Scope,119,Tue Mar 26 21:40:41 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,120,Tue Mar 26 21:40:41 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,121,Tue Mar 26 21:40:41 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,122,Tue Mar 26 21:40:41 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,123,Tue Mar 26 21:40:41 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,124,Tue Mar 26 21:40:42 GMT 2024,GET,http://localhost:9991/,200,OK,3,239,1941,Medium,false,
+Processed,125,Tue Mar 26 21:40:42 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,126,Tue Mar 26 21:40:42 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,4,242,119620,Low,false,
+Processed,127,Tue Mar 26 21:40:42 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,21,258,1417192,Low,false,
+Out of Scope,128,Tue Mar 26 21:40:42 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,129,Tue Mar 26 21:40:42 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,37,806,3011,Low,false,Comment
+Processed,130,Tue Mar 26 21:40:42 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,103,955,101784,Informational,false,
+Processed,131,Tue Mar 26 21:40:42 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,1,238,809,Low,false,
+Processed,132,Tue Mar 26 21:40:42 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,3,243,101385,Low,false,
+Out of Scope,133,Tue Mar 26 21:40:42 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,134,Tue Mar 26 21:40:43 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,135,Tue Mar 26 21:40:43 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,136,Tue Mar 26 21:40:43 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,13,313,44,Low,false,JSON
+Out of Scope,137,Tue Mar 26 21:40:43 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,138,Tue Mar 26 21:40:43 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,4,373,0,Low,false,
+Processed,139,Tue Mar 26 21:40:43 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,8,313,44,Low,false,JSON
+Out of Scope,140,Tue Mar 26 21:40:43 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,141,Tue Mar 26 21:40:44 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,142,Tue Mar 26 21:40:44 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,143,Tue Mar 26 21:40:44 GMT 2024,GET,http://localhost:9991/,200,OK,1,239,1941,Medium,false,"Script, Comment"
+Processed,144,Tue Mar 26 21:40:44 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,11,258,1417192,Low,false,
+Processed,145,Tue Mar 26 21:40:44 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,18,242,119620,Low,false,
+Out of Scope,146,Tue Mar 26 21:40:44 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,147,Tue Mar 26 21:40:44 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,30,806,3011,Low,false,Comment
+Processed,148,Tue Mar 26 21:40:44 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,42,808,3011,Low,false,Comment
+Processed,149,Tue Mar 26 21:40:44 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,124,945,101784,Informational,false,
+Processed,150,Tue Mar 26 21:40:44 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,2,238,809,Low,false,
+Processed,151,Tue Mar 26 21:40:44 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,7,243,101385,Low,false,Comment
+Processed,152,Tue Mar 26 21:40:45 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,10,373,0,Low,false,
+Processed,153,Tue Mar 26 21:40:45 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,154,Tue Mar 26 21:40:45 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,8,313,44,Low,false,JSON
+Out of Scope,155,Tue Mar 26 21:40:45 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,156,Tue Mar 26 21:40:45 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,157,Tue Mar 26 21:40:45 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Out of Scope,158,Tue Mar 26 21:40:45 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,159,Tue Mar 26 21:40:46 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,160,Tue Mar 26 21:40:46 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,15,313,44,Low,false,JSON
+Out of Scope,161,Tue Mar 26 21:40:46 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,162,Tue Mar 26 21:40:46 GMT 2024,GET,http://localhost:9991/,200,OK,2,239,1941,Medium,false,
+Out of Scope,163,Tue Mar 26 21:40:46 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,164,Tue Mar 26 21:40:46 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,3,242,119620,Low,false,
+Processed,165,Tue Mar 26 21:40:46 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,21,258,1417192,Low,false,
+Out of Scope,166,Tue Mar 26 21:40:46 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,167,Tue Mar 26 21:40:46 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,51,820,3011,Low,false,Comment
+Processed,168,Tue Mar 26 21:40:46 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,113,947,101784,Informational,false,
+Out of Scope,169,Tue Mar 26 21:40:46 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,170,Tue Mar 26 21:40:47 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,1,238,809,Low,false,
+Processed,171,Tue Mar 26 21:40:47 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,2,243,101385,Low,false,
+Processed,172,Tue Mar 26 21:40:47 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,
+Out of Scope,173,Tue Mar 26 21:40:47 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,174,Tue Mar 26 21:40:47 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,175,Tue Mar 26 21:40:47 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,17,313,44,Low,false,JSON
+Out of Scope,176,Tue Mar 26 21:40:48 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,177,Tue Mar 26 21:40:48 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,6,373,0,Low,false,
+Processed,178,Tue Mar 26 21:40:48 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,13,313,44,Low,false,JSON
+Out of Scope,179,Tue Mar 26 21:40:48 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,180,Tue Mar 26 21:40:48 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,15,313,44,Low,false,JSON
+Out of Scope,181,Tue Mar 26 21:40:48 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,182,Tue Mar 26 21:40:48 GMT 2024,GET,http://localhost:9991/,200,OK,2,239,1941,Medium,false,"Script, Comment"
+Processed,183,Tue Mar 26 21:40:48 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,4,242,119620,Low,false,
+Out of Scope,184,Tue Mar 26 21:40:48 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,185,Tue Mar 26 21:40:48 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,19,258,1417192,Low,false,
+Out of Scope,186,Tue Mar 26 21:40:48 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,187,Tue Mar 26 21:40:48 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,32,814,3011,Low,false,Comment
+Processed,188,Tue Mar 26 21:40:48 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,39,814,3011,Low,false,Comment
+Processed,189,Tue Mar 26 21:40:48 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,109,947,101784,Informational,false,
+Processed,190,Tue Mar 26 21:40:49 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,2,238,809,Low,false,
+Processed,191,Tue Mar 26 21:40:49 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,5,373,0,Low,false,
+Processed,192,Tue Mar 26 21:40:49 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,15,313,44,Low,false,JSON
+Processed,193,Tue Mar 26 21:40:49 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,5,243,101385,Low,false,
+Processed,194,Tue Mar 26 21:40:49 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,195,Tue Mar 26 21:40:49 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,196,Tue Mar 26 21:40:49 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,197,Tue Mar 26 21:40:49 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,20,313,44,Low,false,JSON
+Out of Scope,198,Tue Mar 26 21:40:49 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,199,Tue Mar 26 21:40:49 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,200,Tue Mar 26 21:40:50 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,11,373,0,Low,false,
+Processed,201,Tue Mar 26 21:40:50 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,24,313,44,Low,false,JSON
+Out of Scope,202,Tue Mar 26 21:40:50 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,203,Tue Mar 26 21:40:50 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,204,Tue Mar 26 21:40:50 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Out of Scope,205,Tue Mar 26 21:40:50 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,206,Tue Mar 26 21:40:50 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,14,313,44,Low,false,JSON
+Processed,207,Tue Mar 26 21:40:50 GMT 2024,GET,http://localhost:9991/,200,OK,10,239,1941,Medium,false,"Script, Comment"
+Processed,208,Tue Mar 26 21:40:50 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,209,Tue Mar 26 21:40:51 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,24,258,1417192,Low,false,
+Processed,210,Tue Mar 26 21:40:51 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,5,242,119620,Low,false,
+Out of Scope,211,Tue Mar 26 21:40:51 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,212,Tue Mar 26 21:40:51 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,30,812,3011,Low,false,Comment
+Processed,213,Tue Mar 26 21:40:51 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,39,808,3011,Low,false,Comment
+Processed,214,Tue Mar 26 21:40:51 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,8,313,44,Low,false,JSON
+Processed,215,Tue Mar 26 21:40:51 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,216,Tue Mar 26 21:40:51 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,
+Processed,217,Tue Mar 26 21:40:51 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,109,947,101784,Informational,false,
+Processed,218,Tue Mar 26 21:40:51 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,1,238,809,Low,false,
+Processed,219,Tue Mar 26 21:40:51 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,3,243,101385,Low,false,
+Processed,220,Tue Mar 26 21:40:51 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,14,313,44,Low,false,JSON
+Processed,221,Tue Mar 26 21:40:51 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,222,Tue Mar 26 21:40:51 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Out of Scope,223,Tue Mar 26 21:40:52 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,224,Tue Mar 26 21:40:52 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,225,Tue Mar 26 21:40:52 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,226,Tue Mar 26 21:40:52 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,227,Tue Mar 26 21:40:52 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,7,373,0,Low,false,
+Processed,228,Tue Mar 26 21:40:52 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,229,Tue Mar 26 21:40:52 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,230,Tue Mar 26 21:40:53 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,231,Tue Mar 26 21:40:53 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,19,313,44,Low,false,JSON
+Processed,232,Tue Mar 26 21:40:54 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Out of Scope,233,Tue Mar 26 21:40:54 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,234,Tue Mar 26 21:40:54 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,235,Tue Mar 26 21:40:54 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,236,Tue Mar 26 21:40:54 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,237,Tue Mar 26 21:40:54 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,238,Tue Mar 26 21:40:54 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,239,Tue Mar 26 21:40:54 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,240,Tue Mar 26 21:40:55 GMT 2024,GET,http://localhost:9991/,200,OK,7,239,1941,Medium,false,
+Processed,241,Tue Mar 26 21:40:55 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,3,242,119620,Low,false,
+Processed,242,Tue Mar 26 21:40:55 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,30,258,1417192,Low,false,
+Processed,243,Tue Mar 26 21:40:55 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,19,313,44,Low,false,JSON
+Out of Scope,244,Tue Mar 26 21:40:55 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,245,Tue Mar 26 21:40:55 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,12,313,44,Low,false,JSON
+Processed,246,Tue Mar 26 21:40:55 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,27,812,3011,Low,false,Comment
+Processed,247,Tue Mar 26 21:40:55 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,36,810,3011,Low,false,Comment
+Processed,248,Tue Mar 26 21:40:55 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,119,943,101784,Informational,false,Comment
+Out of Scope,249,Tue Mar 26 21:40:55 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,250,Tue Mar 26 21:40:55 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,13,373,0,Low,false,
+Processed,251,Tue Mar 26 21:40:55 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,3,238,809,Low,false,
+Processed,252,Tue Mar 26 21:40:55 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,13,313,44,Low,false,JSON
+Processed,253,Tue Mar 26 21:40:55 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,3,243,101385,Low,false,Comment
+Processed,254,Tue Mar 26 21:40:55 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,2,373,0,Low,false,
+Processed,255,Tue Mar 26 21:40:55 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,6,313,44,Low,false,JSON
+Out of Scope,256,Tue Mar 26 21:40:56 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,257,Tue Mar 26 21:40:56 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,258,Tue Mar 26 21:40:56 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,259,Tue Mar 26 21:40:56 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,260,Tue Mar 26 21:40:56 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,4,373,0,Low,false,
+Processed,261,Tue Mar 26 21:40:56 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Out of Scope,262,Tue Mar 26 21:40:56 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,263,Tue Mar 26 21:40:56 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,4,373,0,Low,false,
+Processed,264,Tue Mar 26 21:40:57 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,265,Tue Mar 26 21:40:57 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,266,Tue Mar 26 21:40:57 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,8,313,44,Low,false,JSON
+Processed,267,Tue Mar 26 21:40:57 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,13,313,44,Low,false,JSON
+Processed,268,Tue Mar 26 21:40:57 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,13,313,44,Low,false,JSON
+Processed,269,Tue Mar 26 21:40:57 GMT 2024,GET,http://localhost:9991/,200,OK,3,239,1941,Medium,false,"Script, Comment"
+Processed,270,Tue Mar 26 21:40:57 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,14,242,119620,Low,false,
+Processed,271,Tue Mar 26 21:40:57 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,18,258,1417192,Low,false,
+Out of Scope,272,Tue Mar 26 21:40:57 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,273,Tue Mar 26 21:40:57 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,39,814,3011,Low,false,Comment
+Processed,274,Tue Mar 26 21:40:57 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,108,947,101784,Informational,false,Comment
+Processed,275,Tue Mar 26 21:40:57 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,8,238,809,Low,false,
+Processed,276,Tue Mar 26 21:40:57 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,3,243,101385,Low,false,Comment
+Processed,277,Tue Mar 26 21:40:57 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,5,373,0,Low,false,
+Processed,278,Tue Mar 26 21:40:57 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,18,313,44,Low,false,JSON
+Processed,279,Tue Mar 26 21:40:58 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,15,313,44,Low,false,JSON
+Processed,280,Tue Mar 26 21:40:58 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,11,313,44,Low,false,JSON
+Processed,281,Tue Mar 26 21:40:58 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,13,313,44,Low,false,JSON
+Processed,282,Tue Mar 26 21:40:58 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,21,313,44,Low,false,JSON
+Processed,283,Tue Mar 26 21:40:58 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,12,313,44,Low,false,JSON
+Out of Scope,284,Tue Mar 26 21:40:58 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,285,Tue Mar 26 21:40:58 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,286,Tue Mar 26 21:40:59 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Out of Scope,287,Tue Mar 26 21:40:59 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,288,Tue Mar 26 21:40:59 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Out of Scope,289,Tue Mar 26 21:40:59 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,290,Tue Mar 26 21:40:59 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,15,313,44,Low,false,JSON
+Processed,291,Tue Mar 26 21:40:59 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,23,313,44,Low,false,JSON
+Processed,292,Tue Mar 26 21:40:59 GMT 2024,GET,http://localhost:9991/,200,OK,2,239,1941,Medium,false,
+Processed,293,Tue Mar 26 21:40:59 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,294,Tue Mar 26 21:40:59 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,32,313,44,Low,false,
+Processed,295,Tue Mar 26 21:40:59 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,28,313,44,Low,false,JSON
+Processed,296,Tue Mar 26 21:40:59 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,22,313,44,Low,false,JSON
+Processed,297,Tue Mar 26 21:40:59 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,22,258,1417192,Low,false,
+Processed,298,Tue Mar 26 21:40:59 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,22,242,119620,Low,false,
+Out of Scope,299,Tue Mar 26 21:41:00 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,300,Tue Mar 26 21:41:00 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,52,818,3011,Low,false,Comment
+Processed,301,Tue Mar 26 21:41:00 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,51,814,3011,Low,false,Comment
+Processed,302,Tue Mar 26 21:41:00 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,119,949,101784,Informational,false,
+Processed,303,Tue Mar 26 21:41:00 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,2,238,809,Low,false,
+Processed,304,Tue Mar 26 21:41:00 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,4,243,101385,Low,false,Comment
+Processed,305,Tue Mar 26 21:41:00 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,306,Tue Mar 26 21:41:00 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,307,Tue Mar 26 21:41:00 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,308,Tue Mar 26 21:41:00 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,6,313,44,Low,false,JSON
+Processed,309,Tue Mar 26 21:41:01 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Out of Scope,310,Tue Mar 26 21:41:01 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,311,Tue Mar 26 21:41:01 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,312,Tue Mar 26 21:41:01 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,313,Tue Mar 26 21:41:01 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,8,373,0,Low,false,
+Processed,314,Tue Mar 26 21:41:01 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,14,313,44,Low,false,JSON
+Out of Scope,315,Tue Mar 26 21:41:01 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,316,Tue Mar 26 21:41:01 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,30,313,44,Low,false,
+Processed,317,Tue Mar 26 21:41:01 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,8,313,44,Low,false,JSON
+Out of Scope,318,Tue Mar 26 21:41:02 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,319,Tue Mar 26 21:41:02 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,320,Tue Mar 26 21:41:02 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,13,313,44,Low,false,JSON
+Processed,321,Tue Mar 26 21:41:03 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,
+Out of Scope,322,Tue Mar 26 21:41:03 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,323,Tue Mar 26 21:41:03 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,324,Tue Mar 26 21:41:03 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,325,Tue Mar 26 21:41:03 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,326,Tue Mar 26 21:41:03 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,327,Tue Mar 26 21:41:03 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,328,Tue Mar 26 21:41:03 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,8,313,44,Low,false,JSON
+Processed,329,Tue Mar 26 21:41:03 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,7,313,44,Low,false,JSON
+Out of Scope,330,Tue Mar 26 21:41:03 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,331,Tue Mar 26 21:41:04 GMT 2024,GET,http://localhost:9991/,200,OK,3,239,1941,Medium,false,"Script, Comment"
+Processed,332,Tue Mar 26 21:41:04 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,15,313,44,Low,false,JSON
+Processed,333,Tue Mar 26 21:41:04 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,6,242,119620,Low,false,
+Processed,334,Tue Mar 26 21:41:04 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,41,258,1417192,Low,false,
+Out of Scope,335,Tue Mar 26 21:41:04 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,336,Tue Mar 26 21:41:04 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,337,Tue Mar 26 21:41:04 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,30,818,3011,Low,false,Comment
+Processed,338,Tue Mar 26 21:41:04 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,37,810,3011,Low,false,Comment
+Processed,339,Tue Mar 26 21:41:04 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,113,947,101784,Informational,false,
+Processed,340,Tue Mar 26 21:41:04 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,341,Tue Mar 26 21:41:04 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,12,313,44,Low,false,JSON
+Processed,342,Tue Mar 26 21:41:04 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,1,238,809,Low,false,
+Processed,343,Tue Mar 26 21:41:04 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,3,243,101385,Low,false,
+Out of Scope,344,Tue Mar 26 21:41:04 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,345,Tue Mar 26 21:41:05 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,14,313,44,Low,false,JSON
+Processed,346,Tue Mar 26 21:41:05 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,347,Tue Mar 26 21:41:05 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,11,313,44,Low,false,JSON
+Out of Scope,348,Tue Mar 26 21:41:05 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,349,Tue Mar 26 21:41:05 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,350,Tue Mar 26 21:41:05 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,351,Tue Mar 26 21:41:05 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,352,Tue Mar 26 21:41:05 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,21,313,44,Low,false,
+Processed,353,Tue Mar 26 21:41:05 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,6,373,0,Low,false,
+Out of Scope,354,Tue Mar 26 21:41:05 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,355,Tue Mar 26 21:41:05 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,356,Tue Mar 26 21:41:05 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,16,313,44,Low,false,
+Processed,357,Tue Mar 26 21:41:06 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,358,Tue Mar 26 21:41:06 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,11,313,44,Low,false,JSON
+Processed,359,Tue Mar 26 21:41:06 GMT 2024,GET,http://localhost:9991/,200,OK,1,239,1941,Medium,false,"Script, Comment"
+Processed,360,Tue Mar 26 21:41:06 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,12,313,44,Low,false,JSON
+Processed,361,Tue Mar 26 21:41:06 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,30,313,44,Low,false,JSON
+Processed,362,Tue Mar 26 21:41:06 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,16,242,119620,Low,false,
+Processed,363,Tue Mar 26 21:41:06 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,20,258,1417192,Low,false,
+Out of Scope,364,Tue Mar 26 21:41:06 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,365,Tue Mar 26 21:41:06 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,32,816,3011,Low,false,Comment
+Processed,366,Tue Mar 26 21:41:06 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,45,818,3011,Low,false,Comment
+Out of Scope,367,Tue Mar 26 21:41:06 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,368,Tue Mar 26 21:41:06 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,106,953,101784,Informational,false,Comment
+Processed,369,Tue Mar 26 21:41:06 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,2,238,809,Low,false,
+Processed,370,Tue Mar 26 21:41:07 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,1,243,101385,Low,false,
+Processed,371,Tue Mar 26 21:41:07 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,2,243,101385,Low,false,
+Processed,372,Tue Mar 26 21:41:07 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,26,313,44,Low,false,JSON
+Processed,373,Tue Mar 26 21:41:07 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,12,313,44,Low,false,JSON
+Processed,374,Tue Mar 26 21:41:07 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,375,Tue Mar 26 21:41:07 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Out of Scope,376,Tue Mar 26 21:41:07 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,377,Tue Mar 26 21:41:07 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,378,Tue Mar 26 21:41:07 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,25,313,44,Low,false,JSON
+Processed,379,Tue Mar 26 21:41:07 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,18,313,44,Low,false,JSON
+Out of Scope,380,Tue Mar 26 21:41:08 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,381,Tue Mar 26 21:41:08 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,11,373,0,Low,false,
+Processed,382,Tue Mar 26 21:41:08 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,32,313,44,Low,false,JSON
+Out of Scope,383,Tue Mar 26 21:41:08 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,384,Tue Mar 26 21:41:08 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,385,Tue Mar 26 21:41:08 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,11,313,44,Low,false,
+Processed,386,Tue Mar 26 21:41:08 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,9,313,44,Low,false,JSON
+Processed,387,Tue Mar 26 21:41:08 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,17,313,44,Low,false,JSON
+Processed,388,Tue Mar 26 21:41:08 GMT 2024,GET,http://localhost:9991/,200,OK,2,239,1941,Medium,false,"Script, Comment"
+Processed,389,Tue Mar 26 21:41:08 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,11,313,44,Low,false,
+Processed,390,Tue Mar 26 21:41:08 GMT 2024,GET,http://localhost:9991/assets/index-f63d4ef4.css,200,OK,5,242,119620,Low,false,
+Processed,391,Tue Mar 26 21:41:08 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,31,313,44,Low,false,JSON
+Processed,392,Tue Mar 26 21:41:08 GMT 2024,GET,http://localhost:9991/assets/index-f60dc4fb.js,200,OK,19,258,1417192,Low,false,
+Out of Scope,393,Tue Mar 26 21:41:08 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,394,Tue Mar 26 21:41:08 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,42,814,3011,Low,false,Comment
+Processed,395,Tue Mar 26 21:41:08 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,101,953,101784,Informational,false,Comment
+Processed,396,Tue Mar 26 21:41:09 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,11,373,0,Low,false,
+Processed,397,Tue Mar 26 21:41:09 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,11,373,0,Low,false,
+Processed,398,Tue Mar 26 21:41:09 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,20,313,44,Low,false,JSON
+Processed,399,Tue Mar 26 21:41:09 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,23,313,44,Low,false,JSON
+Processed,400,Tue Mar 26 21:41:09 GMT 2024,GET,http://localhost:9991/img/favicon.png,200,OK,1,238,809,Low,false,
+Processed,401,Tue Mar 26 21:41:09 GMT 2024,GET,http://localhost:9991/img/pattern.png,200,OK,2,243,101385,Low,false,
+Processed,402,Tue Mar 26 21:41:09 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,11,313,44,Low,false,
+Processed,403,Tue Mar 26 21:41:09 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,19,313,44,Low,false,JSON
+Processed,404,Tue Mar 26 21:41:09 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,27,313,44,Low,false,
+Processed,405,Tue Mar 26 21:41:09 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,12,313,44,Low,false,
+Processed,406,Tue Mar 26 21:41:10 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,3,373,0,Low,false,
+Processed,407,Tue Mar 26 21:41:10 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,10,313,44,Low,false,JSON
+Processed,408,Tue Mar 26 21:41:10 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,6,313,44,Low,false,JSON
+Out of Scope,409,Tue Mar 26 21:41:10 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=query-stripping&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,410,Tue Mar 26 21:41:10 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=fingerprinting-protection-overrides&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Out of Scope,411,Tue Mar 26 21:41:10 GMT 2024,GET,https://firefox.settings.services.mozilla.com/v1/buckets/monitor/collections/changes/changeset?collection=partitioning-exempt-urls&bucket=main&_expected=0,403,Forbidden,0,130,40,,false,
+Processed,412,Tue Mar 26 21:41:10 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,21,313,44,Low,false,JSON
+Processed,413,Tue Mar 26 21:41:10 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,4,373,0,Low,false,
+Processed,414,Tue Mar 26 21:41:10 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,17,313,44,Low,false,
+Out of Scope,415,Tue Mar 26 21:41:10 GMT 2024,POST,https://shavar.services.mozilla.com/downloads?client=navclient-auto-ffox&appver=124.0&pver=2.2,403,Forbidden,0,130,40,,false,
+Processed,416,Tue Mar 26 21:41:10 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,21,313,44,Low,false,JSON
+Processed,417,Tue Mar 26 21:41:10 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,5,313,44,Low,false,
