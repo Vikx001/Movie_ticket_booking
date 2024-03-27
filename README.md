@@ -173,10 +173,12 @@ Update the below to add what the group is using <<>>
     Each member of the team will work approximately <<hours>> hours per week, unless they are on vacation.
     Our branching stategy will start with feature-, bug-, hotfix-
 
-# Estimating Story Points
-The teams team's velocity is calculated by Pocker game.1 is minimum point and 8 is maximum. Any points that go beyond 8 hours will be considered as Epic.
+# Estimating Story Points and Velocity
+The teams team's velocity is calculated by Pocker game. 1 is minimum point and 8 is maximum. Any points that go beyond 8 hours will be considered as Epic.
 
-The teams current story point velocity is 2hrs in Sprint 3. <<Update the velocity as the weeks progress>>
+Velocity:
+For Sprint 1 and 2 -> 1 SP= 1 hour
+For Sprint 3 to 7 -> 1 SP= 2 hour
 
 # Definition of Ready/Done
 Will be mentioned in the accepted criteria of each task posted in Jira
