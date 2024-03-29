@@ -23,10 +23,7 @@ MScDevOps Assign - Group 1
     Preamble
     This is the online repository for the DevOps Assignment.
 
-Each team should fill in the blanks <<>> and add additional content that the team agrees on. This is your contract of work. It is an agreement amongst yourselves. Honour it.
-
-
-
+# Preamble
 The end customer would like an online booking system for range of Movie making courses. Their most
 popular product this December is Moving Castle Creations – a 3D animation workshop. The system
 must take details of customer map them to the course modules along with a single box for extra ‘nice
@@ -40,21 +37,21 @@ for the course.
 Our product will be delivered using an Agile methodology that embraces the DevOps culture. Please note that our culture embraces change and these documents are treated as living, breathing artefacts that will be continuously updated.  The scrum master and product owner will be assigned in a rotation basis per each sprint.
 
 # Scrum Master
-Sprint 1- Aneesh Ramakrishna Pillai 
-Sprint 2- Vikash Sharma
-Sprint 3- Binupa Chullickal Babu
-Sprint 4- Shreya Raghuvanshi
-Sprint 5- Sushmitha Holthal
-Sprint 6- Neeharica Madanu
+Sprint 1- Aneesh Ramakrishna Pillai, 
+Sprint 2- Vikash Sharma, 
+Sprint 3- Binupa Chullickal Babu, 
+Sprint 4- Shreya Raghuvanshi, 
+Sprint 5- Sushmitha Holthal, 
+Sprint 6- Neeharica Madanu, 
 Sprint 7- Vikash Sharma
 
 # Product Owner
-Sprint 1- Neeharica Madanu
-Sprint 2- Shreya Raghuvanshi
-Sprint 3- Sushmitha Holthal Manjunath
-Sprint 4- Vikash Sharma
-Sprint 5- Aneesh Ramakrishna Pillai 
-Sprint 6- Binupa Chullickal Babu
+Sprint 1- Neeharica Madanu, 
+Sprint 2- Shreya Raghuvanshi, 
+Sprint 3- Sushmitha Holthal Manjunath, 
+Sprint 4- Vikash Sharma, 
+Sprint 5- Aneesh Ramakrishna Pillai, 
+Sprint 6- Binupa Chullickal Babu, 
 Sprint 7- Shreya Raghuvanshi
 
 # Team Members
@@ -78,42 +75,46 @@ Ref : https://atlantictu-my.sharepoint.com/:w:/r/personal/l00179208_atu_ie/Docum
 # Useful Links
  - Project Slack: https://atudevops.slack.com
  - GitHub: https://github.com/Vikx001/Studio-Ghibli
+ - Jira: https://studio-ghibli.atlassian.net/jira/software/projects/KAN/boards/1
 
-# More Information
+# More Information (GitHub Wiki)
 https://github.com/Vikx001/Studio-Ghibli/wiki
 
 # Risk Register
 Ref : https://atlantictu-my.sharepoint.com/:w:/r/personal/l00179208_atu_ie/Documents/Software_Requirements_Specification_V0.docx?d=wc35a651678cf492bbdd7f146267b6293&csf=1&web=1&e=hT1KWO
 
 
-# Tenants of Design
-Update the below to add what the group is using <<>>
-- Dedication to clean, secure, performant and self documented code
-  - code Frameworks used : React, Node
-  - programming using the IDE : Visual Studio Code
-  - code coverage tool used : SonarQbe
-  - Secure code:  Yet to Decide
-  - performance testing tool to be used : Yet to decide
-- Documentation / code commenting : Yet to Decide
-- Datastore for persistance : Yet to Decide
- 
-# Security:
-- In planning stage only.
+# Tools and Technologies
 
-# Testing:
-- In planning stage only.
+  - Dedication to clean, secure, performant and self documented code
+  - Code Frameworks used : ReactJS, Nodejs
+  - Programming using the IDE : Visual Studio Code
+  - Performance Management Tool: NewRelic
+  - Unit Testing: Jest
+  - Application Testing and Integration Testing: Cypress
+  - API Testing: Postman
+  - Performance Testing: K6
+  - Issue ticketing & boards: Jira
+  - Security Tools (SAST/DAST): SonarQube as SAST, ZAP Proxy as DAST
+  - Automated API Documentation: Swagger
+  - Automated Source code Documentation: jsDoc
+  - Manual Documentation: GitHub Wiki and Confluence
+  - Database: MySQL
+  - Automated Pipeline: Jenkins
+  - Containerization: Docker
+  - Deployment tool: Kubernetes
+  - Cloud platform: AWS
+  - Source code repository: GitHub and GitHub Webhooks
+  - Tracking tool: SBOM
+
 
 # Environments:
-- staging and production 
-- tight configuration management for consistency and reproducibility: Yet to decide
-- automated creation and deployments  : Yet to decide
-- integrated and automated pipeline (commit -> test -> deploy)
+- Staging(Localhost) and Production(AWS cloud platform and Kubernetes)
 
 # Github version control:
 - Using Gitflow
 - version/release, using Tags
 
-# Agile project management methods/principles (jira)
 
 # Social Contract
     Mobile phones be left on silent during sprint sessions and class time.
@@ -130,15 +131,14 @@ Update the below to add what the group is using <<>>
     Use Agile methodoligies in the project at all times.
 
 # Meetings
-    Stand-ups will occur on Every 09.40 AM during class. Two per week.
-    The order that people give their updates will be L number.
+    Stand-ups will occur on Every 09.40 AM during class. Monday and Wednesday every week.
     Updates will be in the form: What I've done, Impediments, What I plan to do.
-    Sprint planning will occur at Start of the week ( Monday ).
+    Sprint planning will occur at Start of the week ( Monday ), (to be organised by the Product Owner).
     Please add and update items within Jira a prior to the sprint planning session.
-    Sprint retro will at the end of our sprint on Friday at 11:00 (timebox retro for 20 minutes, to be organised by the scrum master).
-    Points raised in the sprint retro will be noted and posted on the Jira by the Scrum Master. The Scrum Master is rotated per team member every week.
-    Backlog refinement will happen on Everyday 10.00 AM during our sprint.
-    Task estimation will be done using Pcker 
+    Sprint Retro will at the end of our sprint on Friday at 11:00 (timebox retro for 20 minutes, to be organised by the Scrum Master).
+    Points raised in the sprint retro will be noted and posted on the Jira by the Scrum Master. The Scrum Master is rotated per team member every sprint.
+    Backlog refinement will happen during Sprint planning.
+    Story points estimation will be done using Pocker Planning method.
     Come prepared to meetings.
     Be on time for Stand Ups and meetings.
     Mobile phones on silent.
@@ -168,19 +168,18 @@ Update the below to add what the group is using <<>>
     Don't be afraid to ask for help.
     Don't be afraid to give constructive criticism, as long as it is constructive.
     Solve roadblocks within the team. If the impediment can’t be solved within the team then give it to the Scrum Master.
-    Sprints will start <<>>
-    The Scrum Master role rotates each week 
-    Each member of the team will work approximately <<hours>> hours per week, unless they are on vacation.
-    Our branching stategy will start with feature-, bug-, hotfix-
+    The Scrum Master and Product Owner roles rotates each sprint.
+    Each member of the team will work approximately 25 hours per sprint, unless they are on vacation.
+    Our branching stategy will start with feature-branch -> development -> master, any documents will be uploaded on -> documentation-branch
 
 # Estimating Story Points and Velocity
-The teams team's velocity is calculated by Pocker game. 1 is minimum point and 8 is maximum. Any points that go beyond 8 hours will be considered as Epic.
+The teams team's velocity will evetually increase as per sprints. 1 is minimum point and 8 is maximum. Any points that go beyond 8 hours will be considered as Epic.
 
 Velocity:
-For Sprint 1 and 2 -> 1 SP= 1 hour
+For Sprint 1 and 2 -> 1 SP= 1 hour, 
 For Sprint 3 to 7 -> 1 SP= 2 hour
 
 # Definition of Ready/Done
 Will be mentioned in the accepted criteria of each task posted in Jira
 
-#comment #
+
