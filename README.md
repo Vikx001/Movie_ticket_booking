@@ -11,17 +11,17 @@ MScDevOps Assign - Group 1
     Useful Links
     More Information
     Risk Register
-    Tenants of Design
+    Tools and Technologies
+    Environments
+    GitHub version control
     Social Contract
     Meetings
     Communication
-    Other
+    Agile way of working
     Branching Strategy
-    Estimating Story Points
+    Estimating Story Points and Velocity
     Definition of Ready
     Definition of Done
-    Preamble
-    This is the online repository for the DevOps Assignment.
 
 # Preamble
 The end customer would like an online booking system for range of Movie making courses. Their most
@@ -170,7 +170,13 @@ Ref : https://atlantictu-my.sharepoint.com/:w:/r/personal/l00179208_atu_ie/Docum
     Solve roadblocks within the team. If the impediment can’t be solved within the team then give it to the Scrum Master.
     The Scrum Master and Product Owner roles rotates each sprint.
     Each member of the team will work approximately 25 hours per sprint, unless they are on vacation.
-    Our branching stategy will start with feature-branch -> development -> master, any documents will be uploaded on -> documentation-branch
+
+# Branching Strategy
+    Our branching stategy will start with :
+    1. feature-branch -> every team member will have their own KAN jira task branch 
+    2. development -> here feature-branch will be merged with development branch post testing and moving jira task to done
+    3. master -> for production
+    4. documentation-branch -> any documents/ research/ step-by-step procedure documents will be uploaded here
 
 # Estimating Story Points and Velocity
 The teams team's velocity will evetually increase as per sprints. 1 is minimum point and 8 is maximum. Any points that go beyond 8 hours will be considered as Epic.
