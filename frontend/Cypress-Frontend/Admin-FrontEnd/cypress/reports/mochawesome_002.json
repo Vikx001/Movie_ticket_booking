@@ -1,0 +1,182 @@
+{
+  "stats": {
+    "suites": 3,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-30T10:26:41.338Z",
+    "end": "2024-03-30T10:26:51.437Z",
+    "duration": 10099,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ca3c8ed2-5367-47a1-be0e-bca5f58897f6",
+      "title": "",
+      "fullFile": "cypress/e2e/admin_frontend_customers.cy.js",
+      "file": "cypress/e2e/admin_frontend_customers.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "041fe1e3-95bd-4add-a04a-c4e23247fddc",
+          "title": "Front End Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "8b205b6b-31cf-4a6a-9d40-1b8c2290c390",
+              "title": "Verify DashBoard Home",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Validate name \"Sign In\"",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Validate name \"Sign In\"",
+                  "timedOut": null,
+                  "duration": 3142,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('h6.text-blue-gray-900').contains('customers').should('exist');",
+                  "err": {},
+                  "uuid": "44ddd9fb-fd4f-4651-bea4-5f656c2954de",
+                  "parentUUID": "8b205b6b-31cf-4a6a-9d40-1b8c2290c390",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "44ddd9fb-fd4f-4651-bea4-5f656c2954de"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 3142,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            },
+            {
+              "uuid": "69b836ca-dc34-4c9d-b686-7ed51b4bf488",
+              "title": "Validate the Customer table",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Validate Customer Values",
+                  "fullTitle": "Front End Test Suite Validate the Customer table Validate Customer Values",
+                  "timedOut": null,
+                  "duration": 2973,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('tbody tr:nth-child(1)').within(() => {\n  cy.get('td:nth-child(1)').should('contain.text', 'Hubert L Forrester');\n  cy.get('td:nth-child(2)').should('contain.text', 'HubertLForrester@teleworm.us');\n  cy.get('td:nth-child(5)').should('contain.text', 'Active');\n});\ncy.get('tbody tr:nth-child(3)').within(() => {\n  cy.get('td:nth-child(1)').should('contain.text', 'Thomas S. Cobb');\n  cy.get('td:nth-child(2)').should('contain.text', 'AndrewCArrington@dayrep.com');\n  cy.get('td:nth-child(5)').should('contain.text', 'Active');\n});",
+                  "err": {},
+                  "uuid": "e8ff166a-2ab9-4931-893f-b6e4673e068c",
+                  "parentUUID": "69b836ca-dc34-4c9d-b686-7ed51b4bf488",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Validating the Delete Functionality",
+                  "fullTitle": "Front End Test Suite Validate the Customer table Validating the Delete Functionality",
+                  "timedOut": null,
+                  "duration": 3066,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('#root > div > div > div.mt-12.mb-8.flex.flex-col.gap-12 > div > div.p-6.overflow-x-scroll.px-0.pt-0.pb-2 > table').find('tbody tr').last().within(() => {\n  cy.get('td:last-child').find('a').contains('Delete').click();\n});\ncy.on('window:alert', message => {\n  expect(message).to.equal('Are you sure?');\n  cy.on('window:confirm', () => true);\n});",
+                  "err": {},
+                  "uuid": "48abe92d-5cab-4ba4-a0f4-fb86295aa971",
+                  "parentUUID": "69b836ca-dc34-4c9d-b686-7ed51b4bf488",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e8ff166a-2ab9-4931-893f-b6e4673e068c",
+                "48abe92d-5cab-4ba4-a0f4-fb86295aa971"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6039,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

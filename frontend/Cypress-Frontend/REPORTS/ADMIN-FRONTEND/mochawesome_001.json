@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 4,
+    "passes": 4,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-30T10:26:03.069Z",
+    "end": "2024-03-30T10:26:40.384Z",
+    "duration": 37315,
+    "testsRegistered": 4,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "8e9ea256-1ef8-4787-b7d8-73db14603abb",
+      "title": "",
+      "fullFile": "cypress/e2e/admin_frontend_courses.cy.js",
+      "file": "cypress/e2e/admin_frontend_courses.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8c26b3b1-8898-4b22-8ef1-9c21ac10040b",
+          "title": "Front End Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "76dfdeba-50ab-49d1-9ae0-3db6506301f8",
+              "title": "Verify DashBoard Home",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Validate name \"Sign In\"",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Validate name \"Sign In\"",
+                  "timedOut": null,
+                  "duration": 3138,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('h6.text-blue-gray-900').contains('courses').should('exist');",
+                  "err": {},
+                  "uuid": "9fe4fe44-f6ea-4a4f-a6bd-b01027b9b2e7",
+                  "parentUUID": "76dfdeba-50ab-49d1-9ae0-3db6506301f8",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Validate Course Table Content",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Validate Course Table Content",
+                  "timedOut": null,
+                  "duration": 2964,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('tbody tr:nth-child(1)').within(() => {\n  cy.get('td:nth-child(1)').should('contain.text', 'Adobe Premiere Pro CC Masterclass: Video Editing in Premiere');\n  cy.get('td:nth-child(2)').should('contain.text', '€105.00');\n  cy.get('td:nth-child(3)').should('contain.text', '0Students');\n  cy.get('td:nth-child(4)').should('contain.text', 'online');\n  cy.get('td:nth-child(5)').should('contain.text', '2005-01-24T00:00:00.000Z');\n});\ncy.get('tbody tr:nth-child(2)').within(() => {\n  cy.get('td:nth-child(1)').should('contain.text', 'Complete Graphics Design and Video Editing Masterclass');\n  cy.get('td:nth-child(2)').should('contain.text', '€110.00');\n  cy.get('td:nth-child(3)').should('contain.text', '0Students');\n  cy.get('td:nth-child(4)').should('contain.text', 'online');\n  cy.get('td:nth-child(5)').should('contain.text', '2026-01-24T00:00:00.000Z');\n});",
+                  "err": {},
+                  "uuid": "baca7b53-3821-42f2-96cb-2c11684acca0",
+                  "parentUUID": "76dfdeba-50ab-49d1-9ae0-3db6506301f8",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Validate Add New Courses",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Validate Add New Courses",
+                  "timedOut": null,
+                  "duration": 26997,
+                  "state": "passed",
+                  "speed": "slow",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('button[type=\"button\"]').contains('Add New').click();\ncy.get('h6.block.antialiased.tracking-normal.font-sans.text-base.font-semibold.leading-relaxed.text-white.flex-1').should('have.text', 'Add Course');\nconst courseTitle = chance.sentence({\n  words: 3\n});\nconst courseDescription = chance.paragraph();\nconst learningOutcomes = chance.n(chance.sentence, 3).join('\\n');\nconst courseInclusions = chance.n(chance.sentence, 3).join('\\n');\nconst authorName = chance.name();\nconst price = chance.integer({\n  min: 50,\n  max: 200\n});\nconst courseContent = chance.paragraph();\ncy.get('input[name=\"title\"]').type(courseTitle);\ncy.get('textarea[name=\"description\"]').type(courseDescription);\ncy.get('textarea[name=\"learning_outcomes\"]').type(learningOutcomes);\ncy.get('textarea[name=\"course_inclusions\"]').type(courseInclusions);\ncy.get('input[name=\"author\"]').type(authorName);\ncy.get('input[name=\"price\"]').type(price);\ncy.get('input[name=\"course_content\"]').type(courseContent);\ncy.get('button[type=\"submit\"]').click();\ncy.visit('http://localhost:8886/');\ncy.wait(1000);\ncy.url().should('eq', 'http://localhost:8886/dashboard/home');\ncy.contains('button', 'courses').click({\n  force: true\n});\ncy.get('table tbody tr:last-child').within(() => {\n  cy.get('td:nth-child(1)').should('contain', courseTitle);\n  cy.get('td:nth-child(2)').should('contain', `€${price}`);\n  cy.get('td:nth-child(3)').should('contain', '0Students');\n  cy.get('td:nth-child(4)').should('contain', 'online');\n});\ncy.visit('http://localhost:8885/');\ncy.wait(200);\ncy.get('button.MuiButton-root').contains('Log in').click();\ncy.get('input#email').type('Dorcas_Frami31@hotmail.com').should('have.value', 'Dorcas_Frami31@hotmail.com');\ncy.get('input#password').type('abc123').should('have.value', 'abc123');\ncy.get('button.MuiButton-root').contains('Login').click();\ncy.get('.MuiSnackbarContent-message').should('contain', 'You are logged in!');\ncy.get('#root > div.sc-gUjWJS.gpDtLX > div:nth-child(1) > div > div > div.sc-bwzfXH.gwZiig > div:first-child').find('h3').first().invoke('text').then(text => {\n  expect(text).to.include(courseTitle);\n});",
+                  "err": {},
+                  "uuid": "605c5e08-9f7a-42cb-a9b9-10ebdd1a7bbb",
+                  "parentUUID": "76dfdeba-50ab-49d1-9ae0-3db6506301f8",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Revert to List Courses from Add Course Page",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Revert to List Courses from Add Course Page",
+                  "timedOut": null,
+                  "duration": 3151,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('button[type=\"button\"]').contains('Add New').click();\ncy.get('h6.block.antialiased.tracking-normal.font-sans.text-base.font-semibold.leading-relaxed.text-white.flex-1').should('have.text', 'Add Course');\ncy.get('button[type=\"button\"]').contains('List Courses').click();\ncy.contains('h6', 'Courses Listing').should('be.visible');",
+                  "err": {},
+                  "uuid": "e3b808c3-af53-4cac-bb3b-a1138046320f",
+                  "parentUUID": "76dfdeba-50ab-49d1-9ae0-3db6506301f8",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "9fe4fe44-f6ea-4a4f-a6bd-b01027b9b2e7",
+                "baca7b53-3821-42f2-96cb-2c11684acca0",
+                "605c5e08-9f7a-42cb-a9b9-10ebdd1a7bbb",
+                "e3b808c3-af53-4cac-bb3b-a1138046320f"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 36250,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

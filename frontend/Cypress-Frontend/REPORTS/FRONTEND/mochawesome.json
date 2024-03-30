@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-30T10:15:59.164Z",
+    "end": "2024-03-30T10:16:09.365Z",
+    "duration": 10201,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "e4b099a2-94e5-4e2c-a74f-589bca08ba5d",
+      "title": "",
+      "fullFile": "cypress/e2e/front-end-enroll.cy.js",
+      "file": "cypress/e2e/front-end-enroll.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f3b60a30-7fbe-450f-aa12-a8656ccf6994",
+          "title": "Front End Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TestCase 1: Click Enroll with Empty fields",
+              "fullTitle": "Front End Test Suite TestCase 1: Click Enroll with Empty fields",
+              "timedOut": null,
+              "duration": 2697,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#root > div.sc-gUjWJS.gpDtLX > div:nth-child(1) > div > div > div.sc-bwzfXH.gwZiig > div:first-child').find('button').eq(1).click();\ncy.get('button.MuiButton-containedPrimary').contains('Complete Payment').click();\ncy.on('window:alert', message => {\n  expect(message).to.equal('Something went wrong !! Your enrollment attempt was not successful!');\n  cy.on('window:confirm', () => true);\n});",
+              "err": {},
+              "uuid": "b66b096a-dfb4-4a80-9ae9-4bbfa312e1d9",
+              "parentUUID": "f3b60a30-7fbe-450f-aa12-a8656ccf6994",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TestCase 2: Enroll Working after login",
+              "fullTitle": "Front End Test Suite TestCase 2: Enroll Working after login",
+              "timedOut": null,
+              "duration": 3224,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('#root > div.sc-gUjWJS.gpDtLX > div:nth-child(1) > div > div > div.sc-bwzfXH.gwZiig > div:first-child').find('button').eq(1).click();\nconst name = chance.name();\nconst cardNumber = chance.cc({\n  type: 'Mastercard'\n});\nconst expiryDate = chance.exp();\nconst cvc = chance.integer({\n  min: 100,\n  max: 999\n});\ncy.get('input[name=\"name\"]').type(name);\ncy.get('input[name=\"number\"]').type(cardNumber);\ncy.get('input[name=\"expiry\"]').type(expiryDate);\ncy.get('input[name=\"cvc\"]').type(cvc);\ncy.get('button.MuiButton-containedPrimary').contains('Complete Payment').click();\ncy.get('div[style*=\"transform: translate(-50%, -50%)\"]').contains('Your payment has been successfully processed.').should('exist');",
+              "err": {},
+              "uuid": "65f7378a-b55c-46fd-b77a-598907679718",
+              "parentUUID": "f3b60a30-7fbe-450f-aa12-a8656ccf6994",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Test Case 3: Check Enroll After Logout",
+              "fullTitle": "Front End Test Suite Test Case 3: Check Enroll After Logout",
+              "timedOut": null,
+              "duration": 3279,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get('button.MuiButton-root').contains('Logout').click();\ncy.get('#root > div.sc-gUjWJS.gpDtLX > div:nth-child(1) > div > div > div.sc-bwzfXH.gwZiig > div:first-child').find('button').eq(1).click();\nconst name = chance.name();\nconst cardNumber = chance.cc({\n  type: 'Mastercard'\n});\nconst expiryDate = chance.exp();\nconst cvc = chance.integer({\n  min: 100,\n  max: 999\n});\ncy.get('input[name=\"name\"]').type(name);\ncy.get('input[name=\"number\"]').type(cardNumber);\ncy.get('input[name=\"expiry\"]').type(expiryDate);\ncy.get('input[name=\"cvc\"]').type(cvc);\ncy.get('button.MuiButton-containedPrimary').contains('Complete Payment').click();\ncy.on('window:alert', message => {\n  expect(message).to.equal('Something went wrong !! Your enrollment attempt was not successful!');\n  cy.on('window:confirm', () => true);\n});",
+              "err": {},
+              "uuid": "a556095d-dc8b-4a1c-9888-00d4d1a9a89c",
+              "parentUUID": "f3b60a30-7fbe-450f-aa12-a8656ccf6994",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b66b096a-dfb4-4a80-9ae9-4bbfa312e1d9",
+            "65f7378a-b55c-46fd-b77a-598907679718",
+            "a556095d-dc8b-4a1c-9888-00d4d1a9a89c"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 9200,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
