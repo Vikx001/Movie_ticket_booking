@@ -1,0 +1,162 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-30T10:26:52.370Z",
+    "end": "2024-03-30T10:27:04.428Z",
+    "duration": 12058,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d364ac96-3ef2-438d-8a38-ba5da5ebaced",
+      "title": "",
+      "fullFile": "cypress/e2e/admin_frontend_dashboard.cy.js",
+      "file": "cypress/e2e/admin_frontend_dashboard.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "d79a185d-82dc-467e-86a9-be7a12343134",
+          "title": "Front End Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "50d519d8-ec6b-4c0f-a003-7b0818b14657",
+              "title": "Verify DashBoard Home",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Validate name \"Sign In\"",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Validate name \"Sign In\"",
+                  "timedOut": null,
+                  "duration": 3036,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('h6.text-blue-gray-900').contains('home').should('exist');",
+                  "err": {},
+                  "uuid": "e25b0557-9fe2-49eb-9bce-62139812aa62",
+                  "parentUUID": "50d519d8-ec6b-4c0f-a003-7b0818b14657",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should check all dashboard elements",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Should check all dashboard elements",
+                  "timedOut": null,
+                  "duration": 2913,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.m-4 ul.flex li').each(($li, index) => {\n  const expectedTexts = ['dashboard', 'customers', 'courses', 'enrollments'];\n  const expectedLinks = ['/dashboard/home', '/dashboard/customers', '/dashboard/courses', '/dashboard/enrollments'];\n  cy.wrap($li).find('a').should('have.attr', 'href', expectedLinks[index]).find('p').should('have.text', expectedTexts[index]);\n});",
+                  "err": {},
+                  "uuid": "3cdf02e1-6757-47c3-b1ee-b878b019a5f9",
+                  "parentUUID": "50d519d8-ec6b-4c0f-a003-7b0818b14657",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Should check all dashboard Home elements and Logout",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Should check all dashboard Home elements and Logout",
+                  "timedOut": null,
+                  "duration": 5139,
+                  "state": "passed",
+                  "speed": "medium",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('.mb-12 .relative.flex.flex-col').each(($element, index) => {\n  const titles = ['Today\\'s Money', 'Today\\'s Users', 'New Clients', 'Sales'];\n  const amounts = ['$53k', '2,300', '3,462', '$103,430'];\n  const percentages = ['+55%', '+3%', '-2%', '+5%'];\n  cy.wrap($element).find('.p-4.text-right p').eq(0).should('have.text', titles[index]);\n  cy.wrap($element).find('.p-4.text-right h4').eq(0).should('have.text', amounts[index]);\n  cy.wrap($element).find('.border-t.border-blue-gray-50 p').eq(0).should('include.text', percentages[index]);\n});\ncy.get('button.relative.align-middle').eq(1).click();\ncy.wait(2000);\ncy.visit('http://localhost:8886/');",
+                  "err": {},
+                  "uuid": "994bb97f-0d5a-4df2-965e-5771fab5cfaa",
+                  "parentUUID": "50d519d8-ec6b-4c0f-a003-7b0818b14657",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e25b0557-9fe2-49eb-9bce-62139812aa62",
+                "3cdf02e1-6757-47c3-b1ee-b878b019a5f9",
+                "994bb97f-0d5a-4df2-965e-5771fab5cfaa"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 11088,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

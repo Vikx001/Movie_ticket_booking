@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 2,
+    "passes": 2,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-30T10:25:54.479Z",
+    "end": "2024-03-30T10:26:01.906Z",
+    "duration": 7427,
+    "testsRegistered": 2,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "97229e46-babb-4ac5-b9dc-4f07cdae0b7a",
+      "title": "",
+      "fullFile": "cypress/e2e/admin_frontend_1-enrollment.cy.js",
+      "file": "cypress/e2e/admin_frontend_1-enrollment.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "eb3b5799-3086-4ab8-8dd8-f253cc890cfc",
+          "title": "Front End Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "a4c91a47-b177-4d6b-96e5-39bec4724f4c",
+              "title": "Verify DashBoard Home",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Validate name \"Sign In\"",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Validate name \"Sign In\"",
+                  "timedOut": null,
+                  "duration": 3474,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('h6.text-blue-gray-900').contains('enrollments').should('exist');",
+                  "err": {},
+                  "uuid": "5be2e23a-4435-46fc-ae28-38f5cba594ab",
+                  "parentUUID": "a4c91a47-b177-4d6b-96e5-39bec4724f4c",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Validate the Enrollment Table",
+                  "fullTitle": "Front End Test Suite Verify DashBoard Home Validate the Enrollment Table",
+                  "timedOut": null,
+                  "duration": 3025,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('table tbody tr').eq(0).within(() => {\n  cy.get('td').eq(0).should('contain', 'modi');\n  cy.get('td').eq(1).should('contain', 'Terrance Brekke');\n  cy.get('td').eq(2).should('contain', 'Jacklyn14@hotmail.com');\n  cy.get('td').eq(3).should('contain', '787-216-5616');\n  cy.get('td').eq(4).should('contain', 'card');\n  cy.get('td').eq(5).should('contain', '2024-03-29T14:35:01.000Z');\n});\ncy.get('table tbody tr').eq(1).within(() => {\n  cy.get('td').eq(0).should('contain', 'My new course');\n  cy.get('td').eq(1).should('contain', 'Terrance Brekke');\n  cy.get('td').eq(2).should('contain', 'Jacklyn14@hotmail.com');\n  cy.get('td').eq(3).should('contain', '787-216-5616');\n  cy.get('td').eq(4).should('contain', 'online');\n  cy.get('td').eq(5).should('contain', '2024-03-29T14:33:08.000Z');\n});",
+                  "err": {},
+                  "uuid": "ce891f1d-30b6-4e50-a938-bb7d66f2f49f",
+                  "parentUUID": "a4c91a47-b177-4d6b-96e5-39bec4724f4c",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "5be2e23a-4435-46fc-ae28-38f5cba594ab",
+                "ce891f1d-30b6-4e50-a938-bb7d66f2f49f"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 6499,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}

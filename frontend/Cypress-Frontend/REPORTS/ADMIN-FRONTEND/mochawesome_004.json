@@ -1,0 +1,200 @@
+{
+  "stats": {
+    "suites": 2,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-03-30T10:27:05.355Z",
+    "end": "2024-03-30T10:27:11.288Z",
+    "duration": 5933,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d3c14c4c-c8a9-4efc-ac30-df8f4cb14cff",
+      "title": "",
+      "fullFile": "cypress/e2e/admin_frontend_initial.cy.js",
+      "file": "cypress/e2e/admin_frontend_initial.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2ae8fa6d-13e0-4c16-9bb9-0120761e68c6",
+          "title": "Front End Test Suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [],
+          "suites": [
+            {
+              "uuid": "3b182226-fb4d-4350-83d3-1ca76d8a962e",
+              "title": "Test Case 1:Verify \"Sign In\"",
+              "fullFile": "",
+              "file": "",
+              "beforeHooks": [],
+              "afterHooks": [],
+              "tests": [
+                {
+                  "title": "Validate name \"Sign In\"",
+                  "fullTitle": "Front End Test Suite Test Case 1:Verify \"Sign In\" Validate name \"Sign In\"",
+                  "timedOut": null,
+                  "duration": 221,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('h2.block').contains('Sign In').should('exist');",
+                  "err": {},
+                  "uuid": "e6a480d8-37db-4067-8103-1b0c6472ab9a",
+                  "parentUUID": "3b182226-fb4d-4350-83d3-1ca76d8a962e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Click \"Sign In\" with empty fields",
+                  "fullTitle": "Front End Test Suite Test Case 1:Verify \"Sign In\" Click \"Sign In\" with empty fields",
+                  "timedOut": null,
+                  "duration": 172,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('button.bg-gray-900').contains('Sign In').click();\ncy.get('p').contains('Failed to log in. Please check your credentials.').should('exist');",
+                  "err": {},
+                  "uuid": "e4d8b583-958d-412c-9e41-eb2d439d3054",
+                  "parentUUID": "3b182226-fb4d-4350-83d3-1ca76d8a962e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Click \"Sign In\" with incorrect fields",
+                  "fullTitle": "Front End Test Suite Test Case 1:Verify \"Sign In\" Click \"Sign In\" with incorrect fields",
+                  "timedOut": null,
+                  "duration": 840,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('input[placeholder=\"name@mail.com\"]').type('Dorcas_Frami31hotmail.com');\ncy.get('input[type=\"password\"][placeholder=\"********\"]').type('abc123');\ncy.get('button.bg-gray-900').contains('Sign In').click();\ncy.get('p').contains('Failed to log in. Please check your credentials.').should('exist');",
+                  "err": {},
+                  "uuid": "a62a3d90-aa7e-4c8d-bc71-920049280e44",
+                  "parentUUID": "3b182226-fb4d-4350-83d3-1ca76d8a962e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Test 2: Click \"Sign In\" with incorrect fields",
+                  "fullTitle": "Front End Test Suite Test Case 1:Verify \"Sign In\" Test 2: Click \"Sign In\" with incorrect fields",
+                  "timedOut": null,
+                  "duration": 850,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('input[placeholder=\"name@mail.com\"]').type('Dorcas_Frami31@hotmail.com');\ncy.get('input[type=\"password\"][placeholder=\"********\"]').type('ab123');\ncy.get('button.bg-gray-900').contains('Sign In').click();\ncy.get('p').contains('Failed to log in. Please check your credentials.').should('exist');",
+                  "err": {},
+                  "uuid": "3151fd80-2487-436c-a937-fe92426e6dec",
+                  "parentUUID": "3b182226-fb4d-4350-83d3-1ca76d8a962e",
+                  "isHook": false,
+                  "skipped": false
+                },
+                {
+                  "title": "Click \"Sign In\" with correct fields",
+                  "fullTitle": "Front End Test Suite Test Case 1:Verify \"Sign In\" Click \"Sign In\" with correct fields",
+                  "timedOut": null,
+                  "duration": 2904,
+                  "state": "passed",
+                  "speed": "fast",
+                  "pass": true,
+                  "fail": false,
+                  "pending": false,
+                  "context": null,
+                  "code": "cy.get('input[placeholder=\"name@mail.com\"]').type('Dorcas_Frami31@hotmail.com');\ncy.get('input[type=\"password\"][placeholder=\"********\"]').type('abc123');\ncy.get('button.bg-gray-900').contains('Sign In').click();\ncy.wait(1000);\ncy.visit('http://localhost:8886/');\ncy.wait(1000);\ncy.url().should('eq', 'http://localhost:8886/dashboard/home');\ncy.get('button.text-blue-gray-500').contains('Logout').should('exist');",
+                  "err": {},
+                  "uuid": "101d22f4-1691-4829-87a6-a8c72307ab6e",
+                  "parentUUID": "3b182226-fb4d-4350-83d3-1ca76d8a962e",
+                  "isHook": false,
+                  "skipped": false
+                }
+              ],
+              "suites": [],
+              "passes": [
+                "e6a480d8-37db-4067-8103-1b0c6472ab9a",
+                "e4d8b583-958d-412c-9e41-eb2d439d3054",
+                "a62a3d90-aa7e-4c8d-bc71-920049280e44",
+                "3151fd80-2487-436c-a937-fe92426e6dec",
+                "101d22f4-1691-4829-87a6-a8c72307ab6e"
+              ],
+              "failures": [],
+              "pending": [],
+              "skipped": [],
+              "duration": 4987,
+              "root": false,
+              "rootEmpty": false,
+              "_timeout": 2000
+            }
+          ],
+          "passes": [],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 0,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports",
+        "overwrite": false,
+        "html": true,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
