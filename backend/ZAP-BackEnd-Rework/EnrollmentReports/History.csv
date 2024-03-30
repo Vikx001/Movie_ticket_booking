@@ -1,0 +1,6 @@
+ID,Source,Req. Timestamp,Method,URL,Code,Reason,RTT,Size Resp. Body,Highest Alert,Note,Tags
+53469,Proxy,Sat Mar 30 11:30:15 GMT 2024,POST,http://localhost:8883/,201,Created,70,234,Low,false,JSON
+53471,Proxy,Sat Mar 30 11:30:25 GMT 2024,GET,http://localhost:8883/,200,OK,22,10253,Low,false,JSON
+53472,Proxy,Sat Mar 30 11:30:25 GMT 2024,GET,http://localhost:8883/,200,OK,13,10253,,false,
+53473,Proxy,Sat Mar 30 11:30:30 GMT 2024,GET,http://localhost:8883/17,200,OK,81,4641,Low,false,JSON
+60258,Proxy,Sat Mar 30 11:31:54 GMT 2024,POST,https://spocs.getpocket.com/spocs,200,OK,291,1168,Low,false,JSON

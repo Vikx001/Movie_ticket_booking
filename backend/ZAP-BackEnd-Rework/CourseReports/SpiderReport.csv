@@ -1,0 +1,10 @@
+Processed,Method,URI,Flags
+true,GET,http://localhost:8884,Seed
+true,GET,http://localhost:8884/robots.txt,Seed
+true,GET,http://localhost:8884/sitemap.xml,Seed
+true,GET,http://localhost:8884/?order_by=id&sort=DESC,Seed
+true,GET,http://localhost:8884/27,Seed
+true,GET,http://localhost:8884/28,Seed
+true,GET,http://localhost:8884/7,Seed
+true,GET,http://localhost:8884/create,Seed
+false,GET,https://www.youtube.com/,Out of Scope

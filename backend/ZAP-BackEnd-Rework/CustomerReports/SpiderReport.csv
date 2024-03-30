@@ -1,0 +1,9 @@
+Processed,Method,URI,Flags
+true,GET,http://localhost:8882,Seed
+true,GET,http://localhost:8882/robots.txt,Seed
+true,GET,http://localhost:8882/sitemap.xml,Seed
+true,GET,http://localhost:8882/,Seed
+true,GET,http://localhost:8882/17,Seed
+true,GET,http://localhost:8882/18,Seed
+true,GET,http://localhost:8882/21,Seed
+true,GET,http://localhost:8882/50,Seed

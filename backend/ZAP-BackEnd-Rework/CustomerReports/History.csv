@@ -1,0 +1,9 @@
+ID,Source,Req. Timestamp,Method,URL,Code,Reason,RTT,Size Resp. Body,Highest Alert,Note,Tags
+13737,Proxy,Sat Mar 30 11:19:58 GMT 2024,POST,http://localhost:8882/,201,Created,183,262,Low,false,JSON
+13739,Proxy,Sat Mar 30 11:20:03 GMT 2024,POST,http://localhost:8882/,201,Created,107,269,Low,false,JSON
+13740,Proxy,Sat Mar 30 11:20:08 GMT 2024,GET,http://localhost:8882/,200,OK,13,7461,Low,false,JSON
+13741,Proxy,Sat Mar 30 11:20:15 GMT 2024,GET,http://localhost:8882/21,200,OK,14,322,Low,false,JSON
+13742,Proxy,Sat Mar 30 11:20:19 GMT 2024,PUT,http://localhost:8882/21,200,OK,25,144,Low,false,JSON
+13743,Proxy,Sat Mar 30 11:20:24 GMT 2024,DELETE,http://localhost:8882/17,400,Bad Request,12,40,Low,false,JSON
+13744,Proxy,Sat Mar 30 11:20:34 GMT 2024,DELETE,http://localhost:8882/18,400,Bad Request,11,40,Low,false,JSON
+13745,Proxy,Sat Mar 30 11:20:53 GMT 2024,DELETE,http://localhost:8882/50,200,OK,51,55,Low,false,JSON

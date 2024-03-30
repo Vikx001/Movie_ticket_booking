@@ -1,0 +1,43 @@
+Processed,Method,URI,Flags
+true,GET,http://localhost:8883,Seed
+true,GET,http://localhost:8883/robots.txt,Seed
+true,GET,http://localhost:8883/sitemap.xml,Seed
+true,GET,http://localhost:8883/._darcs,Seed
+true,GET,http://localhost:8883/.bzr,Seed
+true,GET,http://localhost:8883/.hg,Seed
+true,GET,http://localhost:8883/,Seed
+true,GET,http://localhost:8883/17,Seed
+true,GET,http://localhost:8883/BitKeeper,Seed
+true,GET,http://localhost:22/,
+false,GET,http://192.168.1.17:51790/d24677d4-df18-4bc3-bbf1-7bd023fd3bc0%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/939c7e1a-d4ae-468e-9eb9-58e3b6735f5f%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/ee7fddbc-fe8e-4b60-98c5-02d5a7353d99,Out of Scope
+false,GET,http://192.168.1.17:51790/efba503b-1183-4e79-b4b4-cfa498c1b1cf,Out of Scope
+false,GET,http://192.168.1.17:51790/543a43a2-2201-4dd8-a916-dd6407e970af,Out of Scope
+false,GET,http://192.168.1.17:51790/958ba26e-f964-4273-a98d-b6761aba9a1a,Out of Scope
+false,GET,http://192.168.1.17:51790/22bc634a-6a99-4494-98c7-2d5c55334af2%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/196b48aa-3b7f-45c1-93db-6611825b0f30%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/4cf83eef-e9de-426e-8adb-c5b5196983c3%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/f497c895-1041-4095-9eee-ed96ed7facab%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/96c7d923-81c1-4819-88e1-ec70ab16c3b9%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/3a677063-36d9-4a87-bf25-d384e0a44e1e%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/557462c9-8e8c-4855-b603-8f50db7f2263,Out of Scope
+false,GET,http://192.168.1.17:51790/10e4ffd0-4873-462b-9d40-528c33c94cc5,Out of Scope
+false,GET,http://192.168.1.17:51790/678be7a1-0973-465d-9b9a-3a09f1fa4ec3,Out of Scope
+false,GET,http://192.168.1.17:51790/09ecf323-935a-4d00-bb2a-06e58fb16925,Out of Scope
+false,GET,http://192.168.1.17:51790/e5e654db-5ed7-4029-b66b-063e671d7f7a,Out of Scope
+false,GET,http://192.168.1.17:51790/f4d79bce-1b0e-49a1-804e-a48ab48287c4,Out of Scope
+false,GET,http://192.168.1.17:51790/40c5e733-3736-4ce5-b568-e48677c6ea27,Out of Scope
+false,GET,http://192.168.1.17:51790/5868b08b-e3a1-4b81-bd52-32cdcb932da9,Out of Scope
+false,GET,http://192.168.1.17:51790/8d0b2205-43aa-45c7-b4b3-61615b20fd34%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/1c6aa28a-fca2-4e0a-bbe8-2ef33a9e5e21%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/42a139e0-543b-4120-b7b6-9e4001e614d5%5C,Out of Scope
+false,GET,http://192.168.1.17:51790/3dcd5cc9-fb61-4b1e-94b2-9cb2f12959fe%5C,Out of Scope
+false,GET,https://7954205706045796924.owasp.org/,Out of Scope
+false,GET,http://7954205706045796924.owasp.org/,Out of Scope
+false,GET,https://www.google.com:80/search?q=ZAP,Out of Scope
+false,GET,https://www.google.com/search?q=ZAP,Out of Scope
+false,GET,https://www.google.com/,Out of Scope
+false,GET,https://www.google.com:80/,Out of Scope
+false,GET,http://www.google.com/search?q=ZAP,Out of Scope
+false,GET,http://www.google.com/,Out of Scope
