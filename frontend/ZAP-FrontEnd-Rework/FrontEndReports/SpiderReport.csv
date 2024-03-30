@@ -1,0 +1,41 @@
+Processed,Method,URI,Flags
+true,GET,http://localhost:8885,Seed
+true,GET,http://localhost:8885/robots.txt,Seed
+true,GET,http://localhost:8885/sitemap.xml,Seed
+true,GET,http://localhost:8885/,Seed
+true,GET,http://localhost:8885/images,Seed
+true,GET,http://localhost:8885/images/advertisement,Seed
+true,GET,http://localhost:8885/images/footer,Seed
+true,GET,http://localhost:8885/images/header,Seed
+true,GET,http://localhost:8885/images/top-categories,Seed
+true,GET,http://localhost:8885/manifest.json,Seed
+true,GET,http://localhost:8885/static,Seed
+true,GET,http://localhost:8885/static/css,Seed
+true,GET,http://localhost:8885/static/css/main.1d05e13a.css,Seed
+true,GET,http://localhost:8885/static/css/main.1d05e13a.css.map,Seed
+true,GET,http://localhost:8885/static/js,Seed
+true,GET,http://localhost:8885/static/js/main.fd39a2f5.js,Seed
+true,GET,http://localhost:8885/static/js/main.fd39a2f5.js.map,Seed
+true,GET,http://localhost/static/css/,
+true,GET,http://localhost:8885/favicon.ico,
+true,GET,http://localhost:8885/logo192.png,
+false,GET,https://fonts.googleapis.com/css2?display=swap&family=Playfair+Display:wght@500;600;700;800,Out of Scope
+true,GET,http://localhost/images/,
+true,GET,http://localhost/images/advertisement/,
+true,GET,http://localhost/static/js/,
+true,GET,http://localhost/images/top-categories/,
+true,GET,http://localhost/images/footer/,
+true,GET,http://localhost/images/header/,
+true,GET,http://localhost/static/,
+false,GET,https://mui.com/production-error/?code,Out of Scope
+false,GET,http://fb.me/use-check-prop-types,Out of Scope
+false,GET,https://reactjs.org/docs/error-decoder.html?invariant,Out of Scope
+false,GET,http://www.w3.org/1999/xlink,Out of Scope
+false,GET,http://www.w3.org/XML/1998/namespace,Out of Scope
+false,GET,http://www.w3.org/2000/svg,Out of Scope
+false,GET,http://www.w3.org/1998/Math/MathML,Out of Scope
+false,GET,http://www.w3.org/1999/xhtml,Out of Scope
+true,GET,http://localhost:8880/,
+false,GET,https://github.com/styled-components/styled-components/blob/master/packages/styled-components/src/utils/errors.md,Out of Scope
+false,GET,https://github.com/styled-components/styled-components/blob/main/packages/styled-components/src/utils/errors.md,Out of Scope
+false,GET,https://fakeimg.pl/1430x810,Out of Scope
