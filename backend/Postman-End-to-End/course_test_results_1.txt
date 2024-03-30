@@ -1,0 +1,248 @@
+newman
+
+Docker Courses API
+
+→ GetCourse
+  GET http://localhost:8884/27 [201 Created, 1.69kB, 34ms]
+  GET http://localhost:8884/27 [201 Created, 1.69kB, 12ms]
+
+→ GetCourse-URL
+  GET http://localhost:8880/api/courses/8 [201 Created, 977B, 22ms]
+
+→ DeleteCourse-URL
+  DELETE http://localhost:8880/api/courses/8 [201 Created, 966B, 19ms]
+
+→ GetAllCourse-URL
+  GET http://localhost:8880/api/courses [201 Created, 4.92MB, 156ms]
+
+→ GetCourse RateLimit
+  GET http://localhost:8884/7 [201 Created, 1.06kB, 17ms]
+  GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45   GET http://localhost:8884/45 [201 Created, 1.11kB, 29ms]
+[201 Created, 1.11kB, 74ms]
+[201 Created, 1.11kB, 75ms]
+[201 Created, 1.11kB, 77ms]
+[201 Created, 1.11kB, 79ms]
+[201 Created, 1.11kB, 80ms]
+[201 Created, 1.11kB, 82ms]
+[201 Created, 1.11kB, 83ms]
+[201 Created, 1.11kB, 84ms]
+[201 Created, 1.11kB, 85ms]
+[201 Created, 1.11kB, 85ms]
+[201 Created, 1.11kB, 87ms]
+[201 Created, 1.11kB, 89ms]
+[201 Created, 1.11kB, 89ms]
+[201 Created, 1.11kB, 90ms]
+[201 Created, 1.11kB, 91ms]
+[201 Created, 1.11kB, 92ms]
+[201 Created, 1.11kB, 93ms]
+[201 Created, 1.11kB, 93ms]
+[201 Created, 1.11kB, 94ms]
+[201 Created, 1.11kB, 95ms]
+[201 Created, 1.11kB, 96ms]
+[201 Created, 1.11kB, 97ms]
+[201 Created, 1.11kB, 99ms]
+[201 Created, 1.11kB, 101ms]
+[201 Created, 1.11kB, 103ms]
+[201 Created, 1.11kB, 104ms]
+[201 Created, 1.11kB, 105ms]
+[201 Created, 1.11kB, 107ms]
+[201 Created, 1.11kB, 109ms]
+[201 Created, 1.11kB, 112ms]
+[201 Created, 1.11kB, 113ms]
+[201 Created, 1.11kB, 115ms]
+[201 Created, 1.11kB, 117ms]
+[201 Created, 1.11kB, 118ms]
+[201 Created, 1.11kB, 120ms]
+[201 Created, 1.11kB, 119ms]
+[201 Created, 1.11kB, 123ms]
+[201 Created, 1.11kB, 122ms]
+[201 Created, 1.11kB, 122ms]
+[201 Created, 1.11kB, 129ms]
+[201 Created, 1.11kB, 125ms]
+[201 Created, 1.11kB, 128ms]
+[201 Created, 1.11kB, 129ms]
+[201 Created, 1.11kB, 134ms]
+[201 Created, 1.11kB, 136ms]
+[201 Created, 1.11kB, 133ms]
+[201 Created, 1.11kB, 137ms]
+[201 Created, 1.11kB, 143ms]
+[201 Created, 1.11kB, 140ms]
+[201 Created, 1.11kB, 142ms]
+[201 Created, 1.11kB, 148ms]
+[201 Created, 1.11kB, 144ms]
+[201 Created, 1.11kB, 148ms]
+[201 Created, 1.11kB, 149ms]
+[201 Created, 1.11kB, 150ms]
+[201 Created, 1.11kB, 156ms]
+[201 Created, 1.11kB, 156ms]
+[201 Created, 1.11kB, 156ms]
+[201 Created, 1.11kB, 154ms]
+[201 Created, 1.11kB, 161ms]
+[201 Created, 1.11kB, 157ms]
+[201 Created, 1.11kB, 158ms]
+[201 Created, 1.11kB, 166ms]
+[201 Created, 1.11kB, 166ms]
+[201 Created, 1.11kB, 169ms]
+[201 Created, 1.11kB, 166ms]
+[201 Created, 1.11kB, 167ms]
+[201 Created, 1.11kB, 170ms]
+[201 Created, 1.11kB, 174ms]
+[201 Created, 1.11kB, 175ms]
+[201 Created, 1.11kB, 177ms]
+[201 Created, 1.11kB, 179ms]
+[201 Created, 1.11kB, 183ms]
+[201 Created, 1.11kB, 183ms]
+[201 Created, 1.11kB, 184ms]
+[201 Created, 1.11kB, 182ms]
+[201 Created, 1.11kB, 190ms]
+[201 Created, 1.11kB, 188ms]
+[201 Created, 1.11kB, 187ms]
+[201 Created, 1.11kB, 196ms]
+[201 Created, 1.11kB, 198ms]
+[201 Created, 1.11kB, 199ms]
+[201 Created, 1.11kB, 197ms]
+[201 Created, 1.11kB, 203ms]
+[201 Created, 1.11kB, 205ms]
+[201 Created, 1.11kB, 207ms]
+[201 Created, 1.11kB, 209ms]
+[201 Created, 1.11kB, 214ms]
+[201 Created, 1.11kB, 212ms]
+[201 Created, 1.11kB, 217ms]
+[201 Created, 1.11kB, 218ms]
+[201 Created, 1.11kB, 220ms]
+[201 Created, 1.11kB, 218ms]
+[201 Created, 1.11kB, 224ms]
+[201 Created, 1.11kB, 221ms]
+[201 Created, 1.11kB, 226ms]
+[201 Created, 1.11kB, 225ms]
+[201 Created, 1.11kB, 230ms]
+[201 Created, 1.11kB, 227ms]
+  ┌
+  │ 'Number of successful responses:', 100
+  └
+
+→ AllCourses
+  GET http://localhost:8884/?order_by=id&sort=DESC [201 Created, 4.92MB, 122ms]
+
+→ AllCourses No Search
+  GET http://localhost:8884/?order_by=id&sort=ASC [201 Created, 4.92MB, 124ms]
+  GET http://localhost:8884/?order_by=id&sort=DESC [201 Created, 4.92MB, 141ms]
+
+→ AllCourses No Order Sort
+  GET http://localhost:8884/?extended=true&details=all [201 Created, 4.92MB, 165ms]
+  GET http://localhost:8884/ [201 Created, 4.92MB, 156ms]
+  ┌
+  │ 'Requests per second: 0.00000641025641025641'
+  │ 'Error rate: 0%'
+  │ 'Latency: -1711824821794ms'
+  └
+
+→ EditCourse
+  PUT http://localhost:8884/27 [201 Created, 1.6kB, 19ms]
+  PUT http://localhost:8884/27 [201 Created, 1.5kB, 6ms]
+  ┌
+  │ 'Requests per second: 0.00016666666666666666'
+  │ 'Error rate: 0%'
+  │ 'Latency: -1711824825595ms'
+  └
+
+→ EditCourse-URL
+  PUT http://localhost:8880/api/courses/8 [201 Created, 1.02kB, 13ms]
+
+→ CreateCourse
+  POST http://localhost:8884/create [201 Created, 1.05kB, 5ms]
+  POST http://localhost:8884/create [201 Created, 953B, 4ms]
+
+→ CreateCourse-URL
+  POST http://localhost:8880/api/courses/create [201 Created, 1.03kB, 8ms]
+
+→ DeleteCourse
+  DELETE http://localhost:8884/28 [201 Created, 1.25kB, 5ms]
+  DELETE http://localhost:8884/28 [201 Created, 1.25kB, 4ms]
+  ┌
+  │ 'Requests per second: 0.00025'
+  │ 'Error rate: 0%'
+  │ 'Latency: -1711824825693ms'
+  └
+
+[90m┌─────────────────────────[39m[90m┬───────────────────[39m[90m┬───────────────────┐[39m
+[90m│[39m                         [90m│[39m          executed [90m│[39m            failed [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼───────────────────┤[39m
+[90m│[39m              iterations [90m│[39m                 1 [90m│[39m                 0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼───────────────────┤[39m
+[90m│[39m                requests [90m│[39m               119 [90m│[39m                 0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼───────────────────┤[39m
+[90m│[39m            test-scripts [90m│[39m                25 [90m│[39m                 0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼───────────────────┤[39m
+[90m│[39m      prerequest-scripts [90m│[39m                13 [90m│[39m                 0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼───────────────────┤[39m
+[90m│[39m              assertions [90m│[39m                73 [90m│[39m                12 [90m│[39m
+[90m├─────────────────────────┴───────────────────┴───────────────────┤[39m
+[90m│[39m total run duration: 9.2s                                        [90m│[39m
+[90m├─────────────────────────────────────────────────────────────────┤[39m
+[90m│[39m total data received: 29.63MB (approx)                           [90m│[39m
+[90m├─────────────────────────────────────────────────────────────────┤[39m
+[90m│[39m average response time: 129ms [min: 4ms, max: 230ms, s.d.: 59ms] [90m│[39m
+[90m└─────────────────────────────────────────────────────────────────┘[39m
+
+[31m   # [39m[31m failure        [39m[31m detail                                                                                                     [39m
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 01.  AssertionError  Validate Response Message indicates failure                                                                
+                      expected 'Course has been fetched successfully' to not deeply equal 'Course has been fetched successfully' 
+                      at assertion:1 in test-script                                                                              
+                      inside "GetCourse"                                                                                         
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 02.  AssertionError  Validate Response Message indicates failure                                                                
+                      expected 'Course has been fetched successfully' to not deeply equal 'Course has been fetched successfully' 
+                      at assertion:1 in test-script                                                                              
+                      inside "AllCourses No Search"                                                                              
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 03.  AssertionError  Validate the format of learning_outcomes and course_inclusions                                             
+                      expected '"Laudantium tenetur voluptas vel. Qui…' to include ','                                           
+                      at assertion:8 in test-script                                                                              
+                      inside "AllCourses No Search"                                                                              
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 04.  AssertionError  Validate Course Items sorted by id ASC                                                                     
+                      expected false to be true                                                                                  
+                      at assertion:12 in test-script                                                                             
+                      inside "AllCourses No Search"                                                                              
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 05.  AssertionError  Validate Response Message indicates failure                                                                
+                      expected 'Course has been fetched successfully' to not deeply equal 'Course has been fetched successfully' 
+                      at assertion:1 in test-script                                                                              
+                      inside "AllCourses No Order Sort"                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 06.  AssertionError  Asserting number of course items                                                                           
+                      expected 6501 to deeply equal 44                                                                           
+                      at assertion:9 in test-script                                                                              
+                      inside "AllCourses No Order Sort"                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 07.  AssertionError  Validate the format of learning_outcomes and course_inclusions                                             
+                      expected 'Master Premiere Pro and be CONFIDENT …' to include '"'                                           
+                      at assertion:13 in test-script                                                                             
+                      inside "AllCourses No Order Sort"                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 08.  AssertionError  Validating the rating to be between 1 and 5                                                                
+                      expected +0 to be within 1..5                                                                              
+                      at assertion:15 in test-script                                                                             
+                      inside "AllCourses No Order Sort"                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 09.  AssertionError  Validate Course Items sorted by id DESC                                                                    
+                      expected false to be true                                                                                  
+                      at assertion:18 in test-script                                                                             
+                      inside "AllCourses No Order Sort"                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 10.  AssertionError  Validate Response Message indicates failure                                                                
+                      expected 'Course has been updated successfully' to not deeply equal 'Course has been updated successfully' 
+                      at assertion:1 in test-script                                                                              
+                      inside "EditCourse"                                                                                        
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 11.  AssertionError  Validate Response Message indicates failure                                                                
+                      expected 'Course has been created successfully' to not deeply equal 'Course has been created successfully' 
+                      at assertion:1 in test-script                                                                              
+                      inside "CreateCourse"                                                                                      
+[90m     [39m[90m                [39m[90m                                                                                                            [39m
+ 12.  AssertionError  Validate Response Message indicates failure                                                                
+                      expected 'Course has been trashed successfully' to not deeply equal 'Course has been trashed successfully' 
+                      at assertion:1 in test-script                                                                              
+                      inside "DeleteCourse"                                                                                      

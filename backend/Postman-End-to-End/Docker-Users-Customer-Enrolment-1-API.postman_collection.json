@@ -1,0 +1,1568 @@
+{
+	"info": {
+		"_postman_id": "016ba283-6fa2-4d1a-a4fe-9986f92184fc",
+		"name": "Docker Users-Customer-Enrolment API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32483643"
+	},
+	"item": [
+		{
+			"name": "LoginUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"//Status Code 200",
+							"pm.test(\"Validate Status code 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Check response time less than 300ms",
+							"pm.test(\"Validate response time below 300\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
+							"});",
+							"",
+							"pm.test('Authentication successful', function () {",
+							"    pm.expect(pm.response).to.not.be.null;",
+							"    pm.response.to.have.status(200);",
+							"    pm.expect(pm.response.json().message).to.equal('Authentication successful');",
+							"    pm.expect(pm.response.json()).to.have.property('token');",
+							"})",
+							"",
+							"pm.test('Token format is correct', function () {",
+							"    pm.expect(pm.response.json().token).to.be.a('string');",
+							"    pm.expect(pm.response.json().token).to.match(/^eyJ[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]*\\.[a-zA-Z0-9_-]*$/);",
+							"});",
+							"",
+							"pm.test('Validate Status code 500', function () {",
+							"    pm.expect(pm.response).to.not.be.null;",
+							"    pm.response.to.have.status(500);",
+							"    pm.expect(pm.response.json().message).to.match(/(Auth Controller)/);",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": false
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Anderson_Mertz@hotmail.com\",\n    \"password\": \"abc123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{usersURL}}/login",
+					"host": [
+						"{{usersURL}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LoginUser-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Abigayle.Wolff@yahoo.com\",\n    \"password\": \"abc123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8880/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "LogoutUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"//Status Code 200",
+							"pm.test(\"Validate Status code 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"// Check response time less than 300ms",
+							"pm.test(\"Validate response time below 300\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
+							"});",
+							"",
+							"pm.test('Validate Logout successful', function () {",
+							"    pm.expect(pm.response).to.not.be.null;",
+							"    pm.expect(pm.response.json().message).to.equal('Logout successful');",
+							"})",
+							"",
+							"",
+							"",
+							"pm.test('Validate Status code 500', function () {",
+							"    pm.expect(pm.response).to.not.be.null;",
+							"    pm.response.to.have.status(500);",
+							"    pm.expect(pm.response.json().message).to.match(/(Auth Controller)/);",
+							"})",
+							"",
+							"pm.test('Validate Status code 401', function () {",
+							"    pm.expect(pm.response).to.not.be.null;",
+							"    pm.response.to.have.status(401);",
+							"    pm.expect(pm.response.json().message).to.match(/(Authentication Failed)/);",
+							"})",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"Tobin13@hotmail.com\",\n    \"password\": \"abc123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{usersURL}}/logout",
+					"host": [
+						"{{usersURL}}"
+					],
+					"path": [
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomerUser",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Status Code 201",
+							"pm.test(\"Validate Status code 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"//Status Code 400",
+							"",
+							"pm.test(\"Validate Status code 400\", function() {",
+							"        pm.expect(pm.response).to.not.be.null; ",
+							"        pm.response.to.have.status(400); ",
+							"        pm.expect(pm.response.json().message).to.match(/(is required|must be|already exists!)/); ",
+							"});",
+							"",
+							"",
+							"// Check response time less than 300ms",
+							"pm.test(\"Validate response time below 300\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
+							"});",
+							"",
+							"const customerJson = pm.response.json();",
+							"",
+							"// Response containing Data and Message Keys",
+							"pm.test(\"Validate Data and Message Keys\", function () {",
+							"    pm.expect(customerJson).to.have.property(\"data\");",
+							"    pm.expect(customerJson).to.have.property(\"message\");",
+							"});",
+							"",
+							"// Checking Data Object present",
+							"pm.test(\"Validate data object not empty\", function () {",
+							"    pm.expect(customerJson.data).to.not.be.empty;",
+							"});",
+							"",
+							"pm.test(\"Validate Data Object contains expected keys\", function () {",
+							"    const customerData = customerJson.data;",
+							"    pm.expect(customerData).to.have.property(\"id\");",
+							"    pm.expect(customerData).to.have.property(\"user_id\");",
+							"    pm.expect(customerData).to.have.property(\"full_name\");",
+							"    pm.expect(customerData).to.have.property(\"phone_no\");",
+							"    pm.expect(customerData).to.have.property(\"area_of_interests\");",
+							"    pm.expect(customerData).to.have.property(\"status\");",
+							"    pm.expect(customerData).to.have.property(\"updated_at\");",
+							"    pm.expect(customerData).to.have.property(\"created_at\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the Message Field\", function () {",
+							"    pm.expect(customerJson.message).to.eql(\"Customer has been created successfully.\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"abc123\",\n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomJobArea}}\",\n    \"status\": 1,\n    \"role\": \"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{customerURL}}/",
+					"host": [
+						"{{customerURL}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateCustomerUser-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//Status Code 201",
+							"pm.test(\"Validate Status code 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});",
+							"",
+							"//Status Code 400",
+							"",
+							"pm.test(\"Validate Status code 400\", function() {",
+							"        pm.expect(pm.response).to.not.be.null; ",
+							"        pm.response.to.have.status(400); ",
+							"        pm.expect(pm.response.json().message).to.match(/(is required|must be|already exists!)/); ",
+							"});",
+							"",
+							"",
+							"// Check response time less than 300ms",
+							"pm.test(\"Validate response time below 300\", function() {",
+							"    pm.expect(pm.response.responseTime).to.be.below(300);",
+							"});",
+							"",
+							"const customerJson = pm.response.json();",
+							"",
+							"// Response containing Data and Message Keys",
+							"pm.test(\"Validate Data and Message Keys\", function () {",
+							"    pm.expect(customerJson).to.have.property(\"data\");",
+							"    pm.expect(customerJson).to.have.property(\"message\");",
+							"});",
+							"",
+							"// Checking Data Object present",
+							"pm.test(\"Validate data object not empty\", function () {",
+							"    pm.expect(customerJson.data).to.not.be.empty;",
+							"});",
+							"",
+							"pm.test(\"Validate Data Object contains expected keys\", function () {",
+							"    const customerData = customerJson.data;",
+							"    pm.expect(customerData).to.have.property(\"id\");",
+							"    pm.expect(customerData).to.have.property(\"user_id\");",
+							"    pm.expect(customerData).to.have.property(\"full_name\");",
+							"    pm.expect(customerData).to.have.property(\"phone_no\");",
+							"    pm.expect(customerData).to.have.property(\"area_of_interests\");",
+							"    pm.expect(customerData).to.have.property(\"status\");",
+							"    pm.expect(customerData).to.have.property(\"updated_at\");",
+							"    pm.expect(customerData).to.have.property(\"created_at\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the Message Field\", function () {",
+							"    pm.expect(customerJson.message).to.eql(\"Customer has been created successfully.\");",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"full_name\": \"{{$randomFullName}}\",\n    \"email\": \"{{$randomEmail}}\",\n    \"password\": \"abc123\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"status\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8880/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: 'http://localhost:8882/',",
+							"    method: 'GET', ",
+							"    header: {",
+							"        'Content-Type': 'application/json',",
+							"        'Authorization': 'Bearer ' + pm.variables.get(\"bearerToken\")",
+							"    },",
+							"}, function (err, res) {",
+							"    if (err) {",
+							"        console.error(err);",
+							"        return;",
+							"    }",
+							"",
+							"    pm.test(\"Validate Status Code 200\", function () {",
+							"        pm.expect(res).to.have.status(200);",
+							"    });",
+							"",
+							"        // Check response time less than 300ms",
+							"    pm.test(\"Validate response time below 300\", function() {",
+							"        pm.expect(pm.response.responseTime).to.be.below(300);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Status Code 400\", function () {",
+							"        pm.expect(res).to.have.status(400);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Error Message\", function () {",
+							"        var jsonData = pm.response.json();",
+							"        pm.expect(jsonData.message).to.equal(\"User is Empty!\");",
+							"    });",
+							"",
+							"    pm.test(\"Validate Status Code 401\", function () {",
+							"        pm.expect(res).to.have.status(401);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Status Code 500\", function () {",
+							"        pm.expect(res).to.have.status(500);",
+							"    });",
+							"",
+							"        ",
+							"    pm.test(\"Validate Header to have Content-Type\", function () {",
+							"        pm.expect(res).to.have.header(\"Content-Type\");",
+							"        pm.expect(res.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"    });",
+							"",
+							"    pm.test(\"Validate Response body message\", function () {",
+							"        pm.expect(res.json().message).to.equal(\"User details have been fetched successfully.\");",
+							"    });",
+							"",
+							"    pm.test(\"Validate Response body to be an Array\", function () {",
+							"        pm.expect(res.json().data).to.be.an(\"array\").that.is.not.empty;",
+							"    });",
+							"",
+							"    pm.test('Validate Response Body Structure', function () {",
+							"    var customerJson = res.json();",
+							"    pm.expect(customerJson).to.have.property('message');",
+							"    pm.expect(customerJson.message).to.equal('User details have been fetched successfully.');",
+							"    pm.expect(customerJson).to.have.property('data').that.is.an('array').and.not.empty;",
+							"    customerJson.data.forEach(function (userData) {",
+							"        ",
+							"        if (userData.id !== null && userData.id !== undefined) {",
+							"            pm.expect(userData.id).to.be.a('number');",
+							"        }",
+							"",
+							"       ",
+							"        if (userData.user_id !== null && userData.user_id !== undefined) {",
+							"            pm.expect(userData.user_id).to.be.a('number');",
+							"        }",
+							"",
+							"        ",
+							"        if (userData.full_name !== null && userData.full_name !== undefined) {",
+							"            pm.expect(userData.full_name).to.be.a('string');",
+							"        }",
+							"",
+							"        ",
+							"        if (userData.phone_no !== null && userData.phone_no !== undefined) {",
+							"            pm.expect(userData.phone_no).to.be.a('string');",
+							"        }",
+							"",
+							"        ",
+							"        if (userData.area_of_interests !== null && userData.area_of_interests !== undefined) {",
+							"            pm.expect(userData.area_of_interests).to.be.a('string');",
+							"        }",
+							"",
+							"       ",
+							"        if (userData.status !== null && userData.status !== undefined) {",
+							"            pm.expect(userData.status).to.be.a('number');",
+							"        }",
+							"",
+							"        ",
+							"        if (userData.created_at !== null && userData.created_at !== undefined) {",
+							"            pm.expect(userData.created_at).to.be.a('string');",
+							"        }",
+							"",
+							"        ",
+							"        if (userData.updated_at !== null && userData.updated_at !== undefined) {",
+							"            pm.expect(userData.updated_at).to.be.a('string');",
+							"        }",
+							"",
+							"       ",
+							"        if (userData.email_id !== null && userData.email_id !== undefined) {",
+							"            pm.expect(userData.email_id).to.be.a('string');",
+							"        }",
+							"",
+							"      ",
+							"        if (userData.role !== null && userData.role !== undefined) {",
+							"            pm.expect(userData.role).to.be.a('string');",
+							"        }",
+							"    });",
+							"});",
+							"",
+							"",
+							"    var custJson = res.json();",
+							"",
+							"    pm.test(\"Validate the Count of Items\", function () {",
+							"        ",
+							"        var itemCount = custJson.data.length;",
+							"        console.log(\"Total items:\", itemCount);",
+							"    ",
+							"        var expectedItemCount = 63; ",
+							"        pm.expect(itemCount).to.equal(expectedItemCount);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Customer Items displayed in ASC\", function () {",
+							"        ",
+							"        var custData = custJson.data;",
+							"        for (var i = 1; i < custData.length; i++) {",
+							"            pm.expect(custData[i].id).to.be.at.least(custData[i - 1].id);",
+							"        }",
+							"    });",
+							"    ",
+							"",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{customerURL}}/",
+					"host": [
+						"{{customerURL}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAllCustomer-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8880/api/customers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCustomer-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8880/api/customers/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"customers",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCustomer-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8880/api/customers/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"customers",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCustomer",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var customerSchema = {",
+							"    \"type\": \"object\",",
+							"    \"properties\": {",
+							"        \"message\": {\"type\": \"string\"},",
+							"        \"data\": {",
+							"            \"type\": \"array\",",
+							"            \"items\": {",
+							"                \"type\": \"object\",",
+							"                \"properties\": {",
+							"                    \"role\": {\"type\": \"string\"},",
+							"                    \"email_id\": {\"type\": \"string\"},",
+							"                    \"id\": {\"type\": \"integer\"},",
+							"                    \"user_id\": {\"type\": \"integer\"},",
+							"                    \"full_name\": {\"type\": \"string\"},",
+							"                    \"phone_no\": {\"type\": \"string\"},",
+							"                    \"area_of_interests\": {\"type\": \"string\"},",
+							"                    \"status\": {\"type\": \"integer\"},",
+							"                    \"created_at\": {\"type\": \"string\", \"format\": \"date-time\"},",
+							"                    \"updated_at\": {\"type\": \"string\", \"format\": \"date-time\"}",
+							"                },",
+							"                \"required\": [\"role\", \"email_id\", \"id\", \"user_id\", \"full_name\", \"phone_no\", \"area_of_interests\", \"status\", \"created_at\", \"updated_at\"]",
+							"            }",
+							"        }",
+							"    },",
+							"    \"required\": [\"message\", \"data\"]",
+							"};",
+							"",
+							"var customerKeys = [\"id\", \"user_id\", \"full_name\", \"phone_no\", \"area_of_interests\", \"status\", \"created_at\", \"updated_at\", \"email_id\", \"role\"];",
+							"",
+							"",
+							"pm.sendRequest({",
+							"    url: 'http://localhost:8882/21',",
+							"    method: 'GET', ",
+							"    header: {",
+							"        'Content-Type': 'application/json',",
+							"        'Authorization': 'Bearer ' + pm.variables.get(\"bearerToken\")",
+							"    },",
+							"}, function (err, res) {",
+							"    if (err) {",
+							"        console.error(err);",
+							"        return;",
+							"    }",
+							"",
+							"    pm.test(\"Validate Status Code 200\", function () {",
+							"        pm.expect(res).to.have.status(200);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Status Code 400\", function () {",
+							"        pm.expect(res).to.have.status(400);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Error Message\", function () {",
+							"        var customerJson = res.json();",
+							"        pm.expect(customerJson.message).to.equal(\"User is Empty!\");",
+							"    });",
+							"",
+							"    pm.test(\"Validate Status Code 401\", function () {",
+							"        pm.expect(res).to.have.status(401);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Status Code 500\", function () {",
+							"        pm.expect(res).to.have.status(500);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Content-type header\", function () {",
+							"        pm.expect(res).to.have.header(\"Content-Type\");",
+							"        pm.expect(res.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"    });",
+							"",
+							"    pm.test(\"Validate Response Body Message\", function () {",
+							"        pm.expect(res.json().message).to.equal(\"User details have been fetched successfully.\");",
+							"    });",
+							"",
+							"    pm.test(\"Validate Response Data Object\", function () {",
+							"        pm.expect(res.json().data).to.be.an(\"array\").that.is.not.empty;",
+							"    });",
+							"",
+							"    pm.test(\"Validate Response Data structure\", function () {",
+							"    pm.expect(res.json().message).to.equal(\"User details have been fetched successfully.\");",
+							"    ",
+							"    var customer = res.json().data[0];",
+							"    pm.expect(customer).to.have.property(\"id\", 21);",
+							"    pm.expect(customer).to.have.property(\"user_id\", 22);",
+							"    pm.expect(customer).to.have.property(\"full_name\", \"Geneva Towne\");",
+							"    pm.expect(customer).to.have.property(\"phone_no\", \"322-364-6573\");",
+							"    pm.expect(customer).to.have.property(\"area_of_interests\", \"valerie.com\");",
+							"    pm.expect(customer).to.have.property(\"status\", 1);",
+							"    pm.expect(customer).to.have.property(\"created_at\", \"2024-03-29T14:29:34.000Z\");",
+							"    pm.expect(customer).to.have.property(\"updated_at\", \"2024-03-30T18:06:54.000Z\");",
+							"    pm.expect(customer).to.have.property(\"email_id\", \"Dangelo99@yahoo.com\");",
+							"    pm.expect(customer).to.have.property(\"role\", \"customer\");",
+							"});",
+							"",
+							"",
+							"",
+							"    pm.test(\"Validate Response Schema\", function () {",
+							"        var customerJson = res.json();",
+							"        pm.expect(tv4.validate(customerJson, customerSchema)).to.be.true;",
+							"    });",
+							"",
+							"    pm.test(\"Validate Response Object Keys\", function() {",
+							"        var customerData = res.json().data[0];",
+							"",
+							"        var responseKeys = Object.keys(customerData);",
+							"        pm.expect(responseKeys).to.eql(customerKeys);",
+							"    });",
+							"",
+							"",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{customerURL}}/:id",
+					"host": [
+						"{{customerURL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"const baseUrl = \"http://localhost:8882\";",
+							"",
+							"",
+							"const requestBody = {",
+							"    \"full_name\": pm.variables.replaceIn(\"{{$randomFullName}}\"),",
+							"    \"phone_no\": pm.variables.replaceIn(\"{{$randomPhoneNumber}}\"),",
+							"    \"area_of_interests\": pm.variables.replaceIn(\"{{$randomDomainName}}\")",
+							"};",
+							"",
+							"",
+							"pm.sendRequest({",
+							"    url: baseUrl + \"/21\",",
+							"    method: 'PUT',",
+							"    header: {",
+							"        'Content-Type': 'application/json',",
+							"        'Authorization': 'Bearer ' + pm.variables.get(\"bearerToken\")",
+							"    },",
+							"    body: JSON.stringify(requestBody)",
+							"}, function(err, res) {",
+							"    ",
+							"    pm.test(\"Update customer information successfully\", function() {",
+							"        pm.expect(res).to.not.be.null; ",
+							"        pm.expect(res.code).to.equal(200); ",
+							"        pm.expect(res.json().message).to.include(\"updated successfully\"); ",
+							"    });",
+							"",
+							"",
+							"    pm.test(\"Validate Response Data structure\", function() {",
+							"    var customer = res.json().data; ",
+							"    pm.expect(customer).to.have.property(\"full_name\");",
+							"    pm.expect(customer).to.have.property(\"phone_no\"); ",
+							"    pm.expect(customer).to.have.property(\"area_of_interests\"); ",
+							"});",
+							"",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomDomainName}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{customerURL}}/:id",
+					"host": [
+						"{{customerURL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "21"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateCustomer-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"full_name\": \"{{$randomFullName}}\",\n    \"phone_no\": \"{{$randomPhoneNumber}}\",\n    \"area_of_interests\": \"{{$randomDomainName}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8880/api/customers/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"customers",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Customer deleted successfully\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200); ",
+							"    pm.expect(pm.response.json().message).to.include(\"deleted successfully\"); ",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{customerURL}}/:id",
+					"host": [
+						"{{customerURL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "56"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminViewAllEnrollments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.sendRequest({",
+							"    url: 'http://localhost:8883/',",
+							"    method: 'GET', ",
+							"    header: {",
+							"        'Content-Type': 'application/json',",
+							"    },",
+							"}, function (err, res) {",
+							"    if (err) {",
+							"        console.error(err);",
+							"        return;",
+							"    }",
+							"",
+							"    pm.test(\"Validate Status Code 200\", function () {",
+							"        pm.expect(res).to.have.status(200);",
+							"    });",
+							"",
+							"    // Check response time less than 300ms",
+							"    pm.test(\"Validate response time below 300\", function() {",
+							"        pm.expect(pm.response.responseTime).to.be.below(300);",
+							"    });",
+							"",
+							"    pm.test(\"Validate Header to have Content-Type\", function () {",
+							"        pm.expect(res).to.have.header(\"Content-Type\");",
+							"        pm.expect(res.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+							"    });",
+							"",
+							"    pm.test(\"Validate Response body message\", function () {",
+							"        pm.expect(res.json().message).to.equal(\"Data fetched successfully\");",
+							"    });",
+							"",
+							"    pm.test(\"Validate Response body to be an Array\", function () {",
+							"        pm.expect(res.json().data).to.be.an(\"array\").that.is.not.empty;",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{enrollmentURL}}/",
+					"host": [
+						"{{enrollmentURL}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AdminViewAllEnrollments-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8880/api/enrollment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"enrollment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewUserEnrollment",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"var enrollmentJson = pm.response.json();",
+							"",
+							"",
+							"pm.test(\"Validate Status Code 200\", function () {",
+							"    pm.expect(pm.response.code).to.equal(200); ",
+							"    pm.expect(enrollmentJson.message).to.equal(\"Enrollment details have been fetched successfully.\"); ",
+							"    pm.expect(enrollmentJson.data).to.be.an('array').that.is.not.empty;",
+							"});",
+							"",
+							"",
+							"/*enrollmentJson.data.forEach(function(enrollmentData) {",
+							"    ",
+							"    pm.test(\"Validate Enrollment Data Structure\", function () {",
+							"        pm.expect(enrollmentData).to.have.property('id').that.is.a('number');",
+							"        pm.expect(enrollmentData).to.have.property('customer_id').that.is.a('number');",
+							"        pm.expect(enrollmentData).to.have.property('course_id').that.is.a('number');",
+							"        pm.expect(enrollmentData).to.have.property('status').that.is.a('number');",
+							"        pm.expect(enrollmentData).to.have.property('payment_method').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('payment_status').that.is.a('number');",
+							"        pm.expect(enrollmentData).to.have.property('enrollment_date').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('created_at').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('updated_at').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('title').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('description').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('learning_outcomes').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('course_inclusions').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('is_certified').that.is.a('number');",
+							"        pm.expect(enrollmentData).to.have.property('author').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('course_content').that.is.a('string');",
+							"        pm.expect(enrollmentData).to.have.property('rating').that.is.a('number');",
+							"        pm.expect(enrollmentData).to.have.property('total_enrollments').that.is.a('number');",
+							"    });",
+							"",
+							"    ",
+							"    pm.test(\"Validate Enrollment Date\", function () {",
+							"        var enrollmentDate = new Date(enrollmentData.enrollment_date);",
+							"        pm.expect(enrollmentDate).to.be.a('Date'); ",
+							"        pm.expect(enrollmentDate).to.be.at.most(new Date()); ",
+							"    });",
+							"});",
+							"",
+							"*/",
+							"",
+							"",
+							"",
+							"pm.test(\"Validate the count of Course Enrollements\", function () {",
+							"    pm.expect(enrollmentJson.data.length).to.be.eq(3502);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{enrollmentURL}}/:id",
+					"host": [
+						"{{enrollmentURL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ViewUserEnrollment-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8880/api/enrollment/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"enrollment",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateEnrollments",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Validate status code 500\", function () {",
+							"    pm.expect(pm.response.code).to.equal(500); ",
+							"    pm.expect(pm.response.json().message).to.equal(\"Error in enrollment\"); ",
+							"    pm.expect(pm.response.json().error).to.include(\"Cannot add or update\"); ",
+							"});",
+							"",
+							"pm.test(\"Validate status code 201\", function () {",
+							"    pm.expect(pm.response.code).to.equal(201);",
+							"});",
+							"",
+							"pm.test(\"Validate Response message\", function () {",
+							"     var enrollmentJson = pm.response.json();",
+							"    pm.expect(enrollmentJson).to.be.an('object');",
+							"    pm.expect(enrollmentJson.message).to.exist.and.to.be.a('string');",
+							"    pm.expect(enrollmentJson.message).to.include('User has been enrolled successfully');",
+							"});",
+							"",
+							"pm.test(\"Validate the Header\", function () {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the enrollment Data\", function () {",
+							"    var enrollmentData = pm.response.json().data;",
+							"    pm.expect(enrollmentData).to.have.property(\"id\"); ",
+							"    pm.expect(enrollmentData).to.have.property(\"customer_id\", 54); ",
+							"    pm.expect(enrollmentData).to.have.property(\"course_id\", 17); ",
+							"    pm.expect(enrollmentData).to.have.property(\"status\", 1); ",
+							"    pm.expect(enrollmentData).to.have.property(\"payment_method\", \"online\"); ",
+							"    pm.expect(enrollmentData).to.have.property(\"payment_status\", 1); ",
+							"    pm.expect(enrollmentData).to.have.property(\"updated_at\"); ",
+							"    pm.expect(enrollmentData).to.have.property(\"created_at\"); ",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"course_id\":17,\n    \"payment_method\":\"online\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{enrollmentURL}}/",
+					"host": [
+						"{{enrollmentURL}}"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateEnrollments-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Validate status code 500\", function () {",
+							"    pm.expect(pm.response.code).to.equal(500); ",
+							"    pm.expect(pm.response.json().message).to.equal(\"Error in enrollment\"); ",
+							"    pm.expect(pm.response.json().error).to.include(\"Cannot add or update\"); ",
+							"});",
+							"",
+							"pm.test(\"Validate status code 201\", function () {",
+							"    pm.expect(pm.response.code).to.equal(201);",
+							"});",
+							"",
+							"pm.test(\"Validate Response message\", function () {",
+							"     var enrollmentJson = pm.response.json();",
+							"    pm.expect(enrollmentJson).to.be.an('object');",
+							"    pm.expect(enrollmentJson.message).to.exist.and.to.be.a('string');",
+							"    pm.expect(enrollmentJson.message).to.include('User has been enrolled successfully');",
+							"});",
+							"",
+							"pm.test(\"Validate the Header\", function () {",
+							"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the enrollment Data\", function () {",
+							"    var enrollmentData = pm.response.json().data;",
+							"    pm.expect(enrollmentData).to.have.property(\"id\"); ",
+							"    pm.expect(enrollmentData).to.have.property(\"customer_id\", 18); ",
+							"    pm.expect(enrollmentData).to.have.property(\"course_id\", 4); ",
+							"    pm.expect(enrollmentData).to.have.property(\"status\", 1); ",
+							"    pm.expect(enrollmentData).to.have.property(\"payment_method\", \"cash\"); ",
+							"    pm.expect(enrollmentData).to.have.property(\"payment_status\", 1); ",
+							"    pm.expect(enrollmentData).to.have.property(\"enrollment_date\"); ",
+							"    pm.expect(enrollmentData).to.have.property(\"updated_at\"); ",
+							"    pm.expect(enrollmentData).to.have.property(\"created_at\"); ",
+							"});",
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"course_id\":13,\n    \"payment_method\":\"online\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8880/api/enrollment",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"enrollment"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GETEnrollments-User-URL",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"followOriginalHttpMethod": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{bearerToken}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8880/api/enrollment/user/enrollments?order_by=id&sort=desc`",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8880",
+					"path": [
+						"api",
+						"enrollment",
+						"user",
+						"enrollments"
+					],
+					"query": [
+						{
+							"key": "order_by",
+							"value": "id"
+						},
+						{
+							"key": "sort",
+							"value": "desc`"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "usersURL",
+			"value": "http://localhost:8881"
+		},
+		{
+			"key": "customerURL",
+			"value": "http://localhost:8882",
+			"type": "string"
+		},
+		{
+			"key": "enrollmentURL",
+			"value": "http://localhost:8883"
+		},
+		{
+			"key": "bearerToken",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NTUsInByb2ZpbGUiOlt7ImlkIjo1NCwidXNlcl9pZCI6NTUsImZ1bGxfbmFtZSI6Ik1pcmlhbSBUaGllbCIsInBob25lX25vIjoiNjY0LTM2NC00MDA0IiwiYXJlYV9vZl9pbnRlcmVzdHMiOiJJbnRyYW5ldCIsInN0YXR1cyI6MSwiY3JlYXRlZF9hdCI6IjIwMjQtMDMtMzBUMTA6NTc6MTEuMDAwWiIsInVwZGF0ZWRfYXQiOiIyMDI0LTAzLTMwVDEwOjU3OjExLjAwMFoiLCJlbWFpbF9pZCI6IkFuZGVyc29uX01lcnR6QGhvdG1haWwuY29tIiwicm9sZSI6ImFkbWluIn1dLCJpYXQiOjE3MTE4MjExNzEsImV4cCI6MTcxMTgyNDc3MX0.G15z7MlCIIlNsdc2Oy2RUORz9YJ8jEfYbp_GPVYl6Sw"
+		}
+	]
+}

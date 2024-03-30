@@ -1,0 +1,227 @@
+newman
+
+Docker Users-Customer-Enrolment API
+
+→ LoginUser
+  POST http://localhost:8881/login [200 OK, 811B, 155ms]
+
+→ LoginUser-URL
+  POST http://localhost:8880/api/users/login [200 OK, 776B, 69ms]
+
+→ LogoutUser
+  POST http://localhost:8881/logout [401 Unauthorized, 312B, 4ms]
+
+→ CreateCustomerUser
+  POST http://localhost:8882/ [201 Created, 531B, 81ms]
+
+→ CreateCustomerUser-URL
+  POST http://localhost:8880/api/customers [201 Created, 470B, 78ms]
+
+→ GetAllCustomer
+  GET http://localhost:8882/ [200 OK, 16.44kB, 6ms]
+  GET http://localhost:8882/ [200 OK, 16.44kB, 4ms]
+  ┌
+  │ 'Total items:', 65
+  └
+
+→ GetAllCustomer-URL
+  GET http://localhost:8880/api/customers [200 OK, 16.41kB, 8ms]
+
+→ DeleteCustomer-URL
+  DELETE http://localhost:8880/api/customers/4 [400 Bad Request, 288B, 7ms]
+
+→ GetCustomer-URL
+  GET http://localhost:8880/api/customers/4 [200 OK, 307B, 7ms]
+
+→ GetCustomer
+  GET http://localhost:8882/21 [200 OK, 592B, 3ms]
+  GET http://localhost:8882/21 [200 OK, 592B, 3ms]
+
+→ UpdateCustomer
+  PUT http://localhost:8882/21 [200 OK, 413B, 7ms]
+  PUT http://localhost:8882/21 [200 OK, 416B, 9ms]
+
+→ UpdateCustomer-URL
+  PUT http://localhost:8880/api/customers/5 [200 OK, 389B, 8ms]
+
+→ DeleteCustomer
+  DELETE http://localhost:8882/56 [400 Bad Request, 316B, 4ms]
+
+→ AdminViewAllEnrollments
+  GET http://localhost:8883/ [200 OK, 1.21MB, 66ms]
+  GET http://localhost:8883/ [200 OK, 1.21MB, 40ms]
+
+→ AdminViewAllEnrollments-URL
+  GET http://localhost:8880/api/enrollment [200 OK, 1.21MB, 76ms]
+
+→ ViewUserEnrollment
+  GET http://localhost:8883/17 [200 OK, 3.24MB, 260ms]
+
+→ ViewUserEnrollment-URL
+  GET http://localhost:8880/api/enrollment/17 [200 OK, 3.24MB, 312ms]
+
+→ CreateEnrollments
+  POST http://localhost:8883/ [500 Internal Server Error, 365B, 11ms]
+
+→ CreateEnrollments-URL
+  POST http://localhost:8880/api/enrollment [500 Internal Server Error, 337B, 12ms]
+
+→ GETEnrollments-User-URL
+  GET http://localhost:8880/api/enrollment/user/enrollments?order_by=id&sort=desc` [500 Internal Server Error, 345B, 9ms]
+
+[90m┌─────────────────────────[39m[90m┬───────────────────[39m[90m┬──────────────────┐[39m
+[90m│[39m                         [90m│[39m          executed [90m│[39m           failed [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼──────────────────┤[39m
+[90m│[39m              iterations [90m│[39m                 1 [90m│[39m                0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼──────────────────┤[39m
+[90m│[39m                requests [90m│[39m                24 [90m│[39m                0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼──────────────────┤[39m
+[90m│[39m            test-scripts [90m│[39m                40 [90m│[39m                0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼──────────────────┤[39m
+[90m│[39m      prerequest-scripts [90m│[39m                21 [90m│[39m                0 [90m│[39m
+[90m├─────────────────────────[39m[90m┼───────────────────[39m[90m┼──────────────────┤[39m
+[90m│[39m              assertions [90m│[39m                67 [90m│[39m               27 [90m│[39m
+[90m├─────────────────────────┴───────────────────┴──────────────────┤[39m
+[90m│[39m total run duration: 2.5s                                       [90m│[39m
+[90m├────────────────────────────────────────────────────────────────┤[39m
+[90m│[39m total data received: 10.15MB (approx)                          [90m│[39m
+[90m├────────────────────────────────────────────────────────────────┤[39m
+[90m│[39m average response time: 51ms [min: 3ms, max: 312ms, s.d.: 80ms] [90m│[39m
+[90m└────────────────────────────────────────────────────────────────┘[39m
+
+[31m   # [39m[31m failure        [39m[31m detail                                                                                                           [39m
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 01.  AssertionError  Validate Status code 500                                                                                         
+                      expected response to have status code 500 but got 200                                                            
+                      at assertion:4 in test-script                                                                                    
+                      inside "LoginUser"                                                                                               
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 02.  AssertionError  Validate Status code 200                                                                                         
+                      expected response to have status code 200 but got 401                                                            
+                      at assertion:0 in test-script                                                                                    
+                      inside "LogoutUser"                                                                                              
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 03.  AssertionError  Validate Logout successful                                                                                       
+                      expected 'Authentication Failed' to equal 'Logout successful'                                                    
+                      at assertion:2 in test-script                                                                                    
+                      inside "LogoutUser"                                                                                              
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 04.  AssertionError  Validate Status code 500                                                                                         
+                      expected response to have status code 500 but got 401                                                            
+                      at assertion:3 in test-script                                                                                    
+                      inside "LogoutUser"                                                                                              
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 05.  AssertionError  Validate Status code 400                                                                                         
+                      expected response to have status code 400 but got 201                                                            
+                      at assertion:1 in test-script                                                                                    
+                      inside "CreateCustomerUser"                                                                                      
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 06.  AssertionError  Validate Status code 400                                                                                         
+                      expected response to have status code 400 but got 201                                                            
+                      at assertion:1 in test-script                                                                                    
+                      inside "CreateCustomerUser-URL"                                                                                  
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 07.  AssertionError  Validate Data Object contains expected keys                                                                      
+                      expected { id: 94, user_id: 95, …(5) } to have property 'area_of_interests'                                      
+                      at assertion:5 in test-script                                                                                    
+                      inside "CreateCustomerUser-URL"                                                                                  
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 08.  AssertionError  Validate Status Code 400                                                                                         
+                      expected response to have status code 400 but got 200                                                            
+                      at assertion:2 in test-script                                                                                    
+                      inside "GetAllCustomer"                                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 09.  AssertionError  Validate Error Message                                                                                           
+                      expected 'User details have been fetched succes…' to equal 'User is Empty!'                                      
+                      at assertion:3 in test-script                                                                                    
+                      inside "GetAllCustomer"                                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 10.  AssertionError  Validate Status Code 401                                                                                         
+                      expected response to have status code 401 but got 200                                                            
+                      at assertion:4 in test-script                                                                                    
+                      inside "GetAllCustomer"                                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 11.  AssertionError  Validate Status Code 500                                                                                         
+                      expected response to have status code 500 but got 200                                                            
+                      at assertion:5 in test-script                                                                                    
+                      inside "GetAllCustomer"                                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 12.  AssertionError  Validate the Count of Items                                                                                      
+                      expected 65 to equal 63                                                                                          
+                      at assertion:10 in test-script                                                                                   
+                      inside "GetAllCustomer"                                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 13.  AssertionError  Validate Status Code 400                                                                                         
+                      expected response to have status code 400 but got 200                                                            
+                      at assertion:1 in test-script                                                                                    
+                      inside "GetCustomer"                                                                                             
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 14.  AssertionError  Validate Error Message                                                                                           
+                      expected 'User details have been fetched succes…' to equal 'User is Empty!'                                      
+                      at assertion:2 in test-script                                                                                    
+                      inside "GetCustomer"                                                                                             
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 15.  AssertionError  Validate Status Code 401                                                                                         
+                      expected response to have status code 401 but got 200                                                            
+                      at assertion:3 in test-script                                                                                    
+                      inside "GetCustomer"                                                                                             
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 16.  AssertionError  Validate Status Code 500                                                                                         
+                      expected response to have status code 500 but got 200                                                            
+                      at assertion:4 in test-script                                                                                    
+                      inside "GetCustomer"                                                                                             
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 17.  AssertionError  Validate Response Data structure                                                                                 
+                      expected { id: 21, user_id: 22, …(8) } to have property 'full_name' of 'Geneva Towne', but got 'Conrad Schinner' 
+                      at assertion:8 in test-script                                                                                    
+                      inside "GetCustomer"                                                                                             
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 18.  AssertionError  Customer deleted successfully                                                                                    
+                      expected 400 to equal 200                                                                                        
+                      at assertion:0 in test-script                                                                                    
+                      inside "DeleteCustomer"                                                                                          
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 19.  AssertionError  Validate the count of Course Enrollements                                                                        
+                      expected 3506 to equal 3502                                                                                      
+                      at assertion:1 in test-script                                                                                    
+                      inside "ViewUserEnrollment"                                                                                      
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 20.  AssertionError  Validate status code 500                                                                                         
+                      expected 'Request failed with status code 401' to include 'Cannot add or update'                                 
+                      at assertion:0 in test-script                                                                                    
+                      inside "CreateEnrollments"                                                                                       
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 21.  AssertionError  Validate status code 201                                                                                         
+                      expected 500 to equal 201                                                                                        
+                      at assertion:1 in test-script                                                                                    
+                      inside "CreateEnrollments"                                                                                       
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 22.  AssertionError  Validate Response message                                                                                        
+                      expected 'Error in enrollment' to include 'User has been enrolled successfully'                                  
+                      at assertion:2 in test-script                                                                                    
+                      inside "CreateEnrollments"                                                                                       
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 23.  AssertionError  Validate the enrollment Data                                                                                     
+                      Target cannot be null or undefined.                                                                              
+                      at assertion:4 in test-script                                                                                    
+                      inside "CreateEnrollments"                                                                                       
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 24.  AssertionError  Validate status code 500                                                                                         
+                      expected 'Request failed with status code 401' to include 'Cannot add or update'                                 
+                      at assertion:0 in test-script                                                                                    
+                      inside "CreateEnrollments-URL"                                                                                   
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 25.  AssertionError  Validate status code 201                                                                                         
+                      expected 500 to equal 201                                                                                        
+                      at assertion:1 in test-script                                                                                    
+                      inside "CreateEnrollments-URL"                                                                                   
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 26.  AssertionError  Validate Response message                                                                                        
+                      expected 'Error in enrollment' to include 'User has been enrolled successfully'                                  
+                      at assertion:2 in test-script                                                                                    
+                      inside "CreateEnrollments-URL"                                                                                   
+[90m     [39m[90m                [39m[90m                                                                                                                  [39m
+ 27.  AssertionError  Validate the enrollment Data                                                                                     
+                      Target cannot be null or undefined.                                                                              
+                      at assertion:4 in test-script                                                                                    
+                      inside "CreateEnrollments-URL"                                                                                   
