@@ -1,7 +1,0 @@
-Frontnend is going to be pushed here
-
-This is s commit for Jenkins
-
-Another attempt on Jenkins
-
-Localised pipeline test
