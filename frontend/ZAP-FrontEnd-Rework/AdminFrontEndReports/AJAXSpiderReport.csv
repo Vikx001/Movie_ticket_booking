@@ -1,0 +1,79 @@
+Processed,ID,Req. Timestamp,Method,URL,Code,Reason,RTT,Size Resp. Header,Size Resp. Body,Highest Alert,Note,Tags
+Out of Scope,290769,Sat Mar 30 14:37:10 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Processed,290770,Sat Mar 30 14:37:10 GMT 2024,GET,http://localhost:8886/,200,OK,14,241,62847,Medium,false,"Script, Comment"
+Out of Scope,290771,Sat Mar 30 14:37:10 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,290772,Sat Mar 30 14:37:10 GMT 2024,GET,http://localhost:8886/assets/index-f63d4ef4.css,200,OK,24,242,119620,Low,false,
+Processed,290773,Sat Mar 30 14:37:10 GMT 2024,GET,http://localhost:8886/assets/index-597b6b32.js,200,OK,29,258,1417176,Low,false,"Hidden, Script, Comment"
+Processed,290774,Sat Mar 30 14:37:10 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,164,951,101784,Informational,false,Comment
+Processed,290775,Sat Mar 30 14:37:10 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,34,810,3011,Low,false,Comment
+Out of Scope,290776,Sat Mar 30 14:37:11 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Processed,290777,Sat Mar 30 14:37:11 GMT 2024,GET,https://js-agent.newrelic.com/nr-spa-1.253.0.min.js,200,OK,14,799,101365,Low,false,Comment
+Processed,290778,Sat Mar 30 14:37:12 GMT 2024,GET,http://localhost:8886/img/pattern.png,200,OK,4,243,101385,Low,false,Comment
+Processed,290779,Sat Mar 30 14:37:12 GMT 2024,GET,http://localhost:8886/img/favicon.png,200,OK,7,238,809,Low,false,
+Out of Scope,290780,Sat Mar 30 14:37:12 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi44NxIgCSY9dpwabVaEEgUNkWGVThIFDTWGVBwhb_pQhEgYKSU=?alt=proto,403,Forbidden,0,130,40,,false,
+Out of Scope,290781,Sat Mar 30 14:37:12 GMT 2024,POST,"https://bam.eu01.nr-data.net/1/NRJS-65820cd5fb121452e7b?a=538576602&sa=1&v=1.253.0&t=Unnamed%20Transaction&rst=2001&ck=0&s=b208cefb6d3ade8a&ref=http://localhost:8886/auth/sign-in&hr=0&af=err,xhr,stn,ins,spa&be=29&fe=904&dc=771&fsh=1&perf=%7B%22timing%22:%7B%22of%22:1711809430516,%22n%22:0,%22f%22:2,%22dn%22:2,%22dne%22:2,%22c%22:2,%22ce%22:2,%22rq%22:14,%22rp%22:29,%22rpe%22:38,%22di%22:496,%22ds%22:718,%22de%22:800,%22dc%22:877,%22l%22:883,%22le%22:933%7D,%22navigation%22:%7B%7D%7D&fp=1797&fcp=1797",403,Forbidden,0,130,40,,false,
+Out of Scope,290782,Sat Mar 30 14:37:12 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Out of Scope,290787,Sat Mar 30 14:37:13 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290795,Sat Mar 30 14:37:17 GMT 2024,POST,"https://bam.eu01.nr-data.net/1/NRJS-65820cd5fb121452e7b?a=538576602&sa=1&v=1.253.0&t=Unnamed%20Transaction&rst=4345&ck=0&s=b208cefb6d3ade8a&ref=http://localhost:8886/auth/sign-in&hr=0&af=err,xhr,stn,ins,spa&be=2&fe=153&dc=125&fsh=0&perf=%7B%22timing%22:%7B%22of%22:1711809432887,%22n%22:0,%22f%22:1,%22dn%22:1,%22dne%22:1,%22c%22:1,%22ce%22:1,%22rq%22:2,%22rp%22:2,%22rpe%22:2,%22di%22:89,%22ds%22:121,%22de%22:127,%22dc%22:146,%22l%22:146,%22le%22:155%7D,%22navigation%22:%7B%7D%7D",403,Forbidden,0,130,40,,false,
+Out of Scope,290796,Sat Mar 30 14:37:17 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi44NxIgCSY9dpwabVaEEgUNkWGVThIFDTWGVBwhb_pQhEgYKSU=?alt=proto,403,Forbidden,0,130,40,,false,
+Out of Scope,290797,Sat Mar 30 14:37:17 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Processed,290798,Sat Mar 30 14:37:17 GMT 2024,GET,http://localhost:8886/,200,OK,5,241,62847,Medium,false,"Script, Comment"
+Processed,290800,Sat Mar 30 14:37:17 GMT 2024,GET,http://localhost:8886/assets/index-f63d4ef4.css,200,OK,12,242,119620,Low,false,
+Processed,290801,Sat Mar 30 14:37:17 GMT 2024,GET,http://localhost:8886/assets/index-597b6b32.js,200,OK,14,258,1417176,Low,false,"Hidden, Script, Comment"
+Out of Scope,290802,Sat Mar 30 14:37:17 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,290803,Sat Mar 30 14:37:17 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,97,945,101784,Informational,false,Comment
+Processed,290804,Sat Mar 30 14:37:18 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,29,816,3011,Low,false,Comment
+Out of Scope,290805,Sat Mar 30 14:37:18 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Processed,290806,Sat Mar 30 14:37:18 GMT 2024,GET,https://js-agent.newrelic.com/nr-spa-1.253.0.min.js,200,OK,14,799,101365,Low,false,Comment
+Processed,290810,Sat Mar 30 14:37:19 GMT 2024,GET,http://localhost:8886/img/pattern.png,200,OK,3,243,101385,Low,false,Comment
+Out of Scope,290811,Sat Mar 30 14:37:19 GMT 2024,POST,https://optimizationguide-pa.googleapis.com/v1:GetModels?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw,403,Forbidden,0,130,40,,false,
+Processed,290813,Sat Mar 30 14:37:19 GMT 2024,GET,http://localhost:8886/img/favicon.png,200,OK,1,238,809,Low,false,
+Out of Scope,290814,Sat Mar 30 14:37:19 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi44NxIgCSY9dpwabVaEEgUNkWGVThIFDTWGVBwhb_pQhEgYKSU=?alt=proto,403,Forbidden,0,130,40,,false,
+Out of Scope,290815,Sat Mar 30 14:37:20 GMT 2024,POST,"https://bam.eu01.nr-data.net/1/NRJS-65820cd5fb121452e7b?a=538576602&sa=1&v=1.253.0&t=Unnamed%20Transaction&rst=2423&ck=0&s=45d4dd3ac9b7f432&ref=http://localhost:8886/auth/sign-in&hr=0&af=err,xhr,stn,ins,spa&be=21&fe=970&dc=821&fsh=1&perf=%7B%22timing%22:%7B%22of%22:1711809437552,%22n%22:0,%22f%22:2,%22dn%22:2,%22dne%22:2,%22c%22:2,%22ce%22:2,%22rq%22:16,%22rp%22:21,%22rpe%22:32,%22di%22:507,%22ds%22:739,%22de%22:842,%22dc%22:932,%22l%22:937,%22le%22:991%7D,%22navigation%22:%7B%7D%7D&fp=2334&fcp=2334",403,Forbidden,0,130,40,,false,
+Out of Scope,290817,Sat Mar 30 14:37:21 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Processed,290818,Sat Mar 30 14:37:21 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,27,318,0,Low,false,
+Processed,290819,Sat Mar 30 14:37:21 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,98,258,44,Low,false,JSON
+Out of Scope,290821,Sat Mar 30 14:37:22 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290824,Sat Mar 30 14:37:24 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,290825,Sat Mar 30 14:37:24 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,102,945,101784,Informational,false,Comment
+Processed,290826,Sat Mar 30 14:37:25 GMT 2024,GET,https://js-agent.newrelic.com/nr-spa-1.253.0.min.js,200,OK,15,799,101365,Low,false,Comment
+Out of Scope,290827,Sat Mar 30 14:37:26 GMT 2024,POST,https://optimizationguide-pa.googleapis.com/v1:GetModels?key=AIzaSyBOti4mM-6x9WDnZIjIeyEU21OpBXqWBgw,403,Forbidden,0,130,40,,false,
+Out of Scope,290828,Sat Mar 30 14:37:26 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Processed,290829,Sat Mar 30 14:37:26 GMT 2024,GET,http://localhost:8886/,200,OK,6,241,62847,Medium,false,"Script, Comment"
+Processed,290830,Sat Mar 30 14:37:26 GMT 2024,GET,http://localhost:8886/assets/index-f63d4ef4.css,200,OK,10,242,119620,Low,false,
+Processed,290831,Sat Mar 30 14:37:26 GMT 2024,GET,http://localhost:8886/assets/index-597b6b32.js,200,OK,22,258,1417176,Low,false,"Hidden, Script, Comment"
+Out of Scope,290832,Sat Mar 30 14:37:26 GMT 2024,GET,https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap,403,Forbidden,0,130,40,,false,
+Processed,290833,Sat Mar 30 14:37:26 GMT 2024,GET,https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css,200,OK,100,941,101784,Informational,false,Comment
+Processed,290834,Sat Mar 30 14:37:27 GMT 2024,GET,https://api.nepcha.com/js/nepcha-analytics.js,200,OK,28,818,3011,Low,false,Comment
+Out of Scope,290835,Sat Mar 30 14:37:27 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Processed,290836,Sat Mar 30 14:37:27 GMT 2024,GET,https://js-agent.newrelic.com/nr-spa-1.253.0.min.js,200,OK,14,799,101365,Low,false,Comment
+Out of Scope,290837,Sat Mar 30 14:37:28 GMT 2024,POST,"https://bam.eu01.nr-data.net/1/NRJS-65820cd5fb121452e7b?a=538576602&sa=1&v=1.253.0&t=Unnamed%20Transaction&rst=4184&ck=0&s=45d4dd3ac9b7f432&ref=http://localhost:8886/auth/sign-in&hr=0&af=err,xhr,stn,ins,spa&be=3&fe=1013&dc=949&fsh=0&perf=%7B%22timing%22:%7B%22of%22:1711809444261,%22n%22:0,%22f%22:2,%22dn%22:2,%22dne%22:2,%22c%22:2,%22ce%22:2,%22rq%22:3,%22rp%22:3,%22rpe%22:3,%22di%22:622,%22ds%22:903,%22de%22:952,%22dc%22:952,%22l%22:952,%22le%22:1016%7D,%22navigation%22:%7B%7D%7D",403,Forbidden,0,130,40,,false,
+Out of Scope,290838,Sat Mar 30 14:37:28 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290839,Sat Mar 30 14:37:28 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi44NxIgCSY9dpwabVaEEgUNkWGVThIFDTWGVBwhb_pQhEgYKSU=?alt=proto,403,Forbidden,0,130,40,,false,
+Processed,290840,Sat Mar 30 14:37:28 GMT 2024,GET,http://localhost:8886/img/pattern.png,200,OK,3,243,101385,Low,false,Comment
+Processed,290841,Sat Mar 30 14:37:28 GMT 2024,GET,http://localhost:8886/img/favicon.png,200,OK,1,238,809,Low,false,
+Out of Scope,290842,Sat Mar 30 14:37:28 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi44NxIgCSY9dpwabVaEEgUNkWGVThIFDTWGVBwhb_pQhEgYKSU=?alt=proto,403,Forbidden,0,130,40,,false,
+Out of Scope,290843,Sat Mar 30 14:37:29 GMT 2024,POST,"https://bam.eu01.nr-data.net/1/NRJS-65820cd5fb121452e7b?a=538576602&sa=1&v=1.253.0&t=Unnamed%20Transaction&rst=2364&ck=0&s=b3e429d09d681de1&ref=http://localhost:8886/auth/sign-in&hr=0&af=err,xhr,stn,ins,spa&be=22&fe=1060&dc=898&fsh=1&perf=%7B%22timing%22:%7B%22of%22:1711809446695,%22n%22:0,%22f%22:3,%22dn%22:3,%22dne%22:3,%22c%22:3,%22ce%22:3,%22rq%22:17,%22rp%22:23,%22rpe%22:34,%22di%22:539,%22ds%22:816,%22de%22:920,%22dc%22:1018,%22l%22:1023,%22le%22:1082%7D,%22navigation%22:%7B%7D%7D&fp=2194&fcp=2194",403,Forbidden,0,130,40,,false,
+Out of Scope,290844,Sat Mar 30 14:37:29 GMT 2024,GET,https://content-autofill.googleapis.com/v1/pages/ChRDaHJvbWUvMTIzLjAuNjMxMi44NxIgCSY9dpwabVaEEgUNkWGVThIFDTWGVBwhb_pQhEgYKSU=?alt=proto,403,Forbidden,0,130,40,,false,
+Processed,290845,Sat Mar 30 14:37:29 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,23,318,0,Low,false,
+Processed,290846,Sat Mar 30 14:37:29 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,36,258,44,Low,false,JSON
+Processed,290847,Sat Mar 30 14:37:30 GMT 2024,OPTIONS,http://localhost:8880/api/users/login,204,No Content,4,318,0,Low,false,
+Processed,290848,Sat Mar 30 14:37:30 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,18,258,44,Low,false,JSON
+Out of Scope,290849,Sat Mar 30 14:37:30 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Processed,290850,Sat Mar 30 14:37:30 GMT 2024,POST,http://localhost:8880/api/users/login,500,Internal Server Error,18,258,44,Low,false,JSON
+Out of Scope,290851,Sat Mar 30 14:37:31 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290852,Sat Mar 30 14:37:35 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290853,Sat Mar 30 14:37:40 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290854,Sat Mar 30 14:37:44 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290855,Sat Mar 30 14:37:48 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290856,Sat Mar 30 14:37:53 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290857,Sat Mar 30 14:37:57 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290858,Sat Mar 30 14:38:02 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290859,Sat Mar 30 14:38:06 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290860,Sat Mar 30 14:38:10 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290861,Sat Mar 30 14:38:15 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290862,Sat Mar 30 14:38:19 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290863,Sat Mar 30 14:38:24 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290864,Sat Mar 30 14:38:28 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290865,Sat Mar 30 14:38:32 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
+Out of Scope,290866,Sat Mar 30 14:38:37 GMT 2024,POST,https://accounts.google.com/ListAccounts?gpsia=1&source=ChromiumBrowser&json=standard,403,Forbidden,0,130,40,,false,
