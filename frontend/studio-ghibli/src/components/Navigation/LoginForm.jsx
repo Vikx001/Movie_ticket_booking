@@ -1,4 +1,4 @@
-// // LoginForm.js
+// // LoginForm.j
 
 // import React from 'react';
 // import Dialog from '@mui/material/Dialog';
@@ -12,7 +12,7 @@
 //     event.preventDefault();
     
 //     onClose();
-//   };
+//   };  //comment
 
 //   return (
 //     <Dialog open={open} onClose={onClose}>
@@ -38,7 +38,8 @@
 //         </form>
 //       </DialogContent>
 //     </Dialog>
-//   );
-// };
+//
+ //comment comment
+
 
 // export default LoginForm;
