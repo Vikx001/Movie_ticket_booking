@@ -53,8 +53,8 @@ Sprint 1- Neeharica Madanu
 Sprint 2- Shreya Raghuvanshi
 Sprint 3- Sushmitha Holthal Manjunath
 Sprint 4- Vikash Sharma
-Sprint 5- Aneesh Ramakrishna Pillai 
-Sprint 6- Binupa Chullickal Babu
+Sprint 5- Binupa Chullickal Babu
+Sprint 6- Aneesh Ramakrishna Pillai 
 Sprint 7- Shreya Raghuvanshi
 
 # Team Members
