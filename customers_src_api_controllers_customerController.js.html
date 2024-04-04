@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: customers/src/api/controllers/customerController.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: customers/src/api/controllers/customerController.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const HttpStatus = require("../../utils/HttpStatus");
+const userService = new (require("../services/userService"))();
+const customerService = new (require("../services/customerService"))();
+const customerValidationSchema = require("../validations/customerSchema");
+const Joi = require("joi");
+
+/**
+ * Utility function to send responses with appropriate HTTP status codes.
+ * @param {Object} res - The response object.
+ * @param {number} status - The HTTP status code.
+ * @param {string} message - The message to send in the response.
+ * @param {*} data - The data to include in the response.
+ */
+const sendResponse = (res, status, message, data = null) => {
+  const responseData = { message, data };
+  res.status(status).json(responseData);
+};
+
+/**
+ * Controller for managing customers.
+ */
+const CustomerController = {
+  /**
+   * Creates a new customer.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - Returns a JSON response.
+   */
+  async createCustomer(req, res) {
+    const { error } = customerValidationSchema.validate(req.body);
+    if (error) {
+      return sendResponse(res, HttpStatus.BAD_REQUEST, error.details[0].message);
+    }
+
+    try {
+      const role = req.body.role &amp;&amp; req.body.role.trim() !== "" ? req.body.role : "customer";
+      const userData = { email: req.body.email, password: req.body.password, role };
+
+      const userInfo = await userService.createUser(userData);
+
+      if (userInfo &amp;&amp; userInfo.result) {
+        const userId = userInfo.data.id;
+        const customerData = { ...req.body, user_id: userId };
+        const customer = await customerService.createCustomer(customerData);
+        sendResponse(res, HttpStatus.CREATED, "Customer has been created successfully.", customer);
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, userInfo.message);
+      }
+    } catch (error) {
+      console.log(error);
+      sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, `Error: ${error.message}`);
+    }
+  },
+
+  /**
+   * Lists all customers.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - Returns a JSON response with customer details.
+   */
+  async listCustomers(req, res) {
+    try {
+      const customers = await customerService.viewCustomers();
+      sendResponse(res, HttpStatus.OK, "Customer details have been fetched successfully.", customers);
+    } catch (error) {
+      sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, `Error: ${error.message}`);
+    }
+  },
+
+  /**
+   * Retrieves details of a specific customer by ID.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - Returns a JSON response with customer details.
+   */
+  async viewCustomer(req, res) {
+    const customer_id = req.params.id;
+    try {
+      const customerInfo = await customerService.viewCustomerById(customer_id);
+      if (customerInfo) {
+        sendResponse(res, HttpStatus.OK, "Customer details have been fetched successfully.", customerInfo);
+      } else {
+        sendResponse(res, HttpStatus.NOT_FOUND, "Customer not found!");
+      }
+    } catch (error) {
+      sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, `Error: ${error.message}`);
+    }
+  },
+
+  /**
+   * Retrieves details of a customer by user ID.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - Returns a JSON response with customer details.
+   */
+  async viewCustomerByUserId(req, res) {
+    const user_id = req.params.id;
+    try {
+      const customerInfo = await customerService.viewCustomerByUserId(user_id);
+      if (customerInfo) {
+        sendResponse(res, HttpStatus.OK, "Customer details have been fetched successfully.", customerInfo);
+      } else {
+        sendResponse(res, HttpStatus.NOT_FOUND, "Customer not found!");
+      }
+    } catch (error) {
+      sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, `Error: ${error.message}`);
+    }
+  },
+
+  /**
+   * Retrieves enrollments of a customer.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - Returns a JSON response with customer enrollments.
+   */
+  async viewCustomerEnrollments(req, res) {
+    try {
+      const userInfo = await customerService.getUserInfo(req.headers.authorization.split(" ")[1]);
+      const customerEnrollments = await customerService.viewCustomerEnrollments(userInfo[0].profile.id);
+      if (customerEnrollments) {
+        sendResponse(res, HttpStatus.OK, "Customer enrollments have been fetched successfully.", customerEnrollments);
+      } else {
+        sendResponse(res, HttpStatus.NOT_FOUND, "Customer not found!");
+      }
+    } catch (error) {
+      sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, `Error: ${error.message}`);
+    }
+  },
+
+  /**
+   * Deletes a customer.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - Returns a JSON response indicating success or failure.
+   */
+  async deleteCustomer(req, res) {
+    const customer_id = req.params.id;
+    try {
+      const customerInfo = await customerService.viewCustomerById(customer_id);
+      if (customerInfo.length > 0) {
+        const customerResponse = await customerService.deleteCustomer(customer_id);
+        if (customerResponse) {
+          await userService.deleteUser(customerInfo[0].user_id);
+          sendResponse(res, HttpStatus.OK, "Customer deleted successfully");
+        } else {
+          sendResponse(res, HttpStatus.BAD_REQUEST, "Customer deletion failed!");
+        }
+      } else {
+        sendResponse(res, HttpStatus.NOT_FOUND, "Customer not found!");
+      }
+    } catch (error) {
+      sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, `Error: ${error.message}`);
+    }
+  },
+
+  /**
+   * Updates details of a customer.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - Returns a JSON response indicating success or failure.
+   */
+  async updateCustomer(req, res) {
+    const customer_id = req.params.id;
+    try {
+      const updateResponse = await customerService.updateCustomer(req.body, customer_id);
+      if (updateResponse !== 409) {
+        sendResponse(res, HttpStatus.OK, "Customer details updated successfully", req.body);
+      } else {
+        sendResponse(res, HttpStatus.BAD_REQUEST, "Customer update failed!");
+      }
+    } catch (error) {
+      sendResponse(res, HttpStatus.INTERNAL_SERVER_ERROR, `Error: ${error.message}`);
+    }
+  },
+};
+
+module.exports = CustomerController;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="CourseController.html">CourseController</a></li><li><a href="CourseService.html">CourseService</a></li><li><a href="authMiddleware.html">authMiddleware</a></li><li><a href="courseRoutes.html">courseRoutes</a></li></ul><h3>Classes</h3><ul><li><a href="CustomerService.html">CustomerService</a></li><li><a href="EnrollmentService.html">EnrollmentService</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomerController">CustomerController</a></li><li><a href="global.html#EnrollmentController">EnrollmentController</a></li><li><a href="global.html#sendResponse">sendResponse</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Apr 01 2024 17:03:19 GMT+0100 (Irish Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

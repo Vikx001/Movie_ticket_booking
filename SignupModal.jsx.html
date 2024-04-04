@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: SignupModal.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: SignupModal.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState } from "react";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  TextField,
+  Button,
+  Snackbar,
+} from "@mui/material";
+
+/**
+ * Sign Up Modal component.
+ * @param {object} props - Component props.
+ * @param {boolean} props.open - Flag indicating if the modal is open.
+ * @param {Function} props.handleClose - Function to handle modal close.
+ * @returns {JSX.Element} - SignUpModal component JSX.
+ */
+const SignUpModal = ({ open, handleClose }) => {
+  const [formData, setFormData] = useState({
+    email: "",
+    full_name: "",
+    password: "",
+    phone_no:"",
+  });
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState("");
+
+  /**
+   * Function to handle form field changes.
+   * @param {Event} e - The event object.
+   */
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData({ ...formData, [id]: value });
+  };
+
+  /**
+   * Function to sign up user.
+   */
+  const signUpUser = async () => {
+    try {
+      const response = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/api/customers`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            full_name: formData.full_name, 
+            email: formData.email,
+            password: formData.password,
+            phone_no: formData.phone_no,
+            status: 1,
+          }),
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Signup failed");
+      }
+      const data = await response.json();
+      console.log("Signup successful:", data);
+      setSnackbarMessage("Signup successful!");
+      setSnackbarOpen(true);
+      handleClose();
+    } catch (error) {
+      console.error("Error during signup:", error);
+      setSnackbarMessage("Signup failed. Please try again.");
+      setSnackbarOpen(true);
+    }
+  };
+
+  /**
+   * Function to handle form submission.
+   * @param {Event} event - Form submission event.
+   */
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    await signUpUser();
+  };
+
+  /**
+   * Function to handle snackbar close.
+   * @param {Event} event - Snackbar close event.
+   * @param {string} reason - Reason for snackbar close.
+   */
+  const handleSnackbarClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setSnackbarOpen(false);
+  };
+
+  return (
+    &lt;div>
+      &lt;Dialog open={open} onClose={handleClose}>
+        &lt;DialogTitle>Sign Up&lt;/DialogTitle>
+        &lt;DialogContent>
+          &lt;form onSubmit={handleSubmit}>
+            &lt;TextField
+              autoFocus
+              margin="dense"
+              id="full_name"
+              label="Full Name"
+              type="text"
+              fullWidth
+              value={formData.full_name}
+              onChange={handleChange}
+            />
+            &lt;TextField
+              margin="dense"
+              id="email"
+              label="Email Address"
+              type="email"
+              fullWidth
+              value={formData.email}
+              onChange={handleChange}
+            />
+            &lt;TextField
+              margin="dense"
+              id="password"
+              label="Password"
+              type="password"
+              fullWidth
+              value={formData.password}
+              onChange={handleChange}
+            />
+            &lt;TextField
+              margin="dense"
+              id="phone_no"
+              label="Phone Number"
+              type="text"
+              fullWidth
+              value={formData.phone_no}
+              onChange={handleChange}
+            />
+            &lt;div
+              style={{
+                marginTop: 20,
+                display: "flex",
+                justifyContent: "flex-end",
+              }}
+            >
+              &lt;Button onClick={handleClose}>Cancel&lt;/Button>
+              &lt;Button type="submit" style={{ marginLeft: 10 }}>
+                Sign Up
+              &lt;/Button>
+            &lt;/div>
+          &lt;/form>
+        &lt;/DialogContent>
+      &lt;/Dialog>
+      &lt;Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        message={snackbarMessage}
+      />
+    &lt;/div>
+  );
+};
+
+export default SignUpModal;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#LoginModal">LoginModal</a></li><li><a href="global.html#SignUpModal">SignUpModal</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Apr 01 2024 17:04:41 GMT+0100 (Irish Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: customers/src/api/services/customerService.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: customers/src/api/services/customerService.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const Customer = require("../../models/customerModel");
+const { QueryTypes } = require("sequelize");
+const axios = require("axios");
+const dB = require("../../config/database");
+const ApiService = require("./apiService");
+const UserService = require("./userService");
+const { USER_SERVICE_END_POINT } = require("../../config");
+
+/**
+ * Service class for managing customers.
+ */
+class CustomerService {
+  /**
+   * Constructor for CustomerService class.
+   */
+  constructor() {
+    this.apiService = new ApiService(process.env.USER_SERVICE_END_POINT);
+    this.userService = new UserService();
+  }
+
+  /**
+   * Creates a new customer.
+   * @param {Object} data - The customer data to be saved.
+   * @returns {Object} - The newly created customer.
+   */
+  async createCustomer(data) {
+    try {
+      const customer = await Customer.create(this._extractCustomerFields(data));
+      return customer;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Retrieves details of all customers.
+   * @returns {Array} - An array containing details of all customers.
+   */
+  async viewCustomers() {
+    return this._queryDB(
+      "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id"
+    );
+  }
+
+  /**
+   * Retrieves details of a specific customer by ID.
+   * @param {number} id - The ID of the customer to fetch.
+   * @returns {Object|null} - The customer details if found, otherwise null.
+   */
+  async viewCustomerById(id) {
+    return this._findCustomer(id);
+  }
+
+  /**
+   * Retrieves details of a customer by user ID.
+   * @param {number} id - The user ID of the customer.
+   * @returns {Object|null} - The customer details if found, otherwise null.
+   */
+  async viewCustomerByUserId(id) {
+    return this._findCustomerByUserId(id);
+  }
+
+  /**
+   * Deletes a customer by ID.
+   * @param {number} id - The ID of the customer to delete.
+   * @returns {boolean} - Returns true if deletion is successful, otherwise false.
+   */
+  async deleteCustomer(id) {
+    return this._deleteCustomer({ id });
+  }
+
+  /**
+   * Updates details of a customer.
+   * @param {Object} customerDetail - The updated customer details.
+   * @param {number} customer_id - The ID of the customer to update.
+   * @returns {Object|null} - The updated customer details if successful, otherwise null.
+   */
+  async updateCustomer(customerDetail, customer_id) {
+    return this._updateCustomer(customerDetail, { id: customer_id });
+  }
+
+  /**
+   * Retrieves enrollments of a customer.
+   * @param {number} id - The ID of the customer.
+   * @returns {Array} - An array containing enrollments of the customer.
+   */
+  async viewCustomerEnrollments(id) {
+    return this._findEnrollmentsByCustomer(id);
+  }
+
+  /**
+   * Retrieves user information from user service.
+   * @param {string} token - The authentication token.
+   * @returns {Object|number} - The user information if found, otherwise 404.
+   */
+  async getUserInfo(token) {
+    try {
+      const user_info = await axios.get(`${USER_SERVICE_END_POINT}/verify/token`, {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      });
+      if (user_info.data !== null) {
+        return user_info.data;
+      } else {
+        return 404;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Extracts customer fields from data.
+   * @param {Object} data - The customer data.
+   * @returns {Object} - The extracted customer fields.
+   */
+  _extractCustomerFields(data) {
+    return {
+      user_id: data.user_id,
+      full_name: data.full_name,
+      phone_no: data.phone_no,
+      area_of_interests: data.area_of_interests,
+      status: data.status,
+    };
+  }
+
+  /**
+   * Executes a database query.
+   * @param {string} query - The SQL query to execute.
+   * @param {Object} options - Additional options for the query execution.
+   * @returns {Array} - An array containing the query results.
+   */
+  async _queryDB(query, options = {}) {
+    try {
+      return await dB.query(query, { type: QueryTypes.SELECT, ...options });
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Finds a customer by ID.
+   * @param {number} id - The ID of the customer to find.
+   * @returns {Object|null} - The customer details if found, otherwise null.
+   */
+  async _findCustomer(id) {
+    try {
+      return this._queryDB(
+        "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.id=" +
+          id
+      );
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Finds a customer by user ID.
+   * @param {number} id - The user ID of the customer.
+   * @returns {Object|null} - The customer details if found, otherwise null.
+   */
+  async _findCustomerByUserId(id) {
+    try {
+      return this._queryDB(
+        "SELECT c.*, u.id as user_id, u.email_id, u.role FROM `customers` c INNER JOIN `users` u ON u.id = c.user_id WHERE c.user_id=" +
+          id
+      );
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Finds enrollments by customer ID.
+   * @param {number} id - The ID of the customer.
+   * @returns {Array} - An array containing enrollments of the customer.
+   */
+  async _findEnrollmentsByCustomer(id) {
+    try {
+      return this._queryDB(
+        "SELECT e.customer_id, c.title, c.course_content FROM `enrollments` e INNER JOIN customers ct on ct.id = e.customer_id INNER JOIN courses c on c.id = e.course_id WHERE e.customer_id=" +
+          id
+      );
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Deletes a customer based on condition.
+   * @param {Object} condition - The condition to match for deletion.
+   * @returns {boolean} - Returns true if deletion is successful, otherwise false.
+   */
+  async _deleteCustomer(condition) {
+    try {
+      await Customer.destroy({ where: condition });
+      return true;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Updates a customer based on condition.
+   * @param {Object} updateValues - The updated customer values.
+   * @param {Object} condition - The condition to match for update.
+   * @returns {Object|null} - The updated customer details if successful, otherwise null.
+   */
+  async _updateCustomer(updateValues, condition) {
+    try {
+      const result = await Customer.update(updateValues, {
+        where: condition,
+        returning: true,
+      });
+
+      const updateCount = result[0];
+      const updatedCustomers = result[1]; // This would be an array of updated customers
+
+      if (updateCount === 1 &amp;&amp; updatedCustomers.length > 0) {
+        return updatedCustomers[0]; // Return the first (and should be only) updated customer
+      } else {
+        return null; // No customers updated, or conditions matched more than one.
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+}
+
+module.exports = CustomerService;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="CourseController.html">CourseController</a></li><li><a href="CourseService.html">CourseService</a></li><li><a href="authMiddleware.html">authMiddleware</a></li><li><a href="courseRoutes.html">courseRoutes</a></li></ul><h3>Classes</h3><ul><li><a href="CustomerService.html">CustomerService</a></li><li><a href="EnrollmentService.html">EnrollmentService</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomerController">CustomerController</a></li><li><a href="global.html#EnrollmentController">EnrollmentController</a></li><li><a href="global.html#sendResponse">sendResponse</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Apr 01 2024 17:03:19 GMT+0100 (Irish Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

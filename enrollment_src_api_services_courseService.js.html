@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: enrollment/src/api/services/courseService.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: enrollment/src/api/services/courseService.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const Enrollment = require("../../models/enrollmentModel");
+const Course = require("../../models/courseModel"); // Fix import statement
+const Joi = require("joi");
+const axios = require("axios");
+
+/**
+ * Service class for managing enrollments.
+ */
+class EnrollmentService {
+  /**
+   * Enrolls a user in a course.
+   * @param {Object} data - The enrollment data.
+   * @param {Object} user - The user object.
+   * @returns {Promise} - The enrolled user.
+   */
+  async enrollUser(data, user) {
+    try {
+      const insertData = this.extractEnrollFields(data);
+      insertData.customer_id = user.id;
+      console.log(insertData);
+      const enrollment = await Enrollment.create(insertData);
+      return enrollment;
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Retrieves all enrolled users.
+   * @param {Object} data - Additional data (not used).
+   * @returns {Promise} - The list of enrolled users.
+   */
+  async viewEnrolledUser(data) {
+    try {
+      const enrollment = await Enrollment.findAll({
+        attributes: [
+          ["id", "enrollment_id"],
+          "customer_id",
+          "course_id",
+          "status",
+          "payment_method",
+          "payment_status",
+          "enrollment_date",
+          "created_at",
+          "updated_at",
+        ],
+      });
+      return enrollment;
+    } catch (error) {
+      return error.message;
+    }
+  }
+
+  /**
+   * Retrieves all enrolled users for a specific course.
+   * @param {string} id - The course ID.
+   * @returns {Promise} - The list of enrolled users for the course.
+   */
+  async viewEnrolledUserByCourseId(id) {
+    try {
+      const enrollment = await Enrollment.findAll({
+        attributes: [
+          ["id", "enrollment_id"],
+          "customer_id",
+          "course_id",
+          "status",
+          "payment_method",
+          "payment_status",
+          "enrollment_date",
+          "created_at",
+          "updated_at",
+        ],
+        where: {
+          course_id: id,
+        },
+      });
+      return enrollment;
+    } catch (error) {
+      return error.message;
+    }
+  }
+
+  /**
+   * Retrieves all courses.
+   * @param {Object} data - Additional data (not used).
+   * @returns {Promise} - The list of courses.
+   */
+  async viewCourses(data) {
+    try {
+      const courseResponse = await axios.get(
+        `${process.env.COURSE_SERVICE_END_POINT}`
+      );
+      if (courseResponse.data) {
+        return courseResponse.data;
+      } else {
+        return 409;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Retrieves all customers.
+   * @returns {Promise} - The list of customers.
+   */
+  async viewCustomers() {
+    try {
+      const customerResponse = await axios.get(
+        `${process.env.CUSTOMER_SERVICE_END_POINT}`
+      );
+      if (customerResponse.data) {
+        return customerResponse.data;
+      } else {
+        return 409;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+
+  /**
+   * Extracts enrollment fields from data.
+   * @param {Object} data - The data to extract fields from.
+   * @returns {Object} - The extracted enrollment fields.
+   */
+  extractEnrollFields(data) {
+    return {
+      course_id: data.course_id,
+      payment_method: data.payment_method,
+      payment_status: 1,
+      status: 1,
+    };
+  }
+
+  /**
+   * Retrieves user information using a token.
+   * @param {string} token - The user token.
+   * @returns {Promise} - The user information.
+   */
+  async getUserInfo(token) {
+    try {
+      const user_info = await axios.get(
+        `${process.env.USER_SERVICE_END_POINT}/verify/token`,
+        {
+          headers: {
+            Authorization: "Basic " + token,
+          },
+        }
+      );
+
+      if (null != user_info.data) {
+        return user_info.data;
+      } else {
+        return 404;
+      }
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+}
+
+module.exports = EnrollmentService;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="CourseController.html">CourseController</a></li><li><a href="CourseService.html">CourseService</a></li><li><a href="authMiddleware.html">authMiddleware</a></li><li><a href="courseRoutes.html">courseRoutes</a></li></ul><h3>Classes</h3><ul><li><a href="CustomerService.html">CustomerService</a></li><li><a href="EnrollmentService.html">EnrollmentService</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomerController">CustomerController</a></li><li><a href="global.html#EnrollmentController">EnrollmentController</a></li><li><a href="global.html#sendResponse">sendResponse</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Apr 01 2024 17:03:19 GMT+0100 (Irish Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

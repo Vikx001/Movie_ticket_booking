@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: enrollment/src/api/controllers/enrollmentController.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: enrollment/src/api/controllers/enrollmentController.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const HttpStatus = require("../../utils/HttpStatus");
+const enrollmentService = require("../services/enrollmentService");
+const enrollmentValidationSchema = require("../validations/enrollmentSchema");
+const service = new enrollmentService();
+const Joi = require("joi");
+
+/**
+ * Controller for managing enrollments.
+ */
+const EnrollmentController = {
+  /**
+   * Validates the request and triggers enrollment.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - The JSON response.
+   */
+  async enrollUser(req, res) {
+    if (req.headers["auth"]) {
+      // Replace 'auth' with 'Authorization'
+      req.headers["authorization"] = req.headers["auth"];
+      // Delete the 'auth' header
+      delete req.headers["auth"];
+    }
+    const { error } = enrollmentValidationSchema.validate(req.body);
+    if (error) {
+      return res
+        .status(HttpStatus.BAD_REQUEST)
+        .json({ message: error.details[0].message });
+    } else {
+      try {
+        const userInfo = await service.getUserInfo(
+          req.headers.authorization.split(" ")[1]
+        );
+        const course = await service.enrollUser(req.body, userInfo.data);
+        res.status(HttpStatus.CREATED).send({
+          message: "User has been enrolled successfully",
+          data: course,
+        });
+      } catch (error) {
+        res
+          .status(500)
+          .send({ message: "Error in enrollment", error: error.message });
+      }
+    }
+  },
+
+  /**
+   * Lists all enrollments.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - The JSON response.
+   */
+  async listEnrollments(req, res) {
+    try {
+      if (req.headers["auth"]) {
+        // Replace 'auth' with 'Authorization'
+        req.headers["authorization"] = req.headers["auth"];
+        // Delete the 'auth' header
+        delete req.headers["auth"];
+      }
+
+      const enrollmentListing = await service.getEnrollments();
+      res.status(200).send({
+        message: "Data fetched successfully",
+        data: enrollmentListing,
+      });
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Error in enrollment listing", error: error.message });
+    }
+  },
+
+  /**
+   * Lists enrollments of a user.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - The JSON response.
+   */
+  async listUserEnrollments(req, res) {
+    try {
+      if (req.headers["auth"]) {
+        // Replace 'auth' with 'Authorization'
+        req.headers["authorization"] = req.headers["auth"];
+        // Delete the 'auth' header
+        delete req.headers["auth"];
+      }
+      const userInfo = await service.getUserInfo(
+        req.headers.authorization.split(" ")[1]
+      );
+
+      const enrollmentListing = await service.getEnrollmentsByUserId(
+        userInfo.data.id
+      );
+      res.status(200).send({
+        message: "Data fetched successfully",
+        data: enrollmentListing,
+      });
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Error in enrollment listing", error: error.message });
+    }
+  },
+
+  /**
+   * Views details of an enrolled user.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - The JSON response.
+   */
+  async viewEnrolledUser(req, res) {
+    try {
+      const course = await service.viewCourses(req.body);
+      const customerResponse = await service.viewCustomers();
+      if (409 != course &amp;&amp; 409 != customerResponse) {
+        const enroll = await service.viewEnrolledUser(req.body);
+        const courses = JSON.parse(JSON.stringify(course.data));
+        const enrolls = JSON.parse(JSON.stringify(enroll));
+        const users = JSON.parse(JSON.stringify(customerResponse.data));
+        const enrollDetail = enrolls.map((enrolls) => {
+          const courseDetail = courses.find((c) => c.id === enrolls.course_id);
+          const Customers = users.find((cs) => cs.id === enrolls.customer_id);
+          const { id: courseId, ...restOfCourseDetail } = courseDetail;
+          const { id: customerId, ...restOfCustomers } = Customers;
+          return {
+            ...enrolls,
+            ...restOfCustomers,
+            ...restOfCourseDetail,
+          };
+        });
+        return res.status(HttpStatus.CREATED).json({
+          message: "Enrollment details have been fetched successfully.",
+          data: enrollDetail,
+        });
+      } else {
+        return res.status(HttpStatus.BAD_REQUEST).json({
+          message: "user is Empty!",
+        });
+      }
+    } catch (error) {
+      res
+        .status(500)
+        .send({ message: "Error in enrollment", error: error.message });
+    }
+  },
+
+  /**
+   * Views details of enrolled users by course ID.
+   * @param {*} req - The request object.
+   * @param {*} res - The response object.
+   * @returns {JsonResponse} - The JSON response.
+   */
+  async viewEnrolledUserByCourseId(req, res) {
+    try {
+      const courseId = req.params.id;
+      const enroll = await service.viewEnrolledUserByCourseId(courseId);
+      if (enroll.length === 0) {
+        return res.status(HttpStatus.OK).json({
+          message: "Enrollment is not exist in the course",
+        });
+      } else {
+        const course = await service.viewCourses(req.body);
+        const customerResponse = await service.viewCustomers();
+        const courses = JSON.parse(JSON.stringify(course.data));
+        const users = JSON.parse(JSON.stringify(customerResponse.data));
+        const enrolls = JSON.parse(JSON.stringify(enroll));
+        const enrollDetail = enrolls.map((enrolls) => {
+          const courseDetail = courses.find((c) => c.id === enrolls.course_id);
+          const Customers = users.find((cs) => cs.id === enrolls.customer_id);
+          const { id: courseId, ...restOfCourseDetail } = courseDetail;
+          const { id: customerId, ...restOfCustomers } = Customers;
+          return {
+            ...enrolls,
+            ...restOfCustomers,
+            ...restOfCourseDetail,
+          };
+        });
+        return res.status(HttpStatus.OK).json({
+          message: "Enrollment details have been fetched successfully.",
+          data: enrollDetail,
+        });
+      }
+    } catch (error) {
+      res
+        .status(HttpStatus.BAD_REQUEST)
+        .send({ message: "Error in enrollment", error: error.message });
+    }
+  },
+};
+
+module.exports = EnrollmentController;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Namespaces</h3><ul><li><a href="CourseController.html">CourseController</a></li><li><a href="CourseService.html">CourseService</a></li><li><a href="authMiddleware.html">authMiddleware</a></li><li><a href="courseRoutes.html">courseRoutes</a></li></ul><h3>Classes</h3><ul><li><a href="CustomerService.html">CustomerService</a></li><li><a href="EnrollmentService.html">EnrollmentService</a></li></ul><h3>Global</h3><ul><li><a href="global.html#CustomerController">CustomerController</a></li><li><a href="global.html#EnrollmentController">EnrollmentController</a></li><li><a href="global.html#sendResponse">sendResponse</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Mon Apr 01 2024 17:03:19 GMT+0100 (Irish Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
